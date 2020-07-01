@@ -1,0 +1,654 @@
+body{
+    padding-top: 12%;
+    background-color: rgb(255, 246, 233);
+
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.heading_main{
+    font-size: 1.5rem;
+    font-family: Fredoka One;
+    font-weight: lighter;
+    color: rgb(48, 48, 48);
+    margin-bottom: 0;
+}
+
+/* location  */
+.geolocation{
+    padding-top: 3px;
+    text-align: center;
+}
+
+.geoactive{
+
+    text-align: left;
+    background-color: ivory;
+    box-shadow: 1px 1px 10px 1px rgb(233, 233, 233);
+}
+
+
+a,.geolocation{
+
+    font-family: Josefin Sans;
+
+}
+
+.geolocation>a{
+
+    text-decoration: none;
+    color: #ff7b00;
+
+}
+
+.fa-map-marker-alt,
+.fa-chevron-down
+{
+
+    font-size: 1rem;
+    color: #ff7b00;
+
+}
+
+.fa-chevron-down
+{
+    padding-bottom: 0px;
+}
+
+/* location  */
+
+/* Banner Swipe */
+
+.carousel-control-prev,
+.carousel-control-next{
+
+    display: none;
+
+}
+
+.carousel-item>.d-block{
+
+    border-radius: 1rem;
+
+}
+
+/* banner swipe */
+
+/* product swipe */
+
+.pro_card{
+    box-shadow: 1px 1px 6px 0px #999;
+}
+
+.pro_title{
+    font-size: 1rem;
+    font-family: jost;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+}
+
+.pro_Desc{
+    font-size: 0.9rem;
+    font-family: jost;
+    font-weight: 200;
+    color: rgb(61, 61, 61);
+}
+
+.pro_price{
+    font-size: 1rem;
+    font-family: jost;
+    font-weight: bold;
+    color: #000;
+}
+
+button.addqty{
+    font-size: 0.8rem;
+    font-family: Righteous;
+    border: 1.5px solid #ff7b00;
+    color: #ff7b00;
+}
+
+p.card-text{
+    margin-bottom:0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+      margin-left: 15px;
+      margin-right: 0 !important;
+    width: 150px !important;
+    text-align: center;
+    font-size: 18px;
+    background: none;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+/* product swipe */
+
+/* floatnav */
+
+a{
+
+    text-decoration: none;
+
+}
+
+/* .fa-home,
+.fa-user-circle,
+.fa-th-large,
+.fa-shopping-basket{
+
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(255, 124, 2);
+
+} */
+
+span.icon-name{
+
+    display: block;
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgb(255, 124, 2);
+    font-family: Josefin Sans;
+
+}
+
+.badge{
+    text-align: center;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid #ff7b00;
+    color:#ff7b00;
+    top: 2px;
+    right: 2.8rem;
+    font-size: .85rem;
+    padding-left: 1px;
+    padding-right: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* floatnav */
+
+/* offers */
+
+.offer_box{
+    margin-bottom: 15% !important;
+}
+
+/* offers */
+
+/* fixed nav */
+
+.shoploc,a{
+    color: #999;
+    text-decoration: none;
+}
+
+.shopbadge{
+    text-align: center;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    display: block;
+    border-radius: 1rem;
+    border: 1px solid #ff7b00;
+    color:#ff7b00;
+    top: 9px;
+    right: 1.7rem;
+    font-size: .85rem;
+    padding-left: 1px;
+    padding-right: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* fixed nav */
+
+/* breadcrumb */
+
+.breadcrumb{
+    max-width: 100%;
+    border-radius: 0;
+    background-color: rgb(241, 241, 241);
+}
+
+/* breadcrumb */
+
+/* horizontal scroll */
+.pn-ProductNav {
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* Make this scrollable when needed */
+    overflow-x: auto;
+    /* We don't want vertical scrolling */
+    overflow-y: hidden;
+    /* Make an auto-hiding scroller for the 3 people using a IE */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /* For WebKit implementations, provide inertia scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* We don't want internal inline elements to wrap */
+    white-space: nowrap;
+    /* Remove the default scrollbar for WebKit implementations */
+  }
+  .pn-ProductNav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  a.pn-ProductNav_Link:hover{
+      color: #ff7b00;
+  }
+
+  .pn-ProductNav_Link {
+    text-decoration: none !important;
+    color: #ff7b00;
+    font-size: 1rem;
+    font-family: Oxygen;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    min-height: 25px;
+    border: 1px solid #ff7b00;
+    border-radius: 20px;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+  .pn-ProductNav_Link + .pn-ProductNav_Link {
+    margin-left: 11px;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+  .pn-ProductNav_Link[aria-selected="true"] {
+    color: #fff;
+    background-color: #ff7b00;
+  }
+
+  .cat_nav{
+      margin-top: -20px;
+  }
+/* horizontal scroll */
+
+/* product list */
+
+.pro_list{
+    margin-top: 25%;
+}
+
+.pro_list_addqty{
+    font-size: 0.8rem;
+    font-family: Righteous;
+    border: 1.5px solid #ff7b00;
+    color: #ff7b00;
+}
+
+.pro_list_addqty.btn:hover{
+    color: #ff7b00;
+}
+
+
+.pro_list_title{
+    font-size: 1.3rem;
+    font-weight: lighter;
+    font-family: jost;
+    color: grey;
+}
+
+.pro_list_desc{
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: jost;
+    color: #999;
+}
+
+.pro_list_price{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: jost;
+    color: rgb(70, 70, 70);
+}
+
+
+/* product list */
+
+/* cart */
+
+.cartloc{
+    padding-top: 5px;
+}
+
+.pro_cart{
+    margin-top: 12%;
+    overflow-y:auto;
+    height:auto;
+    max-height:360px;
+}
+
+.cart_head{
+    font-size: 2rem;
+    font-family: Josefin Sans;
+    font-weight: bold;
+}
+
+.pro_cart_title{
+    font-size: 1.3rem;
+    font-weight: lighter;
+    font-family: jost;
+    color: grey;
+}
+
+.pro_cart_desc{
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: jost;
+    color: #999;
+}
+
+.pro_cart_price{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Rubik;
+    color: rgb(70, 70, 70);
+}
+
+.pro_cart_addqty{
+    font-size: 0.8rem;
+    font-family: Righteous;
+    border: 1.5px solid #ff7b00;
+    color: #ff7b00;
+}
+
+.pro_cart_addqty.btn:hover{
+    color: #ff7b00;
+}
+
+.cart_qty {
+    width: 40px;
+    border: 0;
+    margin-top: 4px;
+    font-size: 1.5rem;
+    font-family: Jost;
+    text-align: center;
+    line-height: 105%;
+}
+
+.btn-qty{
+    background-color: #ff7b00;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.bill_head{
+    font-family: Concert One;
+    font-size: 1.8rem;
+}
+
+.bill_sub_total{
+    font-family: Concert One;
+    font-size: 1.2rem;
+    padding-top: 0px !important;
+}
+
+.bill_tax{
+    font-family: Concert One;
+    font-size: 1.2rem;
+    padding-top: 0px !important;
+}
+
+.bill_charges{
+    font-family: Concert One;
+    font-size: 1.2rem;
+    padding-top: 0px !important;
+}
+
+.bill_total{
+    font-family: Concert One;
+    font-size: 1.5rem;
+    padding-top: 0px !important;
+}
+
+.item_count{
+    font-family: Concert One;
+    font-size: 1.2rem;
+}
+
+.item_cost{
+    font-family: Concert One;
+    font-size: 1.5rem;
+}
+
+.bill_checkout{
+    font-family: Concert One;
+    font-size: 1.2rem;
+}
+
+/* cart */
+
+/* account */
+
+.accounttop{
+    padding-top: 5px;
+}
+
+.account{
+    font-size: 1.5rem;
+    font-family: Josefin Sans;
+    font-weight: bold;
+    color: #999;
+}
+
+.account{
+    margin-top: 10%;
+}
+
+.user_name{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.user_number{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.main_card{
+    border: 0 !important;
+}
+
+.order_header{
+    background-color: #fff !important;
+}
+
+.order_head{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.btn_order{
+    background-color: #fff !important;
+}
+
+.btn.focus, .btn:focus{
+    box-shadow: none !important;
+}
+
+.order_id{
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    font-family: Fredoka One;
+}
+
+.order_status{
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    font-family: Fredoka One;
+}
+
+.card-title{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.order_view{
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: Jost;
+    margin-left: -1rem;
+}
+
+.add_head{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.add_title{
+    color: rgb(90, 90, 90);
+    font-size: 1.4rem;
+    font-family: Fredoka One;
+}
+
+.add_desc{
+    color: rgb(90, 90, 90);
+    font-size: 0.8rem;
+    font-family: Fredoka One;
+}
+
+.add_header{
+    background-color: #fff !important;
+}
+
+.sup_title{
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    font-family: Fredoka One;
+}
+
+.sup_desc{
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    font-family: Fredoka One;
+}
+
+.trm_body{
+    border: 0 !important;
+}
+
+.trm_title{
+    color: rgb(90, 90, 90);
+    font-size: 1rem;
+    font-family: Fredoka One;
+}
+
+.trm_desc{
+    color: rgb(90, 90, 90);
+    font-size: 0.8rem;
+    font-family: Fredoka One;
+}
+
+.lgout_header{
+    border-bottom: 0 !important;
+    background-color: #fff !important;
+}
+
+.lg_title{
+    color: rgb(90, 90, 90);
+    font-size: 1.2rem;
+    font-family: Fredoka One;
+}
+
+.sup_body{
+    border: 0 !important;
+}
+
+.btn-insert_add{
+    background-color: #999;
+    font-size: 1.2;
+    color: #fff;
+    font-family: Concert One;
+}
+
+
+.modal-title{
+    font-size: 1.2;
+    color: #999;
+    font-family: Concert One;
+}
+
+.modal-body{
+    color: #999;
+}
+
+.btn-insert_user{
+    background-color: none;
+    border: 0;
+    padding: 0;
+    width: 57%;
+    margin-bottom: 6px;
+}
+
+.order_view{
+    font-size: 1.3rem;
+    font-family: Jost;
+    font-weight: bold;
+    color: #fff;
+    word-spacing: 2px;
+}
+
+.view_qty{
+    font-size: 1rem;
+    font-family: Jost;
+    font-weight: bold;
+    color: #999;
+}
+
+.view_total{
+    font-size: 1.5rem;
+    font-family: Jost;
+    font-weight: bold;
+    color: #999;
+}
+
+.view_title{
+    font-size: 1.2rem;
+    font-family: Jost;
+    font-weight: bold;
+    color: #000;
+}
+
+.total_sum{
+    font-size: 1.5rem;
+    font-family: Concert One;
+    font-weight: bold;
+    color: #000;
+}
+/* account */
