@@ -96,7 +96,7 @@ if(isset($_GET['pro_id'])){
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
-    <link rel="stylesheet" href="styles/style.css?version=10">
+    <link rel="stylesheet" href="styles/style.css?version=11">
     <!-- styles -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
