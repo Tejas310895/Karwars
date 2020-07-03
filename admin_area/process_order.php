@@ -54,6 +54,58 @@ if(isset($_GET['update_order'])){
   
   }
 
+  if(isset($_POST['add_city'])){
+
+    $city_name = $_POST['city_name'];
+  
+    $insert_city = "insert into city (city_name) values ('$city_name')";
+  
+    $run_insert_city = mysqli_query($con,$insert_city);
+  
+  
+      echo "<script>alert('City Added')</script>";
+  
+      echo "<script>window.open('index.php?view_area','_self')</script>";
+  
+  
+  }
+
+  if(isset($_POST['add_area'])){
+
+    $city_id = $_POST['city_id'];
+
+    $area_name = $_POST['area_name'];
+  
+    $insert_area = "insert into area (area_name,city_id) values ('$area_name','$city_id')";
+  
+    $run_insert_area = mysqli_query($con,$insert_area);
+  
+  
+      echo "<script>alert('Area Added')</script>";
+  
+      echo "<script>window.open('index.php?view_area','_self')</script>";
+  
+  
+  }
+
+  if(isset($_POST['add_landmark'])){
+
+    $area_id = $_POST['area_id'];
+
+    $landmark_name = $_POST['landmark_name'];
+  
+    $insert_landmark = "insert into landmark (landmark_name,area_id) values ('$landmark_name','$area_id')";
+  
+    $run_insert_landmark = mysqli_query($con,$insert_landmark);
+  
+  
+      echo "<script>alert('Landmark Added')</script>";
+  
+      echo "<script>window.open('index.php?view_area','_self')</script>";
+  
+  
+  }
+
   
 
 ?>

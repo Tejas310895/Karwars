@@ -63,9 +63,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="admin_images/wrnlogo.png">
   <link rel="icon" type="image/png" href="admin_images/wrnlogo.png">
-  <title>
-    Black Dashboard by Creative Tim
-  </title>
+  <title>Karwar Grocery</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -119,7 +117,7 @@
                         </p>
                         </a>
                         <ul class="dropdown-menu dropdown-navbar">
-                        <li class="nav-link"><a href="user_profile.php" class="nav-item dropdown-item">Profile</a></li>
+                        <li class="nav-link"><a href="index.php?user_profile" class="nav-item dropdown-item">Profile</a></li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
                         </ul>
@@ -318,6 +316,12 @@
               if(isset($_GET['view_payments'])){
                     
                 include("view_payments.php");
+                
+              }
+              
+              if(isset($_GET['view_area'])){
+                    
+                include("view_area.php");
                 
               }
 

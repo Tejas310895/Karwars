@@ -86,7 +86,7 @@ if(isset($_POST['register'])){
     if($count<1){
 
      //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-    $url = "http://5.189.169.241:5012/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=Thank%20You%20for%20Registration";
+    $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=Thank%20You%20for%20Registration";
     // Initialize a CURL session. 
     $ch = curl_init();  
     

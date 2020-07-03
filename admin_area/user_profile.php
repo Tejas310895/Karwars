@@ -40,6 +40,9 @@
     <div class="col-lg-6 col-md-6">
         <h2 class="card-title">EDIT USER</h2>
     </div>
+    <div class="col-lg-6 col-md-6">
+        <a href="index.php?view_area" class="btn btn-primary pull-right">Service Area</a>
+    </div>
  
 </div><!-- row Finish -->
 

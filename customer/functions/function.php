@@ -565,6 +565,29 @@ function diaplay_cart(){
 
 /// finish display functions ///
 
+function delete_address(){
+
+    global $db;
+
+    if(isset($_GET['delete_address'])){
+
+        $add_id = $_GET['delete_address'];
+
+        $delete_add = "delete from customer_address where add_id='$add_id'";
+
+        $run_delete = mysqli_query($db,$delete_add);
+
+        if($run_delete){
+            echo "<script>alert('Address Deleted')</script>";
+            echo "<script>window.open('my_account.php','_self')</script>";
+        }else{
+            echo "<script>alert('Try Again')</script>";
+            echo "<script>window.open('my_account.php','_self')</script>";
+        }
+
+}
+
+}
 
 
 ?>
