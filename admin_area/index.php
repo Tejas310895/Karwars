@@ -325,6 +325,24 @@
                 
               }
 
+              if(isset($_GET['delete_city'])){
+                    
+                include("delete_city.php");
+                
+              }
+
+              if(isset($_GET['delete_area'])){
+                    
+                include("delete_area.php");
+                
+              }
+
+              if(isset($_GET['delete_landmark'])){
+                    
+                include("delete_landmark.php");
+                
+              }
+
             
             ?>
 

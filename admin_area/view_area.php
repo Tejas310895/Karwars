@@ -52,6 +52,11 @@
                             ?>
             <tr>
                 <td><?php echo $row_city_name['city_name']; ?></td>
+                <td>
+                <a href="index.php?delete_city=<?php echo $row_city_name['city_id']; ?>" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </a>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
@@ -133,6 +138,11 @@
             <tr>
                 <td><?php echo $row_area_c['city_name']; ?></td>
                 <td><?php echo $row_area_name['area_name']; ?></td>
+                <td>
+                <a href="index.php?delete_area=<?php echo $row_area_name['area_id']; ?>" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </a>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
@@ -214,6 +224,11 @@
                     <tr>
                     <td><?php echo $row_area_a['area_name']; ?></td>
                     <td><?php echo $row_landmark_name['landmark_name']; ?></td>
+                    <td>
+                <a href="index.php?delete_landmark=<?php echo $row_landmark_name['landmark_id']; ?>" rel="tooltip" class="btn btn-danger btn-sm btn-icon">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </a>
+                </td>
                     </tr>
                     <?php } ?>
             </tbody>
