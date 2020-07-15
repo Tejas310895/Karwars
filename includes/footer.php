@@ -1,3 +1,4 @@
+
 <!-- header on scroll -->
 
 <script src="js/jquery-3.5.1.slim.min.js" ></script>
@@ -44,6 +45,35 @@ window.addEventListener('resize', function() {
 		window.location = "desktop"; 
 	}
 });
+</script>
+<script>
+// Add event listener offline to detect network loss.
+window.addEventListener("offline", function(e) {
+    showPopForOfflineConnection();
+});
+
+// Add event listener online to detect network recovery.
+window.addEventListener("online", function(e) {
+    hidePopAfterOnlineInternetConnection();
+});
+
+function hidePopAfterOnlineInternetConnection(){
+    $('#fade-wrapper').fadeOut();
+    // $('#internet-connection-status-dialogue').trigger('close');
+    
+    
+}
+
+function showPopForOfflineConnection(){
+    $('#fade-wrapper').fadeIn();
+    // $('#internet-connection-status-dialogue').lightbox_me({
+    //     centered: true,
+    //     overlaySpeed:"slow",
+    //     closeClick:false,
+    //     onLoad: function() {
+    //     }
+    // });
+}
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>

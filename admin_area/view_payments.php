@@ -16,7 +16,7 @@
        </div>
 
 <div class="row">
-<table class="table">
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead class="text-center">
         <tr>
             <th>TXNDATE</th>
@@ -31,7 +31,7 @@
             <th>BANKTXNID</th>
         </tr>
     </thead>
-    <tbody class="text-center">
+    <tbody class="text-center" style="font-size:12px;">
             <?php
             
             $get_payment = "select * from paytm order by payment_id DESC";
@@ -72,5 +72,13 @@
 </table>
 </div>
 
+<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.js'></script>
+<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js' defer></script>
+<script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.js' defer></script>
+<script  src='js/datatable.js'></script>
 
 <?php } ?>

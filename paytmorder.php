@@ -19,13 +19,21 @@ $row_contact = mysqli_fetch_array($run_contact);
 
 $c_contact = $row_contact['customer_contact'];
 
+$get_unique = "SELECT * from customer_orders order by order_id DESC LIMIT 1";
+
+$run_unique = mysqli_query($con,$get_unique);
+
+$row_unique = mysqli_fetch_array($run_unique);
+
+$unique_num = $row_unique['order_id'];
+
 $ip_add = getRealIpUser();
 
 $user_id = getuserid();
 
 $status = "Order Placed";
 
-$invoice_no = mt_rand();
+$invoice_no = $unique_num.mt_rand();
 
 $select_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
 
@@ -69,20 +77,20 @@ if($run_customer_order){
 
     $invoice_no = $invoice_no;
 
-    $text = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$invoice_no";
+    // $text = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$invoice_no";
 
-    //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-    $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
-    // Initialize a CURL session. 
-    $ch = curl_init();  
+    // //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+    // $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
+    // // Initialize a CURL session. 
+    // $ch = curl_init();  
     
-    // Return Page contents. 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    // // Return Page contents. 
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
     
-    //grab URL and pass it to the variable. 
-    curl_setopt($ch, CURLOPT_URL, $url); 
+    // //grab URL and pass it to the variable. 
+    // curl_setopt($ch, CURLOPT_URL, $url); 
     
-    $result = curl_exec($ch);
+    // $result = curl_exec($ch);
 
     include('paytm/TxnTest.php');
 

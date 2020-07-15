@@ -65,6 +65,14 @@ if(isset($_GET['print'])){
 
     $del_charges = $row_min['del_charges'];
 
+    $get_txn = "select * from paytm where ORDERID='$invoice_id'";
+
+    $run_txn = mysqli_query($con,$get_txn);
+
+    $row_txn = mysqli_fetch_array($run_txn);
+
+    $txn_status = $row_txn['STATUS'];
+
 
 }
 
@@ -82,7 +90,7 @@ if(isset($_GET['print'])){
         }
 
         window.onafterprint = function(){
-            document.location.href = "index.php?view_orders";
+            history.back();
         }
     </script>
     <style>
@@ -112,7 +120,7 @@ if(isset($_GET['print'])){
         <h4>Name : <?php echo $c_name; ?></h4>
         <h4>Mobile No. : <?php echo $c_contact; ?></h4>
         <h4>Address : <?php echo $customer_address.', '.$customer_phase.', '.$customer_landmark.', '.$customer_city.'.'; ?></h4>
-        <h4>Payment Mode : <?php if($txn_status='TXN_SUCCESS'){echo"Paid Online";}else{echo"Take Cash";} ?></h4>
+        <h4>Payment Mode : <?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></h4>
     </div>
     <div class="col-12">
     <table class="table table-lg">
@@ -164,14 +172,6 @@ if(isset($_GET['print'])){
             $min_price = $row_min['min_order'];
 
             $del_charges = $row_min['del_charges'];
-
-            $get_txn = "select * from taxes where ORDERID='$invoice_id'";
-
-            $run_txn = mysqli_query($con,$get_txn);
-        
-            $row_txn = mysqli_fetch_array($run_txn);
-        
-            $txn_status = $row_txn['STATUS'];
 
             ?>
             <tr>

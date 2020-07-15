@@ -18,13 +18,21 @@ $row_contact = mysqli_fetch_array($run_contact);
 
 $c_contact = $row_contact['customer_contact'];
 
+$get_unique = "SELECT * from customer_orders order by order_id DESC LIMIT 1";
+
+$run_unique = mysqli_query($con,$get_unique);
+
+$row_unique = mysqli_fetch_array($run_unique);
+
+$unique_num = $row_unique['order_id'];
+
 $ip_add = getRealIpUser();
 
 $user_id = getuserid();
 
 $status = "Order Placed";
 
-$invoice_no = mt_rand();
+$invoice_no = $unique_num.mt_rand();
 
 $select_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
 

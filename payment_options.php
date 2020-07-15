@@ -37,10 +37,8 @@ $session_email = $_SESSION['customer_email'];
 
 <!-- Date Address -->
 
-    <div class="container-fluid my-5">
-        <div class="row bg-white p-5 rounded">
-
-
+    <div class="container-fluid mt-4 px-0">
+        <div class="row bg-white px-5 py-4 rounded">
         <?php 
                 
                 $get_add_count = "select * from customer_address where customer_id='$customer_id'";
@@ -88,17 +86,19 @@ $session_email = $_SESSION['customer_email'];
                 <h5 class="add_head my-3">Schedule your Delivery</h5>
                 <input type="text" class="form-control select_address" name="date" id="datepicker" required>
                 </div>
-                <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="p_type" value="COD" checked>
-                <label class="form-check-label cod_text" for="exampleRadios1">
-                    Cash on Delivery
-                </label>
+                <div class="alert alert-primary mb-3 px-2 py-1">
+                    <img src="admin_area/admin_images/cod.png" width="20">
+                    <label class="form-check-label cod_text" for="exampleRadios1">
+                        <h5 class="mb-0">Cash on Delivery&nbsp;</h5>
+                    </label>
+                    <input class="form-check-input mt-2 ml-5" type="radio" name="p_type" value="COD" checked>
                 </div>
-                <div class="form-check mb-0">
-                <input class="form-check-input" type="radio" name="p_type"  value="PAYTM">
-                <label class="form-check-label paytm_text" for="exampleRadios2">
-                    Pay Online
-                </label>
+                <div class="alert alert-primary mb-3 px-2 py-1">
+                    <img src="admin_area/admin_images/card.png" width="20">
+                    <label class="form-check-label paytm_text" for="exampleRadios2">
+                        <h5 class="mb-0">Wallet/Cards/Upi</h5>
+                    </label>
+                    <input class="form-check-input mt-2 ml-5" type="radio" name="p_type"  value="PAYTM">
                 </div>
             <button type="submit" class="btn btn-success btn-block add_head_btn fixed-bottom">Place Order</button>
         </form>
@@ -110,7 +110,7 @@ $session_email = $_SESSION['customer_email'];
 
  <!-- insertadd -->
 
- <div class="modal fade" id="inseradd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="inseradd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">

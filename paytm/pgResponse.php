@@ -40,8 +40,6 @@ if($isValidChecksum == "TRUE") {
 			$insert_customer_order = "insert into paytm (CURRENCY,GATEWAYNAME,RESPMSG,BANKNAME,PAYMENTMODE,MID,RESPCODE,TXNID,TXNAMOUNT,ORDERID,STATUS,BANKTXNID,TXNDATE,CHECKSUMHASH) 
 			values ('$CURRENCY','$GATEWAYNAME','$RESPMSG','$BANKNAME','$PAYMENTMODE','$MID','$RESPCODE','$TXNID','$TXNAMOUNT','$ORDERID','$STATUS','$BANKTXNID','$TXNDATE','$CHECKSUMHASH')";
 
-			if($run_insert = mysqli_query($con,$insert_customer_order)){
-
 				$get_customer = "select * from customer_orders where invoice_no='$ORDERID'";
 
 				$run_customer = mysqli_query($con,$get_customer);
@@ -58,10 +56,14 @@ if($isValidChecksum == "TRUE") {
 
 				$c_contact = $row_contact['customer_contact'];
 
-				$text = "Payment%20Successful%20for%20Order-id:-%20$ORDERID";
+				if($run_insert = mysqli_query($con,$insert_customer_order)){
+
+				//$text = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$invoice_no";
+
+				$textd = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$ORDERID%0APayment%20Successful%20of%20-%20$TXNAMOUNT";
 
 				//echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-				$url = "http://5.189.169.241:5012/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
+				$url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$textd";
 				// Initialize a CURL session. 
 				$ch = curl_init();  
 				
@@ -82,6 +84,41 @@ if($isValidChecksum == "TRUE") {
 		//Verify amount & order id received from Payment gateway with your application's order id and amount.
 
 	else {
+
+		$ORDERID = $_POST['ORDERID'];
+
+		$get_customer = "select * from customer_orders where invoice_no='$ORDERID'";
+
+		$run_customer = mysqli_query($con,$get_customer);
+
+		$row_customer = mysqli_fetch_array($run_customer);
+
+		$customer_id = $row_customer['customer_id'];
+
+		$get_contact = "select * from customers where customer_id='$customer_id'";
+
+		$run_contact = mysqli_query($con,$get_contact);
+
+		$row_contact = mysqli_fetch_array($run_contact);
+
+		$c_contact = $row_contact['customer_contact'];
+
+
+		$textf = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$ORDERID%0APayment%20Failed%20no%20worries%20pay%20on%20delivery";
+
+		//echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+		$urlf = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$textf";
+		// Initialize a CURL session. 
+		$ch = curl_init();  
+		
+		// Return Page contents. 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+		
+		//grab URL and pass it to the variable. 
+		curl_setopt($ch, CURLOPT_URL, $urlf); 
+		
+		$result = curl_exec($ch); 
+
 		echo "<script>alert('Payment Failed')</script>";
 
 		echo "<script>window.open('../','_self')</script>";
@@ -97,6 +134,41 @@ if($isValidChecksum == "TRUE") {
 
 }
 else {
+
+	$ORDERID = $_POST['ORDERID'];
+
+	$get_customer = "select * from customer_orders where invoice_no='$ORDERID'";
+
+	$run_customer = mysqli_query($con,$get_customer);
+
+	$row_customer = mysqli_fetch_array($run_customer);
+
+	$customer_id = $row_customer['customer_id'];
+
+	$get_contact = "select * from customers where customer_id='$customer_id'";
+
+	$run_contact = mysqli_query($con,$get_contact);
+
+	$row_contact = mysqli_fetch_array($run_contact);
+
+	$c_contact = $row_contact['customer_contact'];
+
+
+	$textfn = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$ORDERID%0APayment%20Failed%20no%20worries%20pay%20on%20delivery";
+
+	//echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+	$urlfn = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$textfn";
+	// Initialize a CURL session. 
+	$ch = curl_init();  
+	
+	// Return Page contents. 
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+	
+	//grab URL and pass it to the variable. 
+	curl_setopt($ch, CURLOPT_URL, $urlfn); 
+	
+	$result = curl_exec($ch); 
+
 	echo "<script>alert('Payment failed')</script>";
 
 		echo "<script>window.open('../')</script>";

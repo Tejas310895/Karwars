@@ -2,9 +2,7 @@
     
         $('.add').click(function (e) { 
             e.preventDefault();
-    
             var add_id= $(this).attr("id");
-    
             if(add_id!='')
             {
                 $.ajax({
@@ -23,7 +21,6 @@
     
         $('.del').click(function (e) { 
             e.preventDefault();
-    
             var del_id= $(this).attr("id");
     
             if(del_id!='')
@@ -115,4 +112,3 @@
          });
     
     });
-    

@@ -60,10 +60,12 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="apple-touch-icon" sizes="76x76" href="admin_images/wrnlogo.png">
   <link rel="icon" type="image/png" href="admin_images/wrnlogo.png">
-  <title>Karwar Grocery</title>
+  <title>
+    Black Dashboard by Creative Tim
+  </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -76,6 +78,7 @@
   <link href="dashboard/assets/demo/demo.css" rel="stylesheet" />
 
   <!-- datatables -->
+  <link rel='stylesheet' href='https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css'>
 
 
 </head>
@@ -88,8 +91,6 @@
             <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
                 <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <div class="navbar-toggle d-inline">
-                    </div>
                     <a class="navbar-brand"><img src="admin_images/logo.png" alt="" class="img-thumbnail border-0" width="150px"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navigation">
@@ -318,7 +319,7 @@
                 include("view_payments.php");
                 
               }
-              
+
               if(isset($_GET['view_area'])){
                     
                 include("view_area.php");
@@ -343,7 +344,18 @@
                 
               }
 
-            
+              if(isset($_GET['stock_report'])){
+                    
+                include("stock_report.php");
+                
+              }
+
+              if(isset($_GET['notify'])){
+                    
+                include("notify.php");
+                
+              }
+
             ?>
 
         </div>

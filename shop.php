@@ -249,7 +249,7 @@
                                         echo "
                                         
                                         <div class='col-6'>
-                                            <div class='row ml-1  shopAdd'>
+                                            <div class='row ml-1 shopAdd'>
                                                 <button class='btn btn-qty px-1 py-1 del' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-minus'></i></button>
                                                 <input type='numeric' class='shop_qty' placeholder='' value='$pro_qty' aria-describedby='helpId' readonly>
                                                 <button class='btn btn-qty px-1 py-1 add' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-plus'></i></button>
@@ -261,9 +261,7 @@
                                     }else{
 
                                         echo "
-
                                             <button class='btn px-4 py-1 ml-3 pull-left pro_list_addqty add' type='button' id='$pro_id'>ADD</button>
-                                        
                                         ";
                                         }
                                     

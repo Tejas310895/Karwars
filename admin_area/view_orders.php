@@ -14,8 +14,9 @@
         <div class="col-lg-12 col-md-12">
             <div class="card card-tasks mb-0">
               <div class="card-header ">
-                <h4 class="title d-inline">ORDERS</h4>
-                <p class="card-category d-inline">TODAY</p>
+                <h3 class="title d-inline ml-4">ORDERS</h3>
+                <a href="index?notify" class="btn btn-primary pull-right">REQUIREMENT</a>
+                <a href="index?stock_report" class="btn btn-primary pull-right">ORDER STOCK</a>
               </div>
               <div class="card-body" id="refresh">
                 <div class="table-full-width table-responsive" id="time">
@@ -46,7 +47,7 @@
                   </table> -->
                   <?php
                 
-                      $get_invoice = "SELECT DISTINCT invoice_no FROM customer_orders WHERE order_status='Order Placed' ORDER BY order_id DESC";
+                      $get_invoice = "SELECT DISTINCT invoice_no FROM customer_orders WHERE order_status in ('Order Placed','Out For Delivery') ORDER BY order_id DESC";
 
                       $run_invoice = mysqli_query($con,$get_invoice);
 
@@ -140,12 +141,12 @@
                                                                       </h4>
                                   </div>
                                   <div class="col">
-                                  <h6 class="card-title mt-2 pull-right p-2 rounded font-weight-bold <?php if($txn_status==='TXN_SUCCESS'){echo "bg-success";}else{echo "bg-danger";} ?>">
-                                  <?php if($txn_status==='TXN_SUCCESS'){echo "PAID ONLINE";}else{echo "TAKE CASH";} ?>
-                                  </h6>
-                                  <h3 class="card-subtitle mt-2 pull-right">
-                                  <?php echo $order_count; ?> Items -  ₹<?php echo $total+$del_charges; ?>/-  
-                                  </h3>
+                                    <h6 class="card-title mt-2 pull-right p-2 rounded font-weight-bold <?php if($txn_status==='TXN_SUCCESS'){echo "bg-success";}else{echo "bg-danger";} ?>">
+                                      <?php if($txn_status==='TXN_SUCCESS'){echo "PAID ONLINE";}else{echo "TAKE CASH";} ?>
+                                    </h6>
+                                    <h3 class="card-subtitle mt-2 pull-right">
+                                      <?php echo $order_count; ?> Items -  ₹<?php echo $total+$del_charges; ?>/-  
+                                    </h3>
                                   </div>
                                 </div>
                                 <div class="row">
@@ -157,6 +158,20 @@
                                         <form action="process_order.php?update_order=<?php echo $invoice_id; ?>" class="form-group pull-right" method="post">
                                             <div class="input-group">
                                               <select class="form-control mt-2" name="status">
+                                              <?php 
+                                              
+                                              $get_status = "select * from customer_orders where invoice_no='$invoice_id'";
+
+                                              $run_status = mysqli_query($con,$get_status);
+
+                                              $row_status = mysqli_fetch_array($run_status);
+
+                                              $status = $row_status['order_status'];
+
+                                              echo "<option>$status</option>";
+                                              
+                                              ?>
+                                                <option>Out For Delivery</option>
                                                 <option>Delivered</option>
                                                 <option>Cancelled</option>
                                                 <option>Refunded</option>

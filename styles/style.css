@@ -597,7 +597,7 @@ a.pro_store{
 }
 
 .form-control{
-    min-height: 59px;    
+  /* min-height: 59px;     */
 }
 
 /* register */
@@ -687,7 +687,7 @@ a.pro_store{
 /*loading*/
 
 .pro_list_addqty,
-.shopAdd  { 
+.shopAdd { 
     animation: fadeInAnimation ease 3s; 
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
@@ -699,6 +699,15 @@ a.pro_store{
     100% { 
         opacity: 1; 
     } 
+}
+
+#fade-wrapper {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(255, 220, 145, 0.5);
 }
 
 /*loading*/
