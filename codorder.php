@@ -8,8 +8,6 @@ if(isset($_POST['c_id'])){
 
     $date = $_POST['date'];
 
-}
-
 $get_contact = "select * from customers where customer_id='$customer_id'";
 
 $run_contact = mysqli_query($con,$get_contact);
@@ -92,6 +90,12 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     }
 
+}
+
+}else{
+    echo "<script>alert('Order Placed, thanks')</script>";
+
+    echo "<script>window.open('./','_self')</script>";
 }
 
 ?>

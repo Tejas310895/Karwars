@@ -48,7 +48,7 @@ $session_email = $_SESSION['customer_email'];
                 $count = mysqli_num_rows($run_add_count);
                 
                 ?>
-                <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" style="display:<?php if($count>0){echo 'none';}else{echo 'block';} ?>;">ADD NEW ADDRESS</button>
+                <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" >ADD NEW ADDRESS</button>
                 <form action="order.php" class="add_form" method="post" style="display:<?php if($count>0){echo 'block';}else{echo 'none';} ?>;">
                 <input type="hidden" name="c_id" class="form-control" value="<?php echo $customer_id; ?>">
                 <h5 class="add_head">Select Your Address</h5>
@@ -86,7 +86,7 @@ $session_email = $_SESSION['customer_email'];
                 <h5 class="add_head my-3">Schedule your Delivery</h5>
                 <input type="text" class="form-control select_address" name="date" id="datepicker" required>
                 </div>
-                <div class="alert alert-primary mb-3 px-2 py-1">
+                <!-- <div class="alert alert-primary mb-3 px-2 py-1">
                     <img src="admin_area/admin_images/cod.png" width="20">
                     <label class="form-check-label cod_text" for="exampleRadios1">
                         <h5 class="mb-0">Cash on Delivery&nbsp;</h5>
@@ -99,7 +99,7 @@ $session_email = $_SESSION['customer_email'];
                         <h5 class="mb-0">Wallet/Cards/Upi</h5>
                     </label>
                     <input class="form-check-input mt-2 ml-5" type="radio" name="p_type"  value="PAYTM">
-                </div>
+                </div> -->
             <button type="submit" class="btn btn-success btn-block add_head_btn fixed-bottom">Place Order</button>
         </form>
         </div>
