@@ -49,7 +49,7 @@
             <td><?php echo ++$counter; ?></td>
             <td><?php echo $cat_title; ?></td>
             <td>
-                <img src="other_images/<?php echo $cat_image; ?>" alt="" class="img-thumbnail" width="60px">
+                <img src="<?php echo $cat_image; ?>" alt="" class="img-thumbnail" width="60px">
             </td>
             <td class="td-actions text-right">
                 <a href="index.php?edit_cat=<?php echo $cat_id; ?>" rel="tooltip" class="btn btn-success btn-sm btn-icon">

@@ -21,7 +21,7 @@
                     <div class="col-lg-6">
                         <div class="form-group"><!-- form-group begin -->
                             
-                                <input name="slide_name" type="text" placeholder="Slide Name " class="form-control">
+                                <input name="slide_name" type="text" placeholder="Slide Name" class="form-control">
                             
                         
                         </div><!-- form-group finish -->
@@ -29,8 +29,8 @@
                     <div class="col-lg-6">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label>
-                                <input type="file" name="slide_image" class="custom-file-input" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label> -->
+                                <input type="text" name="slide_image" class="form-control" placeholder="Slide image link" required>
                             </div>
                         </div>
                     </div>
@@ -52,9 +52,9 @@
         
         $slide_name = $_POST['slide_name'];
         
-        $slide_image = $_FILES['slide_image']['name'];
+        $slide_image = $_POST['slide_image'];
         
-        $temp_name = $_FILES['slide_image']['tmp_name'];
+        //$temp_name = $_FILES['slide_image']['tmp_name'];
         
         $view_slides = "select * from slider";
         
@@ -64,7 +64,7 @@
         
         if($count<8){
             
-            move_uploaded_file($temp_name,"slides_images/$slide_image");
+            //move_uploaded_file($temp_name,"slides_images/$slide_image");
             
             $insert_slide = "insert into slider (slide_name,slide_image) values ('$slide_name','$slide_image')";
             

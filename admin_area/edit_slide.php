@@ -51,10 +51,10 @@
                     <div class="col-lg-6">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label>
-                                <input type="file" name="slide_image" class="custom-file-input" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label> -->
+                                <input type="text" name="slide_image" class="form-control" value="<?php echo $slide_img; ?>" required>
                             </div>
-                            <img src="slides_images/<?php echo $slide_img; ?>" alt="" class="img-thumbnail border-0" width="200px">
+                            <img src="<?php echo $slide_img; ?>" alt="" class="img-thumbnail border-0" width="200px">
                         </div>
                     </div>
                     <div class="form-group"><!-- form-group begin -->
@@ -75,11 +75,11 @@
         
         $slide_name = $_POST['slide_name'];
         
-        $slide_image = $_FILES['slide_image']['name'];
+        $slide_image = $_POST['slide_image'];
         
-        $temp_name = $_FILES['slide_image']['tmp_name'];
+        //$temp_name = $_FILES['slide_image']['tmp_name'];
         
-        move_uploaded_file($temp_name,"slides_images/$slide_image");
+        //move_uploaded_file($temp_name,"slides_images/$slide_image");
         
         $update_slide = "update slider set slide_name='$slide_name',slide_image='$slide_image' where slide_id='$slide_id'";
         

@@ -48,9 +48,10 @@ session_start();
     <!-- styles -->
 
     <!-- Chatra {literal} -->
+<!-- Chatra {literal} -->
 <script>
     (function(d, w, c) {
-        w.ChatraID = 'Wd4a7RX9vgyRxaS3P';
+        w.ChatraID = 'kdwYKgEGqr7Fjn5ty';
         var s = d.createElement('script');
         w[c] = w[c] || function() {
             (w[c].q = w[c].q || []).push(arguments);
@@ -60,6 +61,7 @@ session_start();
         if (d.head) d.head.appendChild(s);
     })(document, window, 'Chatra');
 </script>
+<!-- /Chatra {/literal} -->
 <!-- /Chatra {/literal} -->
 
 </head>

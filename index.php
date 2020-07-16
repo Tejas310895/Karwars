@@ -105,7 +105,7 @@
 
                         <a href='$slide_url'>
 
-                            <img src='admin_area/slides_images/$slide_image' class='d-block w-100'>
+                            <img src='$slide_image' class='d-block w-100'>
 
                         </a>
 
@@ -190,7 +190,7 @@
 
                     <div class='swiper-slide'>
                                 <div class='card pro_card my-2' style='width: 18rem;'>
-                                            <img src='admin_area/other_images/store_images/<?php echo $store_img1; ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
+                                            <img src='<?php echo $store_img1; ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
                                             <div class='card-body p-1'>
                                             <p class='card-text text-left px-2 pro_title'><?php echo $store_title; ?></p>
                                             <p class='card-text text-left px-2 store_Desc'><?php echo $store_desc; ?></p>   
@@ -368,7 +368,7 @@
             ?>
                             <div class="col-6 px-2 py-2">
                                 <a href="store.php?cat=<?php echo $cat_id;?>">
-                                    <img src="admin_area/other_images/<?php echo $cat_img; ?>" class="img-thumbnail" alt="..." >
+                                    <img src="<?php echo $cat_img; ?>" class="img-thumbnail" alt="..." >
                                 </a>
                             </div>
             <?php } ?>

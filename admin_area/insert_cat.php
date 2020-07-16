@@ -29,8 +29,8 @@
                     <div class="col-lg-6">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Catagory Image</label>
-                                <input type="file" name="cat_image" class="custom-file-input" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Catagory Image</label> -->
+                                <input type="text" name="cat_image" class="form-control" placeholder="Product image link" required>
                             </div>
                         </div>
                     </div>
@@ -53,11 +53,11 @@
               
               $cat_title = $_POST['cat_title'];
               
-              $cat_image = $_FILES['cat_image']['name'];
+              $cat_image = $_POST['cat_image'];
     
-              $temp_name = $_FILES['cat_image']['tmp_name'];
+              //$temp_name = $_FILES['cat_image']['tmp_name'];
               
-              move_uploaded_file($temp_name,"other_images/$cat_image");
+              //move_uploaded_file($temp_name,"other_images/$cat_image");
               
               $insert_cat = "insert into categories (cat_title,cat_image) values ('$cat_title','$cat_image')";
               

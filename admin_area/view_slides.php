@@ -47,7 +47,7 @@
                         
                         <div class="panel-body"><!-- panel-body begin -->
                             
-                            <img src="slides_images/<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>" class="img-responsive">
+                            <img src="<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>" class="img-responsive">
                             
                         </div><!-- panel-body finish -->
                         

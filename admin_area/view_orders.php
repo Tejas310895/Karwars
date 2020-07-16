@@ -250,7 +250,7 @@
                                               <tr>
                                                   <td class="text-center"><?php echo ++$counter; ?></td>
                                                   <td class="text-center">
-                                                    <img src="product_images/<?php echo $pro_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
+                                                    <img src="<?php echo $pro_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                                                   </td>
                                                   <td class="text-center"><?php echo $pro_title; ?></td>
                                                   <td class="text-center"><?php echo $pro_desc; ?></td>

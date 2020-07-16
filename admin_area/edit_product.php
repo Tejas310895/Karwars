@@ -162,10 +162,10 @@ if(!isset($_SESSION['admin_email'])){
                     <div class="col-lg-6 col-md-6 mt-5">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label>
-                                <input type="file" name="product_img1" class="custom-file-input" value="<?php echo $p_image1; ?>" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label> -->
+                                <input type="text" name="product_img1" class="form-control" value="<?php echo $p_image1; ?>" id="inputGroupFile01" required>
                             </div>
-                            <img src="product_images/<?php echo $p_image1; ?>" alt="" class="img-thumbnail" width="100px">
+                            <img src="<?php echo $p_image1; ?>" alt="" class="img-thumbnail" width="100px">
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 mt-5">
@@ -190,11 +190,11 @@ if(!isset($_SESSION['admin_email'])){
 
         $hsn = $_POST['hsn_code'];
         
-        $product_img1 = $_FILES['product_img1']['name'];
+        $product_img1 = $_POST['product_img1'];
         
-        $temp_name1 = $_FILES['product_img1']['tmp_name'];
+        //$temp_name1 = $_FILES['product_img1']['tmp_name'];
         
-        move_uploaded_file($temp_name1,"product_images/$product_img1");
+        //move_uploaded_file($temp_name1,"product_images/$product_img1");
     
         $update_product = "UPDATE products SET 
                             store_id='$store',

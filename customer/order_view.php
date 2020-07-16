@@ -127,7 +127,7 @@ session_start();
 
             <div class='row '>
                     <div class='col-3'>
-                        <img class='img-thumbnail mb-2 border-0' src='../admin_area/product_images/$pro_img1' alt=''>
+                        <img class='img-thumbnail mb-2 border-0' src='$pro_img1' alt=''>
                     </div>
                     <div class='col-4 px-0'>
                         <h5 class='view_title mt-0 mb-0'>$pro_title</h5>

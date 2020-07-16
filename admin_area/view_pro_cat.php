@@ -51,7 +51,7 @@
             <td><?php echo ++$counter; ?></td>
             <td><?php echo $store_title; ?></td>
             <td>
-                <img src="other_images/store_images/<?php echo $store_image; ?>" alt="" class="img-thumbnail border-0" width="60px">
+                <img src="<?php echo $store_image; ?>" alt="" class="img-thumbnail border-0" width="60px">
             </td>
             <?php 
             

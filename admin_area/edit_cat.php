@@ -51,10 +51,10 @@
                     <div class="col-lg-6">
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label>
-                                <input type="file" name="cat_image" class="custom-file-input" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label> -->
+                                <input type="text" name="cat_image" class="form-control" value="<?php echo $cat_img; ?>" id="inputGroupFile01" required>
                             </div>
-                            <img src="other_images/<?php echo $cat_img; ?>" alt="" class="img-thumbnail" width="100px">
+                            <img src="<?php echo $cat_img; ?>" alt="" class="img-thumbnail" width="100px">
                         </div>
                     </div>
                     <div class="form-group"><!-- form-group begin -->
@@ -75,11 +75,11 @@
               
             $cat_title = $_POST['cat_title'];
               
-            $cat_image = $_FILES['cat_image']['name'];
+            $cat_image = $_POST['cat_image'];
   
-            $temp_name = $_FILES['cat_image']['tmp_name'];
+            //$temp_name = $_FILES['cat_image']['tmp_name'];
             
-            move_uploaded_file($temp_name,"other_images/$cat_image");
+            //move_uploaded_file($temp_name,"other_images/$cat_image");
               
               $update_cat = "update categories set cat_title='$cat_title',cat_image='$cat_image' where cat_id='$cat_id'";
               

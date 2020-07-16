@@ -103,7 +103,7 @@
                 
                 <div class='row bg-white py-2 mt-1' id='hidScroll'>
                     <div class='col-4 px-0'>
-                        <img src='admin_area/product_images/$product_img1' alt='' class='img-thumbnail border-0 w-75'>
+                        <img src='$product_img1' alt='' class='img-thumbnail border-0 w-75'>
                     </div>
                         <div class='col-8 pl-0 pt-2'>
                             <h5 class='pro_cart_title'>$product_title - $product_desc</h5>

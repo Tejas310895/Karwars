@@ -73,7 +73,7 @@
                     <div class="col-lg-6">
                         <div class="form-group"><!-- form-group begin -->
                             <label for="exampleFormControlSelect1">Minimum Price</label>
-                                <input name="min_price" type="text" value="<?php echo $min_price; ?>" placeholder="Minimum Price" class="form-control">
+                                <input name="min_price" type="text" value="<?php echo $min_price; ?>" class="form-control">
                             
                         
                         </div><!-- form-group finish -->
@@ -108,10 +108,10 @@
                 <div class="col-lg-6 mt-4">
                         <div class="input-group">
                             <div class="custom-file">
-                                <label class="custom-file-label"  for="inputGroupFile01">Choose Catagory Image</label>
-                                <input type="file" name="pro_cat_image" class="custom-file-input" id="inputGroupFile01" required>
+                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Catagory Image</label> -->
+                                <input type="text" name="pro_cat_image" value="<?php echo $store_image; ?>" class="form-control" id="inputGroupFile01" required>
                             </div>
-                            <img src="other_images/store_images/<?php echo $store_image; ?>" alt="" class="img-thumbnail border-0" width="100px">
+                            <img src="<?php echo $store_image; ?>" alt="" class="img-thumbnail border-0" width="100px">
                         </div>
                     </div>
                     <div class="form-group mt-4"><!-- form-group begin -->
@@ -139,11 +139,11 @@
 
               $cat = $_POST['cat'];
               
-              $pro_cat_image = $_FILES['pro_cat_image']['name'];
+              $pro_cat_image = $_POST['pro_cat_image'];
     
-              $temp_name = $_FILES['pro_cat_image']['tmp_name'];
+              //$temp_name = $_FILES['pro_cat_image']['tmp_name'];
               
-              move_uploaded_file($temp_name,"other_images/store_images/$pro_cat_image");
+              //move_uploaded_file($temp_name,"other_images/store_images/$pro_cat_image");
               
               $update_pro_cat = "UPDATE store SET 
                                     cat_id ='$cat',

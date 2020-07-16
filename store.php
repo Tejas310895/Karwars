@@ -189,7 +189,7 @@
 
         <div class="row bg-white mt-1 py-2">
                     <div class="col-4">
-                        <img src="admin_area/other_images/store_images/<?php echo $store_img; ?>" alt="..." class="img-thumbnail border-0">
+                        <img src="<?php echo $store_img; ?>" alt="..." class="img-thumbnail border-0">
                     </div>
                     <div class="col-8">
                             <h5 class="pro_list_title"><?php echo $store_title; ?></h5>
@@ -238,7 +238,7 @@
 
         <div class="row bg-white mt-1 py-2">
                     <div class="col-4">
-                        <img src="admin_area/other_images/store_images/<?php echo $cat_store_img; ?>" alt="..." class="img-thumbnail border-0">
+                        <img src="<?php echo $cat_store_img; ?>" alt="..." class="img-thumbnail border-0">
                     </div>
                     <div class="col-8">
                             <h5 class="pro_list_title"><?php echo $cat_store_title; ?></h5>
