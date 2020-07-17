@@ -6,6 +6,7 @@ $(document).ready(function () {
         var view= $(this).attr("type");
         var start= $('.start_date').val();
         var end= $('.end_date').val();
+        var status= $('.status').val();
         
         if(view!=''&&start!=''&&end!=''){
 
@@ -18,7 +19,7 @@ $(document).ready(function () {
                     type: 'post',
                     url: 'stock_data.php',
                     datatype: "json",
-                    data: {view:view,start:start,end:end},
+                    data: {view:view,start:start,end:end,status:status},
                     success: function (response) 
                     {
                         $("#stock_date").html(response);

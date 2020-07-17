@@ -20,37 +20,51 @@
             <div class="col mt-1">
                 <input type="date" class="form-control end_date" placeholder="end-date">
             </div>
+            <div class="col mt-1">
+            <div class="form-group">
+                    <select class="form-control status" id="status" required>
+                        <option>All</option>
+                        <option>Order Placed</option>
+                        <option>Out For Delivery</option>
+                        <option>Delivered</option>
+                        <option>Cancelled</option>
+                        <option>Refunded</option>
+                    </select>
+                </div>
+            </div>
             <div class="col">
                 <button type="button" class="btn btn-warning view_stock">View</button>
                 <!-- <button type="button" class="btn btn-default download_stock">Download</button> -->
             </div>
        </div>
-       <div class="card card-tasks mb-0">
-                <div class="card-body" id="refresh">
-                    <div class="table-full-width table-responsive" id="time">
-                            <table class="table" id="tblexportData">
-                            <thead>
-                                <tr class="text-center">
-                                    <th>Sl.No</th>
-                                    <th>Product</th>
-                                    <th>Type</th>
-                                    <th>Bulk Quantity</th>
-                                    <th>Amount/Item</th>
-                                    <th>Bulk Amount</th>
-                                </tr>
-                            
-                            </thead>
-                            <tbody id='stock_date'>
-                            
-                            </tbody>
-                        </table>
-                        <button class="btn btn-default pull-right download_stock d-none" onclick="exportToExcel('tblexportData')">Download</button>
-                </div>
-            </div>
-       </div>
-        
+       <div class="row">
+                <div class="col-lg-12 col-md-12">
+                <table id="tblexportData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	<thead>
+		<tr>
+            <th>Sl.No</th>
+            <th>STATUS</th>
+            <th>ORD ID</th>
+            <th>ORDER DATE</th>
+            <th>ORDER BY</th>
+            <th>CONTACT</th>
+            <th>ADDRESS</th>
+            <th>ITEMS</th>
+            <th>UNIT COST</th>
+            <th>QTY</th>
+            <th>TOTAL</th>
+            <th>MARGIN</th>
+		</tr>
+	</thead>
+        <tbody id="stock_date">
 
-<script type="text/javascript">
+        </tbody>
+    </table>
+    <button class="btn btn-default pull-right download_stock d-none" onclick="exportToExcel('tblexportData')">Download</button>
+                </div>
+          </div>
+          <!-- partial -->
+          <script type="text/javascript">
 function exportToExcel(tableID, filename = ''){
     var downloadurl;
     var dataFileType = 'application/vnd.ms-excel';
@@ -87,5 +101,6 @@ function exportToExcel(tableID, filename = ''){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/script.js"></script>
+
 
 <?php } ?>
