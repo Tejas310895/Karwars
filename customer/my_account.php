@@ -19,8 +19,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Wernear Grocery</title>
+    <meta name="description" content="The best online grocery store in Karwar. We can fulfill all your grocery needs ranging from grains,pulses,kitchen needs to fresh vegetables and fruits"/>
+    <link rel="shortcut icon" type="image/png" href="../admin_area/admin_images/wrnlogo.png"/>
+    <title>Karwar Grocery</title>
     <!-- google font -->
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
