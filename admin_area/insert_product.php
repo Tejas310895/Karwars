@@ -150,8 +150,8 @@ if(isset($_POST['submit'])){
     
     //move_uploaded_file($temp_name1,"product_images/$product_img1");
     
-    $insert_product = "insert into products (store_id,date,product_title,product_img1,product_price,price_display,product_keywords,product_desc,product_stock,hsn) 
-    values ('$store',NOW(),'$product_title','$product_img1','$product_price','$display_price','$product_keywords','$product_desc','$product_stock','$hsn_code')";
+    $insert_product = "insert into products (store_id,date,product_title,product_img1,product_price,price_display,product_keywords,product_desc,product_stock,hsn,product_visibility) 
+    values ('$store',NOW(),'$product_title','$product_img1','$product_price','$display_price','$product_keywords','$product_desc','$product_stock','$hsn_code','Y')";
     
     $run_product = mysqli_query($con,$insert_product);
     
