@@ -22,7 +22,7 @@ session_start();
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Wernear Grocery</title>
+    <title>Karwar Grocery</title>
     <!-- google font -->
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
