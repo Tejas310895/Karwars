@@ -217,7 +217,7 @@
                                         <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
                                         <h5 class="pro_dis_price mb-0">₹ <?php echo $price_display; ?> </h5>
                                         </span>
-                                        <img src="admin_area/product_images/<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
+                                        <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
                                     </div>
                                 <div class="col-8">
                                     <h5 class="pro_list_title"><?php echo $pro_title; ?></h5>
