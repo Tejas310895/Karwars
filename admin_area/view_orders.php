@@ -74,7 +74,7 @@
                     <td ><?php echo ++$counter; ?></td>
                     <td ><?php echo $store_title; ?></td>
                     <td>
-                        <img src="product_images/<?php echo $product_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
+                        <img src="<?php echo $product_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                     </td>
                     <td><?php echo $product_title; ?></td>
                     <td><?php echo $product_desc; ?></td>
