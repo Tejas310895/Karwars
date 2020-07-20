@@ -106,8 +106,75 @@ if(isset($_GET['update_order'])){
   
   }
 
+  if(isset($_GET['update_pos'])){
 
+    $pro_id = $_GET['update_pos'];
+
+    $position = $_POST['position'];
+
+    $check_count = "SELECT * FROM products where store_id=(SELECT store_id FROM products WHERE product_id='$pro_id')";
+
+    $run_check_count = mysqli_query($con,$check_count);
+
+    $count = mysqli_num_rows($run_check_count);
+
+    // $row_check_count = mysqli_fetch_array($run_check_count);
+
+    // $store_id = $row_check_count['store_id'];
+
+
+    if($position<=$count){
+
+      $update_position = "UPDATE products SET product_position='$position' WHERE product_id='$pro_id'";
+
+      $run_update_position = mysqli_query($con,$update_position);
+  
+      echo "<script>alert('Position Updated')</script>";
+  
+      echo "<script>window.open('index.php?view_products','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('Products less then position number')</script>";
+  
+      echo "<script>window.open('index.php?view_products','_self')</script>";
+    }
 
   
+  
+  }
+
+
+  if(isset($_GET['Y'])){
+
+    $pro_id = $_GET['Y'];
+
+    $update_visibility = "UPDATE products SET product_visibility='Y' WHERE product_id='$pro_id'";
+  
+    $run_update_visibility = mysqli_query($con,$update_visibility);
+  
+  
+      echo "<script>alert('Product Visible')</script>";
+  
+      echo "<script>window.open('index.php?view_products','_self')</script>";
+  
+  
+  }
+
+  if(isset($_GET['N'])){
+
+    $pro_id = $_GET['N'];
+
+    $update_visibility = "UPDATE products SET product_visibility='N' WHERE product_id='$pro_id'";
+  
+    $run_update_visibility = mysqli_query($con,$update_visibility);
+  
+  
+      echo "<script>alert('Product Visible')</script>";
+  
+      echo "<script>window.open('index.php?view_products','_self')</script>";
+  
+  
+  }
 
 ?>
