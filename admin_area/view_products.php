@@ -27,6 +27,8 @@
                     <th>Description</th>
                     <th>Price</th>
                     <th>Stock</th>
+                    <th>Positions</th>
+                    <th>Visiblity</th>
                     <th class="text-left">Actions</th>
                 </tr>
             </thead>
@@ -53,6 +55,10 @@
 
                 $product_stock = $row_product['product_stock'];
 
+                $product_position = $row_product['product_position'];
+
+                $product_visibility = $row_product['product_visibility'];
+
                 $store_id = $row_product['store_id'];
 
                 $get_store = "select * from store where store_id='$store_id'";
@@ -74,8 +80,8 @@
                     <td><?php echo $product_desc; ?></td>
                     <td>&#8377; <?php echo $product_price; ?></td>
                     <td>
-                        <form action="process_order.php?update_stock=<?php echo $product_id; ?>" class="form-group pull-right" method="post">
-                        <div class="input-group w-50">
+                        <form action="process_order.php?update_stock=<?php echo $product_id; ?>" class="form-group" method="post">
+                        <div class="input-group">
                             <input type="text" class="form-control" name="stock" value="<?php echo $product_stock; ?>">
                             <div class="input-group-append">
                                 <button class="btn btn-primary btn-md btn-icon" type="submit"><i class="tim-icons icon-refresh-02"></i></button>
@@ -83,7 +89,23 @@
                             </div>
                         </form>
                     </td>
-                    <td class="td-actions text-left">
+                    <td>
+                        <form action="process_order.php?update_pos=<?php echo $product_id; ?>" class="form-group" method="post">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="position" value="<?php echo $product_position; ?>" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-md btn-icon" type="submit"><i class="tim-icons icon-refresh-02"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    <td>
+                      <div class="form-group">
+                            <a href="process_order.php?Y=<?php echo $product_id; ?>" class="btn btn-success <?php if($product_visibility=='Y'){echo"d-none";}else{echo"show";} ?>">Show</a>
+                            <a href="process_order.php?N=<?php echo $product_id; ?>" class="btn btn-danger <?php if($product_visibility=='N'){echo"d-none";}else{echo"show";} ?>">Hide</a>
+                      </div>
+                    </td>
+                    <td class="td-actions text-center">
                         <a  href="index.php?edit_product=<?php echo $product_id; ?>" rel="tooltip" class="btn btn-success btn-sm btn-icon">
                             <i class="tim-icons icon-settings"></i>
                         </a>
