@@ -24,6 +24,8 @@ if(isset($_GET['searchVal'])){
 
         $pro_desc = $row_pro['product_desc'];
 
+        $pro_img = $row_pro['product_img1'];
+
         $store_id = $row_pro['store_id'];
 
         $get_name = "select * from store where store_id='$store_id'";
@@ -39,11 +41,15 @@ if(isset($_GET['searchVal'])){
             echo "
             <a href='shop?store_id=$store_id'>
             <div class='row'>
-            <div class='col-12 pl-5 pt-2'>
-            <h5>$pro_name-$pro_desc</h5>
-            <p>In $store_title</p>
+            <div class='col-2 p-2'>
+            <img src='$pro_img' alt='' class='img-thumbnail border-0' width='100%' height='100%'>
+            </div>
+            <div class='col-10 pt-2'>
+            <h5 class='mb-1' style='font-size:1rem;'>$pro_name-$pro_desc</h5>
+            <h6 class='mb-1' style='font-size:0.8rem;'>In $store_title</h6>
             </div>
             </div>
+            <hr class='my-0'>
             </a>
             ";
 
