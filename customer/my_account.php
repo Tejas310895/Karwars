@@ -18,7 +18,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The best online grocery store in Karwar. We can fulfill all your grocery needs ranging from grains,pulses,kitchen needs to fresh vegetables and fruits"/>
     <link rel="shortcut icon" type="image/png" href="../admin_area/admin_images/wrnlogo.png"/>
     <title>Karwar Grocery</title>
@@ -426,38 +426,14 @@ session_start();
                 </div>
                 <div class="modal-body">
                     <form action="my_account" method="post" class="register_form">
-                    <div class="form-group">
-                        <label>City</label>
-                        <select name="c_city" class="form-control" id="city" required>
-                        <option disabled selected hidden>Choose City</option>
-                            <?php 
-                            
-                                $get_city = "select * from city";
-
-                                $run_city = mysqli_query($con,$get_city);
-
-                                while($row_city = mysqli_fetch_array($run_city)){
-
-                                $city_id = $row_city['city_id'];
-
-                                $city_name = $row_city['city_name'];
-                            
-                            ?>
-                            <option><?php echo $city_name;  ?></option>
-                        <?php }?>
-                        </select>
-                    </div>
+                    <input type="hidden" name="c_city" value="Karwar">
                     <div class="form-group">
                         <label>Area</label>
-                        <select name="c_landmark" class="form-control" id="area" required>
-                        <option disabled selected hidden>Choose Area</option>
-                        </select>
+                        <input type="text" name="c_landmark" class="form-control" placeholder="Example:habbuwada">
                     </div>
                     <div class="form-group">
                         <label>Landmark</label>
-                        <select name="c_phase" class="form-control" id="landmark" required>
-                            <option disabled selected hidden>Choose Landmark</option>
-                        </select>
+                        <input type="text" name="c_phase" class="form-control" placeholder="Example:Near bus stand">
                     </div>
                     <div class="form-group ">
                         <label>Society & Flat No/ House No</label>

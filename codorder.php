@@ -64,8 +64,15 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $update_stock = "UPDATE products SET product_stock=product_stock-'$pro_qty' WHERE product_id='$pro_id'";
 
         $run_update_stock = mysqli_query($con,$update_stock);
+
+    }
+}
+
+if($run_customer_order){
+
+    $invoice_no = $invoice_no;
         
-        $text = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20http://www.wernear.in/customer/order_view?invoice_no=$invoice_no";
+        $text = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20https://karwars.in/customer/order_view?invoice_no=$invoice_no";
 
          //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
         $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
@@ -83,19 +90,16 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
         echo "<script>alert('Order Placed, thanks')</script>";
 
+        echo "<script>window.history.go(-window.history.length)</script>";
+
         echo "<script>window.open('customer/my_account','_self')</script>";
 
-
-
-
-    }
-
-}
-
 }else{
-    echo "<script>alert('Order Placed, thanks')</script>";
+    echo "<script>alert('Order Failed, thanks')</script>";
 
     echo "<script>window.open('./','_self')</script>";
+}
+
 }
 
 ?>

@@ -72,7 +72,7 @@ session_start();
 <!-- fixed top -->
 <!-- Order Details -->
 
-    <div class="container bg-white mt-0 pt-2">
+    <div class="container bg-white mt-0 pt-2" style="overflow-y:auto;height:76vh;">
     <?php 
 
     if(isset($_GET['invoice_no'])){
