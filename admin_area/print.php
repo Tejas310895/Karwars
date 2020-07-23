@@ -113,14 +113,14 @@ if(isset($_GET['print'])){
 <div class="container-fluid">
 <div class="row">
     <div class="col-12">
-        <img src="admin_images/black.png" alt="" class="border-0 d-block mx-auto pt-4" width="50%">
-        <h4 class="text-center">We Deliver Happiness</h4>
+        <img src="admin_images/karlogob.png" alt="" class="border-0 d-block mx-auto pt-4" width="50%">
+        <h4 class="text-center">In Association With Gopals Spesials</h4>
         <br>
         <h4>Order Date : <?php echo $order_date; ?></h4>
         <h4>Name : <?php echo $c_name; ?></h4>
         <h4>Mobile No. : <?php echo $c_contact; ?></h4>
         <h4>Address : <?php echo $customer_address.', '.$customer_phase.', '.$customer_landmark.', '.$customer_city.'.'; ?></h4>
-        <h4>Payment Mode : <?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></h4>
+        <!-- <h4>Payment Mode : <?php //if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"CASH";} ; ?></h4> -->
     </div>
     <div class="col-12">
     <table class="table table-lg">

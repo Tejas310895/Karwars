@@ -126,7 +126,7 @@
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
-                                  <div class="col"><h4 class="card-text mb-2">Order on - <?php echo $order_date; ?></h4></div>
+                                  <div class="col"><h4 class="card-text mb-2">Order on - <?php echo date('d/m/Y',strtotime($order_date)); ?></h4></div>
                                   <div class="col"><h4 class="card-title pull-right">Delivery by - <?php echo $date; ?></h4></div>
                                 </div>
                                 <div class="row">
