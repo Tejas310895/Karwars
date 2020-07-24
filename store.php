@@ -245,7 +245,7 @@
                             <h5 class="pro_list_desc"><?php echo $cat_store_desc; ?></h5>
                             <div class="row">
                                 <div class="col-6">
-                                    <h5 class="pro_list_price">₹ <?php echo $cat_min_price; ?></h5>
+                                    <!-- <h5 class="pro_list_price">₹ <?php //echo $cat_min_price; ?></h5> -->
                                 </div>
                                 <div class='col-6'>
                                         <a href="shop?store_id=<?php echo $cat_store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>ADD <i class="fas fa-chevron-right"></i></a>
