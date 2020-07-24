@@ -169,7 +169,7 @@
             <?php delete_index_cart(); ?>
             <?php
             
-                $get_store = "select * from store LIMIT 0,7";
+                $get_store = "SELECT * FROM store where store_id in ('68','71','80','70','67','64','57')";
                 
                 $run_store = mysqli_query($con,$get_store);
                 
@@ -196,7 +196,7 @@
                                             <p class='card-text text-left px-2 store_Desc'><?php echo $store_desc; ?></p>   
                                                 <div class='row'>
                                                     <div class='col-6'>
-                                                    <p class='card-text text-left pro_price pl-2 mt-1'>₹ <?php echo $min_price; ?></p>
+                                                    <!-- <p class='card-text text-left pro_price pl-2 mt-1'>₹ <?php echo $min_price; ?></p> -->
                                                     </div>
                                                     <div class='col-6 px-0'>
                                                         <div class="row">

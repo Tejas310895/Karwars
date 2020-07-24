@@ -98,7 +98,7 @@ if(isset($_GET['pro_id'])){
 
 <div class="container-fluid py-2 fixed-top bg-white">
     <div class="row">
-        <div class="col-2 pr-0 py-1"> <a href="./"><i class="fas fa-arrow-left" style="color:#999;font-size:1.7rem;"></i></a> </div>
+        <div class="col-2 pr-0 py-1"> <a onClick="window.history.back()"><i class="fas fa-arrow-left" style="color:#999;font-size:1.7rem;"></i></a> </div>
         <div class="col-10 pl-0">
             <form action="search_product" method="post">
                 <div class="input-group mb-1 px-0">

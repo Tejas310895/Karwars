@@ -94,7 +94,7 @@ a,.geolocation{
     font-size: 1.2rem;
     font-family: jost;
     font-weight: bold;
-    color: rgb(41, 41, 41);
+    color: #000;
 }
 
 .pro_Desc{
@@ -345,7 +345,7 @@ a.pro_store{
     white-space: nowrap;
     overflow: hidden;
     font-family: jost;
-    color: grey;
+    color: #000;
     font-size: 1rem;
 }
 
@@ -354,14 +354,14 @@ a.pro_store{
     font-size: 1.3rem;
     font-weight: lighter;
     font-family: jost;
-    color: grey;
+    color: #000;
 }
 
 .pro_list_desc{
     font-size: 1rem;
     font-weight: bold;
     font-family: jost;
-    color: #999;
+    color: #000;
 }
 
 .pro_list_price{

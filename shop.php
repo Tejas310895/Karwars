@@ -9,7 +9,7 @@
         <!-- nav -->
             <ul class="nav bg-white shoploc pb-0">
                 <li class="nav-item">
-                    <a class="nav-link pt-2 mt-1" href="store">
+                    <a class="nav-link pt-2 mt-1" onClick="window.history.back()">
                     <svg id="Layer" enable-background="new 0 0 64 64" height="25pt" float="left" fill="#999" viewBox="0 0 64 64" width="25pt" xmlns="http://www.w3.org/2000/svg"><path d="m54 30h-39.892l15.272-14.552c.799-.762.83-2.028.068-2.828-.762-.798-2.027-.831-2.828-.068l-17.445 16.625c-.758.758-1.175 1.761-1.175 2.823s.417 2.063 1.21 2.858l17.41 16.59c.387.369.884.552 1.38.552.528 0 1.055-.208 1.448-.62.762-.8.731-2.065-.068-2.828l-15.341-14.552h39.961c1.104 0 2-.896 2-2s-.896-2-2-2z" fill="#012e52"/></svg>
                     </a>
                 </li>
@@ -146,7 +146,7 @@
         <!-- breadcrumb -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pt-1">
-                    <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Shop</li>
                 </ol>
             </nav>

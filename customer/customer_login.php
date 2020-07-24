@@ -2,7 +2,7 @@
             <!-- nav -->
                 <ul class="nav bg-white cartloc ">
                     <li class="nav-item">
-                        <a class="nav-link" href="./">
+                        <a class="nav-link" onClick="window.history.back()">
                             <i style="font-size: 1.8rem;" class="fas fa-arrow-left"></i>
                         </a>
                     </li>
@@ -15,7 +15,7 @@
     <!-- breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb pt-1">
-                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="../">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Login</li>
             </ol>
         </nav>

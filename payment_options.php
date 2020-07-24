@@ -22,7 +22,7 @@ $session_email = $_SESSION['customer_email'];
             <!-- nav -->
                 <ul class="nav bg-white cartloc ">
                     <li class="nav-item">
-                        <a class="nav-link" href="cart">
+                        <a class="nav-link" onClick="window.history.back()">
                             <i style="font-size: 1.8rem;" class="fas fa-arrow-left"></i>
                         </a>
                     </li>
@@ -82,10 +82,10 @@ $session_email = $_SESSION['customer_email'];
 
                     </select>
                 </div>
-                <div class="form-group my-4">
+                <!-- <div class="form-group my-4">
                 <h5 class="add_head my-3">Schedule your Delivery</h5>
                 <input type="text" class="form-control select_address" name="date" id="datepicker" required>
-                </div>
+                </div> -->
                 <!-- <div class="alert alert-primary mb-3 px-2 py-1">
                     <img src="admin_area/admin_images/cod.png" width="20">
                     <label class="form-check-label cod_text" for="exampleRadios1">

@@ -55,7 +55,7 @@ session_start();
         <!-- nav -->
             <ul class="nav bg-white accounttop ">
                 <li class="nav-item">
-                    <a class="nav-link" href="my_account">
+                    <a class="nav-link" onClick="window.history.back()">
                         <i style="font-size: 1.5rem;" class="fas fa-arrow-left"></i>
                     </a>
                 </li>

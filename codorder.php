@@ -6,7 +6,7 @@ if(isset($_POST['c_id'])){
 
     $add_id = $_POST['add_id'];
 
-    $date = $_POST['date'];
+    $date = "NOW()";
 
 $get_contact = "select * from customers where customer_id='$customer_id'";
 
