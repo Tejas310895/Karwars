@@ -22,7 +22,7 @@
     <!-- breadcrumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb pt-1">
-                <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a</li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Register</li>
             </ol>
         </nav>

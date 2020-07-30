@@ -20,6 +20,8 @@ if(isset($_GET['searchVal'])){
 
         $row_pro = mysqli_fetch_array($run_pro);
 
+        $pro_id = $row_pro['product_id'];
+
         $pro_name = $row_pro['product_title'];
 
         $pro_desc = $row_pro['product_desc'];
@@ -39,7 +41,7 @@ if(isset($_GET['searchVal'])){
         if(isset($store_title)){
 
             echo "
-            <a href='shop?store_id=$store_id'>
+            <a href='shop?store_id=$store_id#$pro_id'>
             <div class='row'>
             <div class='col-2 p-2'>
             <img src='$pro_img' alt='' class='img-thumbnail border-0' width='100%' height='100%'>

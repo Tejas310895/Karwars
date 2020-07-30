@@ -85,7 +85,22 @@ if($run_customer_order){
         //grab URL and pass it to the variable. 
         curl_setopt($ch, CURLOPT_URL, $url); 
         
-        $result = curl_exec($ch); 
+        $result = curl_exec($ch);
+
+        $text2 = "Order%20Received-https://karwars.in/admin_area/print.php?print=$invoice_no";
+
+         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+        $url2 = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=917892916394&textmessage=$text2";
+        // Initialize a CURL session. 
+        $ch2 = curl_init();  
+        
+        // Return Page contents. 
+        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1); 
+        
+        //grab URL and pass it to the variable. 
+        curl_setopt($ch2, CURLOPT_URL, $url); 
+        
+        $result2 = curl_exec($ch2);
 
 
         echo "<script>alert('Order Placed, thanks')</script>";

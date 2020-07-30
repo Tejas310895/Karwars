@@ -118,41 +118,17 @@ $session_email = $_SESSION['customer_email'];
                 </div>
                 <div class="modal-body">
                     <form action="checkout.php" method="post" class="register_form mt-0">
-                    <div class="form-group">
-                        <label>City</label>
-                        <select name="c_city" class="form-control" id="city" required>
-                        <option disabled selected hidden>Choose City</option>
-                            <?php 
-                            
-                                $get_city = "select * from city";
-
-                                $run_city = mysqli_query($con,$get_city);
-
-                                while($row_city = mysqli_fetch_array($run_city)){
-
-                                $city_id = $row_city['city_id'];
-
-                                $city_name = $row_city['city_name'];
-                            
-                            ?>
-                            <option><?php echo $city_name;  ?></option>
-                        <?php }?>
-                        </select>
-                    </div>
+                    <input type="hidden" name="c_city" value="Karwar">
                     <div class="form-group">
                         <label>Area</label>
-                        <select name="c_landmark" class="form-control" id="area" required>
-                            <option disabled selected hidden>Choose Area</option>
-                        </select>
+                        <input type="text" name="c_landmark" class="form-control" placeholder="Example:habbuwada">
                     </div>
                     <div class="form-group">
-                        <label>Phase</label>
-                        <select name="c_phase" class="form-control" id="landmark" required>
-                            <option disabled selected hidden>Choose Landmark</option>
-                        </select>
+                        <label>Landmark</label>
+                        <input type="text" name="c_phase" class="form-control" placeholder="Example:Near bus stand">
                     </div>
                     <div class="form-group ">
-                        <label>Address</label>
+                        <label>Society & Flat No/ House No</label>
                         <input type="text" class="form-control" id="address" name="c_address" aria-describedby="emailHelp" placeholder="Enter Address" required>
                     </div>
                     <div class="form-group ">

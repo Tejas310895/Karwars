@@ -114,7 +114,7 @@ if(isset($_GET['print'])){
 <div class="row">
     <div class="col-12">
         <img src="admin_images/karlogob.png" alt="" class="border-0 d-block mx-auto pt-4" width="50%">
-        <h4 class="text-center">In Association With Gopals Spesials</h4>
+        <h4 class="text-center">In Association With Gopals Special</h4>
         <br>
         <h4>Order Date : <?php echo $order_date; ?></h4>
         <h4>Name : <?php echo $c_name; ?></h4>
@@ -259,7 +259,7 @@ if(isset($_GET['print'])){
     </div>
     <div class="col-12">
         <h5 class="text-center">Thank You</h5>
-        <h6 class="text-center">Order Again : www.wernear.in</h6>
+        <h6 class="text-center">Order Again : www.karwars.in</h6>
     </div>
 </div>
 </div>

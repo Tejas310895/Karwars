@@ -415,6 +415,10 @@
     </div>
 <!-- offers -->
 
+<div class="icon-bar">
+  <a href="tel:7892916394" class="support"><img src="admin_area/admin_images/support.svg" alt="" width="30px"></a>
+</div>
+
 <?php 
 
 include("includes/footer.php");
