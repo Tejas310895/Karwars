@@ -19,7 +19,7 @@
                     <a href='checkout'>
                         Hi Guest <br> 
                         <i class='fas fa-map-marker-alt'></i> 
-                        Choose your location
+                        Need Help ✆ 7892916394
                         <i class='fas fa-chevron-down'></i> 
                     
                     </a>
@@ -69,7 +69,7 @@
                         <a href='customer/my_account'>
                         $c_name <br> 
                         <i class='fas fa-map-marker-alt'></i> 
-                        Need Help ✆ 7892916394
+                        Add Your Location
                         <i class='fas fa-chevron-down'></i> 
                         </a>
                         ";
@@ -169,7 +169,7 @@
             <?php delete_index_cart(); ?>
             <?php
             
-                $get_store = "SELECT * FROM store where store_id in ('68','71','80','70','67','64','57')";
+                $get_store = "SELECT * FROM store where store_id in ('93','71','80','70','67','64','57')";
                 
                 $run_store = mysqli_query($con,$get_store);
                 
@@ -406,9 +406,9 @@
                 
                 ?>
             <div class="col-12 mx-1 my-2">
-                <a href="newshop.php">
+                <!-- <a href="newshop.php"> -->
                 <img src="admin_area/other_images/<?php echo $offer_img; ?>" class="img-fluid" alt="Responsive image">
-                </a>
+                <!-- </a> -->
             </div>
                 <?php } ?>
         </div>
