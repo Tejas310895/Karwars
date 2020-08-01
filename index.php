@@ -69,7 +69,7 @@
                         <a href='customer/my_account'>
                         $c_name <br> 
                         <i class='fas fa-map-marker-alt'></i> 
-                        Add Your Location
+                        Need Help ✆ 7892916394
                         <i class='fas fa-chevron-down'></i> 
                         </a>
                         ";
@@ -414,10 +414,10 @@
         </div>
     </div>
 <!-- offers -->
-
+<!-- 
 <div class="icon-bar">
   <a href="tel:7892916394" class="support"><img src="admin_area/admin_images/support.svg" alt="" width="30px"></a>
-</div>
+</div> -->
 
 <?php 
 

@@ -48,7 +48,6 @@ $session_email = $_SESSION['customer_email'];
                 $count = mysqli_num_rows($run_add_count);
                 
                 ?>
-                <button type="button" class="btn btn-secondary btn-block" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" >ADD NEW ADDRESS</button>
                 <form action="order.php" class="add_form" method="post" style="display:<?php if($count>0){echo 'block';}else{echo 'none';} ?>;">
                 <input type="hidden" name="c_id" class="form-control" value="<?php echo $customer_id; ?>">
                 <h5 class="add_head">Select Your Address</h5>
@@ -102,6 +101,7 @@ $session_email = $_SESSION['customer_email'];
                 </div> -->
             <button type="submit" class="btn btn-success btn-block add_head_btn fixed-bottom">Place Order</button>
         </form>
+        <button type="button" class="btn btn-secondary btn-block mb-2" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" >ADD NEW ADDRESS</button>
         </div>
     </div>
 

@@ -17361,7 +17361,7 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
   width: 100%;
-  min-height: 100%;
+  min-height: 85%;
   max-height: calc(100vh - 705px);
   z-index: 4;
   position: relative;

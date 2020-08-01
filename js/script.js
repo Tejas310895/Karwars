@@ -110,4 +110,8 @@
         $(window).on('popstate', function() {
             location.reload(true);
          });
+         
+         if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+          }
     });

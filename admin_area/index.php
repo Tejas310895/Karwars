@@ -73,7 +73,7 @@
   <!-- Nucleo Icons -->
   <link href="dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="dashboard/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="dashboard/assets/css/black-dashboard.css?v=2.0.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="dashboard/assets/demo/demo.css" rel="stylesheet" />
 

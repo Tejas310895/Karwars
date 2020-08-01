@@ -126,7 +126,7 @@
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
-                                  <div class="col"><h4 class="card-text mb-2">Order on - <?php echo date('d/m/Y',strtotime($order_date)); ?></h4></div>
+                                  <div class="col"><h4 class="card-text mb-2">Order on - <?php echo date('d/M/Y,h:i:s a',strtotime($order_date)); ?></h4></div>
                                   <div class="col"><h4 class="card-title pull-right">Delivery by - <?php echo $date; ?></h4></div>
                                 </div>
                                 <div class="row">
@@ -152,7 +152,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button id="show_details" class="btn btn-success card-link pull-left mt-2" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">View</button>
-                                        <a href="print.php?print=<?php echo $invoice_id; ?>" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Print</a>
+                                        <a href="print.php?print=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Print</a>
                                     </div>
                                     <div class="col-lg-6">
                                         <form action="process_order.php?update_order=<?php echo $invoice_id; ?>" class="form-group pull-right" method="post">
