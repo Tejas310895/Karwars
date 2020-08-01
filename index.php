@@ -153,6 +153,13 @@
         <div class="row pl-1 pb-2">
             <div class="col">
                 <h5 class="heading_main">Most Reviewed</h5>
+                <?php 
+                date_default_timezone_set("Asia/Calcutta");
+                $today = date('Y-m-d, H:i:s');
+
+                echo $today;
+                
+                ?>
             </div>
         </div>
     </div>
