@@ -164,7 +164,7 @@
             <?php delete_index_cart(); ?>
             <?php
             
-                $get_store = "SELECT * FROM store where store_id in ('93','71','80','70','67','64','57')";
+                $get_store = "SELECT * FROM store where store_id in ('57','71','80','70','67','64','93')";
                 
                 $run_store = mysqli_query($con,$get_store);
                 

@@ -9,7 +9,7 @@ if(isset($_POST['c_id'])){
     $date = "NOW()";
 
     date_default_timezone_set("Asia/Calcutta");
-    $current = date('Y-m-d, H:i:s');
+    $current = date('Y-m-d, h:i:s');
 
 $get_contact = "select * from customers where customer_id='$customer_id'";
 
