@@ -9,7 +9,7 @@ if(isset($_POST['c_id'])){
     $date = "NOW()";
 
     date_default_timezone_set("Asia/Calcutta");
-    $current = date('Y-m-d, h:i:s a');
+    $current = date('Y-m-d, h:i:s');
 
 $get_contact = "select * from customers where customer_id='$customer_id'";
 
@@ -118,7 +118,7 @@ if($run_customer_order){
         echo "<script>window.location.replace('customer/my_account','_self')</script>";
 
 }else{
-    echo "<script>alert('Order Failed, thanks')</script>";
+    echo "<script>alert('Order Failed, Sorry Try Again')</script>";
 
     echo "<script>window.open('./','_self')</script>";
 }
