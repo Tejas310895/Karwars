@@ -16,13 +16,8 @@
                 if(!isset($_SESSION['customer_email'])){
 
                     echo "
-                    <a href='checkout'>
                         Hi Guest <br> 
-                        <i class='fas fa-map-marker-alt'></i> 
                         Need Help ✆ 7892916394
-                        <i class='fas fa-chevron-down'></i> 
-                    
-                    </a>
                     ";
 
                 }else{
