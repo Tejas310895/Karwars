@@ -20,12 +20,12 @@
             <!-- nav -->
 
     <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb pt-1">
-                <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cart</li>
-            </ol>
-        </nav>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb pt-1">
+                    <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                </ol>
+            </nav>
     <!-- breadcrumb -->
 
     </div>
@@ -162,7 +162,7 @@
 ?>
 
 <!-- bill Section -->
-    <div class="container bg-white mt-2 mb-5 fixed-bottom" style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
+    <!-- <div class="container bg-white mt-2 mb-5 fixed-bottom" style="display:<?php //if($count>0){echo"block";}else{echo"none";} ?>;">
         <table class="table table-sm table-borderless bill_section ">
             <tbody>
                 <thead>
@@ -172,32 +172,33 @@
                 </thead>
                 <tr>
                     <th scope="row" class="bill_sub_total">Item Total:</th>
-                    <td class="bill_sub_total text-center">₹ <?php echo $total; ?></td>
+                    <td class="bill_sub_total text-center">₹ <?php //echo $total; ?></td>
                 </tr>
-                <tr style="display:<?php if($del_charges>0){echo"table-row";}else{echo"none";} ?>;">
+                <tr style="display:<?php //if($del_charges>0){echo"table-row";}else{echo"none";} ?>;">
                     <th scope="row" class="bill_charges" >Delivery Charges:</th>
-                    <td class="bill_charges text-center">₹ <?php echo $del_charges; ?></td>
+                    <td class="bill_charges text-center">₹ <?php// echo $del_charges; ?></td>
                 </tr>
                 <tr>
                     <th scope="row" class="bill_total">TOTAL:</th>
-                    <td class="bill_total text-center">₹ <?php echo $total+$del_charges; ?></td>
+                    <td class="bill_total text-center">₹ <?php// echo $total+$del_charges; ?></td>
                 </tr>
             </tbody>
         </table>
-        <h5 class="save_total text-center <?php if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php echo $you_save; ?> on this order</h5>
-    </div>
+        <h5 class="save_total text-center <?php //if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php //echo $you_save; ?> on this order</h5>
+    </div> -->
     
   
 <!-- bill Section -->
 
 <!-- checkout float -->
-    <div class="container-fluid fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
+    <div class="container-fluid px-0 fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
+    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php echo $you_save; ?> on this order</h5>
         <div class="row cart_bottom">
-            <div class="col-6 pl-3">
+            <div class="col-6 pl-4">
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
-                <h4 class="item_cost mb-0">₹ <?php echo $total+$del_charges; ?></h3>
+                <h4 class="item_cost mb-0">Total: ₹ <?php echo $total+$del_charges; ?></h3>
             </div>
-            <div class="col-6 p-0">
+            <div class="col-6 pr-2">
                 <?php if($min_price>$total){
 
                     $required = $min_price-$total;
@@ -205,7 +206,7 @@
                     echo "
                     
                     <a class='btn btn-success pull-right bill_checkout' style='color:#fff;'>
-                    Add $required More
+                    Add ₹ $required More
                     </a>
                     
                     ";
