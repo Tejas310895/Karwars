@@ -140,7 +140,7 @@
         <div class="container" style="display:<?php if($count>0){echo"none";}else{echo"block";} ?>;">
                     <div class="row">
                         <div class="col-lg"><img src="admin_area/other_images/cart_lobo.png" class="img-fluid w-75 mx-auto d-block" alt="..."></div>
-                        <div class="col-lg"><h5 class="order_again">Lobo is waiting for your order</h5></div>
+                        <div class="col-lg"><h5 class="order_again">We are waiting for your order</h5></div>
                         <div class="col-lg px-5"><a href="store" class="btn btn-warning btn-block order_again_bottom d-block p-1">Start Shopping</a></div>
                     </div>
                 </div>
