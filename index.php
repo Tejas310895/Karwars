@@ -124,7 +124,7 @@
 
                         <a href='$slide_url'>
 
-                            <img src='admin_area/slides_images/$slide_image' class='d-block w-100'>
+                            <img src='$slide_image' class='d-block w-100'>
 
                         </a>
 
