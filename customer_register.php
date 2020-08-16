@@ -131,7 +131,7 @@ if(isset($_POST['register'])){
 
         echo "<script>alert('You have Registered Sucessfully')</script>";
 
-        echo "<script>window.open('cart','_self')</script>";
+        echo "<script>window.history.go(-3)</script>";
 
     }else{
 
@@ -141,7 +141,7 @@ if(isset($_POST['register'])){
 
         echo "<script>alert('You have Registered Sucessfully')</script>";
 
-        echo "<script>window.open('./','_self')</script>";
+        echo "<script>window.history.go(-3)</script>";
 
     }
     

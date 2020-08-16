@@ -118,14 +118,15 @@
 
             echo "<script>alert('your are Logged in ')</script>";
 
-            echo "<script>window.open('customer/my_account','_self')</script>";
+            echo "<script>window.history.go(-2)</script>";
+            
             }else{
 
             $_SESSION['customer_email']=$customer_email;
 
             echo "<script>alert('your are Logged in ')</script>";
 
-            echo "<script>window.open('cart','_self')</script>";
+            echo "<script>window.history.go(-2)</script>";
 
 
         }

@@ -354,6 +354,36 @@
                 
               }
 
+              if(isset($_GET['view_client'])){
+                    
+                include("view_client.php");
+                
+              }
+
+              if(isset($_GET['insert_client'])){
+                    
+                include("insert_client.php");
+                
+              }
+
+              if(isset($_GET['edit_client'])){
+                    
+                include("edit_client.php");
+                
+              }
+
+              if(isset($_GET['confirm_order'])){
+                    
+                include("confirm_order.php");
+                
+              }
+
+              if(isset($_GET['delete_client'])){
+                    
+                include("delete_client.php");
+                
+              }
+
             ?>
 
         </div>

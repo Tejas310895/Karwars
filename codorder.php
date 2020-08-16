@@ -75,7 +75,7 @@ if($run_customer_order){
 
     $invoice_no = $invoice_no;
 
-    $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20click%20here%20to%20View%20Details%20:-%20https://karwars.in/customer/order_view?invoice_no=$invoice_no";
+    $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
     $text2 = "Order%20Received-https://karwars.in/admin_area/print.php?print=$invoice_no";
     //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
    $url1 = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text1";
@@ -113,9 +113,7 @@ if($run_customer_order){
         
         echo "<script>alert('Order Placed, thanks')</script>";
 
-        echo "<script>window.history.go(-2)</script>";
-
-        echo "<script>window.location.replace('customer/my_account','_self')</script>";
+        echo "<script>window.open('customer/order_success','_self')</script>";
 
 }else{
     echo "<script>alert('Order Failed, Sorry Try Again')</script>";

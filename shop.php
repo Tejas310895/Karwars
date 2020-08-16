@@ -212,7 +212,7 @@
                         $pro_stock = $row_products['product_stock'];
                         ?>
                         
-                            <div class="row bg-white mt-1 py-2" id="$pro_id">
+                            <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
                                     <div class="col-4">
                                         <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
                                         <h5 class="pro_dis_price mb-0">₹ <?php echo $price_display; ?> </h5>
