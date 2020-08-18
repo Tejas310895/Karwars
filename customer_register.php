@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
             <label>Mobile No.</label>
-            <input type="number"  minlength="10" maxlength="10" class="form-control" id="name" name="c_contact" aria-describedby="emailHelp" placeholder="Enter Number" required>
+            <input type="tel"  minlength="10" maxlength="10" class="form-control" id="name" name="c_contact" aria-describedby="emailHelp" placeholder="Enter Mobile No. without +91/0" required>
         </div>
         <div class="form-group">
             <label>Email address</label>
