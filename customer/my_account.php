@@ -316,7 +316,7 @@ session_start();
                             <div class="card-body py-1">
                                 <div class="row">
                                     <div class="col-9">
-                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items Delivered</h5>
+                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items <?php echo $order_status; ?></h5>
                                         <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  $order_sum+$del_charges; ?></h4>
                                         <p class="card-text mb-0  <?php if($txn_status==='TXN_SUCCESS'){echo 'text-success';}else{echo 'text-danger'; } ?>" style="font-size:0.7rem;font-weight:bold;">
                                         <?php 

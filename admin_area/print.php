@@ -23,7 +23,7 @@ if(isset($_GET['print'])){
 
     $order_date = $row_orders['order_date'];
 
-    $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id'";
+    $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver'";
 
     $run_total = mysqli_query($con,$get_total);
 
@@ -139,53 +139,84 @@ if(isset($_GET['print'])){
         </thead>
         <tbody class="text-center" style="font-weight:bold;">
         <?php
-                                          
-            $get_pro_id = "select * from customer_orders where invoice_no='$invoice_id'";
 
-            $run_pro_id = mysqli_query($con,$get_pro_id);
+				$get_pro_id = "select * from customer_orders where invoice_no='$invoice_id'";
 
-            $counter = 0;
+				$run_pro_id = mysqli_query($con,$get_pro_id);
 
-            while($row_pro_id = mysqli_fetch_array($run_pro_id)){
+				$counter = 0;
 
-            $pro_id = $row_pro_id['pro_id'];
+				while($row_pro_id = mysqli_fetch_array($run_pro_id)){
+					
+				$pro_id = $row_pro_id['pro_id'];
 
-            $qty = $row_pro_id['qty'];
+				$qty = $row_pro_id['qty'];
 
-            $get_pro = "select * from products where product_id='$pro_id'";
+				$product_status = $row_pro_id['product_status'];
 
-            $run_pro = mysqli_query($con,$get_pro);
+				$sub_total = $row_pro_id['due_amount'];
 
-            $row_pro = mysqli_fetch_array($run_pro);
+				$pro_price = $sub_total/$qty;
 
-            $pro_title = $row_pro['product_title'];
+				$get_pro = "select * from products where product_id='$pro_id'";
 
-            $pro_price = $row_pro['product_price'];
+				$run_pro = mysqli_query($con,$get_pro);
 
-            $pro_desc = $row_pro['product_desc'];
+				while($row_pro = mysqli_fetch_array($run_pro)){
 
-            $pro_hsn = $row_pro['hsn'];
-            
-            $sub_total = $pro_price * $qty;
+					// $total =0;
 
-            $get_min = "select * from admins";
+					$pro_title = $row_pro['product_title'];
 
-            $run_min = mysqli_query($con,$get_min);
+					$pro_desc = $row_pro['product_desc'];
 
-            $row_min = mysqli_fetch_array($run_min);
+					// $pro_price = $row_pro['product_price'];
 
-            $min_price = $row_min['min_order'];
+					$mrp = $row_pro['price_display'];
 
-            $del_charges = $row_min['del_charges'];
+					if($mrp<=0){
 
-            ?>
-            <tr>
-                <!-- <td scope="row"><?php //echo $pro_hsn; ?></td> -->
-                <td style="width:70%;" class="text-left"><?php echo $pro_title; ?> - <?php echo $pro_desc; ?></td>
-                <td ><?php echo  $qty; ?></td>
-                <td>₹ <?php echo $sub_total; ?></td>
-            </tr>
-        <?php } ?>
+						$discount=0;
+
+					}else{
+
+						$discount=($mrp-$pro_price)*$qty;
+					} 
+
+					// $sub_total = $row_pro['product_price']*$qty;
+					
+					// $total += $sub_total;
+
+					$counter = ++$counter;
+
+					if($product_status==='Deliver'){
+
+						echo "
+
+						<tr>
+						<td class='text-center'>$pro_title</td>
+						<td class='text-center'>$pro_desc X $qty</td>
+						<td class='text-center'>$sub_total.00</td>
+						</tr>
+						";	
+
+					}else {
+
+						echo "
+
+						<tr>
+						<td class='text-center'>$pro_title</td>
+						<td class='text-center'>$pro_desc X $qty</td>
+						<td class='text-center' colspan='2'><strong>Undelivered</strong></td>
+						</tr>
+						";	
+
+					}
+
+					}
+
+				}
+				?>
         <tr>
         <th colspan="2" class="text-right">Item Total :</th>
         <td> ₹ <?php echo $total; ?></td>
