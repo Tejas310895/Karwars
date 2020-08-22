@@ -106,7 +106,7 @@ if(isset($_POST['show'])){
 
     $counter = 0;
 
-    $get_invoice = "SELECT * FROM customer_orders where  $status and date(order_date) between '$from' and '$to'";
+    $get_invoice = "SELECT distinct (invoice_no) FROM customer_orders where  $status and date(order_date) between '$from' and '$to'";
 
     $run_invoice = mysqli_query($con,$get_invoice);
 
