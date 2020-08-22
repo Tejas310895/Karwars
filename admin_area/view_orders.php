@@ -179,7 +179,7 @@
                                     <div class="col-lg-6">
                                       <div class="row">
                                       <div class="col-6">
-                                      <button type="button" class="btn btn-danger <?php if($order_status==='Order Placed'){echo"show";}else {echo"d-none";} ?>" data-toggle="modal" data-target="#cancle">Cancle Order</button>
+                                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancle">Cancle Order</button>
                                       <div class="modal fade" id="cancle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                           <div class="modal-content">
