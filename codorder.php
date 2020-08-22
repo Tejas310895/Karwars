@@ -80,8 +80,8 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
         $text2 = "Postpaid%20Order%20Received-https://www.karwars.in/admin_area/print.php?print=$invoice_no";
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-        $url1 = "http://api.bulksmsplans.com/api/SendSMS?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=+91$c_contact&textmessage=$text1";
-        $url2 = "http://api.bulksmsplans.com/api/SendSMS?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=+919867765397&textmessage=$text2";
+        $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
+        $url2 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text2&number=+917292916394";
 
         // create both cURL resources
         $ch1 = curl_init();

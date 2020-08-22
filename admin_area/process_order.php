@@ -49,7 +49,7 @@ if(isset($_GET['cancel_order'])){
   
       echo "<script>window.open('index.php?view_orders','_self')</script>";
 
-      $text = "Your%20Order%20with%20Order%20Id%20$update_order%20is%20been%20Cancelled%20Call%209019196792%20For%20Support";
+      $text = "Your%20Order%20with%20Order%20Id%20$update_order%20is%20been%20Cancelled%20Call%207292916394%20For%20Support";
 
       //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
     //  $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
