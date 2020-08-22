@@ -55,7 +55,7 @@ session_start();
         <!-- nav -->
             <ul class="nav bg-white accounttop ">
                 <li class="nav-item">
-                    <a class="nav-link" onClick="window.history.back()">
+                    <a class="nav-link" href="my_account">
                         <i style="font-size: 1.5rem;" class="fas fa-arrow-left"></i>
                     </a>
                 </li>
@@ -64,26 +64,38 @@ session_start();
                 </li>
             </ul>
         <!-- nav -->
+        <div class="row">
+            <div class="col-12 pr-0">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item active" aria-current="page" my-0 mx-0 rounded-0>Order ID - <?php echo $_GET['invoice_no']; ?></li>
                     </ol>
                 </nav>
+            </div>
+        </div>
 <!-- fixed top -->
 <!-- Order Details -->
 
-    <div class="container bg-white mt-0 pt-2" style="overflow-y:auto;height:76vh;">
+    <div class="container bg-white mt-0 pt-1 px-1" style="overflow-y:auto;height:76vh;">
     <?php 
 
     if(isset($_GET['invoice_no'])){
 
         $invoice_no = $_GET['invoice_no'];
 
+        $get_status = "select * from customer_orders where invoice_no='$invoice_no'";
+
+        $run_status = mysqli_query($con,$get_status);
+
+        $row_status = mysqli_fetch_array($run_status);
+
+        $order_status = $row_status['order_status'];
+
         $get_pro_id = "select * from customer_orders where invoice_no='$invoice_no'";
 
         $run_pro_id = mysqli_query($con,$get_pro_id);
 
-        $get_total = "SELECT sum(due_amount) as sum_total FROM customer_orders WHERE invoice_no='$invoice_no'";
+        $get_total = "SELECT sum(due_amount) as sum_total FROM customer_orders WHERE invoice_no='$invoice_no' and product_status='Deliver'";
 
         $run_total = mysqli_query($con,$get_total);
 
@@ -98,18 +110,27 @@ session_start();
         $row_total = mysqli_fetch_array($run_total);
 
         while($row_pro_id = mysqli_fetch_array($run_pro_id)){
-
+            
         $pro_id = $row_pro_id['pro_id'];
 
         $qty = $row_pro_id['qty'];
 
+        $sub_total = $row_pro_id['due_amount'];
+
+        if($row_pro_id['product_status']==='Deliver'){
+            $product_status = 'Delivered';
+            $sta_color = 'text-success';
+        }else{
+            $product_status = 'Undelivered';
+            $sta_color = 'text-danger';
+        }
         $get_pro = "select * from products where product_id='$pro_id'";
 
         $run_pro = mysqli_query($con,$get_pro);
 
         while($row_pro = mysqli_fetch_array($run_pro)){
 
-            $total =0;
+            // $total =0;
 
             $pro_title = $row_pro['product_title'];
 
@@ -119,9 +140,10 @@ session_start();
 
             $pro_price = $row_pro['product_price'];
 
-            $sub_total = $row_pro['product_price']*$qty;
+            // $sub_total = $row_pro['product_price']*$qty;
             
-            $total += $sub_total;
+            // $total += $sub_total;
+
 
             echo "
 
@@ -136,18 +158,18 @@ session_start();
                     <div class='col-1 px-0 pt-3'>
                         <p class='view_qty'>X $qty</p>
                     </div>
-                    <div class='col-4 px-0 pt-3'>
-                        <h5 class='view_total text-center'>₹ $sub_total</h5>
+                    <div class='col-4 px-0 pt-1'>
+                        <h5 class='view_total text-center mb-0'>₹ $sub_total</h5>
+                        <p class='text-center mb-0 $sta_color'>$product_status</p>
                     </div>
                 </div>
             
-            
             ";
+
+
             }
 
         }
-
-
 
     }else{
 
@@ -156,16 +178,18 @@ session_start();
     }
 
     ?>
-            <div class="row py-1 fixed-bottom px-3" style="background-color:#999;">
+            <div class="row fixed-bottom px-3 <?php if($row_total['sum_total']>=1){echo 'show';}else{echo 'd-none';}?>" style="background-color:#999;">
                 <div class="col-6">
-                    <h5 class="total_sum text-left mb-0">Total:</h5>
-                    <p class="mb-0">Inc of Charges</p>
+                    <h5 class="total_sum text-left mb-0 mt-2">Total:</h5>
                 </div>
                 <div class="col-6">
                     <h5 class="total_sum text-right py-2">₹ <?php echo $row_total['sum_total']+$del_charges; ?></h5>
                 </div>
+                <!-- <div class="col-4 bg-warning px-0 <?php //if($order_status==='Delivered'){echo "show";}else{echo"d-none";} ?>">
+                    <a href="invoice?pdf=<?php //echo $_GET['invoice_no']; ?>" class="btn px-1 pt-3 pb-0" style="font-size:1.2rem;padding-top:12px!important;color:#fff;" download><i class="fas fa-download"></i> INVOICE</a>
+                </div> -->
             </div>
-                </div>
+    </div>
 
 
     <?php

@@ -88,40 +88,70 @@ if(!isset($_SESSION['admin_email'])){
                 </div>
                 </div>
                 <div class="w-100"></div>
-                <div class="col-lg-6 col-md-6 mt-3">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select Category</label>
-                        <select class="form-control" name="hsn_code" id="exampleFormControlSelect1" required>
-                        <?php 
-                                
-                                $get_hsn = "select * from taxes";
-                                $run_hsn = mysqli_query($con,$get_hsn);
-                                
-                                while ($row_hsn=mysqli_fetch_array($run_hsn)){
-                                    
-                                    $hsn_code = $row_hsn['hsn_code'];
-                                    $tax_for = $row_hsn['tax_for'];
-                                    
-                                    echo "
-                                    
-                                    <option value='$hsn_code'> $hsn_code-$tax_for </option>
-                                    
-                                    ";
-                                    
-                                }
-                                
-                                ?>
-                        </select>
-                    </div>
+                    <div class="col-lg-6 col-md-6 mt-3">
+                        <div class="form-group">
+                            <label>Choose Product Image</label>
+                            <input type="text" name="product_img1" class="form-control" placeholder="Product image link" required>
+                        </div>
+                   </div>
+                   <div class="col-lg-6 col-md-6 mt-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Client</label>
+                    <select class="form-control" name="client" id="exampleFormControlSelect1" required>
+                    <?php 
+                              
+                              $get_client = "select * from clients";
+                              $run_client = mysqli_query($con,$get_client);
+                              
+                              while ($row_client=mysqli_fetch_array($run_client)){
+                                  
+                                  $client_id = $row_client['client_id'];
+                                  $client_title = $row_client['client_shop'];
+                                  
+                                  echo "
+                                  
+                                  <option value='$client_id'> $client_title </option>
+                                  
+                                  ";
+                                  
+                              }
+                              
+                              ?>
+                    </select>
                 </div>
-                    <div class="col-lg-6 col-md-6 mt-5">
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label> -->
-                                <input type="text" name="product_img1" class="form-control" placeholder="Product image link" required>
-                            </div>
-                    </div>
                 </div>
+                   <div class="w-100"></div>
+                   <div class="col-4">
+                        <div class="form-group">
+                            <label>HSN CODE</label>
+                            <input type="number" name="product_hsn" step="0.01" class="form-control" placeholder="Enter Hsn Code" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>CGST</label>
+                            <input type="number" name="product_cgst" step="0.01" class="form-control" placeholder="Enter CGST" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                       <div class="form-group">
+                            <label>SGST</label>
+                            <input type="number" name="product_sgst" step="0.01" class="form-control" placeholder="Enter SGST" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>IGST</label>
+                            <input type="number" name="product_igst" step="0.01" class="form-control" placeholder="Enter IGST" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>CESS</label>
+                            <input type="number" name="product_cess" step="0.01" class="form-control" placeholder="Enter CESS" required>
+                        </div>
+                   </div>
+                   <div class="w-100"></div>
                 <div class="col-lg-12 col-md-12 mt-5">
                 <div class="form-group pull-left">
                     <input type="submit" name="submit" value="Submit Now" class="btn btn-success form-control">
@@ -142,7 +172,12 @@ if(isset($_POST['submit'])){
     $product_keywords = $_POST['product_keywords'];
     $product_desc = $_POST['product_desc'];
     $product_stock = $_POST['product_stock'];
-    $hsn_code = $_POST['hsn_code'];
+    $product_hsn = $_POST['product_hsn'];
+    $product_cgst = $_POST['product_cgst'];
+    $product_sgst = $_POST['product_sgst'];
+    $product_igst = $_POST['product_igst'];
+    $product_cess = $_POST['product_cess'];
+    $client = $_POST['client'];
     
     $product_img1 = $_POST['product_img1'];
     
@@ -150,8 +185,38 @@ if(isset($_POST['submit'])){
     
     //move_uploaded_file($temp_name1,"product_images/$product_img1");
     
-    $insert_product = "insert into products (store_id,date,product_title,product_img1,product_price,price_display,product_keywords,product_desc,product_stock,hsn,product_visibility) 
-    values ('$store',NOW(),'$product_title','$product_img1','$product_price','$display_price','$product_keywords','$product_desc','$product_stock','$hsn_code','Y')";
+    $insert_product = "insert into products (store_id,
+                                            date,
+                                            product_title,
+                                            product_img1,
+                                            product_price,
+                                            price_display,
+                                            product_keywords,
+                                            product_desc,
+                                            product_stock,
+                                            product_hsn,
+                                            product_cgst,
+                                            product_sgst,
+                                            product_igst,
+                                            product_cess,
+                                            product_visibility,
+                                            client_id) 
+                                    values ('$store',
+                                             NOW(),
+                                             '$product_title',
+                                             '$product_img1',
+                                             '$product_price',
+                                             '$display_price',
+                                             '$product_keywords',
+                                             '$product_desc',
+                                             '$product_stock',
+                                             '$product_hsn',
+                                             '$product_cgst',
+                                             '$product_sgst',
+                                             '$product_igst',
+                                             '$product_cess',
+                                             'Y',
+                                             '$client')";
     
     $run_product = mysqli_query($con,$insert_product);
     

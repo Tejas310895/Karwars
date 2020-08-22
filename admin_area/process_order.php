@@ -6,7 +6,7 @@ if(isset($_GET['update_order'])){
 
   $update_order = $_GET['update_order'];
 
-  $status = $_POST['status'];
+  $status = $_GET['status'];
 
   $update_status_del = "UPDATE customer_orders SET order_status='$status' WHERE invoice_no='$update_order'";
 
@@ -20,21 +20,52 @@ if(isset($_GET['update_order'])){
 
 }
 
-// if(isset($_GET['cancel_order'])){
+if(isset($_GET['cancel_order'])){
 
-//     $update_order = $_GET['cancel_order'];
+    $update_order = $_GET['cancel_order'];
+
+    $get_id = "select * from customer_orders where invoice_no='$update_order'";
+
+    $run_id = mysqli_query($con,$get_id);
+
+    $row_id = mysqli_fetch_array($run_id);
+
+    $c_id = $row_id['customer_id'];
+
+    $get_contact = "select * from customers where customer_id='$c_id'";
+
+    $run_contact = mysqli_query($con,$get_contact);
+
+    $row_contact = mysqli_fetch_array($run_contact);
+
+    $c_contact = $row_contact['customer_contact'];
   
-//     $update_status_del = "UPDATE customer_orders SET order_status='Cancelled' WHERE invoice_no='$update_order'";
+    $update_status_del = "UPDATE customer_orders SET order_status='Cancelled',product_status='Undeliver' WHERE invoice_no='$update_order'";
   
-//     $run_status_del = mysqli_query($con,$update_status_del);
-  
-  
-//       echo "<script>alert('Order Cancelled')</script>";
-  
-//       echo "<script>window.open('index.php?view_orders','_self')</script>";
+    $run_status_del = mysqli_query($con,$update_status_del);
   
   
-//   }
+      echo "<script>alert('Order Cancelled')</script>";
+  
+      echo "<script>window.open('index.php?view_orders','_self')</script>";
+
+      $text = "Your%20Order%20with%20Order%20Id%20$update_order%20is%20been%20Cancelled%20Call%209019196792%20For%20Support";
+
+      //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+    //  $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
+    $url = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text&number=+91$c_contact";
+     // Initialize a CURL session. 
+     $ch = curl_init();  
+     
+     // Return Page contents. 
+     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+     
+     //grab URL and pass it to the variable. 
+     curl_setopt($ch, CURLOPT_URL, $url); 
+     
+     $result = curl_exec($ch);   
+  
+  }
 
   if(isset($_GET['update_stock'])){
 
@@ -176,5 +207,62 @@ if(isset($_GET['update_order'])){
   
   
   }
+
+  if(isset($_GET['undeliver_order'])){
+
+    $invoice_id = $_GET['undeliver_order'];
+
+    $pro_id = $_GET['undelpro_id'];
+
+    $update_undel = "update customer_orders set product_status='Undeliver' where invoice_no='$invoice_id' and pro_id='$pro_id'";
+
+    $run_update_undel = mysqli_query($con,$update_undel);
+
+    if($run_update_undel){
+  
+      echo "<script>alert('Order Updated')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('Try Again')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+
+    }
+  
+  
+  }
+
+  if(isset($_GET['deliver_order'])){
+
+    $invoice_id = $_GET['deliver_order'];
+
+    $pro_id = $_GET['delpro_id'];
+
+    $update_del = "update customer_orders set product_status='Deliver' where invoice_no='$invoice_id' and pro_id='$pro_id'";
+
+    $run_update_del = mysqli_query($con,$update_del);
+
+    if($run_update_del){
+  
+      echo "<script>alert('Order Updated')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('Try Again')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+
+    }
+  
+  
+  }
+
 
 ?>

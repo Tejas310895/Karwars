@@ -240,7 +240,7 @@ session_start();
 <!-- customer id -->
 
 <!-- user account my_orders -->
-    <div class="accordion bg-white" id="accordionExample">
+<div class="accordion bg-white" id="accordionExample">
         <div class="card main_card">
             <button class="btn btn_order" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <div class="card-header order_header" id="headingOne">
@@ -265,11 +265,15 @@ session_start();
 
             $invoice_id = $row_invoice['invoice_no'];
 
+            $get_order_count = "select * from customer_orders where invoice_no='$invoice_id' and product_status='Deliver'";
+
+            $run_order_count = mysqli_query($con,$get_order_count);
+
+            $row_order_count = mysqli_num_rows($run_order_count);
+
             $get_order_pro =  "select * from customer_orders where invoice_no='$invoice_id'";
 
             $run_order_pro = mysqli_query($con,$get_order_pro);
-
-            $row_order_count = mysqli_num_rows($run_order_pro);
 
             $row_order_pro = mysqli_fetch_array($run_order_pro);
 
@@ -283,7 +287,7 @@ session_start();
 
             $order_status = $row_order_pro['order_status'];
 
-            $get_order_sum = "SELECT sum(due_amount) AS order_sum FROM customer_orders WHERE invoice_no='$invoice_id'";
+            $get_order_sum = "SELECT sum(due_amount) AS order_sum FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver'";
 
             $run_order_sum = mysqli_query($con,$get_order_sum);
 
@@ -312,16 +316,16 @@ session_start();
                             <div class="card-body py-1">
                                 <div class="row">
                                     <div class="col-9">
-                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items</h5>
-                                        <h4 class="card-title mb-0">₹ <?php echo  $order_sum+$del_charges; ?></h4>
+                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items Delivered</h5>
+                                        <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  $order_sum+$del_charges; ?></h4>
                                         <p class="card-text mb-0  <?php if($txn_status==='TXN_SUCCESS'){echo 'text-success';}else{echo 'text-danger'; } ?>" style="font-size:0.7rem;font-weight:bold;">
                                         <?php 
                                         
                                             if($txn_status==='TXN_SUCCESS'){echo 'PAID ONLINE';}
                                             elseif($order_status==='Delivered'){echo 'PAID OFFLINE'; }
-                                            elseif ($order_status==='Cancelled'){echo 'Cancelled';}
+                                            elseif ($order_status==='Cancelled'&$txn_status!='TXN_SUCCESS'){echo 'Cancelled';}
                                             elseif ($order_status==='Order Placed'){echo 'PAY CASH OR OFFLINE MODE';}
-                                            elseif ($order_status==='Refunded'){echo 'REFUNDED';}
+                                            elseif ($order_status==='Cancelled'&$txn_status==='TXN_SUCCESS'){echo 'REFUNDED';}
                                             ?>
                                         </p>
                                     </div>

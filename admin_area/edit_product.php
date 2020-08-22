@@ -38,7 +38,17 @@ if(!isset($_SESSION['admin_email'])){
 
         $p_stock = $row_edit['product_stock'];
 
-        $hsn = $row_edit['hsn'];
+        $hsn = $row_edit['product_hsn'];
+
+        $cgst = $row_edit['product_cgst'];
+
+        $sgst = $row_edit['product_sgst'];
+
+        $igst = $row_edit['product_igst'];
+
+        $cess = $row_edit['product_cess'];
+
+        $client_id = $row_edit['client_id'];
 
     }
 
@@ -49,6 +59,16 @@ if(!isset($_SESSION['admin_email'])){
         $row_store = mysqli_fetch_array($run_store);
 
         $store_title = $row_store['store_title'];
+
+        $get_client = "select * from clients where client_id='$client_id'";
+
+        $run_client = mysqli_query($con,$get_client);
+
+        $row_client = mysqli_fetch_array($run_client);
+
+        $client_id = $row_client['client_id'];
+
+        $client_title = $row_client['client_shop'];
 
 ?>
 
@@ -132,42 +152,74 @@ if(!isset($_SESSION['admin_email'])){
                 </div>
                 </div>
                 <div class="w-100"></div>
-                <div class="col-lg-6 col-md-6 mt-3">
+                <div class="col-lg-4 col-md-4 mt-5">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Select Category</label>
-                        <select class="form-control" name="hsn_code" id="exampleFormControlSelect1" required>
-                        <option value="<?php echo $hsn; ?>"><?php echo $hsn; ?></option>
-                        <?php 
-                                
-                                $get_hsn = "select * from taxes";
-                                $run_hsn = mysqli_query($con,$get_hsn);
-                                
-                                while ($row_hsn=mysqli_fetch_array($run_hsn)){
-                                    
-                                    $hsn_code = $row_hsn['hsn_code'];
-                                    $tax_for = $row_hsn['tax_for'];
-                                    
-                                    echo "
-                                    
-                                    <option value='$hsn_code'> $hsn_code-$tax_for </option>
-                                    
-                                    ";
-                                    
-                                }
-                                
-                                ?>
-                        </select>
+                        <label >Choose Product Image</label>
+                        <input type="text" name="product_img1" class="form-control" value="<?php echo $p_image1; ?>" id="inputGroupFile01" required>
                     </div>
                 </div>
-                    <div class="col-lg-6 col-md-6 mt-5">
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Product Image</label> -->
-                                <input type="text" name="product_img1" class="form-control" value="<?php echo $p_image1; ?>" id="inputGroupFile01" required>
-                            </div>
-                            <img src="<?php echo $p_image1; ?>" alt="" class="img-thumbnail" width="100px">
-                    </div>
+                <div class="col-lg-2 col-md-2 mt-5">
+                <img src="<?php echo $p_image1; ?>" alt="" class="img-thumbnail" width="100px">
                 </div>
+                <div class="col-lg-6 col-md-6 mt-3">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Client</label>
+                    <select class="form-control" name="client" id="exampleFormControlSelect1" required>
+                    <option value="<?php echo $client_id; ?>"><?php echo $client_title; ?></option>
+                    <?php 
+                              
+                              $get_client = "select * from clients";
+                              $run_client = mysqli_query($con,$get_client);
+                              
+                              while ($row_client=mysqli_fetch_array($run_client)){
+                                  
+                                  $client_id = $row_client['client_id'];
+                                  $client_title = $row_client['client_shop'];
+                                  
+                                  echo "
+                                  
+                                  <option value='$client_id'> $client_title </option>
+                                  
+                                  ";
+                                  
+                              }
+                              
+                              ?>
+                    </select>
+                </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-4">
+                        <div class="form-group">
+                            <label>HSN CODE</label>
+                            <input type="number" name="product_hsn" class="form-control" placeholder="Enter Hsn Code" value="<?php echo $hsn; ?>" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>CGST</label>
+                            <input type="number" name="product_cgst" step="0.01" class="form-control" placeholder="Enter CGST" value="<?php echo $cgst; ?>" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                       <div class="form-group">
+                            <label>SGST</label>
+                            <input type="number" name="product_sgst" step="0.01" class="form-control" placeholder="Enter SGST" value="<?php echo $sgst; ?>" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>IGST</label>
+                            <input type="number" name="product_igst" step="0.01" class="form-control" placeholder="Enter IGST" value="<?php echo $igst; ?>" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label>CESS</label>
+                            <input type="number" name="product_cess" step="0.01" class="form-control" placeholder="Enter CESS" value="<?php echo $cess; ?>" required>
+                        </div>
+                   </div>
+                   <div class="w-100"></div>
                 <div class="col-lg-12 col-md-12 mt-5">
                 <div class="form-group pull-left">
                     <input type="submit" name="update" value="Submit Now" class="btn btn-success form-control">
@@ -187,8 +239,12 @@ if(!isset($_SESSION['admin_email'])){
         $product_keywords = $_POST['product_keywords'];
         $product_desc = $_POST['product_desc'];
         $product_stock = $_POST['product_stock'];
-
-        $hsn = $_POST['hsn_code'];
+        $product_hsn = $_POST['product_hsn'];
+        $product_cgst = $_POST['product_cgst'];
+        $product_sgst = $_POST['product_sgst'];
+        $product_igst = $_POST['product_igst'];
+        $product_cess = $_POST['product_cess'];
+        $client = $_POST['client'];
         
         $product_img1 = $_POST['product_img1'];
         
@@ -206,7 +262,12 @@ if(!isset($_SESSION['admin_email'])){
                             product_keywords='$product_keywords',
                             product_desc='$product_desc',
                             product_stock='$product_stock',
-                            hsn='$hsn'
+                            product_hsn='$product_hsn',
+                            product_cgst='$product_cgst',
+                            product_sgst='$product_sgst',
+                            product_igst='$product_igst',
+                            product_cess='$product_cess',
+                            client_id='$client'
                             WHERE product_id='$p_id'";
         
         $run_product = mysqli_query($con,$update_product);

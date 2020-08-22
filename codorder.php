@@ -6,10 +6,12 @@ if(isset($_POST['c_id'])){
 
     $add_id = $_POST['add_id'];
 
-    $date = "NOW()";
+    $date = $_POST['date'];
 
-    date_default_timezone_set("Asia/Calcutta");
-    $current = date('Y-m-d, h:i:s');
+    date_default_timezone_set('Asia/Kolkata');
+
+    $today = date("Y-m-d H:i:s");
+}
 
 $get_contact = "select * from customers where customer_id='$customer_id'";
 
@@ -53,10 +55,10 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
         $sub_total = $row_products['product_price']*$pro_qty;
 
-        $hsn = $row_products['hsn'];
+        $client_id = $row_products['client_id'];
 
-        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,invoice_no,qty,order_date,del_date,order_status,hsn) 
-        values ('$customer_id','$add_id',' $pro_id','$sub_total','$invoice_no','$pro_qty','$current','$date','$status','$hsn')";
+        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,invoice_no,qty,order_date,del_date,order_status,product_status,client_id) 
+        values ('$customer_id','$add_id',' $pro_id','$sub_total','$invoice_no','$pro_qty','$today','$date','$status','Deliver','$client_id')";
 
         $run_customer_order = mysqli_query($con,$insert_customer_order);
 
@@ -71,15 +73,15 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     }
 }
 
-if($run_customer_order){
+    if($run_customer_order){
 
-    $invoice_no = $invoice_no;
-
-    $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
-    $text2 = "Order%20Received-https://karwars.in/admin_area/print.php?print=$invoice_no";
-    //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-   $url1 = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text1";
-   $url2 = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=917892916394&textmessage=$text2";
+        $invoice_no = $invoice_no;
+        
+        $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
+        $text2 = "Postpaid%20Order%20Received-https://www.karwars.in/admin_area/print.php?print=$invoice_no";
+        //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+        $url1 = "http://api.bulksmsplans.com/api/SendSMS?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text1";
+        $url2 = "http://api.bulksmsplans.com/api/SendSMS?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=919867765397&textmessage=$text2";
 
         // create both cURL resources
         $ch1 = curl_init();
@@ -110,17 +112,16 @@ if($run_customer_order){
         curl_multi_remove_handle($mh, $ch1);
         curl_multi_remove_handle($mh, $ch2);
         curl_multi_close($mh);
-        
+
+
         echo "<script>alert('Order Placed, thanks')</script>";
 
         echo "<script>window.open('customer/order_success','_self')</script>";
-
-}else{
-    echo "<script>alert('Order Failed, Sorry Try Again')</script>";
-
-    echo "<script>window.open('./','_self')</script>";
-}
-
-}
+        
+    }else{
+        echo "<script>alert('Order Failed, Try Again')</script>";
+    
+        echo "<script>window.history.go(-2)</script>";
+    }
 
 ?>

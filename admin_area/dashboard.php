@@ -159,7 +159,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                     $order_date = $row_orders['order_date'];
 
-                    $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id'";
+                    $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver'";
 
                     $run_total = mysqli_query($con,$get_total);
 
@@ -232,12 +232,13 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                                   <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Sl.no.</th>
+                                            <th class="text-center">VENDOR</th>
                                             <th class="text-center">IMAGE</th>
                                             <th class="text-center">ITEMS</th>
                                             <th class="text-center">PACK</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-right">PRICE</th>
+                                            <th class="text-right">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -256,6 +257,14 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                                     $qty = $row_pro_id['qty'];
 
+                                    $sub_total = $row_pro_id['due_amount'];
+
+                                    $client_id = $row_pro_id['client_id'];
+
+                                    $pro_price = $sub_total/$qty;  
+                                    
+                                    $pro_status = $row_pro_id['product_status'];
+
                                     $get_pro = "select * from products where product_id='$pro_id'";
 
                                     $run_pro = mysqli_query($con,$get_pro);
@@ -266,22 +275,31 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                                     $pro_img1 = $row_pro['product_img1'];
 
-                                    $pro_price = $row_pro['product_price'];
+                                    // $pro_price = $row_pro['product_price'];
 
                                     $pro_desc = $row_pro['product_desc'];
                                     
-                                    $sub_total = $pro_price * $qty;
+                                    // $sub_total = $pro_price * $qty;
+
+                                    $get_client = "select * from clients where client_id='$client_id'";
+
+                                    $run_client = mysqli_query($con,$get_client);
+
+                                    $row_client = mysqli_fetch_array($run_client);
+
+                                    $client_name = $row_client['client_shop'];
                                     
                                     ?>
                                         <tr>
-                                            <td class="text-center"><?php echo ++$counter; ?></td>
+                                            <td class="text-center"><?php echo $client_name; ?></td>
                                             <td class="text-center">
                                               <img src="<?php echo $pro_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                                             </td>
                                             <td class="text-center"><?php echo $pro_title; ?></td>
                                             <td class="text-center"><?php echo $pro_desc; ?></td>
-                                            <td class="text-center"><?php echo $qty; ?> x ₹ <?php echo $pro_price; ?></td>
-                                            <td class="text-right">₹ <?php echo $sub_total; ?></td>
+                                            <td class="text-center"><?php echo $qty; ?> x ₹<?php echo $pro_price; ?></td>
+                                            <td class="text-right">₹<?php echo $sub_total; ?></td>
+                                            <td class="text-right"><?php echo $pro_status; ?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -289,15 +307,16 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-primary text-left" data-dismiss="modal">Close</button>
-                                    <h3 class="card-title">Total - ₹ <?php echo $total; ?>/-</h3>
+                                    <h3 class="card-title">Total - ₹<?php echo $total; ?>/-</h3>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <a href="print.php?print=<?php echo $invoice_id; ?>" id="show_details" class="btn btn-danger btn-sm p-1" >
+                          <a href="print.php?print=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-danger btn-sm p-1" >
                           <svg id="Capa_1" enable-background="new 0 0 512 512" fill="#fff" height="20" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg"><g><path d="m422.5 99v-24c0-41.355-33.645-75-75-75h-184c-41.355 0-75 33.645-75 75v24z"/><path d="m118.5 319v122 26 15c0 16.568 13.431 30 30 30h214c16.569 0 30-13.432 30-30v-15-26-122zm177 128h-80c-8.284 0-15-6.716-15-15s6.716-15 15-15h80c8.284 0 15 6.716 15 15s-6.716 15-15 15zm0-64h-80c-8.284 0-15-6.716-15-15s6.716-15 15-15h80c8.284 0 15 6.716 15 15s-6.716 15-15 15z"/><path d="m436.5 129h-361c-41.355 0-75 33.645-75 75v120c0 41.355 33.645 75 75 75h13v-80h-9c-8.284 0-15-6.716-15-15s6.716-15 15-15h24 304 24c8.284 0 15 6.716 15 15s-6.716 15-15 15h-9v80h14c41.355 0 75-33.645 75-75v-120c0-41.355-33.645-75-75-75zm-309 94h-48c-8.284 0-15-6.716-15-15s6.716-15 15-15h48c8.284 0 15 6.716 15 15s-6.716 15-15 15z"/></g></svg>
                         </a>
+                        <a href="../customer/invoice?pdf=<?php echo $invoice_id ?>" target="_blank" id="show_details" class="btn btn-danger btn-sm p-1 mt-1 <?php if($status=='Delivered'){echo "show";}else{echo "d-none";} ?>" download>INVOICE</a>
                           </td>
                           </tr>
                           <?php } ?>

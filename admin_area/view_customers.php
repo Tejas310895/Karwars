@@ -12,9 +12,12 @@
            <h2 class="card-title">CUSTOMERS</h2>
            </div>
 </div>
-<table class="table">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
+            <th>Sl.No</th>
             <th>Name</th>
             <th>Contact</th>
             <th>Email</th>
@@ -44,6 +47,7 @@
     
     ?>
         <tr>
+            <td ><?php echo ++$counter; ?></td>
             <td><?php echo $customer_name; ?></td>
             <td>+91 <?php echo $customer_contact; ?></td>
             <td><?php echo $customer_email; ?></td>
@@ -81,5 +85,15 @@
     <?php } ?>
     </tbody>
 </table>
+</div>
+</div>
+<script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.js'></script>
+<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js' defer></script>
+<script src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.js' defer></script>
+<script src='https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.js' defer></script>
+<script  src='js/datatable.js'></script>
 
 <?php } ?>

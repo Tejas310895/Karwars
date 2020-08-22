@@ -64,7 +64,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="admin_images/wrnlogo.png">
   <link rel="icon" type="image/png" href="admin_images/wrnlogo.png">
   <title>
-    Black Dashboard by Creative Tim
+    WRN DASHBOARD
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -73,12 +73,14 @@
   <!-- Nucleo Icons -->
   <link href="dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="dashboard/assets/css/black-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <link href="dashboard/assets/css/black-dashboard.css?v=1.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="dashboard/assets/demo/demo.css" rel="stylesheet" />
 
   <!-- datatables -->
   <link rel='stylesheet' href='https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css'>
+
+
 </head>
 
 <body class="">
@@ -96,7 +98,7 @@
                       <li class="nav-item">
                         <?php 
                         
-                        $get_c_count = "select distinct ip_add from cart";
+                        $get_c_count = "select distinct ip_add,user_id from cart";
 
                         $run_c_count = mysqli_query($con,$get_c_count);
 
@@ -351,6 +353,12 @@
               if(isset($_GET['notify'])){
                     
                 include("notify.php");
+                
+              }
+
+              if(isset($_GET['order_report'])){
+                    
+                include("order_report.php");
                 
               }
 
