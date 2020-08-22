@@ -106,7 +106,7 @@ if(isset($_POST['show'])){
 
     $counter = 0;
 
-    $get_invoice = "SELECT distinct (invoice_no) FROM customer_orders where  $status and date(order_date) between '$from' and '$to'";
+    $get_invoice = "SELECT * FROM customer_orders where  $status and date(order_date) between '$from' and '$to'";
 
     $run_invoice = mysqli_query($con,$get_invoice);
 
@@ -114,20 +114,20 @@ if(isset($_POST['show'])){
 
         $invoice_no = $row_invoice['invoice_no'];
 
-        $get_pro_inc = "select * from customer_orders where invoice_no='$invoice_no'";
+        // $get_pro_inc = "select * from customer_orders where invoice_no='$invoice_no'";
 
-        $run_pro_inc = mysqli_query($con,$get_pro_inc);
+        // $run_pro_inc = mysqli_query($con,$get_pro_inc);
 
-            $row_pro_inc=mysqli_fetch_array($run_pro_inc);
+        //     $row_pro_inc=mysqli_fetch_array($run_pro_inc);
 
-            $status = $row_pro_inc['product_status'];
-            $order_date = $row_pro_inc['order_date'];
-            $customer_id = $row_pro_inc['customer_id'];
-            $add_id = $row_pro_inc['add_id'];
-            $pro_id = $row_pro_inc['pro_id'];
-            $qty = $row_pro_inc['qty'];
-            $due_amount = $row_pro_inc['due_amount'];
-            $client_id = $row_pro_inc['client_id'];
+            $status = $row_invoice['product_status'];
+            $order_date = $row_invoice['order_date'];
+            $customer_id = $row_invoice['customer_id'];
+            $add_id = $row_invoice['add_id'];
+            $pro_id = $row_invoice['pro_id'];
+            $qty = $row_invoice['qty'];
+            $due_amount = $row_invoice['due_amount'];
+            $client_id = $row_invoice['client_id'];
 
             $pro_price = $due_amount/$qty;
 
