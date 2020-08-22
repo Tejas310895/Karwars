@@ -58,7 +58,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $client_id = $row_products['client_id'];
 
         $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,invoice_no,qty,order_date,del_date,order_status,product_status,client_id) 
-        values ('$customer_id','$add_id',' $pro_id','$sub_total','$invoice_no','$pro_qty','$today','$date','$status','Deliver','$client_id')";
+        values ('$customer_id','$add_id',' $pro_id','$sub_total','$invoice_no','$pro_qty','$today','$today','$status','Deliver','$client_id')";
 
         $run_customer_order = mysqli_query($con,$insert_customer_order);
 
@@ -81,7 +81,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $text2 = "Postpaid%20Order%20Received-https://www.karwars.in/admin_area/print.php?print=$invoice_no";
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
         $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
-        $url2 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text2&number=+917292916394";
+        $url2 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text2&number=+917892916394";
 
         // create both cURL resources
         $ch1 = curl_init();
