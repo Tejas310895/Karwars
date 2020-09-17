@@ -210,7 +210,7 @@
                                               <select class="form-control mt-2" name="client">
                                               <?php 
                                               
-                                              $get_client_id = "select * from customer_orders where invoice_no='$invoice_id'";
+                                              $get_client_id = "select distinct(client_id) from customer_orders where invoice_no='$invoice_id'";
 
                                               $run_client_id = mysqli_query($con,$get_client_id);
 
