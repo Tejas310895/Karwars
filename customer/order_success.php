@@ -56,7 +56,7 @@ session_start();
                 <img src="../admin_area/admin_images/correct.svg" alt="" class="mx-auto d-block" width="50px">
                 <h3 class="mb-0 text-center mt-4" style="font-family:Laila;font-size:1.5rem;">Order Successfully Placed</h3>
                 <img src="../admin_area/admin_images/ordersuc.jpg" alt="" class="img-fluid px-5">
-                <h3 class="mb-0 text-center mt-1" style="font-family:Quantico;font-size:1.5rem;">Your Order Will Be <br>Delivered Soon</h3>
+                <h3 class="mb-0 text-center mt-1" style="font-family:Quantico;font-size:1.5rem;">Online Payment <br>Accepted on Delivery <br> UPI / Paytm / G-pay</h3>
             </div>
             <div class="w-100"></div>
             <div class="row fixed-bottom">
