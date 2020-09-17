@@ -22,9 +22,9 @@ if(isset($_GET['update_order'])){
 
 if(isset($_GET['cancel_order'])){
 
-    $update_order = $_GET['cancel_order'];
+    $cancel_order = $_GET['cancel_order'];
 
-    $get_id = "select * from customer_orders where invoice_no='$update_order'";
+    $get_id = "select * from customer_orders where invoice_no='$cancel_order'";
 
     $run_id = mysqli_query($con,$get_id);
 
@@ -40,7 +40,7 @@ if(isset($_GET['cancel_order'])){
 
     $c_contact = $row_contact['customer_contact'];
   
-    $update_status_del = "UPDATE customer_orders SET order_status='Cancelled',product_status='Undeliver' WHERE invoice_no='$update_order'";
+    $update_status_del = "UPDATE customer_orders SET order_status='Cancelled',product_status='Undeliver' WHERE invoice_no='$cancel_order'";
   
     $run_status_del = mysqli_query($con,$update_status_del);
   

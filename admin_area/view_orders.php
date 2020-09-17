@@ -123,7 +123,7 @@
                           $row_txn = mysqli_fetch_array($run_txn);
 
                           $txn_status = $row_txn['STATUS'];
-                  ?>
+                          ?>
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
@@ -178,21 +178,8 @@
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="row">
-                                      <div class="col-6">
-                                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancle">Cancle Order</button>
-                                      <div class="modal fade" id="cancle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h3 class="modal-title" id="exampleModalLabel">ARE YOU SURE YOU WANT TO CANCEL</h3>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <a href="process_order.php?cancel_order=<?php echo $invoice_id;?>" type="button" class="btn btn-primary">YES</a>
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                        <div class="col-6">
+                                          <a type="button" class="btn btn-danger" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">Cancle Order</a>
                                         </div>
                                         <div class="col-6">
                                           <?php 

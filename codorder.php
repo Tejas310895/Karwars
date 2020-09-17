@@ -6,7 +6,7 @@ if(isset($_POST['c_id'])){
 
     $add_id = $_POST['add_id'];
 
-    $date = $_POST['date'];
+    //$date = $_POST['date'];
 
     date_default_timezone_set('Asia/Kolkata');
 

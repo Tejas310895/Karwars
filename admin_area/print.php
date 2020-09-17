@@ -194,8 +194,8 @@ if(isset($_GET['print'])){
 						echo "
 
 						<tr>
-						<td class='text-center'>$pro_title</td>
-						<td class='text-center'>$pro_desc X $qty</td>
+						<td class='text-left'>$pro_title $pro_desc</td>
+						<td class='text-center'>$qty</td>
 						<td class='text-center'>$sub_total.00</td>
 						</tr>
 						";	
@@ -205,8 +205,8 @@ if(isset($_GET['print'])){
 						echo "
 
 						<tr>
-						<td class='text-center'>$pro_title</td>
-						<td class='text-center'>$pro_desc X $qty</td>
+						<td class='text-left'>$pro_title $pro_desc</td>
+						<td class='text-center'>$qty</td>
 						<td class='text-center' colspan='2'><strong>Undelivered</strong></td>
 						</tr>
 						";	
