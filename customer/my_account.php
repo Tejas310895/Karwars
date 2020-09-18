@@ -518,7 +518,7 @@ session_start();
                 <div class="card-body py-1">
                     <div class="card sup_body mb-2" style="max-width: 100%;">
                             <div class="card-body py-1">
-                                <a href="tel:9867765397"><h5 class="sup_title mt-2">+91 7892916394</h5></a>
+                                <h5 class="sup_title mt-2">+91 7892916394</h5>
                                 <a href="mailto:personalphone18@gmail.com"><p class="sup_desc mb-0">personalphone18@gmail.com</p></a>
                             </div>
                         </div>
