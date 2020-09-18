@@ -146,7 +146,7 @@ if(isset($_GET['bill'])){
 
                 $counter = 0;
                 
-                $get_sum = "select SUM(due_amount) as order_total from customer_orders where invoice_no='$invoice_id' and client_id='$client'";
+                $get_sum = "select SUM(due_amount) as order_total from customer_orders where invoice_no='$invoice_id' and client_id='$client' and product_status='Deliver'";
                 $run_sum = mysqli_query($con,$get_sum);
                 $row_sum = mysqli_fetch_array($run_sum);
                 $order_total = $row_sum['order_total'];
