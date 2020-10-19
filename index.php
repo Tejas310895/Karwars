@@ -163,22 +163,27 @@
             <?php add_index_cart(); ?>
             <?php delete_index_cart(); ?>
             <?php
+
+                $get_promo = "select * from promo_products";
+                $run_promo = mysqli_query($con,$get_promo);
+                while($row_promo = mysqli_fetch_array($run_promo)){
+                $promo_store_id = $row_promo['store_id'];
             
-                $get_store = "SELECT * FROM store where store_id in ('57','71','80','70','67','64','93') order by store_id desc";
+                $get_store = "SELECT * FROM store where store_id='$promo_store_id'";
                 
                 $run_store = mysqli_query($con,$get_store);
                 
-                while($row_store=mysqli_fetch_array($run_store)){
+                $row_store=mysqli_fetch_array($run_store);
                     
-                    $store_id = $row_store['store_id'];
-                    
-                    $store_title = $row_store['store_title'];
+                $store_id = $row_store['store_id'];
+                
+                $store_title = $row_store['store_title'];
 
-                    $store_desc = $row_store['store_desc'];
-                    
-                    $min_price = $row_store['min_price'];
-                    
-                    $store_img1 = $row_store['store_img'];
+                $store_desc = $row_store['store_desc'];
+                
+                $min_price = $row_store['min_price'];
+                
+                $store_img1 = $row_store['store_img'];
                     
                 ?>
 

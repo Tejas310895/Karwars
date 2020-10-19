@@ -18,6 +18,7 @@
                 <a href="index?notify" class="btn btn-primary pull-right">REQUIREMENT</a>
                 <a href="index?stock_report" class="btn btn-primary pull-right">ORDER STOCK</a>
                 <a href="index?order_report" class="btn btn-primary pull-right">REPORTS</a>
+                <a href="index?promo_store" class="btn btn-primary pull-right">PROMOTION</a>
               </div>
               <div class="card-body" id="refresh">
                 <div class="table-full-width table-responsive" id="time">

@@ -392,6 +392,12 @@
                 
               }
 
+              if(isset($_GET['promo_store'])){
+                    
+                include("promo_store.php");
+                
+              }
+
             ?>
 
         </div>

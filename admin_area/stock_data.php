@@ -193,4 +193,25 @@ if(isset($_POST['show'])){
 
 }
 
+if(isset($_POST['add_promo'])){
+
+    $promo_id = $_POST['promo_id'];
+    $store_id = $_POST['store_id'];
+
+    $update_promo = "update promo_products set store_id='$store_id' where promo_id='$promo_id'";
+    $run_update_promo = mysqli_query($con,$update_promo);
+
+    if($run_update_promo){
+        echo "<script>alert('Promo Added')</script>";
+  
+        echo "<script>window.open('index.php?promo_store','_self')</script>";  
+    }else{
+        echo "<script>alert('Promo Failed')</script>";
+  
+        echo "<script>window.open('index.php?promo_store','_self')</script>";  
+    }
+
+
+}
+
 ?>
