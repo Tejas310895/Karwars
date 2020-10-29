@@ -220,9 +220,9 @@
                         
                             <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
                                     <div class="col-4">
-                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
+                                        <!-- <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
                                         <h5 class="pro_dis_batch mb-0"><?php echo $discount_percent."%"; ?> </h5>
-                                        </span>
+                                        </span> -->
                                         <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
                                     </div>
                                 <div class="col-8">
