@@ -380,7 +380,7 @@ a.pro_store{
 }
 
 .pro_dis_batch{
-    padding-top: 10px;
+    padding-top: 7px;
     font-size: 1rem;
     font-weight: bold;
     font-family: Roboto;
@@ -389,7 +389,7 @@ a.pro_store{
 
 .notify-badge{
     position: absolute;
-    right:-10px;
+    right:-9px;
     top:0px;
     background:#cc0000;
     text-align: center;
