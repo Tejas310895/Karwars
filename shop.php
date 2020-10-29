@@ -210,13 +210,19 @@
                         $pro_img1 = $row_products['product_img1'];
                         
                         $pro_stock = $row_products['product_stock'];
+
+                        if($price_display>0){
+                            $discount_percent = round(($pro_price/$price_display)*100);
+                        }else{
+                            $discount_percent = 0;
+                        }
                         ?>
                         
                             <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
                                     <div class="col-4">
-                                        <!-- <span class="notify-badge <?php //if($price_display>0){echo "show";}else{echo "d-none";}?>">
-                                        <h5 class="pro_dis_price mb-0">₹ <?php //echo $price_display; ?> </h5>
-                                        </span> -->
+                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
+                                        <h5 class="pro_dis_batch mb-0"><?php echo $discount_percent."%"; ?> </h5>
+                                        </span>
                                         <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
                                     </div>
                                 <div class="col-8">
@@ -273,7 +279,7 @@
                                 <?php }else{
 
                                         echo"
-
+                                        <div class='col-6'>
                                         <div class='row'>
                                         <div class='col'>
                                         <a href='customer/notify?pro_id=$pro_id' class='btn btn-danger py-0 px-1 text-center' style='font-size:15px;'>
@@ -282,7 +288,7 @@
                                         </a>   
                                         </div>
                                         </div>
-
+                                        </div>
                                         ";
                                         }
 

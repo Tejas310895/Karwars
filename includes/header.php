@@ -50,6 +50,7 @@ if(isset($_GET['pro_id'])){
     <link href='https://fonts.googleapis.com/css?family=Concert+One' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Laila' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <!-- google font -->
     <!-- bootstrap link -->
     <link rel="stylesheet" href="styles/bootstrap.min.css" >
@@ -96,10 +97,19 @@ if(isset($_GET['pro_id'])){
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
-    <link rel="stylesheet" href="styles/style.css?version=18">
+    <link rel="stylesheet" href="styles/style.css?version=19">
     <!-- styles -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-478QX8CECH"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-478QX8CECH');
+    </script>
 </head>
 <body>
 <div id="fade-wrapper" class="text-center pt-5">
