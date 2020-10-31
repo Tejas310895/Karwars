@@ -3,7 +3,6 @@
     include("includes/header.php");
 
 ?>
-
 <!-- fixed-top -->
 
     <div class="container-fuild fixed-top">
@@ -21,7 +20,7 @@
                         if(!isset($_SESSION['customer_email'])){
 
                             echo "
-                            <a href='checkout.php'>
+                            <a href='checkout'>
                                 Hi Guest <br> 
                                 <i class='fas fa-map-marker-alt'></i> 
                                 Add your location
@@ -61,7 +60,7 @@
                             if($add_count>0){
 
                             echo " 
-                            <a href='customer/my_account.php'>
+                            <a href='customer/my_account'>
                                 $c_name <br> 
                             <i class='fas fa-map-marker-alt'></i> 
                             $c_phase, $c_landmark
@@ -71,7 +70,7 @@
                             }else{
 
                                 echo "
-                                <a href='customer/my_account.php'>
+                                <a href='customer/my_account'>
                                 $c_name <br> 
                                 <i class='fas fa-map-marker-alt'></i> 
                                 Add your Location
@@ -136,7 +135,7 @@
                     </a>
                 </li>
                 <li class="nav-item ml-2 ">
-                    <a href="cart.php" class="nav-link ml-4 pt-3 px-1">
+                    <a href="cart" class="nav-link ml-4 pt-3 px-1">
                         <svg viewBox="0 -36 512.001 512" width="25pt" height="25pt" fill="#ff7b00" xmlns="http://www.w3.org/2000/svg"><path d="m256 219.988281c5.519531 0 10-4.480469 10-10s-4.480469-10-10-10-10 4.480469-10 10 4.480469 10 10 10zm0 0"/><path d="m472 139.988281h-59.136719l-90.96875-125.152343c-8.171875-14.003907-26.171875-18.988282-40.46875-11.070313-14.492187 8.050781-19.703125 26.304687-11.648437 40.800781.230468.410156.484375.804688.769531 1.179688l71.351563 94.242187h-171.796876l71.351563-94.242187c.28125-.375.539063-.769532.769531-1.179688 8.035156-14.460937 2.882813-32.730468-11.660156-40.808594-14.265625-7.902343-32.265625-2.921874-40.453125 11.070313l-90.972656 125.160156h-59.136719c-22.054688 0-40 17.945313-40 40 0 17.394531 11.289062 32.539063 27.191406 37.898438 1.695313 1.3125 3.8125 2.101562 6.117188 2.101562.460937 0 .894531.027344 1.347656.089844 4.304688.578125 7.714844 3.84375 8.496094 8.117187l34.019531 187.164063c2.597656 14.269531 15.011719 24.628906 29.519531 24.628906h298.617188c14.507812 0 26.921875-10.359375 29.519531-24.632812l34.019531-187.15625c.78125-4.277344 4.195313-7.542969 8.515625-8.121094.4375-.0625.871094-.089844 1.328125-.089844 2.320313 0 4.453125-.796875 6.148438-2.125 15.914062-5.394531 27.160156-20.511719 27.160156-37.875 0-22.054687-17.945312-40-40-40zm-185.011719-105.660156c-2.285156-4.730469-.511719-10.492187 4.136719-13.070313 4.839844-2.683593 10.941406-.953124 13.609375 3.855469.195313.359375.417969.703125.65625 1.03125l82.746094 113.84375h-21.15625zm-80.378906-8.179687c.238281-.328126.453125-.667969.652344-1.019532 2.675781-4.8125 8.78125-6.546875 13.601562-3.878906 4.65625 2.585938 6.4375 8.339844 4.148438 13.078125l-79.992188 105.660156h-21.15625zm265.390625 173.839843h-176c-5.523438 0-10 4.476563-10 10 0 5.523438 4.476562 9.898438 10 9.898438h154.398438c-.523438 1.492187-.9375 3.039062-1.226563 4.632812l-34.023437 187.257813c-.863282 4.757812-5.003907 8.210937-9.839844 8.210937h-298.617188c-4.839844 0-8.976562-3.453125-9.84375-8.207031l-34.019531-187.164062c-.289063-1.59375-.703125-3.140626-1.226563-4.628907h154.398438c5.523438 0 10-4.476562 10-10 0-5.523437-4.476562-10-10-10h-176c-11.121094 0-20-9.0625-20-20 0-11.027343 8.972656-20 20-20h432c11.027344 0 20 8.972657 20 20 0 11.105469-9.085938 20-20 20zm0 0"/><path d="m256 249.988281c-16.542969 0-30 13.457031-30 30v80c0 16.542969 13.457031 30 30 30s30-13.457031 30-30v-80c0-16.574219-13.425781-30-30-30zm10 110c0 5.515625-4.484375 10-10 10s-10-4.484375-10-10v-80c0-5.515625 4.484375-10 10-10 5.519531 0 10 4.480469 10 10zm0 0"/><path d="m356 389.988281c16.542969 0 30-13.457031 30-30v-80c0-16.574219-13.425781-30-30-30-16.542969 0-30 13.457031-30 30v80c0 16.542969 13.457031 30 30 30zm-10-110c0-5.515625 4.484375-10 10-10 5.519531 0 10 4.480469 10 10v80c0 5.515625-4.484375 10-10 10s-10-4.484375-10-10zm0 0"/><path d="m156 249.988281c-16.542969 0-30 13.457031-30 30v80c0 16.542969 13.457031 30 30 30s30-13.457031 30-30v-80c0-16.574219-13.425781-30-30-30zm10 110c0 5.515625-4.484375 10-10 10s-10-4.484375-10-10v-80c0-5.515625 4.484375-10 10-10 5.519531 0 10 4.476563 10 10zm0 0"/></svg>
                         <span class="badge badge-light shopbadge <?php echo diaplay_cart(); ?>"><?php echo items(); ?></span>
                     </a>
@@ -148,119 +147,186 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pt-1">
                     <li class="breadcrumb-item active" aria-current="page"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                    <li class="breadcrumb-item active" aria-current="page">Offer Zone</li>
                 </ol>
             </nav>
         <!-- breadcrumb -->
-
-        <!-- sidebar -->
-            <?php 
-
-                include("includes/sidebar.php")
-
-            ?>
-        <!-- sidebar -->
     </div>
 
 <!-- fixed-top -->
-<div class="container-fluid pro_list p-3">
-<?php
 
-            if(!isset($_GET['cat'])){
-
-            $get_store = "select * from store";
-
-            $run_store = mysqli_query($con,$get_store);
-
-            while($row_store=mysqli_fetch_array($run_store)){
-
-                $store_id = $row_store['store_id'];
-
-                $store_title = $row_store['store_title'];
-
-                $store_img = $row_store['store_img'];
-
-                $store_desc = $row_store['store_desc'];
-
-                $min_price = $row_store['min_price'];
-
-
-                ?>
-
-        <div class="row bg-white mt-1 py-2">
-                    <div class="col-4">
-                        <img src="<?php echo $store_img; ?>" alt="..." class="img-thumbnail border-0">
-                    </div>
-                    <div class="col-8">
-                            <h5 class="pro_list_title"><?php echo $store_title; ?></h5>
-                            <h5 class="pro_list_desc"><?php echo $store_desc; ?></h5>
-                            <div class="row">
-                                <div class="col-6">
-                                    <!-- <h5 class="pro_list_price">₹ <?php //echo $min_price; ?></h5> -->
-                                </div>
-                                    <div class='col-6'>
-                                        <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-    <?php           
-                }
-            }
-
-    ?>
+<!-- product list -->
+    <div class="container-fluid p-3 shop_offer">
+    <?php //add_cart(); ?>
+    <?php //delete_cart(); ?>
 
         <?php 
         
-            if(isset($_GET['cat'])){
+            if(isset($_GET['offer_zone'])){
             
-                $cat_id = $_GET['cat'];
-                
-                $get_cat_store = "select * from store where cat_id='$cat_id'";
-                
-                $run_cat_store = mysqli_query($con,$get_cat_store);
+                $offer_zone = $_GET['offer_zone'];
 
-            while($row_cat_store=mysqli_fetch_array($run_cat_store)){
-
-                $cat_store_id = $row_cat_store['store_id'];
-
-                $cat_store_title = $row_cat_store['store_title'];
-
-                $cat_store_img = $row_cat_store['store_img'];
-
-                $cat_store_desc = $row_cat_store['store_desc'];
-
-                $cat_min_price = $row_cat_store['min_price'];
-
-
-                ?>
-
-        <div class="row bg-white mt-1 py-2">
-                    <div class="col-4">
-                        <img src="<?php echo $cat_store_img; ?>" alt="..." class="img-thumbnail border-0">
-                    </div>
-                    <div class="col-8">
-                            <h5 class="pro_list_title"><?php echo $cat_store_title; ?></h5>
-                            <h5 class="pro_list_desc"><?php echo $cat_store_desc; ?></h5>
-                            <div class="row">
-                                <div class="col-6">
-                                    <!-- <h5 class="pro_list_price">₹ <?php //echo $cat_min_price; ?></h5> -->
-                                </div>
-                                <div class='col-6'>
-                                        <a href="shop?store_id=<?php echo $cat_store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-    <?php           
+                if($offer_zone==10){
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)<10";
+                }elseif($offer_zone==20){
+                    $zone_id = $offer_zone;
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>10 and 100-((product_price/price_display)*100)<30";
+                }elseif($offer_zone==30){
+                    $zone_id = $offer_zone;
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>30";
                 }
-            }
+                                
+                $run_products = mysqli_query($db,$get_cat);
+                
+                $count = mysqli_num_rows($run_products);
+                
+                if($count==0){
+                    
+                    
+                    echo "
+                    
+                        <div class='container'>
+                        
+                            <h1 class='no_pro text-center mt-5'> No Product Found In This Category </h1>
+                        
+                        </div>
+                    
+                    ";
+                    
+                }else{
+                
+                    while($row_products=mysqli_fetch_array($run_products)){
+                        
+                        $pro_id = $row_products['product_id'];
+                        
+                        $pro_title = $row_products['product_title'];
+                        
+                        $pro_price = $row_products['product_price'];
 
-    ?>
+                        $price_display = $row_products['price_display'];
+                        
+                        $pro_desc = $row_products['product_desc'];
+                        
+                        $pro_img1 = $row_products['product_img1'];
+                        
+                        $pro_stock = $row_products['product_stock'];
+
+                        if($price_display>0){
+                            $discount_percent = 100-round(($pro_price/$price_display)*100);
+                        }else{
+                            $discount_percent = 0;
+                        }
+                        ?>
+                        
+                            <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
+                                    <div class="col-4">
+                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
+                                        <h5 class="pro_dis_batch mb-0"><?php echo $discount_percent."%"; ?></h5>
+                                        <h6 class="mb-0 pt-0" style="font-size: 0.6rem;">OFF</h6>
+                                        </span>
+                                        <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
+                                    </div>
+                                <div class="col-8">
+                                    <h5 class="pro_list_title"><?php echo $pro_title; ?></h5>
+                                    <h5 class="pro_list_desc"><?php echo $pro_desc; ?></h5>
+                                    <div class="row">
+                                        <div class="col-6">
+                                        <div class="row">
+                                            <!-- <div class="col-4 px-0 <?php //if($price_display>0){echo "show";}else{echo "d-none";}?> "><h5 class="pro_dis_price">₹ <?php //echo $price_display; ?> </h5></div> -->
+                                            <div class="col-8 pr-0">
+                                            <h6 class="pro_dis_price mb-0 text-dark <?php if($price_display>0){echo "show";}else{echo "d-none";}?>"> MRP ₹ <?php echo $price_display; ?> </h6>
+                                            <h5 class="pro_list_price mb-0">₹ <?php echo $pro_price; ?></h5>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <?php if($pro_stock>0){ ?>
+                                        <?php 
+
+                                    $ip_add = getRealIpUser();
+
+                                    $user_id = getuserid();
+
+                                    $get_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id' AND p_id='$pro_id'";
+
+                                    $run_cart = mysqli_query($con,$get_cart);
+
+                                    $row_cart=mysqli_fetch_array($run_cart);
+
+                                        $pro_qty = $row_cart['qty'];
+
+                                        if($pro_qty>0){
+
+                                        echo "
+                                        
+                                        <div class='col-6'>
+                                            <div class='row ml-1 shopAdd'>
+                                                <button class='btn btn-qty px-1 py-1 del' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-minus'></i></button>
+                                                <input type='numeric' class='shop_qty' placeholder='' value='$pro_qty' aria-describedby='helpId' readonly>
+                                                <button class='btn btn-qty px-1 py-1 add' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-plus'></i></button>
+                                            </div>
+                                        </div>
+                                        
+                                        ";
+
+                                    }else{
+
+                                        echo "
+                                            <button class='btn px-4 py-1 ml-3 pull-left pro_list_addqty add' type='button' id='$pro_id'>ADD</button>
+                                        ";
+                                        }
+                                    
+
+                                ?>
+                                <?php }else{
+
+                                        echo"
+                                        <div class='col-6'>
+                                        <div class='row'>
+                                        <div class='col'>
+                                        <a href='customer/notify?pro_id=$pro_id' class='btn btn-danger py-0 px-1 text-center' style='font-size:15px;'>
+                                        Notify Us
+                                        <p class='text-center mb-0'style='font-size:8px;' >Out of Stock</p>
+                                        </a>   
+                                        </div>
+                                        </div>
+                                        </div>
+                                        ";
+                                        }
+
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php 
+
+                    }
+                    
+                }
+                
+            }
+        
+        ?>
 
     </div>
+        
+<!-- product list -->
+
+<!-- checkout float -->
+    <div class="container-fluid cart_bottom fixed-bottom mx-0 py-0 <?php echo diaplay_cart(); ?>">
+            <div class="row">
+                <div class="col-6 pl-3">
+                    <h5 class="item_count pt-1 mb-0"><?php echo items(); ?> Items</h4>
+                    <h4 class="item_cost mb-0">₹ <?php echo total_price(); ?></h3>
+                </div>
+                <div class="col-6 pr-0 mr-0">
+                    <a href="cart" class="btn btn-success pull-right bill_checkout">
+                        View Cart
+                        <i style="font-size:1.2rem; color:#fff;" class="fas fa-angle-double-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+<!-- checkout float -->
 
 <?php
 

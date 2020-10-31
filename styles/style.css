@@ -753,3 +753,22 @@ a.pro_store{
   }
 /* Floating */
 
+/*Offer Zone*/
+a.offer_box{
+    margin-left: 18px;
+    background-image: linear-gradient(to right top, #91003e, #9b0051, #a10068, #a20082, #9b009f, #9000a8, #8200b2, #7000bc, #6900b0, #6100a4, #5a0099, #53008d);
+    border-radius: 10px;
+    box-shadow: 7px 7px 5px #fffd7e;
+    font-family: Squada One;
+}
+.offer_container{
+    background-image: url("../admin_area/admin_images/offerback.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.shop_offer{
+    margin-top: 32px;
+}
+/*Offer Zone*/
+

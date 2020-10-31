@@ -146,6 +146,27 @@
     </div>
 <!-- banner carousel -->
 
+<!-- Offer Zone -->
+    <div class="container-fluid my-3 py-4 offer_container">
+        <div class="row pl-1 pb-4">
+            <div class="col">
+                <h5 class="heading_main text-dark">OFFER ZONE</h5>
+            </div>
+        </div>
+        <div class="row pl-1 text-center">
+            <a href="shop_offer?offer_zone=10" class="btn offer_box">
+                <h5 class="text-light pt-2">Below-10%</h5>
+            </a>
+            <a href="shop_offer?offer_zone=20" class="btn offer_box">
+                <h5 class="text-light pt-2">10% - 30%</h5>
+            </a>
+            <a href="shop_offer?offer_zone=30" class="btn offer_box">
+                <h5 class="text-light pt-2">30%-Above</h5>
+            </a>
+        </div>
+    </div>
+<!-- Offer Zone -->
+
 <!-- product swipe -->
 
     <div class="container-fluid 
@@ -200,8 +221,8 @@
                                                     </div>
                                                     <div class='col-6 px-0'>
                                                         <div class="row">
-                                                        <div class='col-12'>
-                                                            <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>ADD <i class="fas fa-chevron-right"></i></a>
+                                                        <div class='col-12 pl-1'>
+                                                            <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>

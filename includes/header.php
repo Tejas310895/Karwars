@@ -51,6 +51,7 @@ if(isset($_GET['pro_id'])){
     <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Laila' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet'>
     <!-- google font -->
     <!-- bootstrap link -->
     <link rel="stylesheet" href="styles/bootstrap.min.css" >
@@ -97,7 +98,7 @@ if(isset($_GET['pro_id'])){
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
-    <link rel="stylesheet" href="styles/style.css?version=20">
+    <link rel="stylesheet" href="styles/style.css?version=21">
     <!-- styles -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
