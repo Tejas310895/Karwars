@@ -147,21 +147,21 @@
 <!-- banner carousel -->
 
 <!-- Offer Zone -->
-    <div class="container-fluid my-3 py-4 offer_container">
-        <div class="row pl-1 pb-4">
+    <div class="container-fluid my-2 py-4 offer_container">
+        <div class="row pl-1 pb-2">
             <div class="col">
-                <h5 class="heading_main text-dark">OFFER ZONE</h5>
+                <h5 class="heading_main text-dark offer_text">OFFER ZONE</h5>
             </div>
         </div>
         <div class="row pl-1 text-center">
             <a href="shop_offer?offer_zone=10" class="btn offer_box">
-                <h5 class="text-light pt-2">Below-10%</h5>
+                <h6 class="text-light pt-2">Below-10%</h6>
             </a>
             <a href="shop_offer?offer_zone=20" class="btn offer_box">
-                <h5 class="text-light pt-2">10% - 30%</h5>
+                <h6 class="text-light pt-2">10% - 30%</h6>
             </a>
             <a href="shop_offer?offer_zone=30" class="btn offer_box">
-                <h5 class="text-light pt-2">30%-Above</h5>
+                <h6 class="text-light pt-2">30%-Above</h6>
             </a>
         </div>
     </div>
