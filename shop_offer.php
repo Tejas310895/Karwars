@@ -167,13 +167,13 @@
                 $offer_zone = $_GET['offer_zone'];
 
                 if($offer_zone==10){
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)<10";
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)<10 and product_visibility='Y'";
                 }elseif($offer_zone==20){
                     $zone_id = $offer_zone;
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>10 and 100-((product_price/price_display)*100)<30";
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>10 and 100-((product_price/price_display)*100)<30 and product_visibility='Y'";
                 }elseif($offer_zone==30){
                     $zone_id = $offer_zone;
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>30";
+                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>30 and product_visibility='Y'";
                 }
                                 
                 $run_products = mysqli_query($db,$get_cat);
