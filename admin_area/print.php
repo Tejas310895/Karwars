@@ -117,8 +117,7 @@ if(isset($_GET['print'])){
 <div class="container-fluid">
 <div class="row">
     <div class="col-12">
-        <img src="admin_images/karlogob.png" alt="" class="border-0 d-block mx-auto pt-4" width="100%">
-        <h4 class="text-center">In Association With Gopals Special</h4>
+        <img src="admin_images/diwalilogo.png" alt="" class="border-0 d-block mx-auto pt-4" width="100%">
         <br>
         <h4>Order On : <?php echo date('d/M/Y',strtotime($order_date)); ?></h4>
         <h4>Name : <?php echo $c_name; ?></h4>
@@ -145,6 +144,7 @@ if(isset($_GET['print'])){
 				$run_pro_id = mysqli_query($con,$get_pro_id);
 
 				$counter = 0;
+                $you_saved = 0;
 
 				while($row_pro_id = mysqli_fetch_array($run_pro_id)){
 					
@@ -174,20 +174,21 @@ if(isset($_GET['print'])){
 
 					$mrp = $row_pro['price_display'];
 
-					if($mrp<=0){
+					// if($mrp<=0){
 
-						$discount=0;
+					// 	$discount=0;
 
-					}else{
+					// }else{
 
-						$discount=($mrp-$pro_price)*$qty;
-					} 
+						$discount=$mrp-$pro_price;
+					// } 
 
 					// $sub_total = $row_pro['product_price']*$qty;
 					
 					// $total += $sub_total;
 
-					$counter = ++$counter;
+                    $counter = ++$counter;
+                    $you_saved = $discount++;
 
 					if($product_status==='Deliver'){
 
@@ -294,6 +295,7 @@ if(isset($_GET['print'])){
     </table>
     </div> -->
     <div class="col-12">
+        <h4 class="text-center">YOU SAVED ₹ <?php echo $you_saved; ?><br> on this order</h2>
         <h5 class="text-center">Thank You</h5>
         <h6 class="text-center">Order Again : www.karwars.in</h6>
     </div>
