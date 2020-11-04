@@ -296,7 +296,7 @@ if(isset($_GET['print'])){
     </table>
     </div> -->
     <div class="col-12">
-        <h4 class="text-center">YOU SAVED ₹ <?php echo $you_saved; ?><br> on this order</h2>
+        <!-- <h4 class="text-center">YOU SAVED ₹ <?php //echo $you_saved; ?><br> on this order</h2> -->
         <h5 class="text-center">Thank You</h5>
         <h6 class="text-center">Order Again : www.karwars.in</h6>
     </div>
