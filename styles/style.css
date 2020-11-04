@@ -773,5 +773,37 @@ a.offer_box{
 .offer_text{
     font-family: Josefin Sans;
 }
+
+.offer-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    top: 2px;
+    left: 2px;
+    background-image: url("../admin_area/admin_images/offbadge.png") !important;
+    background-repeat: round;
+}
+
+.offer-badge-text{
+    margin-top: 6px;
+    font-size: 1.2rem;
+}
+
+.heading_offer{
+    font-size: 1.3rem;
+    font-family: Fredoka One;
+    font-weight: lighter;
+    color: rgb(48, 48, 48);
+    margin-bottom: 0;
+}
+
+.deal_text{
+    font-size: 1.1rem;
+    font-family: Josefin Sans;
+    font-weight: lighter;
+    color: rgb(48, 48, 48);
+    margin-bottom: 0;
+}
 /*Offer Zone*/
 

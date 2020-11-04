@@ -119,6 +119,7 @@ if(isset($_GET['print'])){
     <div class="col-12">
         <img src="admin_images/diwalilogo.png" alt="" class="border-0 d-block mx-auto pt-4" width="100%">
         <br>
+        <h4>Order No. : <?php echo $invoice_id; ?></h4>
         <h4>Order On : <?php echo date('d/M/Y',strtotime($order_date)); ?></h4>
         <h4>Name : <?php echo $c_name; ?></h4>
         <h4>Mobile No. : <?php echo $c_contact; ?></h4>
@@ -188,7 +189,7 @@ if(isset($_GET['print'])){
 					// $total += $sub_total;
 
                     $counter = ++$counter;
-                    $you_saved = $discount++;
+                    $you_saved += $discount;
 
 					if($product_status==='Deliver'){
 
@@ -295,7 +296,7 @@ if(isset($_GET['print'])){
     </table>
     </div> -->
     <div class="col-12">
-        <!-- <h4 class="text-center">YOU SAVED ₹ <?php //echo $you_saved; ?><br> on this order</h2> -->
+        <h4 class="text-center">YOU SAVED ₹ <?php echo $you_saved; ?><br> on this order</h2>
         <h5 class="text-center">Thank You</h5>
         <h6 class="text-center">Order Again : www.karwars.in</h6>
     </div>

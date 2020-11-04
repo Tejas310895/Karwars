@@ -169,11 +169,10 @@
 
 <!-- product swipe -->
 
-    <div class="container-fluid 
-    gridheading">
+    <div class="container-fluid gridheading">
         <div class="row pl-1 pb-2">
             <div class="col">
-                <h5 class="heading_main">Most Reviewed</h5>
+                <h5 class="heading_offer mt-3">TODAY'S DEALS <strong><span id="demo" class="text-right deal_text bg-success p-1 text-white"></span></strong></h5>
             </div>
         </div>
     </div>
@@ -205,12 +204,29 @@
                 $min_price = $row_store['min_price'];
                 
                 $store_img1 = $row_store['store_img'];
-                    
+
+                $get_offer_badge = "SELECT * from products where store_id='$store_id' order by 100-((product_price/price_display)*100) DESC limit 1";
+                $run_offer_badge = mysqli_query($con,$get_offer_badge);
+                $row_offer_badge = mysqli_fetch_array($run_offer_badge);
+
+                $product_price_badge = $row_offer_badge['product_price'];
+                $price_display_badge = $row_offer_badge['price_display'];
+                
+                if( $price_display_badge>0){
+                    $offer_badge = round(100-(($product_price_badge/$price_display_badge)*100));
+                }else{
+                    $offer_badge = 0; 
+                }
+                
                 ?>
 
 
                     <div class='swiper-slide'>
                                 <div class='card pro_card my-2' style='width: 18rem;'>
+                                            <span class="badge offer-badge <?php if($offer_badge==0){echo "d-none";}else{echo "show";}?>">
+                                                <h6 class="offer-badge-text mb-0"><?php echo $offer_badge; ?>%</h6>
+                                                <small>OFF</small>
+                                            </span>
                                             <img src='<?php echo $store_img1; ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
                                             <div class='card-body p-1'>
                                             <p class='card-text text-left px-2 pro_title'><?php echo $store_title; ?></p>
@@ -221,8 +237,8 @@
                                                     </div>
                                                     <div class='col-6 px-0'>
                                                         <div class="row">
-                                                        <div class='col-12 pl-1'>
-                                                            <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
+                                                            <div class='col-12 pl-1'>
+                                                                <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -439,7 +455,36 @@
 <div class="icon-bar">
   <a href="tel:7892916394" class="support"><img src="admin_area/admin_images/support.svg" alt="" width="30px"></a>
 </div> -->
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Nov 5, 2020 00:00:00").getTime();
 
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = "Ends in "+ days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 <?php 
 
 include("includes/footer.php");
