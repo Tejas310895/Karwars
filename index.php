@@ -172,7 +172,7 @@
     <div class="container-fluid gridheading">
         <div class="row pl-1 pb-2">
             <div class="col">
-                <h5 class="heading_offer mt-3">TODAY'S DEALS <strong><span id="demo" class="text-right deal_text bg-success p-1 text-white"></span></strong></h5>
+                <h5 class="heading_offer mt-3">Festive DEALS <strong><span id="demo" class="text-right deal_text bg-success p-1 text-white"></span></strong></h5>
             </div>
         </div>
     </div>
@@ -457,7 +457,7 @@
 </div> -->
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Nov 6, 2020 00:00:00").getTime();
+var countDownDate = new Date("Nov 8, 2020 00:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

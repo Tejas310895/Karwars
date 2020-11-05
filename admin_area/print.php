@@ -175,18 +175,18 @@ if(isset($_GET['print'])){
 
 					$mrp = $row_pro['price_display'];
 
-					// if($mrp<=0){
+					if($mrp<$pro_price){
 
-					// 	$discount=0;
+						$discount=0;
 
-					// }else{
+					}else{
 
 						$discount=$mrp-$pro_price;
-					// } 
+					} 
 
-					// $sub_total = $row_pro['product_price']*$qty;
+					//$sub_total = $row_pro['product_price']*$qty;
 					
-					// $total += $sub_total;
+					//$total += $sub_total;
 
                     $counter = ++$counter;
                     $you_saved += $discount;
@@ -296,7 +296,7 @@ if(isset($_GET['print'])){
     </table>
     </div> -->
     <div class="col-12">
-        <!-- <h4 class="text-center">YOU SAVED ₹ <?php //echo $you_saved; ?><br> on this order</h2> -->
+        <h4 class="text-center">YOU SAVED ₹ <?php echo $you_saved; ?><br> on this order</h2>
         <h5 class="text-center">Thank You</h5>
         <h6 class="text-center">Order Again : www.karwars.in</h6>
     </div>
