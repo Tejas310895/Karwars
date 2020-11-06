@@ -8,6 +8,11 @@
 
       $active='view_orders';
 
+      
+    date_default_timezone_set('Asia/Kolkata');
+
+    $today = date("Y-m-d");
+
 ?>
 
 <div class="row">
@@ -351,12 +356,12 @@
     
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function autoRefreshPage()
     {
         window.location = window.location.href;
     }
     setInterval('autoRefreshPage()', 60000);
-</script>
+</script> -->
 
 <?php } ?>
