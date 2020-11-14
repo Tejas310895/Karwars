@@ -185,7 +185,7 @@
                                     <div class="col-lg-6">
                                       <div class="row">
                                         <div class="col-6">
-                                          <a type="button" class="btn btn-danger" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">Cancle Order</a>
+                                          <a type="button" class="btn btn-danger" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">Cancel Order</a>
                                         </div>
                                         <div class="col-6">
                                           <?php 
