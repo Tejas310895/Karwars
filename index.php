@@ -147,7 +147,7 @@
 <!-- banner carousel -->
 
 <!-- Offer Zone -->
-    <div class="container-fluid my-2 py-4 offer_container">
+    <!-- <div class="container-fluid my-2 py-4 offer_container">
         <div class="row pl-1 pb-2">
             <div class="col">
                 <h5 class="heading_main text-dark offer_text">OFFER ZONE</h5>
@@ -164,7 +164,7 @@
                 <h6 class="text-light pt-2">30%-Above</h6>
             </a>
         </div>
-    </div>
+    </div> -->
 <!-- Offer Zone -->
 
 <!-- product swipe -->
@@ -172,7 +172,7 @@
     <div class="container-fluid gridheading">
         <div class="row pl-1 pb-2">
             <div class="col">
-                <h5 class="heading_offer mt-3">Festive DEALS <strong><span id="demo" class="text-right deal_text bg-success p-1 text-white"></span></strong></h5>
+                <h5 class="heading_offer mt-3">DEALS FOR YOU</h5>
             </div>
         </div>
     </div>
