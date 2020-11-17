@@ -188,11 +188,14 @@
                                           <a type="button" class="btn btn-danger" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">Cancel Order</a>
                                         </div>
                                         <div class="col-6">
+                                            <a href='process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered' class='btn btn-primary d-block'>Update Delivered</a>
+                                        </div>
+                                        <div class="col-6">
                                           <?php 
                                           
                                           if($order_status==='Order Placed'){
                                             echo "
-                                            <a href='index.php?confirm_order=$invoice_id' class='btn btn-primary d-block'>Confirm Order</a>
+                                            <a href='index.php?confirm_order=$invoice_id' class='btn btn-primary d-block'>Edit Order</a>
                                             ";
                                           }elseif ($order_status==='Packed') {
                                             echo "
