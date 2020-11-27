@@ -245,6 +245,10 @@
                                         </form>
                                         </div>
                                         </div>
+                                        <div class="w-100"></div>
+                                        <div class="col-12">
+                                              <a href="sendmails.php?clientbill_mail=<?php echo $invoice_id; ?>" class="btn btn-success btn-lg btn-block text-white">Send Mail to Clients</a>
+                                        </div>
                                     </div>
                                   <!-- Modal -->
                                   <div class="modal modal-black fade" id="KK<?php echo $invoice_id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
