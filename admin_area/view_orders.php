@@ -180,7 +180,8 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <button id="show_details" class="btn btn-success card-link pull-left mt-2" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">View</button>
-                                        <a href="print.php?print=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Delivery Statement</a>
+                                        <a href="print.php?print=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Print</a>
+                                        <a href="sendmails.php?delbill_mail=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Mail</a>
                                     </div>
                                     <div class="col-lg-6">
                                       <div class="row">
