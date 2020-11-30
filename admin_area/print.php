@@ -137,12 +137,32 @@ if(isset($_GET['print'])){
                 <th style="width:40%;">SUBTOTAL</th>
             </tr>
         </thead>
+        <?php 
+
+        $get_client_id = "SELECT distinct(client_id) from customer_orders where invoice_no='$invoice_id'";
+        $run_client_id = mysqli_query($con,$get_client_id);
+        while($row_client_id=mysqli_fetch_array($run_client_id)){
+
+            $client_id = $row_client_id['client_id'];
+
+            $get_product_type = "select * from clients where client_id='$client_id'";
+            $run_product_type = mysqli_query($con,$get_product_type);
+            $row_product_type = mysqli_fetch_array($run_product_type);
+
+            $product_type = $row_product_type['client_pro_type'];
+            
+            echo"
+            <tr>
+            <th colspan='3'>$product_type</th>
+            </tr>
+            ";
+            ?>
         <tbody class="text-center" style="font-weight:bold;">
         <?php
+				$get_pro_id = "select * from customer_orders where invoice_no='$invoice_id' and client_id='$client_id'";
 
-				$get_pro_id = "select * from customer_orders where invoice_no='$invoice_id'";
-
-				$run_pro_id = mysqli_query($con,$get_pro_id);
+                $run_pro_id = mysqli_query($con,$get_pro_id);
+                
 
 				$counter = 0;
                 $you_saved = 0;
@@ -194,7 +214,6 @@ if(isset($_GET['print'])){
 					if($product_status==='Deliver'){
 
 						echo "
-
 						<tr>
 						<td class='text-left'>$pro_title $pro_desc</td>
 						<td class='text-center'>$qty</td>
@@ -217,8 +236,11 @@ if(isset($_GET['print'])){
 
 					}
 
-				}
+                }
 				?>
+                </tbody>
+            <?php } ?>
+                <tbody>
         <tr>
         <th colspan="2" class="text-right">Item Total :</th>
         <td> ₹ <?php echo $total; ?></td>
