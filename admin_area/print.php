@@ -153,7 +153,7 @@ if(isset($_GET['print'])){
             
             echo"
             <tr>
-            <th colspan='3'>$product_type</th>
+            <th colspan='3' class='text-center'>$product_type</th>
             </tr>
             ";
             ?>
