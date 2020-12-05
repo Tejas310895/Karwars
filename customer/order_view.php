@@ -160,7 +160,6 @@ session_start();
                     </div>
                     <div class='col-4 px-0 pt-1'>
                         <h5 class='view_total text-center mb-0'>₹ $sub_total</h5>
-                        <p class='text-center mb-0 $sta_color'>$product_status</p>
                     </div>
                 </div>
             
