@@ -146,6 +146,16 @@
     </div>
 <!-- banner carousel -->
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-danger border border-danger" role="alert">
+                Due to an emergency in transport today's deliveries are been scheduled for tomorrow.
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Offer Zone -->
     <!-- <div class="container-fluid my-2 py-4 offer_container">
         <div class="row pl-1 pb-2">
