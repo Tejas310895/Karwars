@@ -401,7 +401,7 @@
 
             <?php 
             
-            $get_cat = "SELECT * from categories order by cat_id desc";
+            $get_cat = "SELECT * from categories order by cat_id asc";
 
             $run_cat = mysqli_query($db,$get_cat);
             
