@@ -79,7 +79,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $user_orders_count = mysqli_num_rows($run_user_orders_count);
 
         if($user_orders_count==1){
-         $insert_discount = "insert into customer_discounts (invoice_no,discount_type,discount_amount) values ('$invoice_no','First Order Discount','50')";
+         $insert_discount = "insert into customer_discounts (invoice_no,discount_type,discount_amount,discount_date) values ('$invoice_no','First Order Discount','50','$today')";
          $run_insert_discount = mysqli_query($con,$insert_discount);
         }
         
