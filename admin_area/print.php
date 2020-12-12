@@ -73,6 +73,12 @@ if(isset($_GET['print'])){
 
     $txn_status = $row_txn['STATUS'];
 
+    $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'";
+    $run_discount = mysqli_query($con,$get_discount);
+    $row_discount = mysqli_fetch_array($run_discount);
+
+    $discount_type = $row_discount['discount_type'];
+    $discount_amount = $row_discount['discount_amount'];
 
 }
 
@@ -249,9 +255,13 @@ if(isset($_GET['print'])){
         <th colspan="3" class="text-right">Delivery Charges :</th>
         <td> ₹ <?php echo $del_charges; ?></td>
         </tr>
+        <tr class="<?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">
+        <th colspan="2" class="text-right"><?php echo $discount_type; ?> :</th>
+        <td> ₹ <strong><?php echo "-".$discount_amount; ?></strong></td>
+        </tr>
         <tr>
         <th colspan="2" class="text-right">GRAND TOTAL :<br>inc of all taxes   </th>
-        <td> ₹ <strong><?php echo $total+$del_charges; ?></strong></td>
+        <td> ₹ <strong><?php echo ($total+$del_charges)-$discount_amount; ?></strong></td>
         </tr>
         </tbody>
     </table>

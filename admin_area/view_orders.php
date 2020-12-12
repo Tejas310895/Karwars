@@ -129,6 +129,14 @@
                           $row_txn = mysqli_fetch_array($run_txn);
 
                           $txn_status = $row_txn['STATUS'];
+
+                          $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'";
+                          $run_discount = mysqli_query($con,$get_discount);
+                          $row_discount = mysqli_fetch_array($run_discount);
+
+                          $discount_type = $row_discount['discount_type'];
+                          $discount_amount = $row_discount['discount_amount'];
+
                           ?>
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
@@ -139,7 +147,7 @@
                                 <div class="row">
                                   <div class="col">
                                   <h5 class="card-subtitle">ID - <?php echo $invoice_id; ?></h5>
-                                  <h4 class="card-subtitle mt-2">Order by - <?php echo $c_name; ?></h4>
+                                  <h4 class="card-subtitle mt-2">Order by - <?php echo $c_name; ?><span class="badge badge-secondary <?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">Discount Applied</span></h4>
                                   <h4 class="card-subtitle mt-2">Contact - +91 <?php echo $c_contact; ?></h4>
                                   <h4 class="card-text mt-3">Address - <?php echo $customer_address; ?>, 
                                                                       <?php echo $customer_phase; ?>, 
@@ -152,7 +160,7 @@
                                       <?php if($txn_status==='TXN_SUCCESS'){echo "PAID ONLINE";}else{echo "TAKE CASH";} ?>
                                     </h6>
                                     <h3 class="card-subtitle mt-2 pull-right">
-                                      <?php echo $order_count; ?> Items -  ₹<?php echo $total+$del_charges; ?>/-  <br>
+                                      <?php echo $order_count; ?> Items -  ₹<?php echo ($total+$del_charges)-$discount_amount; ?>/-  <br>
                                       REFUND OF ₹<?php 
                                       
                                       $get_refund = "SELECT sum(due_amount) AS refund FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Undeliver'";

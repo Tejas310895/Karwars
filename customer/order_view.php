@@ -109,6 +109,13 @@ session_start();
 
         $row_total = mysqli_fetch_array($run_total);
 
+        $get_discount = "select * from customer_discounts where invoice_no='$invoice_no'";
+        $run_discount = mysqli_query($con,$get_discount);
+        $row_discount = mysqli_fetch_array($run_discount);
+    
+        $discount_type = $row_discount['discount_type'];
+        $discount_amount = $row_discount['discount_amount'];
+
         while($row_pro_id = mysqli_fetch_array($run_pro_id)){
             
         $pro_id = $row_pro_id['pro_id'];
@@ -179,10 +186,12 @@ session_start();
     ?>
             <div class="row fixed-bottom px-3 <?php if($row_total['sum_total']>=1){echo 'show';}else{echo 'd-none';}?>" style="background-color:#999;">
                 <div class="col-6">
-                    <h5 class="total_sum text-left mb-0 mt-2">Total:</h5>
+                    <h6 class="text-left mb-0 mt-2 mb-0"><strong><?php echo $discount_type; ?>:</strong></h6>
+                    <h5 class="total_sum text-left mb-0 mt-1">Total:</h5>
                 </div>
                 <div class="col-6">
-                    <h5 class="total_sum text-right py-2">₹ <?php echo $row_total['sum_total']+$del_charges; ?></h5>
+                    <h5 class="text-right mb-0 mt-2"><strong>- ₹ <?php echo $discount_amount; ?></strong></h5>
+                    <h5 class="total_sum text-right">₹ <?php echo ($row_total['sum_total']+$del_charges)-$discount_amount; ?></h5>
                 </div>
                 <!-- <div class="col-4 bg-warning px-0 <?php //if($order_status==='Delivered'){echo "show";}else{echo"d-none";} ?>">
                     <a href="invoice?pdf=<?php //echo $_GET['invoice_no']; ?>" class="btn px-1 pt-3 pb-0" style="font-size:1.2rem;padding-top:12px!important;color:#fff;" download><i class="fas fa-download"></i> INVOICE</a>

@@ -199,6 +199,13 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                     $txn_status = $row_txn['STATUS'];
 
+                    $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'";
+                    $run_discount = mysqli_query($con,$get_discount);
+                    $row_discount = mysqli_fetch_array($run_discount);
+
+                    $discount_type = $row_discount['discount_type'];
+                    $discount_amount = $row_discount['discount_amount'];
+
                   ?>
                           <tr class="text-center">
                           <td style="font-size:0.8rem;"><?php echo $status; ?></td>
@@ -212,7 +219,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                               <?php echo $customer_city; ?> .
                           </td>
                           <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
-                          <td style="font-size:0.7rem;">₹ <?php echo $total; ?>/-</td>
+                          <td style="font-size:0.7rem;">₹ <?php echo $total-$discount_amount; ?>/-</td>
                           <td><?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
                           <td class="td-actions" >
                           <button id="show_details" class="btn btn-info btn-sm p-1" style="font-size:0.7rem;" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">
@@ -288,6 +295,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                                     $row_client = mysqli_fetch_array($run_client);
 
                                     $client_name = $row_client['client_shop'];
+
                                     
                                     ?>
                                         <tr>

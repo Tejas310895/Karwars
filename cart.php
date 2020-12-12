@@ -7,7 +7,7 @@
 <!-- fixed nav -->
     <div class="container-fuild fixed-top">
             <!-- nav -->
-                <ul class="nav bg-white cartloc ">
+                <ul class="nav bg-white cartloc">
                     <li class="nav-item">
                         <a class="nav-link" onClick="window.history.back()">
                             <i style="font-size: 1.8rem;" class="fas fa-arrow-left"></i>
@@ -192,11 +192,41 @@
 
 <!-- checkout float -->
     <div class="container-fluid px-0 fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
-    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php echo $you_save; ?> on this order</h5>
+    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php echo $you_save; ?> on this order 
+    
+    <?php 
+    
+    if(isset($_SESSION['customer_email'])){
+
+        $customer_mail = $_SESSION['customer_email'];
+
+        $get_customer_id = "select * from customers where customer_email='$customer_mail'";
+
+        $run_customer_id = mysqli_query($con,$get_customer_id);
+
+        $row_customer_id = mysqli_fetch_array($run_customer_id);
+
+        $customer_id = $row_customer_id['customer_id'];
+
+        $get_user_order_count = "SELECT * FROM customer_orders WHERE customer_id='$customer_id'";
+        $run_user_orders_count = mysqli_query($con,$get_user_order_count);
+        $user_orders_count = mysqli_num_rows($run_user_orders_count);
+
+        if($user_orders_count<1){
+            echo "<br> First User Discount -₹ 50";
+            $discount_amount=50;
+        }else{
+            $discount_amount=0;
+        }
+    }
+    
+    ?>
+    
+    </h5>
         <div class="row cart_bottom">
             <div class="col-6 pl-4">
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
-                <h4 class="item_cost mb-0">Total: ₹ <?php echo $total+$del_charges; ?></h3>
+                <h4 class="item_cost mb-0">Total: ₹ <?php echo ($total+$del_charges)-$discount_amount; ?></h3>
             </div>
             <div class="col-6 pr-2">
                 <?php if($min_price>$total){

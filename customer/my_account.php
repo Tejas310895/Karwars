@@ -303,6 +303,13 @@ session_start();
 
             $txn_status = $row_txn['STATUS'];
 
+            $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'";
+            $run_discount = mysqli_query($con,$get_discount);
+            $row_discount = mysqli_fetch_array($run_discount);
+
+            $discount_type = $row_discount['discount_type'];
+            $discount_amount = $row_discount['discount_amount'];
+
             ?>
             <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body bg-white py-1">
@@ -317,7 +324,7 @@ session_start();
                                 <div class="row">
                                     <div class="col-9">
                                         <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items <?php echo $order_status; ?></h5>
-                                        <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  $order_sum+$del_charges; ?></h4>
+                                        <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  ($order_sum+$del_charges)-$discount_amount; ?></h4>
                                         <p class="card-text mb-0  <?php if($txn_status==='TXN_SUCCESS'){echo 'text-success';}else{echo 'text-danger'; } ?>" style="font-size:0.7rem;font-weight:bold;">
                                         <?php 
                                         
