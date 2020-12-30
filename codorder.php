@@ -88,7 +88,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     if($run_customer_order){
 
-        $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
+        $get_waclient = "SELECT * FROM customer_orders WHERE invoice_no='$invoice_no' GROUP BY client_id";
         $run_waclient = mysqli_query($con,$get_waclient);
         while($row_waclient=mysqli_fetch_array($run_waclient)){
         $waclient_id = $row_waclient['client_id'];
