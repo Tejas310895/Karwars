@@ -50,6 +50,33 @@
             </a>
           </li>
           <li>
+            <a class="btn btn-link text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="tim-icons icon-vector"></i>
+            <p class="text-left">FMR Manager</p>
+            </a>
+            <div class="collapse ml-4 mr-1" id="collapseExample">
+              <div class="card card-body bg-transparent px-0 py-1">
+                <ul class="pl-4">
+                  <li>
+                    <a class="p-1" href="index.php?fmr_member">Members</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?fmr_bonus_sheet">Bonus Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?fmr_settlement_sheet">Settlement Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?fmr_debit_sheet">Debit Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?fmr_notice_board">Notice Board</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
             <a href="index.php?user_profile">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
