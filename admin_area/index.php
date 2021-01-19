@@ -398,6 +398,70 @@
                 
               }
 
+              //FMR PANEL //
+
+              if(isset($_GET['fmr_member'])){
+                    
+                include("fmr/member_list.php");
+                
+              }
+
+              if(isset($_GET['register_fmr'])){
+                    
+                include("fmr/register_fmr.php");
+                
+              }
+
+              if(isset($_GET['fmr_bonus_sheet'])){
+                    
+                include("fmr/bonus_panel.php");
+                
+              }
+
+              if(isset($_GET['raise_bonus'])){
+                    
+                include("fmr/raise_bonus.php");
+                
+              }
+
+              if(isset($_GET['fmr_settlement_sheet'])){
+                    
+                include("fmr/settlement_panel.php");
+                
+              }
+
+              if(isset($_GET['raise_credit'])){
+                    
+                include("fmr/raise_credit.php");
+                
+              }
+
+              if(isset($_GET['fmr_debit_sheet'])){
+                    
+                include("fmr/debit_panel.php");
+                
+              }
+
+              if(isset($_GET['raise_debit'])){
+                    
+                include("fmr/raise_debit.php");
+                
+              }
+
+              if(isset($_GET['fmr_notice_board'])){
+                    
+                include("fmr/notification_panel.php");
+                
+              }
+
+              if(isset($_GET['send_notification'])){
+                    
+                include("fmr/send_notification.php");
+                
+              }
+
+              //FMR PANEL //
+
             ?>
 
         </div>
