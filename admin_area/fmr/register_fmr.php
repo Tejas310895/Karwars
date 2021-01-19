@@ -174,6 +174,37 @@ if(isset($_POST['submit'])){
     $run_fmr = mysqli_query($con,$insert_fmr);
     
     if($run_fmr){
+
+        $text1 = "Welcome%20to%20Karwars%20Online%20Supermarket%20Team%A0You%20are%20been%20registered%20as%20Field%20Marketing%20Execute%A0Below%20are%20Login%20Details%A0Username:$fmr_email%A0Password:$fmr_pass";
+        //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+        // $url1="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=$c_contact&message=$text1";
+        // $url2="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=7892916394&message=$text2";
+        $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
+
+        // create both cURL resources
+        $ch1 = curl_init();
+
+        // set URL and other appropriate options
+        curl_setopt($ch1, CURLOPT_URL, $url1);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
+
+        //create the multiple cURL handle
+        $mh = curl_multi_init();
+
+        //add the two handles
+        curl_multi_add_handle($mh,$ch1);
+
+        //execute the multi handle
+        do {
+            $status = curl_multi_exec($mh, $active);
+            if ($active) {
+                curl_multi_select($mh);
+            }
+        } while ($active && $status == CURLM_OK);
+
+        //close the handles
+        curl_multi_remove_handle($mh, $ch1);
+        curl_multi_close($mh);
         
         echo "<script>alert('FMR Registration sucessful')</script>";
         echo "<script>window.open('index.php?fmr_member','_self')</script>";
