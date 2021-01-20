@@ -9,7 +9,7 @@
 ?>
 <div class="row">
            <div class="col-lg-6 col-md-6">
-           <h2 class="card-title">FMR Members</h2>
+           <h2 class="card-title">Notifications</h2>
            </div>
            <div class="col-lg-6 col-md-6">
             <a href="index.php?send_notification" class="btn btn-success pull-right">Send Notification</a>

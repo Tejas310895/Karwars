@@ -39,7 +39,44 @@ $(document).ready(function () {
 
     }
 
+    function register_referal(){
+        if($("#fmr_check").is(":checked")){
+            $("#customer_register").addClass("d-none");
+        }else{
+            $("#customer_register").removeClass("d-none");
+        }
+    }
+
     $("#fmr_check").click(function () { 
         referal_code();
     });
+
+    $("#fmr_check").click(function () { 
+        register_referal();
+    });
+
+    $("#fmr_code_input").keyup(function (e) { 
+        e.preventDefault();
+        var fmr_code_input = $("#fmr_code_input").val();
+
+        $.ajax({
+            type: "post",
+            url: "./process_product.php",
+            data: {"fmr_code_input":fmr_code_input},
+            success: function (data) {
+                if(data==1){
+                    $("#check_fmr_code").removeClass("text-danger");
+                    $("#check_fmr_code").addClass("text-success");
+                    $("#customer_register").removeClass("d-none");
+                    $("#check_fmr_code").html("<i class='fas fa-check'></i>");
+                }else{
+                    $("#check_fmr_code").removeClass("text-success");
+                    $("#check_fmr_code").addClass("text-danger");
+                    $("#check_fmr_code").html("<i class='fas fa-times'></i>");
+                    $("#customer_register").addClass("d-none");
+                }
+            }
+        });
+    });
+
 });

@@ -18,7 +18,7 @@ if(!isset($_SESSION['admin_email'])){
 ?> 
         <div class="row">
            <div class="col-lg-6 col-md-6">
-           <h2 class="card-title">INSERT PRODUCT</h2>
+           <h2 class="card-title">Register FMR</h2>
            </div>
            <div class="col-lg-6 col-md-6">
             <a href="index.php?fmr_member" class="btn btn-primary pull-right">Back</a>
@@ -176,35 +176,20 @@ if(isset($_POST['submit'])){
     if($run_fmr){
 
         $text1 = "Welcome%20to%20Karwars%20Online%20Supermarket%20Team%A0You%20are%20been%20registered%20as%20Field%20Marketing%20Execute%A0Below%20are%20Login%20Details%A0Username:$fmr_email%A0Password:$fmr_pass";
+
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-        // $url1="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=$c_contact&message=$text1";
-        // $url2="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=7892916394&message=$text2";
-        $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
-
-        // create both cURL resources
-        $ch1 = curl_init();
-
-        // set URL and other appropriate options
-        curl_setopt($ch1, CURLOPT_URL, $url1);
-        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
-
-        //create the multiple cURL handle
-        $mh = curl_multi_init();
-
-        //add the two handles
-        curl_multi_add_handle($mh,$ch1);
-
-        //execute the multi handle
-        do {
-            $status = curl_multi_exec($mh, $active);
-            if ($active) {
-                curl_multi_select($mh);
-            }
-        } while ($active && $status == CURLM_OK);
-
-        //close the handles
-        curl_multi_remove_handle($mh, $ch1);
-        curl_multi_close($mh);
+        //  $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
+        $url = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text&number=+91$fmr_contact";
+        // Initialize a CURL session. 
+        $ch = curl_init();  
+        
+        // Return Page contents. 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+        
+        //grab URL and pass it to the variable. 
+        curl_setopt($ch, CURLOPT_URL, $url); 
+        
+        $result = curl_exec($ch);
         
         echo "<script>alert('FMR Registration sucessful')</script>";
         echo "<script>window.open('index.php?fmr_member','_self')</script>";
