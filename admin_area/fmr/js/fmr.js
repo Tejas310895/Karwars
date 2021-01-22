@@ -79,4 +79,18 @@ $(document).ready(function () {
         });
     });
 
+    $("#get_details").click(function (e) { 
+        e.preventDefault();
+        var fmr_code = $("#fmr_code").val();
+        $.ajax({
+            type: "post",
+            url: "./fmr/get_details.php",
+            data: {"fmr_code":fmr_code},
+            success: function (response) {
+                $("#fmr_details").html(response);
+                alert(data);
+            }
+        });
+    });
+
 });
