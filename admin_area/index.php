@@ -412,6 +412,12 @@
                 
               }
 
+              if(isset($_GET['fmr_details'])){
+                    
+                include("fmr/fmr_details.php");
+                
+              }
+
               if(isset($_GET['fmr_bonus_sheet'])){
                     
                 include("fmr/bonus_panel.php");
