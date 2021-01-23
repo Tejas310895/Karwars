@@ -3,7 +3,7 @@
     <h2 class="card-title">Raise Bonus</h2>
     </div>
     <div class="col-lg-6 col-md-6">
-    <a href="index.php?fmr_bonus_sheet" class="btn btn-primary pull-right">Back</a>
+    <a href="index.php?fmr_details" class="btn btn-primary pull-right">Back</a>
     </div>
 </div>
 <div class="input-group mb-3 mt-4">
