@@ -146,15 +146,15 @@
     </div>
 <!-- banner carousel -->
 
-<!-- <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-12">
             <div class="alert alert-danger border border-danger text-center" role="alert">
-                Due to an emergency in transport today's deliveries are been scheduled for tomorrow.
+                Due to an emergency in transport deliveries may get delayed.
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <!-- Offer Zone -->
     <!-- <div class="container-fluid my-2 py-4 offer_container">
