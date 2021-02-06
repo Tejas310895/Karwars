@@ -88,6 +88,8 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     if($run_customer_order){
 
+    if($run_customer_order){
+
         $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
         $run_waclient = mysqli_query($con,$get_waclient);
         while($row_waclient=mysqli_fetch_array($run_waclient)){
@@ -97,67 +99,46 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $run_wacontact = mysqli_query($con,$get_wacontact);
         $row_wacontact = mysqli_fetch_array($run_wacontact);
         
+        $key = "EALz6t0ZsHkQ9WPx";
+        $senderid="VRNEAR";	$route= 1;
+        
         $waclient_phone = $row_wacontact['client_phone'];
 
-        $chatApiToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE5MzgyODIsInVzZXIiOiI5MTg2MTgyNTk2NjEifQ.K_bsE48VS705q-9ResDr1keJotUm1BMOm2dzOfyGC8E"; // Get it from https://www.phphive.info/255/get-whatsapp-password/
+        $text = "Hi%20you%20have%20an%20order%A0Please%20check%20the%20App%A0Keep the pack ready within";
         
-        $number = $waclient_phone; // Number
-        $message = "Hi! You Have an order \n";
-        $message .= "Date-".$today."\n"; // Message
-        $message .= "Order-Id-".$invoice_no."\n"; // Message
-        $message .= "Name-".$c_name."\n"; // Message
-        $get_wasms = "SELECT * from customer_orders where invoice_no='$invoice_no' and client_id='$waclient_id'";
-        $run_wasms = mysqli_query($con,$get_wasms);
-        $watotal=0;
-        while($row_wasms=mysqli_fetch_array($run_wasms)){
-            $wapro_amount = $row_wasms['due_amount'];
-            $wapro_id = $row_wasms['pro_id'];
-            $wapro_qty = $row_wasms['qty'];
+        //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
+        // $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
+        // $url = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text&number=+91$client_phone";
+        $url = "https://www.hellotext.live/vb/apikey.php?apikey=$key&senderid=$senderid&route=$route&number=$waclient_phone&message=$text";
+        // Initialize a CURL session.
+        $ch = curl_init();
 
-            $get_wapro = "select * from products where product_id='$wapro_id'";
-            $run_wapro = mysqli_query($con,$get_wapro);
-            $row_wapro = mysqli_fetch_array($run_wapro);
+        // Return Page contents.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-            $wapro_name = $row_wapro['product_title'];
-            $wapro_desc = $row_wapro['product_desc'];
-            $watotal+=$wapro_amount;
+        //grab URL and pass it to the variable.
+        curl_setopt($ch, CURLOPT_URL, $url);
 
-        $message .= $wapro_name."-".$wapro_desc."x".$wapro_qty."=Rs".$wapro_amount."\n"; // Message
-        }
-        $message .= "Total:-".$watotal;
+        $result = curl_exec($ch);
 
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://chat-api.phphive.info/message/send/text',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS =>json_encode(array("jid"=> $number."@s.whatsapp.net", "message" => $message)),
-        CURLOPT_HTTPHEADER => array(
-            'Authorization: Bearer '.$chatApiToken,
-            'Content-Type: application/json'
-        ),
-        ));
-        $response = curl_exec($curl);
-        curl_close($curl);
-        //echo $response;
     }
     }
 
 
     if($run_customer_order){
         
+        $key = "EALz6t0ZsHkQ9WPx";
+        $senderid="VRNEAR";	$route= 1;
+        
         $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
         $text2 = "Postpaid%20Order%20Received-https://www.karwars.in/admin_area/print.php?print=$invoice_no";
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
         // $url1="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=$c_contact&message=$text1";
         // $url2="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=7892916394&message=$text2";
-        $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
-        $url2 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text2&number=+917892916394";
+        // $url1 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text1&number=+91$c_contact";
+        // $url2 = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text2&number=+917892916394";
+        $url1 = "https://www.hellotext.live/vb/apikey.php?apikey=$key&senderid=$senderid&route=$route&number=$c_contact&message=$text1";
+        $url2 = "https://www.hellotext.live/vb/apikey.php?apikey=$key&senderid=$senderid&route=$route&number=7892916394&message=$text2";
 
         // create both cURL resources
         $ch1 = curl_init();
