@@ -104,7 +104,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         
         $waclient_phone = $row_wacontact['client_phone'];
 
-        $text = "Hi%20you%20have%20an%20order%A0Please%20check%20the%20App%A0Keep the pack ready within";
+        $text = "Hi%20you%20have%20an%20order%A0Please%20check%20the%20App%A0Keep%20the%20pack%20ready%20within%20half%20an%20hour";
         
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
         // $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
