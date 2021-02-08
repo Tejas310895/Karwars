@@ -88,8 +88,6 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     if($run_customer_order){
 
-    if($run_customer_order){
-
         $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
         $run_waclient = mysqli_query($con,$get_waclient);
         while($row_waclient=mysqli_fetch_array($run_waclient)){
@@ -120,7 +118,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         curl_setopt($ch, CURLOPT_URL, $url);
 
         $result = curl_exec($ch);
-
+        
     }
     }
 
@@ -179,5 +177,4 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     
         echo "<script>window.history.go(-2)</script>";
     }
-
 ?>
