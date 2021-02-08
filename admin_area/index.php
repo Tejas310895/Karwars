@@ -466,6 +466,12 @@
                 
               }
 
+              if(isset($_GET['vendor_report'])){
+                    
+                include("vendor_report.php");
+                
+              }
+
               //FMR PANEL //
 
             ?>
