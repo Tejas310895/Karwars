@@ -478,7 +478,7 @@
                         <a href="shop?store_id=<?php echo $store_id; ?>">
                             <div class="card" style="width: 6rem;">
                                 <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $store_img; ?>" alt="<?php echo $store_title; ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $store_title; ?></h6>
+                                <h6 class="card-title mb-1" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $store_title; ?></h6>
                             </div>
                         </a>
                     </div>
