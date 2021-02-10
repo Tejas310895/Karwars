@@ -133,7 +133,7 @@
 
 <!-- product swipe -->
     <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/designs/min_order_PB1DFjyT-.png" alt="" class="img-fluid mx-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/no_minArtboard_1_4x_FcvDnL12n.png" alt="" class="img-fluid mx-0">
     </div>
 
     <!-- Offer Zone -->
