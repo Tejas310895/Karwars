@@ -433,7 +433,7 @@
             <div class="<?php 
                 
                 if(!isset($_SESSION['customer_email'])){
-                    echo "col-5";
+                    echo "col-6 px-0";
                 }else{
                     echo "col-6 px-0";
                 }
@@ -475,7 +475,7 @@
                         $store_title = $row_store_pro['store_title'];
                     ?>
                     <div class='swiper-slide'>
-                        <a href="shop_offer?offer_zone=10">
+                        <a href="shop?store_id=<?php echo $store_id; ?>">
                             <div class="card" style="width: 6rem;">
                                 <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $store_img; ?>" alt="<?php echo $store_title; ?>" style="height:80px;">
                                 <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $store_title; ?></h6>
@@ -507,20 +507,17 @@
                             $row_cpromo_store_id = mysqli_fetch_array($run_cpromo_store_id);
 
                             $cpromo_store_id = $row_cpromo_store_id['store_id'];
+                            $cpromo_product_id = $row_cpromo_store_id['product_id'];
+                            $cpromo_product_title = $row_cpromo_store_id['product_title'];
+                            $cpromo_product_img1 = $row_cpromo_store_id['product_img1'];
 
-                            $get_cpromo_store = "select * from store where store_id='$cpromo_store_id'";
-                            $run_cpromo_store = mysqli_query($con,$get_cpromo_store);
-                            $row_cpromo_store = mysqli_fetch_array($run_cpromo_store);
-
-                            $cpromo_store_title = $row_cpromo_store['store_title'];
-                            $cpromo_store_img = $row_cpromo_store['store_img'];
                         
                         ?>
                     <div class='swiper-slide'>
-                        <a href="shop_offer?offer_zone=10">
+                        <a href="shop?store_id=<?php echo $cpromo_store_id; ?>#<?php echo $cpromo_product_id; ?>">
                             <div class="card" style="width: 6rem;">
-                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_store_img; ?>" alt="<?php echo $cpromo_store_title; ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_store_title; ?></h6>
+                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_product_img1; ?>" alt="<?php echo $cpromo_product_title; ?>" style="height:80px;">
+                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_product_title; ?></h6>
                             </div>
                         </a>
                     </div>
