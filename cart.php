@@ -223,7 +223,7 @@
     
     </h5>
         <div class="row cart_bottom">
-            <div class="col-7 pl-4 pr-0">
+            <div class="col-6 pl-4 pr-0">
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
                 <h3 class="item_cost mb-0">Total: ₹<?php echo ($total); ?><?php if(($total>$min_price)&&($total<300)){ echo "+".$del_charges."<small style='font-size:0.7rem;'>Charges</small>";}?></h3>
             </div>
