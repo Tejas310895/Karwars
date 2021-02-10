@@ -133,7 +133,7 @@
 
 <!-- product swipe -->
     <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/no_minArtboard_1_4x_FcvDnL12n.png" alt="" class="img-fluid mx-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images1_qkiMPTASO.png" alt="" class="img-fluid mx-0">
     </div>
 
     <!-- Offer Zone -->
@@ -398,7 +398,7 @@
 
 <!-- Product Categories -->
     <div class="container" style="background:#ffeb7a;">
-        <img src="https://ik.imagekit.io/wrnear2017/designs/cathead_3__24E640fj-.png" alt="" class="img-fluid">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images2_N1eIqJeUi_.png" alt="" class="img-fluid">
         <div class="row mx-1">
 
         <?php 
@@ -510,6 +510,7 @@
                             $cpromo_product_id = $row_cpromo_store_id['product_id'];
                             $cpromo_product_title = $row_cpromo_store_id['product_title'];
                             $cpromo_product_img1 = $row_cpromo_store_id['product_img1'];
+                            $cpromo_product_desc = $row_cpromo_store_id['product_desc'];
 
                         
                         ?>
@@ -517,7 +518,7 @@
                         <a href="shop?store_id=<?php echo $cpromo_store_id; ?>#<?php echo $cpromo_product_id; ?>">
                             <div class="card" style="width: 6rem;">
                             <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_product_img1; ?>" alt="<?php echo $cpromo_product_title; ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_product_title; ?></h6>
+                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
                             </div>
                         </a>
                     </div>
