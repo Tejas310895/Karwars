@@ -267,7 +267,7 @@
         </a>
         </li>
         <li class="nav-item px-2  text-center">
-            <a class='nav-link  pb-0 pt-2 px-4' href='customer/my_account'>
+            <a class='nav-link  pb-0 pt-2 px-4' href="search_product">
             <svg version="1.1" id="Capa_1"  width="20pt" height="20pt" fill="#ff7b00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                 <g>
                     <g>
