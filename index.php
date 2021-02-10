@@ -518,7 +518,9 @@
                         <a href="shop?store_id=<?php echo $cpromo_store_id; ?>#<?php echo $cpromo_product_id; ?>">
                             <div class="card" style="width: 6rem;">
                             <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_product_img1; ?>" alt="<?php echo $cpromo_product_title; ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
+                            <div class="card-body p-1">
+                            <h6 class="card-title mb-1 mx-0 text-center" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
+                            </div>
                             </div>
                         </a>
                     </div>
