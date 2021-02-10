@@ -124,6 +124,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
             <th>ADDRESS</th>
             <th>ITEMS</th>
             <th>COST</th>
+            <th>DLC</th>
             <th>PAYMENT TYPE</th>
             <th>ACTION</th>
 		</tr>
@@ -205,6 +206,12 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                     $discount_type = $row_discount['discount_type'];
                     $discount_amount = $row_discount['discount_amount'];
+                    
+                    $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+                    $run_del_charges = mysqli_query($con,$get_del_charges);
+                    $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+                    $del_charges = $row_del_charges['del_charges'];
 
                   ?>
                           <tr class="text-center">
@@ -219,7 +226,8 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                               <?php echo $customer_city; ?> .
                           </td>
                           <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
-                          <td style="font-size:0.7rem;">₹ <?php echo $total-$discount_amount; ?>/-</td>
+                          <td style="font-size:0.7rem;">₹ <?php echo ($total+$del_charges)-$discount_amount; ?>/-</td>
+                          <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
                           <td><?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
                           <td class="td-actions" >
                           <button id="show_details" class="btn btn-info btn-sm p-1" style="font-size:0.7rem;" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">

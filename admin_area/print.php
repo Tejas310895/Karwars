@@ -63,7 +63,7 @@ if(isset($_GET['print'])){
 
     $min_price = $row_min['min_order'];
 
-    $del_charges = $row_min['del_charges'];
+    // $del_charges = $row_min['del_charges'];
 
     $get_txn = "select * from paytm where ORDERID='$invoice_id'";
 
@@ -251,6 +251,15 @@ if(isset($_GET['print'])){
         <th colspan="2" class="text-right">Item Total :</th>
         <td> ₹ <?php echo $total; ?></td>
         </tr>
+        <?php 
+        
+        $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+        $run_del_charges = mysqli_query($con,$get_del_charges);
+        $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+        $del_charges = $row_del_charges['del_charges'];
+        
+        ?>
         <tr class="<?php if($del_charges<=0){echo 'd-none';}else{echo 'show';} ?>">
         <th colspan="3" class="text-right">Delivery Charges :</th>
         <td> ₹ <?php echo $del_charges; ?></td>

@@ -192,7 +192,7 @@
 
 <!-- checkout float -->
     <div class="container-fluid px-0 fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
-    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($save_total>0){echo "show";}else{echo "d-none";} ?>" >You saved ₹<?php echo $you_save; ?> on this order 
+    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($total>$min_price&&$total<300){echo "show";}else{echo "d-none";} ?>" >Add more <?php echo 300-$total; ?> for free delivery 
     
     <?php 
     
@@ -223,9 +223,9 @@
     
     </h5>
         <div class="row cart_bottom">
-            <div class="col-6 pl-4">
+            <div class="col-7 pl-4 pr-0">
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
-                <h4 class="item_cost mb-0">Total: ₹ <?php echo ($total+$del_charges)-$discount_amount; ?></h3>
+                <h3 class="item_cost mb-0">Total: ₹<?php echo ($total); ?><?php if(($total>$min_price)&&($total<300)){ echo "+".$del_charges."<small style='font-size:0.7rem;'>Charges</small>";}?></h3>
             </div>
             <div class="col-6 pr-2">
                 <?php if($min_price>$total){

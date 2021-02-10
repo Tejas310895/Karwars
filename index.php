@@ -7,75 +7,50 @@
 
 
 <!-- header -->
-    <div class="container-fluid geolocation fixed-top pt-0 mt-0 px-0 mx-0">
+    <div class="container-fluid geolocation fixed-top pt-0 mt-0 px-0 mx-0 bg-white">
         
         <div class="row">
-            <div class="col geolocation px-4" id="geoheader">
-            <?php 
-                
-                if(!isset($_SESSION['customer_email'])){
+            <div class="col-3">
+                    <?php 
+                                    
+                    if(!isset($_SESSION['customer_email'])){
 
-                    echo "
-                        Hi Guest <br> 
-                        Need Help ✆ 7892916394
-                    ";
-
-                }else{
-
-                    $c_email = $_SESSION['customer_email'];
-
-                    $get_name = "select * from customers where customer_email='$c_email'";
-
-                    $run_name = mysqli_query($con,$get_name);
-
-                    $row_name = mysqli_fetch_array($run_name);
-
-                    $c_id = $row_name['customer_id'];
-
-                    $c_name = $row_name['customer_name'];
-
-                    $get_address = "select * from customer_address where customer_id='$c_id' ";
-
-                    $run_add_count = mysqli_query($con,$get_address);
-
-                    $add_count = mysqli_num_rows($run_add_count);
-
-                    $run_address = mysqli_query($con,$get_address);
-
-                    $row_address = mysqli_fetch_array($run_address);
-
-                    $c_phase = $row_address['customer_phase'];
-
-                    $c_landmark = $row_address['customer_landmark'];
-
-                    if($add_count>0){
-
-                    echo " 
-                    <a href='customer/my_account'>
-                        $c_name <br> 
-                    <i class='fas fa-map-marker-alt'></i> 
-                    $c_phase, $c_landmark
-                    <i class='fas fa-chevron-down'></i> 
-                    </a>
-                ";
-                    }else{
-
-                        echo "
-                        <a href='customer/my_account'>
-                        $c_name <br> 
-                        <i class='fas fa-map-marker-alt'></i> 
-                        Add Your Location
-                        <i class='fas fa-chevron-down'></i> 
-                        </a>
-                        ";
-                    }
-
-                }
-                
-                ?>    
+                            echo "
+                            
+                            <a class='nav-link  pb-0 pt-2 my_account' href='checkout'>
+                                <svg height='18pt' viewBox='0 0 512 512' width='18pt' fill='#29ABE2' xmlns='http://www.w3.org/2000/svg'><path d='m512 256c0-141.488281-114.496094-256-256-256-141.488281 0-256 114.496094-256 256 0 140.234375 113.539062 256 256 256 141.875 0 256-115.121094 256-256zm-256-226c124.617188 0 226 101.382812 226 226 0 45.585938-13.558594 89.402344-38.703125 126.515625-100.96875-108.609375-273.441406-108.804687-374.59375 0-25.144531-37.113281-38.703125-80.929687-38.703125-126.515625 0-124.617188 101.382812-226 226-226zm-168.585938 376.5c89.773438-100.695312 247.421876-100.671875 337.167969 0-90.074219 100.773438-247.054687 100.804688-337.167969 0zm0 0'/><path d='m256 271c49.625 0 90-40.375 90-90v-30c0-49.625-40.375-90-90-90s-90 40.375-90 90v30c0 49.625 40.375 90 90 90zm-60-120c0-33.085938 26.914062-60 60-60s60 26.914062 60 60v30c0 33.085938-26.914062 60-60 60s-60-26.914062-60-60zm0 0'/></svg>
+                            </a>
+                            
+                            ";
+            
+                        }else{
+            
+                            echo "
+                            
+                            <a class='nav-link  pb-0 pt-2 my_account' href='customer/my_account'>
+                                <svg height='18pt' viewBox='0 0 512 512' width='18pt' fill='#29ABE2' xmlns='http://www.w3.org/2000/svg'><path d='m512 256c0-141.488281-114.496094-256-256-256-141.488281 0-256 114.496094-256 256 0 140.234375 113.539062 256 256 256 141.875 0 256-115.121094 256-256zm-256-226c124.617188 0 226 101.382812 226 226 0 45.585938-13.558594 89.402344-38.703125 126.515625-100.96875-108.609375-273.441406-108.804687-374.59375 0-25.144531-37.113281-38.703125-80.929687-38.703125-126.515625 0-124.617188 101.382812-226 226-226zm-168.585938 376.5c89.773438-100.695312 247.421876-100.671875 337.167969 0-90.074219 100.773438-247.054687 100.804688-337.167969 0zm0 0'/><path d='m256 271c49.625 0 90-40.375 90-90v-30c0-49.625-40.375-90-90-90s-90 40.375-90 90v30c0 49.625 40.375 90 90 90zm-60-120c0-33.085938 26.914062-60 60-60s60 26.914062 60 60v30c0 33.085938-26.914062 60-60 60s-60-26.914062-60-60zm0 0'/></svg>
+                            </a>
+                            
+                            ";
+            
+                        }
+                    
+                    ?>
+            </div>
+            <div class="col-6">
+                <img src="admin_area/admin_images/karwarslogo.png" alt="" class="img-thumbnail d-bock mx-auto bg-transparent brand-logo border-0 rounded-0">
+            </div>
+            <div class="col-3">
+            <!-- toggle -->
+                <div  id="phone" class="button-call">
+                    <button id="btn-call" class="bg-transparent border-0"><i class="far fa-question-circle"></i></button>
+                </div>
+                <div id="div-call" class="slide-call">
+                    <h6>Need Help ✆ 7892916394</h6>
+                </div>
+            <!-- toggle -->
             </div>
         </div>
-
     </div>
 <!-- header -->
 
@@ -84,7 +59,7 @@
     <div class="carousel-inner">
     <?php 
                     
-                    $get_slides = "select * from slider LIMIT 0,1";
+                    $get_slides = "select * from slider where image_type='head_slide' LIMIT 0,1";
 
                     $run_slides = mysqli_query($con,$get_slides);
 
@@ -109,7 +84,7 @@
                         ";
                     }
 
-                    $get_slides = "select * from slider LIMIT 1,4";
+                    $get_slides = "select * from slider where image_type='head_slide' LIMIT 1,4";
 
                     $run_slides = mysqli_query($con,$get_slides);
 
@@ -156,116 +131,128 @@
     </div>
 </div> -->
 
-<!-- Offer Zone -->
-    <!-- <div class="container-fluid my-2 py-4 offer_container">
-        <div class="row pl-1 pb-2">
-            <div class="col">
-                <h5 class="heading_main text-dark offer_text">OFFER ZONE</h5>
-            </div>
-        </div>
-        <div class="row pl-1 text-center">
-            <a href="shop_offer?offer_zone=10" class="btn offer_box">
-                <h6 class="text-light pt-2">Below-10%</h6>
-            </a>
-            <a href="shop_offer?offer_zone=20" class="btn offer_box">
-                <h6 class="text-light pt-2">10% - 30%</h6>
-            </a>
-            <a href="shop_offer?offer_zone=30" class="btn offer_box">
-                <h6 class="text-light pt-2">30%-Above</h6>
-            </a>
-        </div>
-    </div> -->
-<!-- Offer Zone -->
-
 <!-- product swipe -->
-
-    <div class="container-fluid gridheading">
-        <div class="row pl-1 pb-2">
-            <div class="col">
-                <h5 class="heading_offer mt-3">DEALS FOR YOU</h5>
-            </div>
-        </div>
+    <div class="container-fluid px-0">
+        <img src="https://ik.imagekit.io/wrnear2017/designs/min_order_PB1DFjyT-.png" alt="" class="img-fluid mx-0">
     </div>
 
-    <div class="swiper-container">
-            <div class="swiper-wrapper">
+    <!-- Offer Zone -->
+        <div class="container-fluid my-2 py-2 offer_container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php 
+                    
+                    $get_per_off = "select * from slider where image_type='promo_images' LIMIT 7";
+                    $run_per_off = mysqli_query($con,$get_per_off);
+                    while($row_per_off = mysqli_fetch_array($run_per_off)){
 
-            <?php add_index_cart(); ?>
-            <?php delete_index_cart(); ?>
+                        $slide_name = $row_per_off['slide_name'];
+                        $slide_image = $row_per_off['slide_image'];
+                        $slide_url = $row_per_off['slide_url'];
+
+                    ?>
+                    <div class='swiper-slide'>
+                        <a href="<?php echo $slide_url; ?>">
+                            <img class="card-img-top per_off_img" src="<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>">
+                        </a>
+                    </div>
+                    <?php } ?>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+            <!-- <div class="row pl-1 text-center">
+                <a href="shop_offer?offer_zone=10" class="btn offer_box">
+                    <h6 class="text-light pt-2">Below-10%</h6>
+                </a>
+                <a href="shop_offer?offer_zone=20" class="btn offer_box">
+                    <h6 class="text-light pt-2">10% - 30%</h6>
+                </a>
+                <a href="shop_offer?offer_zone=30" class="btn offer_box">
+                    <h6 class="text-light pt-2">30%-Above</h6>
+                </a>
+            </div> -->
+        </div>
+    <!-- Offer Zone -->
+
+    <!-- <div class="swiper-container">
+            <div class="swiper-wrapper"> -->
+
+            <?php //add_index_cart(); ?>
+            <?php //delete_index_cart(); ?>
             <?php
 
-                $get_promo = "select * from promo_products";
-                $run_promo = mysqli_query($con,$get_promo);
-                while($row_promo = mysqli_fetch_array($run_promo)){
-                $promo_store_id = $row_promo['store_id'];
+                // $get_promo = "select * from promo_products";
+                // $run_promo = mysqli_query($con,$get_promo);
+                // while($row_promo = mysqli_fetch_array($run_promo)){
+                // $promo_store_id = $row_promo['store_id'];
             
-                $get_store = "SELECT * FROM store where store_id='$promo_store_id'";
+                // $get_store = "SELECT * FROM store where store_id='$promo_store_id'";
                 
-                $run_store = mysqli_query($con,$get_store);
+                // $run_store = mysqli_query($con,$get_store);
                 
-                $row_store=mysqli_fetch_array($run_store);
+                // $row_store=mysqli_fetch_array($run_store);
                     
-                $store_id = $row_store['store_id'];
+                // $store_id = $row_store['store_id'];
                 
-                $store_title = $row_store['store_title'];
+                // $store_title = $row_store['store_title'];
 
-                $store_desc = $row_store['store_desc'];
+                // $store_desc = $row_store['store_desc'];
                 
-                $min_price = $row_store['min_price'];
+                // $min_price = $row_store['min_price'];
                 
-                $store_img1 = $row_store['store_img'];
+                // $store_img1 = $row_store['store_img'];
 
-                $get_offer_badge = "SELECT * from products where store_id='$store_id' order by 100-((product_price/price_display)*100) DESC limit 1";
-                $run_offer_badge = mysqli_query($con,$get_offer_badge);
-                $row_offer_badge = mysqli_fetch_array($run_offer_badge);
+                // $get_offer_badge = "SELECT * from products where store_id='$store_id' order by 100-((product_price/price_display)*100) DESC limit 1";
+                // $run_offer_badge = mysqli_query($con,$get_offer_badge);
+                // $row_offer_badge = mysqli_fetch_array($run_offer_badge);
 
-                $product_price_badge = $row_offer_badge['product_price'];
-                $price_display_badge = $row_offer_badge['price_display'];
+                // $product_price_badge = $row_offer_badge['product_price'];
+                // $price_display_badge = $row_offer_badge['price_display'];
                 
-                if( $price_display_badge>0){
-                    $offer_badge = round(100-(($product_price_badge/$price_display_badge)*100));
-                }else{
-                    $offer_badge = 0; 
-                }
+                // if( $price_display_badge>0){
+                //     $offer_badge = round(100-(($product_price_badge/$price_display_badge)*100));
+                // }else{
+                //     $offer_badge = 0; 
+                // }
                 
                 ?>
 
 
-                    <div class='swiper-slide'>
+                    <!-- <div class='swiper-slide'>
                                 <div class='card pro_card my-2' style='width: 18rem;'>
-                                            <span class="badge offer-badge <?php if($offer_badge==0){echo "d-none";}else{echo "show";}?>">
-                                                <h6 class="offer-badge-text mb-0"><?php echo $offer_badge; ?>%</h6>
+                                            <span class="badge offer-badge <?php //if($offer_badge==0){echo "d-none";}else{echo "show";}?>">
+                                                <h6 class="offer-badge-text mb-0"><?php //echo $offer_badge; ?>%</h6>
                                                 <small>OFF</small>
                                             </span>
-                                            <img src='<?php echo $store_img1; ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
+                                            <img src='<?php //echo $store_img1; ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
                                             <div class='card-body p-1'>
-                                            <p class='card-text text-left px-2 pro_title'><?php echo $store_title; ?></p>
-                                            <p class='card-text text-left px-2 store_Desc'><?php echo $store_desc; ?></p>   
+                                            <p class='card-text text-left px-2 pro_title'><?php //echo $store_title; ?></p>
+                                            <p class='card-text text-left px-2 store_Desc'><?php //echo $store_desc; ?></p>   
                                                 <div class='row'>
                                                     <div class='col-6'>
-                                                    <!-- <p class='card-text text-left pro_price pl-2 mt-1'>₹ <?php echo $min_price; ?></p> -->
+                                                    <p class='card-text text-left pro_price pl-2 mt-1'>₹ <?php //echo $min_price; ?></p> 
                                                     </div>
                                                     <div class='col-6 px-0'>
                                                         <div class="row">
                                                             <div class='col-12 pl-1'>
-                                                                <a href="shop?store_id=<?php echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
+                                                                <a href="shop?store_id=<?php //echo $store_id; ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div> 
                                         </div>
                                 </div>
-                        </div>
+                        </div> -->
                     
         <?php
                     
-                }
+                //}
             
             ?>
-            </div>
+            <!-- </div> -->
                 <!-- Add Pagination -->
                 <!-- <div class="swiper-pagination"></div> -->
-    </div>
+    <!-- </div> -->
 
 <!-- product swipe -->
 
@@ -280,33 +267,55 @@
         </a>
         </li>
         <li class="nav-item px-2  text-center">
-        <?php 
-                        
-                        if(!isset($_SESSION['customer_email'])){
-
-                                echo "
-                                
-                                <a class='nav-link  pb-0 pt-2' href='checkout'>
-                                    <svg height='20pt' viewBox='0 0 512 512' width='20pt' fill='#ff7b00' xmlns='http://www.w3.org/2000/svg'><path d='m512 256c0-141.488281-114.496094-256-256-256-141.488281 0-256 114.496094-256 256 0 140.234375 113.539062 256 256 256 141.875 0 256-115.121094 256-256zm-256-226c124.617188 0 226 101.382812 226 226 0 45.585938-13.558594 89.402344-38.703125 126.515625-100.96875-108.609375-273.441406-108.804687-374.59375 0-25.144531-37.113281-38.703125-80.929687-38.703125-126.515625 0-124.617188 101.382812-226 226-226zm-168.585938 376.5c89.773438-100.695312 247.421876-100.671875 337.167969 0-90.074219 100.773438-247.054687 100.804688-337.167969 0zm0 0'/><path d='m256 271c49.625 0 90-40.375 90-90v-30c0-49.625-40.375-90-90-90s-90 40.375-90 90v30c0 49.625 40.375 90 90 90zm-60-120c0-33.085938 26.914062-60 60-60s60 26.914062 60 60v30c0 33.085938-26.914062 60-60 60s-60-26.914062-60-60zm0 0'/></svg>
-                                <span class='icon-name'>Account</span>
-                                </a>
-                                
-                                ";
-                
-                            }else{
-                
-                                echo "
-                                
-                                <a class='nav-link  pb-0 pt-2' href='customer/my_account'>
-                                    <svg height='20pt' viewBox='0 0 512 512' width='20pt' fill='#ff7b00' xmlns='http://www.w3.org/2000/svg'><path d='m512 256c0-141.488281-114.496094-256-256-256-141.488281 0-256 114.496094-256 256 0 140.234375 113.539062 256 256 256 141.875 0 256-115.121094 256-256zm-256-226c124.617188 0 226 101.382812 226 226 0 45.585938-13.558594 89.402344-38.703125 126.515625-100.96875-108.609375-273.441406-108.804687-374.59375 0-25.144531-37.113281-38.703125-80.929687-38.703125-126.515625 0-124.617188 101.382812-226 226-226zm-168.585938 376.5c89.773438-100.695312 247.421876-100.671875 337.167969 0-90.074219 100.773438-247.054687 100.804688-337.167969 0zm0 0'/><path d='m256 271c49.625 0 90-40.375 90-90v-30c0-49.625-40.375-90-90-90s-90 40.375-90 90v30c0 49.625 40.375 90 90 90zm-60-120c0-33.085938 26.914062-60 60-60s60 26.914062 60 60v30c0 33.085938-26.914062 60-60 60s-60-26.914062-60-60zm0 0'/></svg>
-                                <span class='icon-name'>Account</span>
-                                </a>
-                                
-                                ";
-                
-                            }
-                        
-                        ?>
+            <a class='nav-link  pb-0 pt-2 px-4' href='customer/my_account'>
+            <svg version="1.1" id="Capa_1"  width="20pt" height="20pt" fill="#ff7b00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474
+                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323
+                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848
+                            S326.847,409.323,225.474,409.323z"></path>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328
+                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"></path>
+                    </g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+            </svg>
+                </a>
+            <span class='icon-name'>Search</span>
         </li>
         <li class="nav-item px-2  text-center">
             <a class="nav-link pb-0 pt-2" href="store">
@@ -388,78 +397,213 @@
 <!-- floatnav -->
 
 <!-- Product Categories -->
-    <div class="container-fluid gridheading mt-3">
-        <div class="row pl-1 pb-2">
-            <div class="col">
-                <h5 class="heading_main">Shop by Categories</h5>
-            </div>
-        </div>
+    <div class="container" style="background:#ffeb7a;">
+        <img src="https://ik.imagekit.io/wrnear2017/designs/cathead_3__24E640fj-.png" alt="" class="img-fluid">
+        <div class="row mx-1">
+
+        <?php 
         
-    </div>
-    <div class="container">
-            <div class="row mx-1">
+        $get_cat = "SELECT * from categories order by cat_id asc";
 
-            <?php 
-            
-            $get_cat = "SELECT * from categories order by cat_id asc";
+        $run_cat = mysqli_query($db,$get_cat);
+        
+        while($row_cat=mysqli_fetch_array($run_cat)){
 
-            $run_cat = mysqli_query($db,$get_cat);
-            
-            while($row_cat=mysqli_fetch_array($run_cat)){
+            $cat_id = $row_cat['cat_id'];
 
-                $cat_id = $row_cat['cat_id'];
+            $cat_img = $row_cat['cat_image'];
 
-                $cat_img = $row_cat['cat_image'];
+        
+        ?>
+                        <div class="col-4 px-2 py-2">
+                            <a href="store.php?cat=<?php echo $cat_id;?>">
+                                <img src="<?php echo $cat_img; ?>" class="img-thumbnail bg-transparent border-0" alt="..." >
+                            </a>
+                        </div>
+        <?php } ?>
+                </div>
 
-            
-            ?>
-                            <div class="col-6 px-2 py-2">
-                                <a href="store.php?cat=<?php echo $cat_id;?>">
-                                    <img src="<?php echo $cat_img; ?>" class="img-thumbnail" alt="..." >
-                                </a>
-                            </div>
-            <?php } ?>
-                    </div>
-
-                    
-            </div>
+                
+        </div>
     </div>    
 
 <!-- Product Categories -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="<?php 
+                
+                if(!isset($_SESSION['customer_email'])){
+                    echo "col-5";
+                }else{
+                    echo "col-6 px-0";
+                }
+                ?> ml-2" style="background-color:#29ABE2;border-radius:10px 10px 0px 0px;">
+                <h5 class="text-center pt-2 text-white" style="font-family:Josefin Sans;">
+                <?php 
+                
+                if(!isset($_SESSION['customer_email'])){
+                    echo "You May Like";
+                }else{
+                    echo "Recently Ordered";
+                }
+                ?>
+                </h5>
+            </div>
+        </div>
+    </div>
+   <!-- Offer Zone -->
+        <div class="container-fluid mb-2 py-2 mx-2 offer_container" style="background-color:#29ABE2;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <?php 
+                    
+                    if(!isset($_SESSION['customer_email'])){
+
+                    ?>
+                    <?php 
+                    
+                    $get_promo_pro = "select * from promo_products";
+                    $run_promo_pro = mysqli_query($con,$get_promo_pro);
+                    while($row_promo_pro=mysqli_fetch_array($run_promo_pro)){
+                        $store_id = $row_promo_pro['store_id'];
+
+                        $get_store_pro = "select * from store where store_id='$store_id'";
+                        $run_store_pro = mysqli_query($con,$get_store_pro);
+                        $row_store_pro = mysqli_fetch_array($run_store_pro);
+
+                        $store_img = $row_store_pro['store_img'];
+                        $store_title = $row_store_pro['store_title'];
+                    ?>
+                    <div class='swiper-slide'>
+                        <a href="shop_offer?offer_zone=10">
+                            <div class="card" style="width: 6rem;">
+                                <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $store_img; ?>" alt="<?php echo $store_title; ?>" style="height:80px;">
+                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $store_title; ?></h6>
+                            </div>
+                        </a>
+                    </div>
+                    <?php } ?>
+                    <?php }else{ ?>
+                        <?php 
+
+                        $c_email = $_SESSION['customer_email'];
+
+                        $get_name = "select * from customers where customer_email='$c_email'";
+
+                        $run_name = mysqli_query($con,$get_name);
+
+                        $row_name = mysqli_fetch_array($run_name);
+
+                        $cpromo_id = $row_name['customer_id'];
+                            
+                        $get_cpromo_pro = "select * from customer_orders where customer_id='$cpromo_id' group by pro_id order by order_id limit 7";
+                        $run_cpromo_pro = mysqli_query($con,$get_cpromo_pro);
+                        while($row_cpromo_pro = mysqli_fetch_array($run_cpromo_pro)){
+
+                            $cpromo_pro_id = $row_cpromo_pro['pro_id'];
+
+                            $get_cpromo_store_id = "select * from products where product_id='$cpromo_pro_id'";
+                            $run_cpromo_store_id = mysqli_query($con,$get_cpromo_store_id);
+                            $row_cpromo_store_id = mysqli_fetch_array($run_cpromo_store_id);
+
+                            $cpromo_store_id = $row_cpromo_store_id['store_id'];
+
+                            $get_cpromo_store = "select * from store where store_id='$cpromo_store_id'";
+                            $run_cpromo_store = mysqli_query($con,$get_cpromo_store);
+                            $row_cpromo_store = mysqli_fetch_array($run_cpromo_store);
+
+                            $cpromo_store_title = $row_cpromo_store['store_title'];
+                            $cpromo_store_img = $row_cpromo_store['store_img'];
+                        
+                        ?>
+                    <div class='swiper-slide'>
+                        <a href="shop_offer?offer_zone=10">
+                            <div class="card" style="width: 6rem;">
+                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_store_img; ?>" alt="<?php echo $cpromo_store_title; ?>" style="height:80px;">
+                                <h6 class="card-title mb-1" style="font-family:Josefin Sans;"><?php echo $cpromo_store_title; ?></h6>
+                            </div>
+                        </a>
+                    </div>
+                    <?php } ?>
+                    <?php } ?>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+    <!-- Offer Zone -->
+    
+    <!-- offer -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <?php 
+            
+            $get_foot_img = "select * from slider where image_type='foot_slide' limit 0,1";
+            $run_foot_img = mysqli_query($con,$get_foot_img);
+            while($row_foot_img=mysqli_fetch_array($run_foot_img)){
+                
+                $slide_name = $row_foot_img['slide_name'];
+                $slide_image = $row_foot_img['slide_image'];
+                $slide_url = $row_foot_img['slide_url'];
+            ?>
+            <div class="carousel-item active">
+            <a href="<?php echo $slide_url; ?>">
+            <img class="d-block w-100 rounded-0 mx-0" src="<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>">
+            </a>
+            </div>
+            <?php } ?>
+            <?php 
+            
+            $get_foot_img = "select * from slider where image_type='foot_slide' limit 1,4";
+            $run_foot_img = mysqli_query($con,$get_foot_img);
+            while($row_foot_img=mysqli_fetch_array($run_foot_img)){
+                
+                $slide_name = $row_foot_img['slide_name'];
+                $slide_image = $row_foot_img['slide_image'];
+                $slide_url = $row_foot_img['slide_url'];
+            ?>
+            <div class="carousel-item">
+            <a href="<?php echo $slide_url; ?>">
+            <img class="d-block w-100 rounded-0 mx-0" src="<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>">
+            </a>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+    <!-- offer -->
 
 <!-- offers -->
-            <div class="container-fluid gridheading mt-3">
+            <!-- <div class="container-fluid gridheading mt-3">
             <div class="row pl-1 pb-2 mx-0">
                 <div class="col">
                     <h5 class="heading_main"></h5>
                 </div>
             </div>
-            </div>
+            </div> -->
 
-    <div class="container offer_box">
-        <div class="row">
+    <!-- <div class="container offer_box">
+        <div class="row"> -->
         <?php 
                 
-                $get_offer = "select * from offers ";
+                // $get_offer = "select * from offers ";
     
-                $run_offer = mysqli_query($db,$get_offer);
+                // $run_offer = mysqli_query($db,$get_offer);
                 
-                while($row_offer=mysqli_fetch_array($run_offer)){
+                // while($row_offer=mysqli_fetch_array($run_offer)){
 
-                    $offer_id = $row_offer['offer_id'];
+                //     $offer_id = $row_offer['offer_id'];
 
-                    $offer_img = $row_offer['offer_image'];
+                //     $offer_img = $row_offer['offer_image'];
 
                 
                 ?>
-            <div class="col-12 mx-1 my-2">
+            <!-- <div class="col-12 mx-1 my-2"> -->
                 <!-- <a href="newshop.php"> -->
-                <img src="admin_area/other_images/<?php echo $offer_img; ?>" class="img-fluid" alt="Responsive image">
+                <!-- <img src="admin_area/other_images/<?php //echo $offer_img; ?>" class="img-fluid" alt="Responsive image"> -->
                 <!-- </a> -->
-            </div>
-                <?php } ?>
+            <!-- </div>
+                <?php //} ?>
         </div>
-    </div>
+    </div> -->
 <!-- offers -->
 <!-- 
 <div class="icon-bar">
@@ -494,6 +638,11 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
+</script>
+<script>
+    $('#btn-call').click(function() {   
+    $('#div-call').animate({width:'toggle'},250);
+});
 </script>
 <?php 
 

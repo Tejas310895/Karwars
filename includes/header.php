@@ -58,8 +58,8 @@ if(isset($_GET['pro_id'])){
     <link rel="stylesheet" href="styles/bootstrap.css" >
     <!-- bootstrap link -->
     <!-- swiper -->
-    <link rel="stylesheet" href="styles/swiper.css">
-    <link rel="stylesheet" href="styles/swiper.min.css">
+    <link rel="stylesheet" href="styles/swiper.css?version=25">
+    <link rel="stylesheet" href="styles/swiper.min.css?version=25">
     <!-- swiper -->
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" >
@@ -98,7 +98,7 @@ if(isset($_GET['pro_id'])){
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
-    <link rel="stylesheet" href="styles/style.css?version=25">
+    <link rel="stylesheet" href="styles/style.css?version=26">
     <!-- styles -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

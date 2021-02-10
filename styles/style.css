@@ -4,7 +4,7 @@
 body{
     padding-top: 12%;
     padding-bottom: 15%;
-    background-color: rgb(255, 246, 233);
+    background-color: #fff;
     overflow-x: hidden;
     overscroll-behavior: none;
 }
@@ -27,8 +27,8 @@ body{
 
 .geoactive{
 
-    text-align: left;
-    background-color: ivory;
+    /* text-align: left; */
+    background-color:#fff;
     box-shadow: 1px 1px 10px 1px rgb(233, 233, 233);
 }
 
@@ -130,9 +130,9 @@ p.card-text{
   }
 
   .swiper-slide {
-      margin-left: 15px;
+      margin-left: 2px;
       margin-right: 0 !important;
-    width: 150px !important;
+    width: 104px !important;
     text-align: center;
     font-size: 18px;
     background: none;
@@ -534,13 +534,13 @@ a.pro_store{
 
 .item_cost{
     font-family: Laila;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #fff;
 }
 
 .bill_checkout{
     font-family: Concert One;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     height: 100%;
     border-radius: 0;
     padding-top: 5px;
@@ -762,16 +762,21 @@ a.offer_box{
     font-family: Squada One;
 }
 .offer_container{
-    background-image: url("../admin_area/admin_images/offerback.png");
+    /* background-image: url("../admin_area/admin_images/offerback.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
 }
 .shop_offer{
     margin-top: 28px;
 }
 .offer_text{
     font-family: Josefin Sans;
+}
+
+.per_off_img{
+    width: 100px;
+    height: 118px;
 }
 
 .offer-badge {
@@ -817,3 +822,70 @@ a.offer_box{
   padding: 10px;
 }
 
+/* toggle */
+.button-call {
+    position: absolute;
+    margin-top: 2px;
+    right: 14px;
+    float: right;
+    background-color:#fff;
+    padding: 7px 12px 7px 5px;
+    height: 42px;
+    display: block;
+    width:50px;
+    border-radius: 30px 0 0 30px;
+    overflow: hidden;
+    z-index:10;
+    text-decoration: none !important;
+  }
+  .slide-call {
+    padding: 13px 15px 15px 14px;
+      margin-top: 2.3px;
+      position: absolute;
+      display: none;
+      float: right;
+      right: 0;
+      display: none;
+      width: 267px;
+      height:41px; 
+      background-color:#29ABE2; 
+      color:#FFF; 
+      text-align:left; 
+      font-size:18px;
+      overflow:hidden;
+      white-space: nowrap;
+      border-radius: 30px 0 0 30px;   
+  }
+
+  .btn-call{
+    background-color:#F30; 
+  }
+
+  /* .button-call, #div-call {
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(43, 43, 43, 0.2);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(43, 43, 43, 0.2);
+    box-shadow: 1px 1px 1px 1px rgba(43, 43, 43, 0.2);
+  } */
+
+  .button-call i {
+    color: #29ABE2;
+  }
+
+  button:hover, button:focus {
+    outline: none;
+  }
+
+  .fa-question-circle{
+      font-size: 1.6rem;
+  }
+
+  .brand-logo{
+      width: 80px;
+  }
+
+  .my_account{
+    margin-top: 2px;
+    text-align: left;
+  }
+
+  /* toggle */

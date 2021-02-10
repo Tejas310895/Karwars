@@ -100,6 +100,18 @@ if(isset($_POST['del_id'])){
     }
 }
 
+if(isset($_POST['fmr_code_input'])){
+    $fmr_code = strtoupper($_POST['fmr_code_input']);
 
+    $get_check_fmr = "select * from fmr_users where fmr_unique_code='$fmr_code'";
+    $run_check_fmr = mysqli_query($con,$get_check_fmr);
+    $check_fmr = mysqli_num_rows($run_check_fmr);
+
+    if($check_fmr===1){
+        echo 1;
+    }else{
+        echo 2;
+    }
+}
 
 ?>

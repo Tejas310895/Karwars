@@ -121,7 +121,7 @@
 
                           $min_price = $row_min['min_order'];
 
-                          $del_charges = $row_min['del_charges'];
+                          // $del_charges = $row_min['del_charges'];
 
                           $get_txn = "select * from paytm where ORDERID='$invoice_id'";
 
@@ -137,6 +137,12 @@
 
                           $discount_type = $row_discount['discount_type'];
                           $discount_amount = $row_discount['discount_amount'];
+
+                          $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+                          $run_del_charges = mysqli_query($con,$get_del_charges);
+                          $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+                          $del_charges = $row_del_charges['del_charges'];
 
                           ?>
                       <div class="card">
@@ -161,7 +167,12 @@
                                       <?php if($txn_status==='TXN_SUCCESS'){echo "PAID ONLINE";}else{echo "TAKE CASH";} ?>
                                     </h6>
                                     <h3 class="card-subtitle mt-2 pull-right">
-                                      <?php echo $order_count; ?> Items -  ₹<?php echo ($total+$del_charges)-$discount_amount; ?>/-  <br>
+                                      <?php echo $order_count; ?> Items -  ₹<?php echo ($total+$del_charges)-$discount_amount; ?>
+                                      <?php if($del_charges>0){
+                                        echo "<span class='badge badge-secondary'>".$total."+".$del_charges."</span>";
+                                      }
+                                      ?>
+                                      /-<br>
                                       REFUND OF ₹<?php 
                                       
                                       $get_refund = "SELECT sum(due_amount) AS refund FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Undeliver'";
@@ -330,7 +341,7 @@
 
                                           $min_price = $row_min['min_order'];
 
-                                          $del_charges = $row_min['del_charges'];
+                                          // $del_charges = $row_min['del_charges'];
 
                                           $get_client = "select * from clients where client_id='$client_id'";
 
@@ -339,6 +350,13 @@
                                           $row_client = mysqli_fetch_array($run_client);
 
                                           $client_name = $row_client['client_shop'];
+
+                                          
+                                          $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+                                          $run_del_charges = mysqli_query($con,$get_del_charges);
+                                          $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+                                          $del_charges = $row_del_charges['del_charges'];
 
                                           ?>
                                               <tr>

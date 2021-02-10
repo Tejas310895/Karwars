@@ -25,7 +25,7 @@ $(function() {
 <!-- Initialize Swiper -->
     <script>
     var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 2.4,
+        slidesPerView: 3.5,
         spaceBetween: 65,
         freeMode: true,
         pagination: {

@@ -59,11 +59,20 @@
                             <img src="<?php echo $slide_img; ?>" alt="" class="img-thumbnail border-0" width="200px">
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                                 <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label> -->
                                 <input type="text" name="slide_url" class="form-control" placeholder="Slide url" value="<?php echo $slide_url; ?>" required>
                             </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <select class="form-control" name="image_type">
+                            <option value="head_slide">head_slide</option>
+                            <option value="promo_images">promo_images</option>
+                            <option value="foot_slide">foot_slide</option>
+                          </select>
+                        </div>
                     </div>
                     <div class="form-group"><!-- form-group begin -->
                                             
@@ -86,12 +95,14 @@
         $slide_image = $_POST['slide_image'];
 
         $slide_url = $_POST['slide_url'];
+
+        $image_type = $_POST['image_type'];
         
         //$temp_name = $_FILES['slide_image']['tmp_name'];
         
         //move_uploaded_file($temp_name,"slides_images/$slide_image");
         
-        $update_slide = "update slider set slide_name='$slide_name',slide_image='$slide_image',slide_url='$slide_url' where slide_id='$slide_id'";
+        $update_slide = "update slider set slide_name='$slide_name',slide_image='$slide_image',slide_url='$slide_url',image_type='$image_type' where slide_id='$slide_id'";
         
         $run_update_slide = mysqli_query($con,$update_slide);
         

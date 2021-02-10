@@ -32,11 +32,20 @@
                                 <input type="text" name="slide_image" class="form-control" placeholder="Slide image link" required>
                             </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                                 <!-- <label class="custom-file-label"  for="inputGroupFile01">Choose Slide Image</label> -->
                                 <input type="text" name="slide_url" class="form-control" placeholder="Slide url" required>
                             </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <select class="form-control" name="image_type">
+                            <option value="head_slide">head_slide</option>
+                            <option value="promo_images">promo_images</option>
+                            <option value="foot_slide">foot_slide</option>
+                          </select>
+                        </div>
                     </div>
                     <div class="form-group"><!-- form-group begin -->
                                             
@@ -59,6 +68,8 @@
         $slide_image = $_POST['slide_image'];
 
         $slide_url = $_POST['slide_url'];
+
+        $image_type = $_POST['image_type'];
         
         //$temp_name = $_FILES['slide_image']['tmp_name'];
         
@@ -67,25 +78,19 @@
         $view_run_slide = mysqli_query($con,$view_slides);
         
         $count = mysqli_num_rows($view_run_slide);
+            
+        //move_uploaded_file($temp_name,"slides_images/$slide_image");
         
-        if($count<8){
-            
-            //move_uploaded_file($temp_name,"slides_images/$slide_image");
-            
-            $insert_slide = "insert into slider (slide_name,slide_image,slide_url) values ('$slide_name','$slide_image','$slide_url')";
-            
-            $run_slide = mysqli_query($con,$insert_slide);
-            
-            echo "<script>alert('Your new slide image has been inserted')</script>";
-            
-            echo "<script>window.open('index.php?view_slides','_self')</script>";
-            
-        }else{
-            
-           echo "<script>alert('You have already inserted 4 slides')</script>"; 
-            
-        }
+        $insert_slide = "insert into slider (slide_name,slide_image,slide_url,image_type) values ('$slide_name','$slide_image','$slide_url','$image_type')";
         
+        $run_slide = mysqli_query($con,$insert_slide);
+        
+        echo "<script>alert('Your new slide image has been inserted')</script>";
+        
+        echo "<script>window.open('index.php?view_slides','_self')</script>";
+        
+        echo "<script>alert('You have already inserted 4 slides')</script>"; 
+            
     }
 
 ?>
