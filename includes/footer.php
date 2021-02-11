@@ -2,7 +2,11 @@
 <!-- header on scroll -->
 
 <script src="js/jquery-3.5.1.slim.min.js" ></script>
-
+<script>
+    $('#btn-call').click(function() {
+    $('#div-call').animate({width:'toggle'},250);
+});
+</script>
 <script>
 
 $(function() {
