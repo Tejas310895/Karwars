@@ -87,6 +87,26 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     // }
 
     if($run_customer_order){
+        
+        $get_del_total = "select sum(due_amount) as del_total from customer_orders WHERE invoice_no='$invoice_no'";
+        $run_del_total = mysqli_query($con,$get_del_total);
+        $row_del_total = mysqli_fetch_array($run_del_total);
+
+        $del_total = $row_del_total['del_total'];
+
+        $get_del_charges = "select * from admins";
+        $run_del_charges = mysqli_query($con,$get_del_charges);
+        $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+        $del_charges = $row_del_charges['del_charges'];
+
+        if($del_total<300){
+            $insert_del_charges = "insert into order_charges (invoice_id,del_charges,updated_date) values ('$invoice_no','$del_charges','$today')";
+            $run_insert_del_charges = mysqli_query($con,$insert_del_charges);
+        }
+    }
+
+    if($run_customer_order){
 
         $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
         $run_waclient = mysqli_query($con,$get_waclient);
@@ -121,7 +141,6 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         
     }
     }
-
 
     if($run_customer_order){
         
