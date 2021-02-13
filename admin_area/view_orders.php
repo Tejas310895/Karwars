@@ -158,16 +158,16 @@
                                                                         <?php echo $customer_landmark; ?>, 
                                                                         <?php echo $customer_city; ?> .
                                                                         </h5>
-                                        <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>">
+                                        <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>" title="view">
                                             <i class="tim-icons icon-alert-circle-exc text-white"></i>
                                         </button>
-                                        <a class="btn btn-primary" href='index.php?confirm_order=<?php echo $invoice_id;?>'>
+                                        <a class="btn btn-primary" href="index.php?confirm_order=<?php echo $invoice_id;?>" title="Edit">
                                             <i class="tim-icons icon-pencil text-white"></i>
                                         </a>
-                                        <a class="btn btn-primary" href="process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered">
+                                        <a class="btn btn-primary" href="process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered" title="Update Delivered">
                                             <i class="tim-icons icon-delivery-fast text-white"></i>
                                         </a>
-                                        <a class="btn btn-primary" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">
+                                        <a class="btn btn-primary" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')" title="Cancel Order">
                                             <i class="tim-icons icon-trash-simple text-white"></i>
                                         </a>
                                     </div>

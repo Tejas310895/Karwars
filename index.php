@@ -8,7 +8,6 @@
 
 <!-- header -->
     <div class="container-fluid geolocation fixed-top pt-0 mt-0 px-0 mx-0 bg-white">
-        
         <div class="row">
             <div class="col-3">
                     <?php 
@@ -53,7 +52,35 @@
         </div>
     </div>
 <!-- header -->
+<!-- schedule -->
+    <?php 
 
+    date_default_timezone_set('Asia/Kolkata');
+    $today = date("H:i");
+
+    if($today>='09:00' && $today<='18:00'){
+        $delivery_by = "TODAY ".($today+3)." AM TO".($today+6)." PM";
+    }elseif ($today>='18:00') {
+        $delivery_by = "TOMORROW 10 AM TO 12 PM";
+    }elseif ($today<='09:00') {
+        $delivery_by = "TODAY  10 AM TO 12 PM";
+    }
+
+    ?>
+    <div class="container mt-3 bg-success text-white pl-4">
+        <div class="row">
+            <div class="col-2">
+                <img class="pull-left ml-2" src="admin_area/admin_images/delivery-truck.svg" alt="" width="41">
+            </div>
+            <div class="col-10 pl-2" style="padding-top:5px;">
+                <div class="alert mb-0 px-1 pt-1 pb-0 border-0" role="alert">
+                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;">DELIVERY EXPEXTED BY*</h6>
+                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;"><?php echo $delivery_by; ?></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- schedule -->
 <!-- banner carousel -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
