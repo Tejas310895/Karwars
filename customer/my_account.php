@@ -249,13 +249,13 @@ session_start();
             </button>
             <?php
 
-            $get_min = "select * from admins";
+            // $get_min = "select * from admins";
 
-            $run_min = mysqli_query($con,$get_min);
+            // $run_min = mysqli_query($con,$get_min);
 
-            $row_min = mysqli_fetch_array($run_min);
+            // $row_min = mysqli_fetch_array($run_min);
 
-            $del_charges = $row_min['del_charges'];
+            // $del_charges = $row_min['del_charges'];
             
             $get_invoice = "select distinct invoice_no from customer_orders where customer_id='$c_id' order by order_id DESC";
 
@@ -310,6 +310,12 @@ session_start();
             $discount_type = $row_discount['discount_type'];
             $discount_amount = $row_discount['discount_amount'];
 
+            $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+            $run_del_charges = mysqli_query($con,$get_del_charges);
+            $row_del_charges = mysqli_fetch_array($run_del_charges);
+    
+            $del_charges = $row_del_charges['del_charges'];
+
             ?>
             <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body bg-white py-1">
@@ -324,7 +330,7 @@ session_start();
                                 <div class="row">
                                     <div class="col-9">
                                         <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items <?php echo $order_status; ?></h5>
-                                        <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  ($order_sum+$del_charges)-$discount_amount; ?></h4>
+                                        <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  $order_sum-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></h4>
                                         <p class="card-text mb-0  <?php if($txn_status==='TXN_SUCCESS'){echo 'text-success';}else{echo 'text-danger'; } ?>" style="font-size:0.7rem;font-weight:bold;">
                                         <?php 
                                         

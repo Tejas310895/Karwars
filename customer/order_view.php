@@ -99,13 +99,13 @@ session_start();
 
         $run_total = mysqli_query($con,$get_total);
 
-        $get_min = "select * from admins";
+        // $get_min = "select * from admins";
 
-        $run_min = mysqli_query($con,$get_min);
+        // $run_min = mysqli_query($con,$get_min);
 
-        $row_min = mysqli_fetch_array($run_min);
+        // $row_min = mysqli_fetch_array($run_min);
 
-        $del_charges = $row_min['del_charges'];
+        // $del_charges = $row_min['del_charges'];
 
         $row_total = mysqli_fetch_array($run_total);
 
@@ -115,6 +115,12 @@ session_start();
     
         $discount_type = $row_discount['discount_type'];
         $discount_amount = $row_discount['discount_amount'];
+
+        $get_del_charges = "select * from order_charges where invoice_id='$invoice_no'";
+        $run_del_charges = mysqli_query($con,$get_del_charges);
+        $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+        $del_charges = $row_del_charges['del_charges'];
 
         while($row_pro_id = mysqli_fetch_array($run_pro_id)){
             
@@ -191,7 +197,7 @@ session_start();
                 </div>
                 <div class="col-6">
                     <h5 class="text-right mb-0 mt-2"><strong>- ₹ <?php echo $discount_amount; ?></strong></h5>
-                    <h5 class="total_sum text-right">₹ <?php echo ($row_total['sum_total']+$del_charges)-$discount_amount; ?></h5>
+                    <h5 class="total_sum text-right">₹ <?php echo $row_total['sum_total']-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></h5>
                 </div>
                 <!-- <div class="col-4 bg-warning px-0 <?php //if($order_status==='Delivered'){echo "show";}else{echo"d-none";} ?>">
                     <a href="invoice?pdf=<?php //echo $_GET['invoice_no']; ?>" class="btn px-1 pt-3 pb-0" style="font-size:1.2rem;padding-top:12px!important;color:#fff;" download><i class="fas fa-download"></i> INVOICE</a>
