@@ -18,14 +18,14 @@
 <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card card-tasks mb-0">
-              <div class="card-header ">
-                <h3 class="title d-inline ml-4">ORDERS</h3>
-                <a href="index?notify" class="btn btn-primary pull-right">REQUIREMENT</a>
-                <a href="index?stock_report" class="btn btn-primary pull-right">ORDER STOCK</a>
-                <a href="index?order_report" class="btn btn-primary pull-right">REPORTS</a>
-                <a href="index?promo_store" class="btn btn-primary pull-right">PROMOTION</a>
-                <a href="index?vendor_report" class="btn btn-primary pull-right">DAILY REPORT</a>
-              </div>
+                <div class="card-header ">
+                    <h3 class="title d-inline ml-4">ORDERS</h3>
+                    <a href="index?notify" class="btn btn-primary pull-right">REQUIREMENT</a>
+                    <a href="index?stock_report" class="btn btn-primary pull-right">ORDER STOCK</a>
+                    <a href="index?order_report" class="btn btn-primary pull-right">REPORTS</a>
+                    <a href="index?promo_store" class="btn btn-primary pull-right">PROMOTION</a>
+                    <a href="index?vendor_report" class="btn btn-primary pull-right">DAILY REPORT</a>
+                </div>
               <div class="card-body" id="refresh">
                 <div class="table-full-width table-responsive" id="time">
                   <!-- <table class="table">
@@ -148,130 +148,82 @@
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
-                                  <div class="col"><h4 class="card-text mb-2">Order on - <?php echo date('d/M/Y,h:i:s a',strtotime($order_date)); ?></h4></div>
-                                  <div class="col"><h4 class="card-title pull-right">Delivery by - <?php echo $date; ?></h4></div>
+                                  <div class="col-lg-8 col-sm-12">
+                                    <h6 class="card-text mb-2">Order on - <?php echo date('d/M/Y(h:i a)',strtotime($order_date)); ?></h6>
+                                    <h6 class="card-subtitle mt-1">ID - <?php echo $invoice_id; ?></h6>
+                                    <h5 class="card-subtitle mt-1">Order by - <?php echo $c_name; ?><span class="badge badge-secondary <?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">Discount Applied</span></h5>
+                                    <h5 class="card-subtitle mt-1">Contact - +91 <?php echo $c_contact; ?></h5>
+                                    <h5 class="card-text mt-2">Address - <?php echo $customer_address; ?>, 
+                                                                        <?php echo $customer_phase; ?>, 
+                                                                        <?php echo $customer_landmark; ?>, 
+                                                                        <?php echo $customer_city; ?> .
+                                                                        </h5>
+                                        <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>">
+                                            <i class="tim-icons icon-alert-circle-exc text-white"></i>
+                                        </button>
+                                        <a class="btn btn-primary" href='index.php?confirm_order=<?php echo $invoice_id;?>'>
+                                            <i class="tim-icons icon-pencil text-white"></i>
+                                        </a>
+                                        <a class="btn btn-primary" href="process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered">
+                                            <i class="tim-icons icon-delivery-fast text-white"></i>
+                                        </a>
+                                        <a class="btn btn-primary" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">
+                                            <i class="tim-icons icon-trash-simple text-white"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                <th scope="col">Vendor</th>
+                                                <th scope="col">Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                
+                                                $get_client_id = "select distinct(client_id) from customer_orders where invoice_no='$invoice_id'";
+                                                $run_client_id = mysqli_query($con,$get_client_id);
+                                                while($row_client_id = mysqli_fetch_array($run_client_id)){
+
+                                                $bill_client_id = $row_client_id['client_id'];
+
+                                                $get_bill_client = "select * from clients where client_id='$bill_client_id'";
+                                                
+                                                $run_bill_client = mysqli_query($con,$get_bill_client);
+
+                                                $row_bill_client = mysqli_fetch_array($run_bill_client);
+
+                                                $bill_client_name = $row_bill_client['client_shop'];
+
+                                                $get_client_bill = "select sum(due_amount) as client_bill_total from customer_orders where invoice_no='$invoice_id' and client_id='$bill_client_id'";
+                                                $run_client_bill = mysqli_query($con,$get_client_bill);
+                                                $row_client_bill = mysqli_fetch_array($run_client_bill);
+
+                                                $client_bill_total = $row_client_bill['client_bill_total'];
+                                                
+                                                ?>
+                                                <tr>
+                                                <th><?php echo $bill_client_name; ?></th>
+                                                <td><?php echo $client_bill_total; ?></td>
+                                                </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Total</th>
+                                                    <th>₹<?php echo $total-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Grand Total</th>
+                                                    <th>₹<?php echo ($total+$del_charges)-$discount_amount; ?></th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                  <div class="col">
-                                  <h5 class="card-subtitle">ID - <?php echo $invoice_id; ?></h5>
-                                  <h4 class="card-subtitle mt-2">Order by - <?php echo $c_name; ?><span class="badge badge-secondary <?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">Discount Applied</span></h4>
-                                  <h4 class="card-subtitle mt-2">Contact - +91 <?php echo $c_contact; ?></h4>
-                                  <h4 class="card-text mt-3">Address - <?php echo $customer_address; ?>, 
-                                                                      <?php echo $customer_phase; ?>, 
-                                                                      <?php echo $customer_landmark; ?>, 
-                                                                      <?php echo $customer_city; ?> .
-                                                                      </h4>
-                                  </div>
-                                  <div class="col">
-                                    <h6 class="card-title mt-2 pull-right p-2 rounded font-weight-bold <?php if($txn_status==='TXN_SUCCESS'){echo "bg-success";}else{echo "bg-danger";} ?>">
-                                      <?php if($txn_status==='TXN_SUCCESS'){echo "PAID ONLINE";}else{echo "TAKE CASH";} ?>
-                                    </h6>
-                                    <h3 class="card-subtitle mt-2 pull-right">
-                                      <?php echo $order_count; ?> Items -  ₹<?php echo ($total+$del_charges)-$discount_amount; ?>
-                                      <?php if($del_charges>0){
-                                        echo "<span class='badge badge-secondary'>".$total."+".$del_charges."</span>";
-                                      }
-                                      ?>
-                                      /-<br>
-                                      REFUND OF ₹<?php 
-                                      
-                                      $get_refund = "SELECT sum(due_amount) AS refund FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Undeliver'";
-
-                                      $run_refund = mysqli_query($con,$get_refund);
-
-                                      $row_refund = mysqli_fetch_array($run_refund);
-
-                                      $refund = $row_refund['refund'];
-
-                                      if($refund>1){
-
-                                        echo "$refund";
-
-                                      }else{
-
-                                        echo '0';
-
-                                      }
-                                      
-                                      ?>/- 
-                                    </h3>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <button id="show_details" class="btn btn-success card-link pull-left mt-2" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">View</button>
-                                        <a href="print.php?print=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Print</a>
-                                        <a href="sendmails.php?delbill_mail=<?php echo $invoice_id; ?>" target="_blank" id="show_details" class="btn btn-info card-link pull-left mt-2 text-white" >Mail</a>
-                                    </div>
-                                    <div class="col-lg-6">
-                                      <div class="row">
-                                        <div class="col-6">
-                                          <a type="button" class="btn btn-danger" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')">Cancel Order</a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a href='process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered' class='btn btn-primary d-block'>Update Delivered</a>
-                                        </div>
-                                        <div class="col-6">
-                                          <?php 
-                                          
-                                          if($order_status==='Order Placed'){
-                                            echo "
-                                            <a href='index.php?confirm_order=$invoice_id' class='btn btn-primary d-block'>Edit Order</a>
-                                            ";
-                                          }elseif ($order_status==='Packed') {
-                                            echo "
-                                            <a href='process_order.php?update_order=$invoice_id&status=Out for Delivery' class='btn btn-primary d-block'>Out for Delivery</a>
-                                            ";
-                                          }elseif($order_status==='Out for Delivery'){
-                                            echo "
-                                            <a href='process_order.php?update_order=$invoice_id&status=Delivered' class='btn btn-primary d-block'>Update Delivered</a>
-                                            ";
-                                          }
-                                          
-                                          ?>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="w-100">
-                                    <div class="col-12">
-                                    <div class="form-group">
-                                        <form action="clientbill.php" method="get" target="_blank">
-                                            <input type="hidden" name="bill" value="<?php echo $invoice_id; ?>">
-                                              <select class="form-control mt-2" name="client">
-                                              <?php 
-                                              
-                                              $get_client_id = "select distinct(client_id) from customer_orders where invoice_no='$invoice_id'";
-
-                                              $run_client_id = mysqli_query($con,$get_client_id);
-
-                                              while($row_client_id = mysqli_fetch_array($run_client_id)){
-
-                                              $client_id = $row_client_id['client_id'];
-
-                                              $get_client = "select * from clients where client_id='$client_id'";
-                                              
-                                              $run_client = mysqli_query($con,$get_client);
-
-                                              $row_client = mysqli_fetch_array($run_client);
-
-                                              $client_name = $row_client['client_shop'];
-
-                                              echo "<option value='$client_id'>$client_name</option>";
-
-                                              }
-                                              
-                                              ?>
-                                              </select>
-                                                <button class="btn btn-primary w-100" type="submit">Client Bill</button>
-                                        </form>
-                                        </div>
-                                        </div>
-                                        <div class="w-100"></div>
-                                        <div class="col-12">
-                                              <a href="sendmails.php?clientbill_mail=<?php echo $invoice_id; ?>" class="btn btn-success btn-lg btn-block text-white">Send Mail to Clients</a>
-                                        </div>
-                                    </div>
-                                  <!-- Modal -->
+                                <!-- Modal -->
                                   <div class="modal modal-black fade" id="KK<?php echo $invoice_id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                       <div class="modal-content">
@@ -381,6 +333,7 @@
                                     </div>
                                   </div>
                                 </div>
+                            <!-- Modal -->
                             </div>
                         </div>
                     <?php } ?>
