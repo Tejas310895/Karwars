@@ -57,9 +57,10 @@
 
     date_default_timezone_set('Asia/Kolkata');
     $today = date("H:i");
+    $mtoday = date("H");
 
     if($today>='09:00' && $today<='18:00'){
-        $delivery_by = "TODAY ".($today+3)." AM TO".($today+6)." PM";
+        $delivery_by = "TODAY ".($mtoday+3)." AM TO".($mtoday+6)." PM";
     }elseif ($today>='18:00') {
         $delivery_by = "TOMORROW 10 AM TO 12 PM";
     }elseif ($today<='09:00') {
