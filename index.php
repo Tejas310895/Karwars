@@ -443,7 +443,7 @@
 
         
         ?>
-                        <div class="col-4 px-2 py-2">
+                        <div class="col-4 px-0">
                             <a href="store.php?cat=<?php echo $cat_id;?>">
                                 <img src="<?php echo $cat_img; ?>" class="img-thumbnail bg-transparent border-0" alt="..." >
                             </a>
