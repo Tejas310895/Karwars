@@ -192,7 +192,7 @@ session_start();
     ?>
             <div class="row fixed-bottom px-3 <?php if($row_total['sum_total']>=1){echo 'show';}else{echo 'd-none';}?>" style="background-color:#999;">
                 <div class="col-6">
-                    <h6 class="text-left mb-0 mt-2 mb-0"><strong><?php echo $discount_type; ?>:</strong></h6>
+                    <!-- <h6 class="text-left mb-0 mt-2 mb-0"><strong><?php //echo $discount_type; ?>:</strong></h6> -->
                     <h5 class="total_sum text-left mb-0 mt-1">Total:</h5>
                 </div>
                 <div class="col-6">
