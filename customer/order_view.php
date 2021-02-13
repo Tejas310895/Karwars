@@ -196,7 +196,7 @@ session_start();
                     <h5 class="total_sum text-left mb-0 mt-1">Total:</h5>
                 </div>
                 <div class="col-6">
-                    <!-- <h5 class="text-right mb-0 mt-2"><strong>- ₹ <?php echo //$discount_amount; ?></strong></h5> -->
+                    <!-- <h5 class="text-right mb-0 mt-2"><strong>- ₹ <?php //echo $discount_amount; ?></strong></h5> -->
                     <h5 class="total_sum text-right">₹ <?php echo $row_total['sum_total']-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></h5>
                 </div>
                 <!-- <div class="col-4 bg-warning px-0 <?php //if($order_status==='Delivered'){echo "show";}else{echo"d-none";} ?>">
