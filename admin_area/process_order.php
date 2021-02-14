@@ -239,6 +239,66 @@ if(isset($_GET['cancel_order'])){
   
   }
 
+  if(isset($_GET['minus_order'])){
+
+    $invoice_id = $_GET['minus_order'];
+
+    $pro_id = $_GET['minuspro_id'];
+
+    $pro_price = $_GET['minusper_pro'];
+
+    $update_minus = "update customer_orders set qty=qty-1, due_amount=due_amount-'$pro_price' where invoice_no='$invoice_id' and pro_id='$pro_id'";
+
+    $run_update_minus = mysqli_query($con,$update_minus);
+
+    if($run_update_minus){
+  
+      echo "<script>alert('Order Updated')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('Try Again')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+
+    }
+  
+  
+  }
+
+  if(isset($_GET['plus_order'])){
+
+    $invoice_id = $_GET['plus_order'];
+
+    $pro_id = $_GET['pluspro_id'];
+
+    $pro_price = $_GET['plusper_pro'];
+
+    $update_plus = "update customer_orders set qty=qty+1,due_amount=due_amount+'$pro_price' where invoice_no='$invoice_id' and pro_id='$pro_id'";
+
+    $run_update_plus = mysqli_query($con,$update_plus);
+
+    if($run_update_plus){
+  
+      echo "<script>alert('Add Updated')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('Try Again')</script>";
+  
+      echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
+
+
+    }
+  
+  
+  }
+
   if(isset($_GET['deliver_order'])){
 
     $invoice_id = $_GET['deliver_order'];
