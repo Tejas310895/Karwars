@@ -125,6 +125,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
             <th>ITEMS</th>
             <th>COST</th>
             <th>DLC</th>
+            <th>BD</th>
             <th>PAYMENT TYPE</th>
             <th>ACTION</th>
 		</tr>
@@ -213,6 +214,14 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
                     $del_charges = $row_del_charges['del_charges'];
 
+                    $get_bill_diff = "select * from bill_controller where invoice_no='$invoice_id'";
+                    $run_bill_diff = mysqli_query($con,$get_bill_diff);
+                    $bill_diff_total = 0;
+                    while($row_bill_diff = mysqli_fetch_array($run_bill_diff)){
+
+                    $bill_diff_amount = $row_bill_diff['bill_amount'];
+                    $bill_diff_total += $bill_diff_amount;
+                    }
                   ?>
                           <tr class="text-center">
                           <td style="font-size:0.8rem;"><?php echo $status; ?></td>
@@ -228,6 +237,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                           <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
                           <td style="font-size:0.7rem;">₹ <?php echo ($total+$del_charges)-$discount_amount; ?>/-</td>
                           <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
+                          <td style="font-size:0.7rem; text-align:center;"><?php if($bill_diff_total>0){echo$bill_diff_total;}else{echo 0;} ;?></td>
                           <td><?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
                           <td class="td-actions" >
                           <button id="show_details" class="btn btn-info btn-sm p-1" style="font-size:0.7rem;" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">

@@ -144,11 +144,20 @@
 
                           $del_charges = $row_del_charges['del_charges'];
 
+                          $get_value_diff = "select * from bill_controller where invoice_no='$invoice_id'";
+                          $run_value_diff = mysqli_query($con,$get_value_diff);
+                          $diff_amount_total = 0;
+                          while($row_value_diff = mysqli_fetch_array($run_value_diff)){
+      
+                          $value_diff_amount = $row_value_diff['bill_amount'];
+                          $diff_amount_total += $value_diff_amount;
+                          }
+
                           ?>
                       <div class="card">
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
-                                  <div class="col-lg-8 col-sm-12">
+                                  <div class="col-lg-6 col-sm-12">
                                     <h6 class="card-text mb-2">Order on - <?php echo date('d/M/Y(h:i a)',strtotime($order_date)); ?></h6>
                                     <h6 class="card-subtitle mt-1">ID - <?php echo $invoice_id; ?></h6>
                                     <h5 class="card-subtitle mt-1">Order by - <?php echo $c_name; ?><span class="badge badge-secondary <?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">Discount Applied</span></h5>
@@ -158,25 +167,26 @@
                                                                         <?php echo $customer_landmark; ?>, 
                                                                         <?php echo $customer_city; ?> .
                                                                         </h5>
-                                        <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>" title="view">
-                                            <i class="tim-icons icon-alert-circle-exc text-white"></i>
-                                        </button>
-                                        <a class="btn btn-primary" href="index.php?confirm_order=<?php echo $invoice_id;?>" title="Edit">
-                                            <i class="tim-icons icon-pencil text-white"></i>
-                                        </a>
-                                        <a class="btn btn-primary" href="process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered" title="Update Delivered">
-                                            <i class="tim-icons icon-delivery-fast text-white"></i>
-                                        </a>
-                                        <a class="btn btn-primary" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')" title="Cancel Order">
-                                            <i class="tim-icons icon-trash-simple text-white"></i>
-                                        </a>
+                                          <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>" title="view">
+                                              <i class="tim-icons icon-alert-circle-exc text-white"></i>
+                                          </button>
+                                          <a class="btn btn-primary" href="index.php?confirm_order=<?php echo $invoice_id;?>" title="Edit">
+                                              <i class="tim-icons icon-pencil text-white"></i>
+                                          </a>
+                                          <a class="btn btn-primary" href="process_order.php?update_order=<?php echo $invoice_id; ?>&status=Delivered" title="Update Delivered">
+                                              <i class="tim-icons icon-delivery-fast text-white"></i>
+                                          </a>
+                                          <a class="btn btn-primary" href="process_order.php?cancel_order=<?php echo $invoice_id;?>" onclick="return confirm('Are you sure?')" title="Cancel Order">
+                                              <i class="tim-icons icon-trash-simple text-white"></i>
+                                          </a>
                                     </div>
-                                    <div class="col-lg-4 col-sm-12">
+                                    <div class="col-lg-6 col-sm-12">
                                         <table class="table">
                                             <thead class="thead-light">
                                                 <tr>
                                                 <th scope="col">Vendor</th>
                                                 <th scope="col">Price</th>
+                                                <th scope="col">Add Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -201,22 +211,68 @@
                                                 $row_client_bill = mysqli_fetch_array($run_client_bill);
 
                                                 $client_bill_total = $row_client_bill['client_bill_total'];
+
+                                                $get_client_diff = "select * from bill_controller  where invoice_no='$invoice_id' and client_id='$bill_client_id'";
+                                                $run_client_diff = mysqli_query($con,$get_client_diff);
+                                                $row_client_diff = mysqli_fetch_array($run_client_diff);
+
+                                                $client_diff = $row_client_diff['bill_amount'];
                                                 
                                                 ?>
                                                 <tr>
                                                 <th><?php echo $bill_client_name; ?></th>
-                                                <td><?php echo $client_bill_total; ?></td>
+                                                <td><?php echo $client_bill_total; ?><?php if($client_diff>0){echo "+".$client_diff;} ?></td>
+                                                <td>
+                                                  <?php 
+                                            
+                                                    $get_bill_con = "select * from bill_controller where invoice_no='$invoice_id' and client_id='$bill_client_id'";
+                                                    $run_bill_con = mysqli_query($con,$get_bill_con);
+                                                    $row_bill_con = mysqli_fetch_array($run_bill_con);
+                                                    $bill_con_count = mysqli_num_rows($run_bill_con);
+                                                    
+                                                    $bill_amount = $row_bill_con['bill_amount'];
+
+                                                    if($bill_con_count>=1){
+                                                    
+                                                    ?>
+                                                      <form action="process_order.php" class="form-group" method="post">
+                                                      <input type="hidden" value="<?php echo $invoice_id; ?>" name="del_bill_diff">
+                                                      <input type="hidden" name="del_client_id" value="<?php echo $bill_client_id; ?>">
+                                                        <div class="input-group mb-0 mt-1">
+                                                          <input type="text" class="form-control text-white" value="<?php echo $bill_amount; ?>" readonly>
+                                                          <div class="input-group-append p-0">
+                                                            <button class="btn btn-danger btn-icon m-0" type="submit">
+                                                              <i class="tim-icons icon-trash-simple text-white"></i>
+                                                            </button>
+                                                          </div>
+                                                        </div>
+                                                      </form>
+                                                      <?php }else{ ?>
+                                                        <form action="process_order.php" class="form-group" method="post">
+                                                          <input type="hidden" value="<?php echo $invoice_id; ?>" name="bill_diff">
+                                                            <input type="hidden" name="client_id" value="<?php echo $bill_client_id; ?>">
+                                                            <div class="input-group mb-0 mt-1">
+                                                              <input type="text" class="form-control" placeholder="Enter differ value" name="bill_diff_value" required>
+                                                              <div class="input-group-append p-0">
+                                                                <button class="btn btn-success btn-icon m-0" type="submit">
+                                                                  <i class="tim-icons icon-check-2 text-white"></i>
+                                                                </button>
+                                                              </div>
+                                                            </div>
+                                                          </form>
+                                                        <?php } ?>
+                                                </td>
                                                 </tr>
                                                 <?php } ?>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <th>Total</th>
-                                                    <th>₹<?php echo $total-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></th>
+                                                    <th colspan="2">₹<?php echo $total-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges."dlc";}?><?php if($diff_amount_total>0){echo "+".$diff_amount_total."bd";}?></th>
                                                 </tr>
                                                 <tr>
                                                     <th>Grand Total</th>
-                                                    <th>₹<?php echo ($total+$del_charges)-$discount_amount; ?></th>
+                                                    <th colspan="2">₹<?php echo ($total+$del_charges+$diff_amount_total)-$discount_amount; ?></th>
                                                 </tr>
                                             </tfoot>
                                         </table>

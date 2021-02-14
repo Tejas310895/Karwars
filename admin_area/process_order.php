@@ -262,10 +262,68 @@ if(isset($_GET['cancel_order'])){
       echo "<script>window.open('index.php?confirm_order=$invoice_id','_self')</script>";
 
 
-    }
-  
-  
+    }   
   }
 
+  if(isset($_POST['bill_diff'])){
+
+    $invoice_id = $_POST['bill_diff'];
+
+    $diff_value = $_POST['bill_diff_value'];
+
+    $client_id = $_POST['client_id'];
+
+    date_default_timezone_set('Asia/Kolkata');
+    $today = date("Y-m-d H:i:s");
+
+    $insert_bill_diff = "insert into bill_controller (client_id,
+                                                      invoice_no,
+                                                      bill_amount,
+                                                      bill_controller_type,
+                                                      updated_date) 
+                                                      values 
+                                                      ('$client_id',
+                                                       '$invoice_id',
+                                                       '$diff_value',
+                                                       'value_diff',
+                                                       '$today')";
+    $run_insert_bill_diff = mysqli_query($con,$insert_bill_diff);
+
+    if($run_insert_bill_diff){
+
+      echo "<script>alert('bill Updated Successfully')</script>";
+      echo "<script>window.open('index.php?view_orders','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('bill Update Failed')</script>";
+      echo "<script>window.open('index.php?view_orders','_self')</script>";
+      
+    }
+
+  }
+
+  if(isset($_POST['del_bill_diff'])){
+
+    $invoice_id = $_POST['del_bill_diff'];
+
+    $del_client_id = $_POST['del_client_id'];
+
+    $del_bill_diff = "delete from bill_controller where invoice_no='$invoice_id' and client_id='$del_client_id'";
+    $run_del_bill_diff = mysqli_query($con,$del_bill_diff);
+
+    if($run_del_bill_diff){
+
+      echo "<script>alert('bill deleted Successfully')</script>";
+      echo "<script>window.open('index.php?view_orders','_self')</script>";
+
+    }else{
+
+      echo "<script>alert('bill delete Failed')</script>";
+      echo "<script>window.open('index.php?view_orders','_self')</script>";
+      
+    }
+
+  }
 
 ?>
