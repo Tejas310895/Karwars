@@ -106,7 +106,7 @@ if(isset($_GET['confirm_order'])){
                     <a href='process_order.php?minus_order=$invoice_id&minuspro_id=$pro_id&minusper_pro=$per_product_price' class='btn btn-danger d-block'>Delete 1 Qty OF Total $qty</a>
                 </div>
                 <div class='col-4'>
-                    <a href='process_order.php?plus_order=$invoice_id&pluspro_id=$pro_id&plusper_pro=$per_product_price' class='btn btn-danger d-block'>Add 1 Qty OF Total $qty</a>
+                    <a href='process_order.php?plus_order=$invoice_id&pluspro_id=$pro_id&plusper_pro=$per_product_price' class='btn btn-danger d-block'>Add 1 Qty For Total $qty</a>
                 </div>
                 <div class='col-4'>
                     <a href='process_order.php?undeliver_order=$invoice_id&undelpro_id=$pro_id' class='btn btn-danger d-block'>Update Undeliver</a>
@@ -126,7 +126,7 @@ if(isset($_GET['confirm_order'])){
             echo"
             <div class='row'>
                 <div class='col-6'>
-                    <a href='process_order.php?plus_order=$invoice_id&pluspro_id=$pro_id&plusper_pro=$per_product_price' class='btn btn-danger d-block'>Add 1 Qty OF Total $qty</a>
+                    <a href='process_order.php?plus_order=$invoice_id&pluspro_id=$pro_id&plusper_pro=$per_product_price' class='btn btn-danger d-block'>Add 1 Qty For Total $qty</a>
                 </div>
                 <div class='col-6'>
                     <a href='process_order.php?undeliver_order=$invoice_id&undelpro_id=$pro_id' class='btn btn-danger d-block'>Update Undeliver</a>
