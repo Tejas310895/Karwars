@@ -55,20 +55,23 @@
 <!-- schedule -->
     <?php 
 
-    // date_default_timezone_set('Asia/Kolkata');
-    // $today = date("H:i");
-    // $mtoday = date("H");
+    date_default_timezone_set('Asia/Kolkata');
+    $today = date("H:i");
 
-    // if($today>='09:00' && $today<='18:00'){
-    //     $delivery_by = "TODAY ".($mtoday+3)." AM TO".($mtoday+6)." PM";
-    // }elseif ($today>='18:00') {
-    //     $delivery_by = "TOMORROW 10 AM TO 12 PM";
-    // }elseif ($today<='09:00') {
-    //     $delivery_by = "TODAY  10 AM TO 12 PM";
-    // }
+    if($today>='09:00' && $today<='18:00'){
+        $startTimeamp = strtotime($today) + 60*60*3;
+        $endTimeamp = strtotime($today) + 60*60*6;
+        $startTime = date('H:i A', $startTimeamp);
+        $endTime = date('H:i A', $endTimeamp);
+        $delivery_by = "TODAY ".($startTime)." TO ".($endTime)."";
+    }elseif ($today>='18:00') {
+        $delivery_by = "TOMORROW 10 AM TO 12 PM";
+    }elseif ($today<='09:00') {
+        $delivery_by = "TODAY  10 AM TO 12 PM";
+    }
 
     ?>
-    <!-- <div class="container mt-3 bg-success text-white pl-4">
+    <div class="container mt-3 bg-success text-white pl-4">
         <div class="row">
             <div class="col-2">
                 <img class="pull-left ml-2" src="admin_area/admin_images/delivery-truck.svg" alt="" width="41">
@@ -76,11 +79,11 @@
             <div class="col-10 pl-2" style="padding-top:5px;">
                 <div class="alert mb-0 px-1 pt-1 pb-0 border-0" role="alert">
                     <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;">DELIVERY EXPEXTED BY*</h6>
-                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;"><?php //echo $delivery_by; ?></h6>
+                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;"><?php echo $delivery_by; ?></h6>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 <!-- schedule -->
 <!-- banner carousel -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
