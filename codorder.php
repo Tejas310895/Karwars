@@ -148,7 +148,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $senderid="VRNEAR";	$route= 1;
         
         $text1 = "Thank%20You,%20Your%20Order%20is%20Placed%20Successfully,%20Call%207892916394%20For%20Support";
-        $text2 = "Postpaid%20Order%20Received-https://www.karwars.in/admin_area/print.php?print=$invoice_no";
+        $text2 = "New Order received on the portal";
         //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
         // $url1="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=$c_contact&message=$text1";
         // $url2="http://weberleads.in/http-api.php?username=TEJAS97&password=pwd5634&senderid=WEBERL&route=2&number=7892916394&message=$text2";
