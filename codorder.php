@@ -108,38 +108,8 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     if($run_customer_order){
 
-        $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
-        $run_waclient = mysqli_query($con,$get_waclient);
-        while($row_waclient=mysqli_fetch_array($run_waclient)){
-        $waclient_id = $row_waclient['client_id'];
-        
-        $get_wacontact = "SELECT * from clients where client_id='$waclient_id'";
-        $run_wacontact = mysqli_query($con,$get_wacontact);
-        $row_wacontact = mysqli_fetch_array($run_wacontact);
-        
-        $key = "EALz6t0ZsHkQ9WPx";
-        $senderid="VRNEAR";	$route= 1;
-        
-        $waclient_phone = $row_wacontact['client_phone'];
-
-        $text = "Hi%20you%20have%20an%20order%A0Please%20check%20the%20App%A0Keep%20the%20pack%20ready%20within%20half%20an%20hour";
-        
-        //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
-        // $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=$text";
-        // $url = "http://www.bulksmsplans.com/api/send_sms_multi?api_id=APIMerR2yHK34854&api_password=wernear_11&sms_type=Transactional&sms_encoding=text&sender=VRNEAR&message=$text&number=+91$client_phone";
-        $url = "https://www.hellotext.live/vb/apikey.php?apikey=$key&senderid=$senderid&route=$route&number=$waclient_phone&message=$text";
-        // Initialize a CURL session.
-        $ch = curl_init();
-
-        // Return Page contents.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        //grab URL and pass it to the variable.
-        curl_setopt($ch, CURLOPT_URL, $url);
-
-        $result = curl_exec($ch);
-        
-    }
+        $insert_call = "insert into cron_call (invoice_no,cron_call_status,updated_date) values ('$invoice_no','false','$today')";
+        $run_insert_call = mysqli_query($con,$insert_call);     
     }
 
     if($run_customer_order){
