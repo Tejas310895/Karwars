@@ -196,28 +196,29 @@
     
     <?php 
     
-    // if(isset($_SESSION['customer_email'])){
+    if(isset($_SESSION['customer_email'])){
 
-    //     $customer_mail = $_SESSION['customer_email'];
+        $customer_mail = $_SESSION['customer_email'];
 
-    //     $get_customer_id = "select * from customers where customer_email='$customer_mail'";
+        $get_customer_id = "select * from customers where customer_email='$customer_mail'";
 
-    //     $run_customer_id = mysqli_query($con,$get_customer_id);
+        $run_customer_id = mysqli_query($con,$get_customer_id);
 
-    //     $row_customer_id = mysqli_fetch_array($run_customer_id);
+        $row_customer_id = mysqli_fetch_array($run_customer_id);
 
-    //     $customer_id = $row_customer_id['customer_id'];
+        $customer_id = $row_customer_id['customer_id'];
 
-    //     $get_user_order_count = "SELECT * FROM customer_orders WHERE customer_id='$customer_id'";
-    //     $run_user_orders_count = mysqli_query($con,$get_user_order_count);
-    //     $user_orders_count = mysqli_num_rows($run_user_orders_count);
+        $get_user_order_count = "SELECT * FROM customer_orders WHERE customer_id='$customer_id'";
+        $run_user_orders_count = mysqli_query($con,$get_user_order_count);
+        $user_orders_count = mysqli_num_rows($run_user_orders_count);
 
-    //     if($user_orders_count<1){
-    //         echo "<br> First User Discount -₹ 50";
-    //         $discount_amount=50;
-    //     }else{
-    //         $discount_amount=0;
-    //     }
+        if($user_orders_count<1){
+            echo "<br> First User Discount Applied";
+            $discount_amount=25;
+        }else{
+            $discount_amount=0;
+        }
+    }
     
     ?>
     
