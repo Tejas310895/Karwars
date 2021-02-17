@@ -108,60 +108,8 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
     if($run_customer_order){
 
-        $get_waclient = "SELECT DISTINCT(client_id) FROM customer_orders WHERE invoice_no='$invoice_no'";
-        $run_waclient = mysqli_query($con,$get_waclient);
-        $rows = array();
-        while($row_waclient=mysqli_fetch_array($run_waclient)){
-        $waclient_id = $row_waclient['client_id'];
-        
-        $get_wacontact = "SELECT * from clients where client_id='$waclient_id'";
-        $run_wacontact = mysqli_query($con,$get_wacontact);
-        $row_wacontact = mysqli_fetch_array($run_wacontact);
-        
-        array_push($rows, $row_wacontact['client_phone']);
-
-        }
-
-        $string = implode(',' , $rows);
-
-        // $username = urlencode("r701");
-        // $token = urlencode("oV426q");
-        // $plan_id = urlencode("10221");
-        // $announcement_id = urlencode("242413");
-        // $caller_id = urlencode("12345");
-        // $contact_numbers = urlencode("$string");
-
-        // $api = "http://103.255.100.37/api/voice/voice_broadcast.php?username=".$username."&token=".$token."&plan_id=".$plan_id."&announcement_id=".$announcement_id."&caller_id=".$caller_id."&contact_numbers=".$contact_numbers."";
-
-        // $response = file_get_contents($api);
-
-        $post_url = "http://103.255.100.37/api/voice/voice_broadcast.php";
-
-        $ARR_POST_DATA = array();
-
-        $ARR_POST_DATA['username'] = 'r701';
-        $ARR_POST_DATA['token'] = "oV426q";
-        $ARR_POST_DATA['announcement_id'] = "242413";
-        $ARR_POST_DATA['plan_id'] = 10221;
-        $ARR_POST_DATA['caller_id'] = "1234"; // optional
-        $ARR_POST_DATA['contact_numbers'] = "$string"; // comma(,) seperated 
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $post_url);
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($ARR_POST_DATA));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-        $response = curl_exec($curl);
-
-        // echo $response; 
-
-        // $arr_response = json_docode($response, true);
-
-        // var_dump($arr_response);
-
-        curl_close($curl); 
-        // $insert_call = "insert into cron_call (invoice_no,cron_call_status,updated_date) values ('$invoice_no','false','$today')";
-        // $run_insert_call = mysqli_query($con,$insert_call);     
+        $insert_call = "insert into cron_call (invoice_no,cron_call_status,updated_date) values ('$invoice_no','false','$today')";
+        $run_insert_call = mysqli_query($con,$insert_call);     
     }
 
     if($run_customer_order){
