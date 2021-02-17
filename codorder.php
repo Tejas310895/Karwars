@@ -75,11 +75,17 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 }
     if($run_customer_order){
 
+        $get_dis_total = "select sum(due_amount) as dis_total from customer_orders WHERE invoice_no='$invoice_no'";
+        $run_dis_total = mysqli_query($con,$get_dis_total);
+        $row_dis_total = mysqli_fetch_array($run_dis_total);
+
+        $dis_total = $row_dis_total['dis_total'];
+
         $get_user_order_count = "SELECT customer_id,invoice_no FROM customer_orders WHERE customer_id='$customer_id' GROUP BY customer_id,invoice_no";
         $run_user_orders_count = mysqli_query($con,$get_user_order_count);
         $user_orders_count = mysqli_num_rows($run_user_orders_count);
 
-        if($user_orders_count==1){
+        if($user_orders_count==1 && $dis_total>300){
          $insert_discount = "insert into customer_discounts (invoice_no,discount_type,discount_amount,discount_date) values ('$invoice_no','First Order Discount','25','$today')";
          $run_insert_discount = mysqli_query($con,$insert_discount);
         }

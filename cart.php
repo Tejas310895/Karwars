@@ -192,9 +192,11 @@
 
 <!-- checkout float -->
     <div class="container-fluid px-0 fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
-    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2 <?php if($total>$min_price&&$total<300){echo "show";}else{echo "d-none";} ?>" >Add more <?php echo 300-$total; ?> for free delivery 
+    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2" ><?php if($total>$min_price&&$total<300){echo "Add more ".(300-$total)." for free delivery";}?>
     
     <?php 
+    
+    if($total>300){
     
     if(isset($_SESSION['customer_email'])){
 
@@ -219,6 +221,8 @@
             $discount_amount=0;
         }
     }
+    
+}
     
     ?>
     
