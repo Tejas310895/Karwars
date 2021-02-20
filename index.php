@@ -61,14 +61,20 @@
     if($today>='09:00' && $today<='18:00'){
         $startTimeamp = strtotime($today) + 60*60*3;
         $endTimeamp = strtotime($today) + 60*60*6;
-        $startTime = date('h:i A', $startTimeamp);
-        $endTime = date('h:i', $endTimeamp);
-        if($endTime<='07:00'){
-            $delTime = date('h:i A', $endTimeamp);
+        $startTime = date('H:i', $startTimeamp);
+        $endTime = date('H:i', $endTimeamp);
+        if($endTime>='17:00' && $endTime<='09:00'){
+            $endTime = date('h:i A', $endTimeamp);
         }else{
-            $delTime = '07:00 PM';
+            $delendTime = '07:00 PM';
         }
-        $delivery_by = "TODAY ".($startTime)." TO ".($delTime)."";
+
+        if($startTime<='16:00'){
+            $delstartTime = date('h:i A', $endTimeamp);
+        }else{
+            $delstartTime = '06:00 PM';
+        }
+        $delivery_by = "TODAY ".($delstartTime)." TO ".($delendTime)."";
     }elseif ($today>='18:00') {
         $delivery_by = "TOMORROW 10 AM TO 12 PM";
     }elseif ($today<='09:00') {
