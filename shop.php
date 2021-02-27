@@ -220,11 +220,10 @@
                         
                             <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
                                     <div class="col-4">
-                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
-                                        <h5 class="pro_dis_batch mb-0"><?php echo $discount_percent."%"; ?></h5>
-                                        <h6 class="mb-0 pt-0" style="font-size: 0.6rem;">OFF</h6>
+                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?> mr-4">
+                                        <h5 class="pro_dis_batch mb-0">Save ₹<?php echo $price_display-$pro_price; ?></h5>
                                         </span>
-                                        <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
+                                        <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0 mt-2">
                                     </div>
                                 <div class="col-8">
                                     <h5 class="pro_list_title"><?php echo $pro_title; ?></h5>

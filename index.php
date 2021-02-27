@@ -298,6 +298,25 @@
 
 <!-- product swipe -->
 
+<!-- sale @ -->
+<div class="container-fluid mb-3 px-3">
+    <fieldset class="p-2" style="border: 3px solid #4da3ff;">
+        <legend class="text-center text-white" style="font-family:jost;width:60%;background-color: #4da3ff;border-radius:10px;">Dhamaka Deals @</legend>
+        <ul class="nav nav-pills nav-fill justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active mx-1" href="shop_offer?offer_zone=9" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 9</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active mx-1" href="shop_offer?offer_zone=49" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 49</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active mx-1" href="shop_offer?offer_zone=99" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 99</a>
+            </li>
+        </ul>
+    </fieldset>
+</div>
+<!-- sale @ -->
+
 <!-- floatnav -->
     <div class="container-fuild floatnav ">
 

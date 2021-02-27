@@ -166,14 +166,14 @@
             
                 $offer_zone = $_GET['offer_zone'];
 
-                if($offer_zone==10){
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)<10 and product_visibility='Y'";
-                }elseif($offer_zone==20){
+                if($offer_zone==9){
+                    $get_cat = "select * FROM products where product_price<=9 and product_visibility='Y'";
+                }elseif($offer_zone==49){
                     $zone_id = $offer_zone;
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>10 and 100-((product_price/price_display)*100)<30 and product_visibility='Y'";
-                }elseif($offer_zone==30){
+                    $get_cat = "select * FROM products where product_price>9 and product_price<=49 and product_visibility='Y'";
+                }elseif($offer_zone==99){
                     $zone_id = $offer_zone;
-                    $get_cat = "select * FROM products where 100-((product_price/price_display)*100)>30 and product_visibility='Y'";
+                    $get_cat = "select * FROM products where product_price>49 and product_price<=99 and product_visibility='Y'";
                 }
                                 
                 $run_products = mysqli_query($db,$get_cat);
@@ -220,9 +220,8 @@
                         
                             <div class="row bg-white mt-1 py-2" id="<?php echo $pro_id;?>">
                                     <div class="col-4">
-                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?>">
-                                        <h5 class="pro_dis_batch mb-0"><?php echo $discount_percent."%"; ?></h5>
-                                        <h6 class="mb-0 pt-0" style="font-size: 0.6rem;">OFF</h6>
+                                        <span class="notify-badge <?php if($price_display>0){echo "show";}else{echo "d-none";}?> mr-4">
+                                        <h5 class="pro_dis_batch mb-0">Save ₹<?php echo $price_display-$pro_price; ?></h5>
                                         </span>
                                         <img src="<?php echo $pro_img1; ?>" alt="..." class="img-thumbnail border-0">
                                     </div>

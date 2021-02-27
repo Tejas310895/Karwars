@@ -373,17 +373,17 @@ a.pro_store{
 
 .pro_dis_price{
     font-size: 0.7rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-family: jost;
     color: #fff;
     text-decoration: line-through;
 }
 
 .pro_dis_batch{
-    padding-top: 7px;
+    /* padding-top: 7px; */
     font-size: 1rem;
-    font-weight: bold;
-    font-family: Roboto;
+    /* font-weight: bold; */
+    font-family: jost;
     color: #fff;
 }
 
@@ -391,14 +391,14 @@ a.pro_store{
     position: absolute;
     right:-9px;
     top:0px;
-    background:#cc0000;
+    background:#40be51;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 5px;
     color:white;
     padding:1px 5px;
     font-size:20px;
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 80%;
 }
 
 .no_pro{
@@ -889,3 +889,8 @@ a.offer_box{
   }
 
   /* toggle */
+
+  /* loader */
+
+
+  /* loader */
