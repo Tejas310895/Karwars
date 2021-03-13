@@ -106,6 +106,9 @@ $(document).ready(function () {
             success: function (data) {
                 if(data==1){
                 $('#otp_input').removeClass('d-none');
+                $('#send_otp').addClass('d-none');
+                $('#change_no').removeClass('d-none');
+                $('#c_contact').attr('readonly' , true);
                 }if(data==2){
                     alert('Number Already Registered Please login');
                 }
@@ -152,5 +155,10 @@ $(document).ready(function () {
             }
         });
     });
-
+    $(document).on('click', '#change_no', function () {
+        $('#otp_input').addClass('d-none');
+        $('#change_no').addClass('d-none');
+        $('#send_otp').removeClass('d-none');
+        $('#c_contact').attr('readonly' , false);
+    });
 });

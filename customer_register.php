@@ -44,6 +44,7 @@
                 <input type="number"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" class="form-control" id="c_contact" name="c_contact" aria-describedby="emailHelp" placeholder="Enter Mobile Number" required >
                 <div class="input-group-append">
                     <button class="btn btn-sm btn-primary" type="button" id="send_otp">Send OTP</button>
+                    <button class="btn btn-sm btn-primary d-none" type="button" id="change_no">Change</button>
                 </div>
             </div>
             <div class="input-group mt-1 d-none" id="otp_input">
@@ -205,4 +206,4 @@ if(isset($_POST['register'])){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="admin_area/fmr/js/fmr.js?v=2"></script>
+<script src="admin_area/fmr/js/fmr.js?v=3"></script>
