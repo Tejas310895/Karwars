@@ -692,11 +692,11 @@ function items(){
 
     global $db;
 
-    $ip_add = getRealIpUser();
+    //$ip_add = getRealIpUser();
 
     $user_id = getuserid();
 
-    $get_items = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
+    $get_items = "select * from cart where user_id='$user_id'";
 
     $run_items = mysqli_query($db,$get_items);
 
@@ -714,13 +714,13 @@ function total_price(){
 
     global $db;
 
-    $ip_add = getRealIpUser();
+    //$ip_add = getRealIpUser();
 
     $user_id = getuserid();
 
     $total = 0;
 
-    $select_cart = " select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
+    $select_cart = " select * from cart where user_id='$user_id'";
 
     $run_cart = mysqli_query($db,$select_cart);
 
@@ -756,11 +756,11 @@ function diaplay_cart(){
 
     global $db;
 
-    $ip_add = getRealIpUser();
+    //$ip_add = getRealIpUser();
 
     $user_id = getuserid();
 
-    $show_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
+    $show_cart = "select * from cart where user_id='$user_id'";
 
     $run_show_cart = mysqli_query($db,$show_cart);
     

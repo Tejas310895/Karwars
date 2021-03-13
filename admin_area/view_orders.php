@@ -158,7 +158,26 @@
                             <div class="card-body card_shadow mx-3 mt-2 mb-0">
                                 <div class="row">
                                   <div class="col-lg-6 col-sm-12">
-                                    <h6 class="card-text mb-2">Order on - <?php echo date('d/M/Y(h:i a)',strtotime($order_date)); ?></h6>
+                                    <h6 class="card-text mb-2">
+                                    Order on - <?php echo date('d/M/Y(h:i a)',strtotime($order_date)); ?>
+                                    <?php
+                                    
+                                    $get_employee = "select * from employee_orders where invoice_id='$invoice_id'";
+                                    $run_employee = mysqli_query($con,$get_employee);
+                                    $row_employee = mysqli_fetch_array($run_employee);
+
+                                    $employee_id = $row_employee['employee_id'];
+                                    $employee_action = $row_employee['employee_action'];
+
+                                    $get_employee_name = "select * from employees where employee_id='$employee_id'";
+                                    $run_employee_name = mysqli_query($con,$get_employee_name);
+                                    $row_employee_name = mysqli_fetch_array($run_employee_name);
+
+                                    $employee_name = $row_employee_name['employee_name'];
+                                    
+                                    ?>
+                                    <span class="badge badge-warning <?php if(isset($employee_id)){echo 'show';}else{echo 'd-none';} ?>"><i class="tim-icons icon-headphones text-white"></i> <?php echo $employee_action; ?> By <?php echo $employee_name; ?></span>
+                                    </h6>
                                     <h6 class="card-subtitle mt-1">ID - <?php echo $invoice_id; ?></h6>
                                     <h5 class="card-subtitle mt-1">Order by - <?php echo $c_name; ?><span class="badge badge-secondary <?php if($discount_amount>1){echo"show";}else{echo"d-none";} ?>">Discount Applied</span></h5>
                                     <h5 class="card-subtitle mt-1">Contact - +91 <?php echo $c_contact; ?></h5>

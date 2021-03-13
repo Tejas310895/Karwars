@@ -33,17 +33,23 @@ if(!isset($_SESSION['admin_email'])){
                 </div>
                 <div class="w-100"></div>
                 <div class="col-lg-6 col-md-6 mt-5">
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="row text-center">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">MRP</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="display_price" placeholder="Product Price" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="display_price" placeholder="MRP" required>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Vendor Price</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="vendor_price" placeholder="Vendor Price" required>
+                            </div>
+                        </div>
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sold Price</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="product_price" placeholder="Product Price" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="product_price" placeholder="Selling Price" required>
                             </div>
                         </div>
                     </div>
@@ -169,6 +175,7 @@ if(isset($_POST['submit'])){
     $store = $_POST['store'];
     $product_price = $_POST['product_price'];
     $display_price = $_POST['display_price'];
+    $vendor_price = $_POST['vendor_price'];
     $product_keywords = $_POST['product_keywords'];
     $product_desc = $_POST['product_desc'];
     $product_stock = $_POST['product_stock'];
@@ -189,6 +196,7 @@ if(isset($_POST['submit'])){
                                             date,
                                             product_title,
                                             product_img1,
+                                            vendor_price,
                                             product_price,
                                             price_display,
                                             product_keywords,
@@ -205,6 +213,7 @@ if(isset($_POST['submit'])){
                                              NOW(),
                                              '$product_title',
                                              '$product_img1',
+                                             '$vendor_price',
                                              '$product_price',
                                              '$display_price',
                                              '$product_keywords',

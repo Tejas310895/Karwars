@@ -11,7 +11,7 @@ require("functions/function.php");
 
 if(isset($_POST['add_id'])){
         
-    $ip_add = getRealIpUser();
+    //$ip_add = getRealIpUser();
 
     $user_id = getuserid();
     
@@ -29,7 +29,7 @@ if(isset($_POST['add_id'])){
 
     $p_name = $row_stock['product_title'];
     
-    $check_product = "select * from cart where ip_add='$ip_add' AND user_id='$user_id' AND p_id='$p_id'";
+    $check_product = "select * from cart where user_id='$user_id' AND p_id='$p_id'";
     
     $run_check = mysqli_query($con,$check_product);
 
@@ -51,7 +51,7 @@ if(isset($_POST['add_id'])){
             
         }else{
             
-                $query = "insert into cart (p_id,ip_add,user_id,qty,exp_date) values ('$p_id','$ip_add','$user_id','1',NOW())";
+                $query = "insert into cart (p_id,user_id,qty,exp_date) values ('$p_id','$user_id','1',NOW())";
                 
                 $run_query = mysqli_query($db,$query);
                 
@@ -65,7 +65,7 @@ if(isset($_POST['add_id'])){
 
 if(isset($_POST['del_id'])){
 
-    $ip_add = getRealIpUser();
+    //$ip_add = getRealIpUser();
 
     $user_id = getuserid();
 
@@ -73,7 +73,7 @@ if(isset($_POST['del_id'])){
 
     //$store_id = $_GET['store_id'];
 
-    $check_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id' AND p_id='$p_id'";
+    $check_cart = "select * from cart where user_id='$user_id' AND p_id='$p_id'";
     
     $run_check = mysqli_query($db,$check_cart);
 
@@ -91,7 +91,7 @@ if(isset($_POST['del_id'])){
 
     }else{
 
-        $delete_qty= "delete from cart where p_id='$p_id'";
+        $delete_qty= "delete from cart where p_id='$p_id' AND user_id='$user_id'";
 
         $run_delete_qty = mysqli_query($db,$delete_qty);
 
@@ -112,6 +112,21 @@ if(isset($_POST['fmr_code_input'])){
     }else{
         echo 2;
     }
+}
+
+if(isset($_POST['c_contact'])){
+
+   $c_contact = $_POST['c_contact'];
+
+   $get_contact = "select * from customers where customer_contact='$c_contact'";
+   $run_contact = mysqli_query($con,$get_contact);
+   $count = mysqli_num_rows($run_contact);
+
+   if($count<1){
+        echo 1;
+   }else{
+       echo 2;
+   }
 }
 
 ?>

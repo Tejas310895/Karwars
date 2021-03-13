@@ -32,6 +32,8 @@ if(!isset($_SESSION['admin_email'])){
 
         $d_price = $row_edit['price_display'];
 
+        $v_price = $row_edit['vendor_price'];
+
         $p_keywords = $row_edit['product_keywords'];
 
         $p_desc = $row_edit['product_desc'];
@@ -97,13 +99,19 @@ if(!isset($_SESSION['admin_email'])){
                 <div class="w-100"></div>
                 <div class="col-lg-6 col-md-6 mt-5">
                 <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">MRP</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="display_price" value="<?php echo $d_price; ?>" required>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Vendor Price</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="vendor_price" placeholder="<?php echo $v_price; ?>" required>
+                            </div>
+                        </div>
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Sold Price</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="product_price" value="<?php echo $p_price; ?>" placeholder="Product Price" required>
@@ -236,6 +244,7 @@ if(!isset($_SESSION['admin_email'])){
         $store = $_POST['store'];
         $product_price = $_POST['product_price'];
         $display_price = $_POST['display_price'];
+        $product_margin = $_POST['product_margin'];
         $product_keywords = $_POST['product_keywords'];
         $product_desc = $_POST['product_desc'];
         $product_stock = $_POST['product_stock'];
@@ -257,6 +266,7 @@ if(!isset($_SESSION['admin_email'])){
                             date=NOW(),
                             product_title='$product_title',
                             product_img1='$product_img1',
+                            vendor_price='$vendor_price',
                             product_price='$product_price',
                             price_display='$display_price',
                             product_keywords='$product_keywords',

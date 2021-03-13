@@ -40,11 +40,25 @@
         </div>
         <div class="form-group">
             <label>Mobile No.</label>
-            <input type="tel"  minlength="10" maxlength="10" class="form-control" id="name" name="c_contact" aria-describedby="emailHelp" placeholder="Enter Mobile No. without +91/0" required>
+            <div class='input-group'>
+                <input type="number"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" class="form-control" id="c_contact" name="c_contact" aria-describedby="emailHelp" placeholder="Enter Mobile Number" required >
+                <div class="input-group-append">
+                    <button class="btn btn-sm btn-primary" type="button" id="send_otp">Send OTP</button>
+                </div>
+            </div>
+            <div class="input-group mt-1 d-none" id="otp_input">
+                <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control py-1" name="c_otp" id="c_otp" placeholder="Enter OTP" aria-label="Recipient's username" required>
+                <div class="input-group-append">
+                <button class="btn btn-sm btn-primary" type="button" id="otp_verify">Verify</button>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label>Email address</label>
-            <input type="email" class="form-control" id="email" name="c_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <input type="email" class="form-control" id="c_email" name="c_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <div class='alert alert-danger d-none email_alert mb-0 py-0' role='alert'>
+                Email Aready Exist!Try Another
+            </div>
         </div>
         <div class="form-group">
             <label>Password</label>
@@ -84,7 +98,7 @@ if(isset($_POST['register'])){
 
     $c_pass = password_hash($_POST['c_pass'], PASSWORD_DEFAULT);
 
-    $c_ip = getRealIpUser();
+    //$c_ip = getRealIpUser();
 
     $user_id = getuserid();
 
@@ -92,9 +106,14 @@ if(isset($_POST['register'])){
 
     $run_count = mysqli_query($con,$get_count);
 
+    $row_count = mysqli_fetch_array($run_count);
+
+    $customer_con = $row_count['customer_contact'];
+
     $count = mysqli_num_rows($run_count);
 
     if($count<1){
+
 
      //echo $url = "https://smsapi.engineeringtgr.com/send/?Mobile=9636286923&Password=DEZIRE&Message=".$m."&To=".$tel."&Key=parasnovxRI8SYDOwf5lbzkZc6LC0h"; 
     $url = "http://api.bulksmsplans.com/api/SendSMS?api_id=API31873059460&api_password=W3cy615F&sms_type=T&encoding=T&sender_id=VRNEAR&phonenumber=91$c_contact&textmessage=Thank%20You%20for%20Registration";
@@ -109,12 +128,12 @@ if(isset($_POST['register'])){
     
     $result = curl_exec($ch);
 
-    $insert_customer = "insert into customers (customer_name,customer_contact,customer_email,customer_pass,customer_ip) 
-    values ('$c_name','$c_contact','$c_email','$c_pass','$c_ip')";
+    $insert_customer = "insert into customers (customer_name,customer_contact,customer_email,customer_pass,updated_date) 
+    values ('$c_name','$c_contact','$c_email','$c_pass',NOW())";
 
     $run_customer = mysqli_query($con,$insert_customer);
 
-    $sel_cart = "select * from cart where ip_add='$c_ip'";
+    $sel_cart = "select * from cart where user_id='$user_id'";
 
     $run_cart = mysqli_query($con,$sel_cart);
 
@@ -128,7 +147,7 @@ if(isset($_POST['register'])){
 
     $cus_id = $row_c['customer_id'];
 
-    $update_c_id = "update cart set user_id='$cus_id' where ip_add='$c_ip' AND user_id='$user_id'";
+    $update_c_id = "update cart set user_id='$cus_id' where user_id='$user_id'";
 
     $run_update_c_id = mysqli_query($con,$update_c_id);
 
@@ -174,7 +193,7 @@ if(isset($_POST['register'])){
     
     }else{
 
-    echo "<script>alert('Email Already Registered, Please Login')</script>";
+    echo "<script>alert('Email or Number Already Registered, Please Login')</script>";
 
 }
 
@@ -186,4 +205,4 @@ if(isset($_POST['register'])){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="admin_area/fmr/js/fmr.js"></script>
+<script src="admin_area/fmr/js/fmr.js?v=2"></script>

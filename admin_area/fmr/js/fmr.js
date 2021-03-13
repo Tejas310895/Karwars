@@ -93,4 +93,64 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '#send_otp', function () {
+        var send_otp = $("#c_contact").val();
+
+        if(send_otp.length<10){
+            alert('Enter mobile number properly');
+        }else{
+        $.ajax({
+            type: "post",
+            url: "./otp_verification.php",
+            data: {"send_otp":send_otp},
+            success: function (data) {
+                if(data==1){
+                $('#otp_input').removeClass('d-none');
+                }if(data==2){
+                    alert('Number Already Registered Please login');
+                }
+            }
+        });
+    }
+    });
+    $(document).on('click', '#otp_verify', function () {
+        var otp_verify = $("#c_otp").val();
+
+        if(otp_verify.length<4){
+            alert('Enter Invalid');
+        }else{
+        $.ajax({
+            type: "post",
+            url: "./otp_verification.php",
+            data: {"otp_verify":otp_verify},
+            success: function (data) {
+                if(data==1){
+                $('#otp_input').addClass('d-none');
+                $('#send_otp').addClass('d-none');
+                $('#c_contact').attr('readonly' , true);
+                }else{
+                    alert('Wrong Otp, Try Again');
+                }
+            }
+        });
+    }
+    });
+    $(document).on('change', '#c_email', function () {
+        var cust_email = $(this).val();
+
+        $.ajax({
+            type: "post",
+            url: "./otp_verification.php",
+            data: {"cust_email":cust_email},
+            success: function (data) {
+                if(data==1){
+                    $('.email_alert').removeClass('d-none');
+                    $('#c_email').val('');
+                }else{
+                    $('.email_alert').addClass('d-none');
+                }
+            }
+        });
+    });
+
 });

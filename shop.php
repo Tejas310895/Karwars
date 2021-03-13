@@ -241,11 +241,11 @@
                                         <?php if($pro_stock>0){ ?>
                                         <?php 
 
-                                    $ip_add = getRealIpUser();
+                                    //$ip_add = getRealIpUser();
 
                                     $user_id = getuserid();
 
-                                    $get_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id' AND p_id='$pro_id'";
+                                    $get_cart = "select * from cart where user_id='$user_id' AND p_id='$pro_id'";
 
                                     $run_cart = mysqli_query($con,$get_cart);
 

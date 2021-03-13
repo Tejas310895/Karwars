@@ -30,15 +30,13 @@ $row_unique = mysqli_fetch_array($run_unique);
 
 $unique_num = $row_unique['order_id'];
 
-$ip_add = getRealIpUser();
-
 $user_id = getuserid();
 
 $status = "Order Placed";
 
 $invoice_no = $unique_num.mt_rand();
 
-$select_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
+$select_cart = "select * from cart where user_id='$user_id'";
 
 $run_cart = mysqli_query($con,$select_cart);
 
@@ -55,15 +53,16 @@ while($row_cart = mysqli_fetch_array($run_cart)){
     while($row_products = mysqli_fetch_array($run_products)){
 
         $sub_total = $row_products['product_price']*$pro_qty;
+        $vendor_sub_total = $row_products['vendor_price']*$pro_qty;
 
         $client_id = $row_products['client_id'];
 
-        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,invoice_no,qty,order_date,del_date,order_status,product_status,client_id) 
-        values ('$customer_id','$add_id',' $pro_id','$sub_total','$invoice_no','$pro_qty','$today','$today','$status','Deliver','$client_id')";
+        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,vendor_due_amount,invoice_no,qty,order_date,del_date,order_status,product_status,client_id) 
+        values ('$customer_id','$add_id',' $pro_id','$sub_total','$vendor_sub_total','$invoice_no','$pro_qty','$today','$today','$status','Deliver','$client_id')";
 
         $run_customer_order = mysqli_query($con,$insert_customer_order);
 
-        $delete_cart = "delete from cart where ip_add='$ip_add' AND user_id='$user_id'";
+        $delete_cart = "delete from cart where user_id='$user_id'";
 
         $run_delete = mysqli_query($con,$delete_cart);
 

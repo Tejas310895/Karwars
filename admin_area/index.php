@@ -472,6 +472,38 @@
                 
               }
 
+              if(isset($_GET['demo'])){
+                    
+                include("demo.php");
+                
+              }
+
+              if(isset($_GET['view_staff'])){
+                    
+                include("view_staff.php");
+                
+              }
+
+              
+              if(isset($_GET['insert_staff'])){
+                    
+                include("insert_staff.php");
+                
+              }
+
+              
+              if(isset($_GET['edit_staff'])){
+                    
+                include("edit_staff.php");
+                
+              }
+
+              if(isset($_GET['view_staff_orders'])){
+                    
+                include("view_staff_orders.php");
+                
+              }
+
               //FMR PANEL //
 
             ?>

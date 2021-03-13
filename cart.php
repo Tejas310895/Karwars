@@ -35,11 +35,11 @@
 
         <?php 
             
-            $ip_add = getRealIpUser();
+            //$ip_add = getRealIpUser();
 
             $user_id = getuserid();
     
-            $select_cart = "select * from cart where ip_add='$ip_add' AND user_id='$user_id'";
+            $select_cart = "select * from cart where user_id='$user_id'";
     
             $run_cart = mysqli_query($con,$select_cart);
     
@@ -195,7 +195,7 @@
     <h5 class="save_total text-center bg-white mx-0 mb-0 py-2" ><?php if($total>$min_price&&$total<300){echo "Add more ".(300-$total)." for free delivery";}?>
     
     <?php 
-    
+
     if($total>300){
     
     if(isset($_SESSION['customer_email'])){
@@ -221,7 +221,7 @@
             $discount_amount=0;
         }
     }
-    
+
 }
     
     ?>
@@ -232,7 +232,12 @@
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
                 <h3 class="item_cost mb-0">Total: ₹<?php echo ($total); ?><?php if(($total>$min_price)&&($total<300)){ echo "+".$del_charges."<small style='font-size:0.5rem;'>Charges</small>";}?></h3>
             </div>
-            <div class="col-6 pr-2">
+            <?php 
+            
+            if(isset($_SESSION['customer_email'])){
+            
+            ?>
+            <div class="col-6 pr-2 pl-0">
                 <?php if($min_price>$total){
 
                     $required = $min_price-$total;
@@ -257,6 +262,14 @@
                 }
                  ?>
             </div>
+            <?php }else{ ?>
+            <div class="col-6 pr-2">
+                    <a href='checkout' class='btn btn-success pull-right bill_checkout'>
+                        Login
+                    <i style='font-size:1.2rem; color:#fff;' class='fas fa-angle-double-right'></i>
+                    </a>
+            </div>
+            <?php } ?>
         </div>
     </div>
 <!-- checkout float -->

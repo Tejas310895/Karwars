@@ -77,6 +77,24 @@
             </div>
           </li>
           <li>
+            <a class="btn btn-link text-white" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="tim-icons icon-vector"></i>
+            <p class="text-left">Staff Manager</p>
+            </a>
+            <div class="collapse ml-4 mr-1" id="collapseExample1">
+              <div class="card card-body bg-transparent px-0 py-1">
+                <ul class="pl-4">
+                  <li>
+                    <a class="p-1" href="index.php?view_staff">Staff List</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?view_staff_orders">Staff Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
             <a href="index.php?user_profile">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>

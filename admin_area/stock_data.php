@@ -160,6 +160,7 @@ if(isset($_POST['show'])){
             $pro_name = $row_pro['product_title'];
             $pro_desc = $row_pro['product_desc'];
             $pro_price = $row_pro['product_price'];
+            $ven_price = $row_pro['vendor_price'];
 
             $get_client = "select * from clients where client_id='$client_id'";
 
@@ -184,6 +185,7 @@ if(isset($_POST['show'])){
         <td class='text-center'>$address, $phase, $landmark, $city</td>
         <td class='text-center'>$pro_name-$pro_desc</td>
         <td class='text-center'>$pro_price</td>
+        <td class='text-center'>$ven_price</td>
         <td class='text-center'>$qty</td>
         <td class='text-center'>$due_amount</td>
     </tr>
