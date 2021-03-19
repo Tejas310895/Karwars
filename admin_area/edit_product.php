@@ -108,7 +108,7 @@ if(!isset($_SESSION['admin_email'])){
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Vendor Price</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" name="vendor_price" placeholder="<?php echo $v_price; ?>" required>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" name="vendor_price" value="<?php echo $v_price; ?>" required>
                             </div>
                         </div>
                         <div class="col-4">
