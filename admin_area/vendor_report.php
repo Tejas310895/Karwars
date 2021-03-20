@@ -39,7 +39,7 @@
     <tbody>
         <?php 
         
-            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc limit 4";
+            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc";
             $run_reports = mysqli_query($con,$get_reports);
             while($row_reports = mysqli_fetch_array($run_reports)){
             $del_date = $row_reports['del_date'];
