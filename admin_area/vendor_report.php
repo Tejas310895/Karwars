@@ -9,41 +9,83 @@
 ?>
 
 <div class="row">
-           <div class="col-lg-6 col-md-6">
-           <h2 class="card-title">PAYMENT DETAILS</h2>
-           </div>
-       </div>
+    <div class="col-lg-6 col-md-6">
+    <h2 class="card-title">PAYMENT DETAILS</h2>
+    </div>
+</div>
 
 <div class="row">
-<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table class="table table-bordered">
     <thead class="text-center">
         <tr>
-            <th>DATE</th>
-            <th>GROCERY</th>
-            <th>VEGETABLES</th>
-            <th>FRUITS</th>
-            <th>SWEETS</th>
+            <th  rowspan="2" class="border">DATE</th>
+            <th colspan="2" class="border">GROCERY</th>
+            <th colspan="2" class="border">VEGETABLES</th>
+            <th colspan="2" class="border">FRUITS</th>
+            <th colspan="2" class="border">SWEETS</th>
+        </tr>
+        <tr>
+            <!-- <th class="border-bottom"></th> -->
+            <th class="border">MRT Total</th>
+            <th class="border">ORD Total</th>
+            <th class="border">MRT Total</th>
+            <th class="border">ORD Total</th>
+            <th class="border">MRT Total</th>
+            <th class="border">ORD Total</th>
+            <th class="border">MRT Total</th>
+            <th class="border">ORD Total</th>
         </tr>
     </thead>
+    <tbody>
         <?php 
         
-            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc";
+            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc limit 4";
             $run_reports = mysqli_query($con,$get_reports);
-            $counter = 0;
             while($row_reports = mysqli_fetch_array($run_reports)){
             $del_date = $row_reports['del_date'];
             $delivery_date = date('Y-m-d',strtotime($del_date));
             $display_delivery_date = date('d-M-Y',strtotime($del_date));
-
-            $counter = ++$counter;
-
         ?>
         <tr  class="text-center">
             <td><?php echo $display_delivery_date; ?></td>
             <td>
                 <?php 
                 
+                $get_total_purchase = "select sum(vendor_due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='1' and order_status='Delivered' and product_status='Deliver'";
+                $run_total_purchase = mysqli_query($con,$get_total_purchase);
+                $row_total_purchase = mysqli_fetch_array($run_total_purchase);
+
+                $total_purchase = $row_total_purchase['total_purchase'];
+
+                if($total_purchase>0){
+                    echo $total_purchase;
+                }else{
+                    echo 0;
+                }
+                
+                ?>
+            </td>
+            <td>
+                <?php 
+                
                 $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='1' and order_status='Delivered' and product_status='Deliver'";
+                $run_total_purchase = mysqli_query($con,$get_total_purchase);
+                $row_total_purchase = mysqli_fetch_array($run_total_purchase);
+
+                $total_purchase = $row_total_purchase['total_purchase'];
+
+                if($total_purchase>0){
+                    echo $total_purchase;
+                }else{
+                    echo 0;
+                }
+                
+                ?>
+            </td>
+            <td>
+            <?php 
+                
+                $get_total_purchase = "select sum(vendor_due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='5' and order_status='Delivered' and product_status='Deliver'";
                 $run_total_purchase = mysqli_query($con,$get_total_purchase);
                 $row_total_purchase = mysqli_fetch_array($run_total_purchase);
 
@@ -77,7 +119,41 @@
             <td>
                 <?php 
                 
+                $get_total_purchase = "select sum(vendor_due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='3' and order_status='Delivered' and product_status='Deliver'";
+                $run_total_purchase = mysqli_query($con,$get_total_purchase);
+                $row_total_purchase = mysqli_fetch_array($run_total_purchase);
+
+                $total_purchase = $row_total_purchase['total_purchase'];
+
+                if($total_purchase>0){
+                    echo $total_purchase;
+                }else{
+                    echo 0;
+                }
+                
+                ?>
+            </td>
+            <td>
+                <?php 
+                
                 $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='3' and order_status='Delivered' and product_status='Deliver'";
+                $run_total_purchase = mysqli_query($con,$get_total_purchase);
+                $row_total_purchase = mysqli_fetch_array($run_total_purchase);
+
+                $total_purchase = $row_total_purchase['total_purchase'];
+
+                if($total_purchase>0){
+                    echo $total_purchase;
+                }else{
+                    echo 0;
+                }
+                
+                ?>
+            </td>
+            <td>
+            <?php 
+                
+                $get_total_purchase = "select sum(vendor_due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='4' and order_status='Delivered' and product_status='Deliver'";
                 $run_total_purchase = mysqli_query($con,$get_total_purchase);
                 $row_total_purchase = mysqli_fetch_array($run_total_purchase);
 
