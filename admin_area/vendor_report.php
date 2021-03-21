@@ -39,7 +39,7 @@
     <tbody>
         <?php 
         
-            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc";
+            $get_reports = "SELECT * FROM customer_orders GROUP BY CAST(del_date as DATE) order by del_date  desc limit 4";
             $run_reports = mysqli_query($con,$get_reports);
             while($row_reports = mysqli_fetch_array($run_reports)){
             $del_date = $row_reports['del_date'];
@@ -75,7 +75,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -109,7 +109,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -143,7 +143,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -177,7 +177,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
