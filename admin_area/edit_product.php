@@ -242,6 +242,7 @@ if(!isset($_SESSION['admin_email'])){
 
         $product_title = $_POST['product_title'];
         $store = $_POST['store'];
+        $vendor_price = $_POST['vendor_price'];
         $product_price = $_POST['product_price'];
         $display_price = $_POST['display_price'];
         $product_margin = $_POST['product_margin'];
