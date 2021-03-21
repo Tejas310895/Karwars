@@ -58,7 +58,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -75,7 +75,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo round($total_purchase);
+                    echo $total_purchase;
                 }else{
                     echo 0;
                 }
@@ -92,7 +92,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -109,7 +109,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo round($total_purchase);
+                    echo $total_purchase;
                 }else{
                     echo 0;
                 }
@@ -126,7 +126,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -143,7 +143,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo round($total_purchase);
+                    echo $total_purchase;
                 }else{
                     echo 0;
                 }
@@ -160,7 +160,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo $total_purchase;
+                    echo round($total_purchase);
                 }else{
                     echo 0;
                 }
@@ -177,7 +177,7 @@
                 $total_purchase = $row_total_purchase['total_purchase'];
 
                 if($total_purchase>0){
-                    echo round($total_purchase);
+                    echo $total_purchase;
                 }else{
                     echo 0;
                 }
