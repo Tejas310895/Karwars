@@ -408,8 +408,8 @@ session_start();
                                 <div class="row py-0 my-0">
                                     <div class="col-9"><h5 class="add_title mt-2"><?php echo $add_type; ?></h5></div>
                                         <div class="col-3 mt-2 text-right">
-                                            <a href="my_account?delete_address=<?php echo $add_id; ?>"><i style=" font-size:1.5rem; color:#999;" class="fas fa-trash-alt"></i>
-                                            </a>
+                                            <!-- <a href="my_account?delete_address=<?php //echo $add_id; ?>"><i style=" font-size:1.5rem; color:#999;" class="fas fa-trash-alt"></i>
+                                            </a> -->
                                         </div>
                                     </div>
                                   <p class="add_desc"><?php echo $customer_address."</br>".$customer_phase." ,".$customer_landmark." ,".$customer_city; ?></p>
