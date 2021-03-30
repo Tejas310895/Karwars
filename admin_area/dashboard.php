@@ -125,6 +125,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
             <th>ITEMS</th>
             <th>COST</th>
             <th>DLC</th>
+            <th>DC</th>
             <th>BD</th>
             <th>PAYMENT TYPE</th>
             <th>ACTION</th>
@@ -237,6 +238,7 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
                           <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
                           <td style="font-size:0.7rem;">₹ <?php echo ($total+$del_charges)-$discount_amount; ?>/-</td>
                           <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
+                          <td style="font-size:0.7rem; text-align:center;"><?php if($discount_amount>0){echo$discount_amount;}else{echo 0;} ;?></td>
                           <td style="font-size:0.7rem; text-align:center;"><?php if($bill_diff_total>0){echo$bill_diff_total;}else{echo 0;} ;?></td>
                           <td><?php if($txn_status=='TXN_SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
                           <td class="td-actions" >
