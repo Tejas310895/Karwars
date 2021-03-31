@@ -215,7 +215,9 @@
             </div> -->
         </div>
     <!-- Offer Zone -->
-
+    <!-- banner display -->
+    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2">
+    <!-- banner display -->
     <!-- <div class="swiper-container">
             <div class="swiper-wrapper"> -->
 
