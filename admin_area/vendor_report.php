@@ -245,7 +245,7 @@
                     $discount_total = 0;
                 }
             }
-            
+                echo $discount_total;
             ?>
             </td>
             <td>
@@ -270,7 +270,7 @@
                     $charge_total = 0;
                 }
             }
-            
+                echo $charge_total;
             ?>
             </td>
 
