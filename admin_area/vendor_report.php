@@ -23,6 +23,9 @@
             <th colspan="2" class="border bg-success text-dark">VEGETABLES</th>
             <th colspan="2" class="border bg-warning text-dark">FRUITS</th>
             <th colspan="2" class="border bg-danger text-dark">SWEETS</th>
+            <th colspan="2" class="border bg-danger text-dark">OFFERS</th>
+            <th  rowspan="2" class="border">DISCOUNTS</th>
+            <th  rowspan="2" class="border">CHARGES</th>
         </tr>
         <tr>
             <!-- <th class="border-bottom"></th> -->
@@ -32,6 +35,8 @@
             <th class="border bg-success text-dark">ORD Total</th>
             <th class="border bg-warning text-dark">MRT Total</th>
             <th class="border bg-warning text-dark">ORD Total</th>
+            <th class="border bg-danger text-dark">MRT Total</th>
+            <th class="border bg-danger text-dark">ORD Total</th>
             <th class="border bg-danger text-dark">MRT Total</th>
             <th class="border bg-danger text-dark">ORD Total</th>
         </tr>
@@ -167,10 +172,10 @@
                 
                 ?>
             </td>
-            <td class="bg-danger" style="color:#000 !important;">
+            <td class="bg-primary" style="color:#000 !important;">
             <?php 
                 
-                $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='4' and order_status='Delivered' and product_status='Deliver'";
+                $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='5' and order_status='Delivered' and product_status='Deliver'";
                 $run_total_purchase = mysqli_query($con,$get_total_purchase);
                 $row_total_purchase = mysqli_fetch_array($run_total_purchase);
 
@@ -184,6 +189,74 @@
                 
                 ?>
             </td>
+            <td class="bg-primary" style="color:#000 !important;">
+            <?php 
+                
+                $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='5' and order_status='Delivered' and product_status='Deliver'";
+                $run_total_purchase = mysqli_query($con,$get_total_purchase);
+                $row_total_purchase = mysqli_fetch_array($run_total_purchase);
+
+                $total_purchase = $row_total_purchase['total_purchase'];
+
+                if($total_purchase>0){
+                    echo $total_purchase;
+                }else{
+                    echo 0;
+                }
+                
+                ?>
+            </td>
+            <td>
+            <?php 
+            
+            $get_discounts = "select * from customer_discounts where CAST(discount_date as DATE)='$delivery_date'";
+            $run_discounts = mysqli_query($con,$get_discounts);
+            $discount_total = 0;
+            while($row_discounts=mysqli_fetch_array($run_discounts)){
+                $dis_invoice_id = $row_discounts['invoice_no'];
+                $discount_amount = $row_discounts['discount_amount'];
+
+                $get_discount_status = "select * from customer_orders where invoice_no='$dis_invoice_id'";
+                $run_discount_status = mysqli_query($con,$get_discount_status);
+                $row_discount_status = mysqli_fetch_array($run_discount_status);
+
+                $discount_status = $row_discount_status['order_status'];
+
+                if($discount_status==='Delivered'){
+                    $discount_total += $discount_amount;
+                }else{
+                    $discount_total = 0;
+                }
+            }
+            
+            ?>
+            </td>
+            <td>
+            <?php 
+            
+            $get_charges = "select * from order_charges where CAST(updated_date as DATE)='$delivery_date'";
+            $run_charges = mysqli_query($con,$get_charges);
+            $charge_total = 0;
+            while($row_charges=mysqli_fetch_array($run_charges)){
+                $chg_invoice_id = $row_discounts['invoice_id'];
+                $del_charges = $row_discounts['del_charges'];
+
+                $get_charge_status = "select * from customer_orders where invoice_no='$chg_invoice_id'";
+                $run_charge_status = mysqli_query($con,$get_charge_status);
+                $row_charge_status = mysqli_fetch_array($run_charge_status);
+
+                $charge_status = $row_charge_status['order_status'];
+
+                if($charge_status==='Delivered'){
+                    $charge_total += $del_charges;
+                }else{
+                    $charge_total = 0;
+                }
+            }
+            
+            ?>
+            </td>
+
         </tr>
         <?php } ?>
     </tbody>
