@@ -255,8 +255,8 @@
             $run_charges = mysqli_query($con,$get_charges);
             $charge_total = 0;
             while($row_charges=mysqli_fetch_array($run_charges)){
-                $chg_invoice_id = $row_discounts['invoice_id'];
-                $del_charges = $row_discounts['del_charges'];
+                $chg_invoice_id = $row_charges['invoice_id'];
+                $del_charges = $row_charges['del_charges'];
 
                 $get_charge_status = "select * from customer_orders where invoice_no='$chg_invoice_id'";
                 $run_charge_status = mysqli_query($con,$get_charge_status);
