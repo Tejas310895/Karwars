@@ -198,17 +198,17 @@
 
     if($total>300){
     
-    if(isset($_SESSION['customer_email'])){
+    if(isset($_COOKIE['user'])){
 
-        $customer_mail = $_SESSION['customer_email'];
+        // $customer_mail = $_SESSION['customer_email'];
 
-        $get_customer_id = "select * from customers where customer_email='$customer_mail'";
+        // $get_customer_id = "select * from customers where customer_email='$customer_mail'";
 
-        $run_customer_id = mysqli_query($con,$get_customer_id);
+        // $run_customer_id = mysqli_query($con,$get_customer_id);
 
-        $row_customer_id = mysqli_fetch_array($run_customer_id);
+        // $row_customer_id = mysqli_fetch_array($run_customer_id);
 
-        $customer_id = $row_customer_id['customer_id'];
+        $customer_id = $_COOKIE['user'];
 
         $get_user_order_count = "SELECT * FROM customer_orders WHERE customer_id='$customer_id'";
         $run_user_orders_count = mysqli_query($con,$get_user_order_count);
@@ -234,7 +234,7 @@
             </div>
             <?php 
             
-            if(isset($_SESSION['customer_email'])){
+            if(isset($_COOKIE['user'])){
             
             ?>
             <div class="col-6 pr-2 pl-0">

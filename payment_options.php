@@ -1,18 +1,18 @@
 <?php 
 
-$session_email = $_SESSION['customer_email'];
+$customer_id = $_COOKIE['user'];
 
 ?>
 
 <?php 
           
-          $get_customer_id = "select * from customers where customer_email='$session_email'";
+        //   $get_customer_id = "select * from customers where customer_email='$session_email'";
 
-          $run_customer_id = mysqli_query($con,$get_customer_id);
+        //   $run_customer_id = mysqli_query($con,$get_customer_id);
 
-          $row_customer_id = mysqli_fetch_array($run_customer_id);
+        //   $row_customer_id = mysqli_fetch_array($run_customer_id);
 
-          $customer_id = $row_customer_id['customer_id'];
+        //   $customer_id = $row_customer_id['customer_id'];
           
           
           ?>
@@ -146,7 +146,7 @@ $session_email = $_SESSION['customer_email'];
 
             if(isset($_POST['insertadd'])){
 
-                $c_mail = $_SESSION['customer_email'];
+                $user_c_id = $_COOKIE['user'];
 
                 $c_city = $_POST['c_city'];
 
@@ -158,13 +158,13 @@ $session_email = $_SESSION['customer_email'];
 
                 $add_type = $_POST['add_type'];
                 
-                $get_user_id = "select * from customers where customer_email='$c_mail'";
+                // $get_user_id = "select * from customers where customer_email='$c_mail'";
 
-                $run_user_id = mysqli_query($con,$get_user_id);
+                // $run_user_id = mysqli_query($con,$get_user_id);
 
-                $row_user_id = mysqli_fetch_array($run_user_id);
+                // $row_user_id = mysqli_fetch_array($run_user_id);
 
-                $user_c_id = $row_user_id['customer_id'];
+                // $user_c_id = $row_user_id['customer_id'];
 
                 $insert_add = "insert into customer_address (customer_id,customer_city,customer_landmark,customer_phase,customer_address,add_type) 
                 values ('$user_c_id','$c_city','$c_landmark','$c_phase','$c_address','$add_type')";

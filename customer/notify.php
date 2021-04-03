@@ -3,7 +3,7 @@
 
 session_start();
 
-    if(!isset($_SESSION['customer_email'])){
+    if(!isset($_COOKIE['user'])){
 
         echo "<script>window.open('../checkout.php','_self')</script>";
 
@@ -20,15 +20,15 @@ if(isset($_GET['pro_id'])){
 
     $p_id = $_GET['pro_id'];
 
-    $customer_email = $_SESSION['customer_email'];
+    // $customer_email = $_SESSION['customer_email'];
 
-    $get_customer = "select * from customers where customer_email='$customer_email'";
+    // $get_customer = "select * from customers where customer_email='$customer_email'";
 
-    $run_customer = mysqli_query($con,$get_customer);
+    // $run_customer = mysqli_query($con,$get_customer);
 
-    $row_customer = mysqli_fetch_array($run_customer);
+    // $row_customer = mysqli_fetch_array($run_customer);
 
-    $customer_id = $row_customer['customer_id'];
+    $customer_id = $_COOKIE['user'];
 
     $insert_notify = "insert into notify (product_id,customer_id,notify_date) values ('$p_id','$customer_id',NOW())";
 

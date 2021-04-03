@@ -3,7 +3,7 @@
 
 session_start();
 
-    if(!isset($_SESSION['customer_email'])){
+    if(!isset($_COOKIE['user'])){
 
         echo "<script>window.open('../checkout.php','_self')</script>";
 

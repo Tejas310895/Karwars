@@ -38,7 +38,7 @@ function getuserid(){
     
     global $db;
 
-    if(!isset($_SESSION['customer_email'])){
+    if(!isset($_COOKIE['user'])){
     session_id();
 
     $new_sessionid = session_id();
@@ -47,15 +47,15 @@ function getuserid(){
 
     }else{
 
-        $customer_email = $_SESSION['customer_email'];
+        // $customer_email = $_SESSION['customer_email'];
 
-        $get_c_id = "select * from customers where customer_email='$customer_email'";
+        // $get_c_id = "select * from customers where customer_email='$customer_email'";
 
-        $run_c_id = mysqli_query($db,$get_c_id);
+        // $run_c_id = mysqli_query($db,$get_c_id);
 
-        $row_c_id = mysqli_fetch_array($run_c_id);
+        // $row_c_id = mysqli_fetch_array($run_c_id);
 
-        $customer_id = $row_c_id['customer_id'];
+        $customer_id = $_COOKIE['user'];
 
         return $customer_id;
     }

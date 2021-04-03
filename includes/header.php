@@ -1,7 +1,6 @@
 <?php 
-
     session_start();
-    
+    ob_start();
     include("includes/db.php");
     include("functions/function.php");
 
@@ -30,7 +29,6 @@ if(isset($_GET['pro_id'])){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

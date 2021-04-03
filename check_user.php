@@ -9,7 +9,7 @@
 
                 <?php 
                 
-                if(!isset($_SESSION['customer_email'])){
+                if(!isset($_COOKIE['user'])){
 
                         include("customer/customer_login.php");
 

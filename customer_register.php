@@ -1,5 +1,6 @@
 <?php 
 
+    ob_start();
     include("includes/header.php");
 
 ?>
@@ -61,10 +62,6 @@
                 Email Aready Exist!Try Another
             </div>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" id="pass" name="c_pass" placeholder="Password" required>
-        </div>
         <div class="form-check mb-3 ml-2">
             <input type="checkbox" class="form-check-input referal" id="fmr_check">
             <label class="form-check-label ml-2" for="exampleCheck1"><h5>I have a referal code</h5></label>
@@ -96,9 +93,6 @@ if(isset($_POST['register'])){
 
     $c_email = $_POST['c_email'];
 
-
-    $c_pass = password_hash($_POST['c_pass'], PASSWORD_DEFAULT);
-
     //$c_ip = getRealIpUser();
 
     $user_id = getuserid();
@@ -129,8 +123,8 @@ if(isset($_POST['register'])){
     
     $result = curl_exec($ch);
 
-    $insert_customer = "insert into customers (customer_name,customer_contact,customer_email,customer_pass,updated_date) 
-    values ('$c_name','$c_contact','$c_email','$c_pass',NOW())";
+    $insert_customer = "insert into customers (customer_name,customer_contact,customer_email,updated_date) 
+    values ('$c_name','$c_contact','$c_email',NOW())";
 
     $run_customer = mysqli_query($con,$insert_customer);
 
@@ -174,7 +168,18 @@ if(isset($_POST['register'])){
 
         //if customer register with items in cart//
 
-        $_SESSION['customer_email']=$c_email;
+        // $_SESSION['customer_email']=$c_email;
+
+        $get_cust = "select * from customers where customer_contact='$c_contact'";
+
+        $run_cust = mysqli_query($con,$get_cust);
+
+        $row_cust = mysqli_fetch_array($run_cust);
+
+        $cust_id = $row_c['customer_id'];
+
+
+        setcookie("user", $cust_id, time()+31556926);  /* expire in 1 hour */
 
         echo "<script>alert('You have Registered Sucessfully')</script>";
 
@@ -184,7 +189,17 @@ if(isset($_POST['register'])){
 
         //if customer register without items in cart//
 
-        $_SESSION['customer_email']=$c_email;
+        // $_SESSION['customer_email']=$c_email;
+
+        $get_cust = "select * from customers where customer_contact='$c_contact'";
+
+        $run_cust = mysqli_query($con,$get_cust);
+
+        $row_cust = mysqli_fetch_array($run_cust);
+
+        $cust_id = $row_c['customer_id'];
+
+        setcookie("user", $cust_id, time()+31556926);  /* expire in 1 hour */
 
         echo "<script>alert('You have Registered Sucessfully')</script>";
 
@@ -202,8 +217,8 @@ if(isset($_POST['register'])){
 
 
 ?>
-
+<?php ob_end_flush(); ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="admin_area/fmr/js/fmr.js?v=3"></script>
+<script src="admin_area/fmr/js/fmr.js?v=4"></script>

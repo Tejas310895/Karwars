@@ -12,7 +12,7 @@
             <div class="col-3">
                     <?php 
                                     
-                    if(!isset($_SESSION['customer_email'])){
+                    if(!isset($_COOKIE['user'])){
 
                             echo "
                             
@@ -162,7 +162,6 @@
     </a>
     </div>
 <!-- banner carousel -->
-
 <!-- <div class="container">
     <div class="row">
         <div class="col-12">
@@ -172,7 +171,6 @@
         </div>
     </div>
 </div> -->
-
 <!-- product swipe -->
     <div class="container-fluid px-0">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images1_qkiMPTASO.png" alt="" class="img-fluid mx-0">
@@ -495,7 +493,7 @@
         <div class="row">
             <div class="<?php 
                 
-                if(!isset($_SESSION['customer_email'])){
+                if(!isset($_COOKIE['user'])){
                     echo "col-6 px-0";
                 }else{
                     echo "col-6 px-0";
@@ -504,7 +502,7 @@
                 <h5 class="text-center pt-2 text-white" style="font-family:Josefin Sans;">
                 <?php 
                 
-                if(!isset($_SESSION['customer_email'])){
+                if(!isset($_COOKIE['user'])){
                     echo "You May Like";
                 }else{
                     echo "Recently Ordered";
@@ -520,7 +518,7 @@
                 <div class="swiper-wrapper">
                     <?php 
                     
-                    if(!isset($_SESSION['customer_email'])){
+                    if(!isset($_COOKIE['user'])){
 
                     ?>
                     <?php 
@@ -549,15 +547,15 @@
                     <?php }else{ ?>
                         <?php 
 
-                        $c_email = $_SESSION['customer_email'];
+                        // $c_email = $_COOKIE['user'];
 
-                        $get_name = "select * from customers where customer_email='$c_email'";
+                        // $get_name = "select * from customers where customer_email='$c_email'";
 
-                        $run_name = mysqli_query($con,$get_name);
+                        // $run_name = mysqli_query($con,$get_name);
 
-                        $row_name = mysqli_fetch_array($run_name);
+                        // $row_name = mysqli_fetch_array($run_name);
 
-                        $cpromo_id = $row_name['customer_id'];
+                        $cpromo_id = $_COOKIE['user'];
                             
                         $get_cpromo_pro = "select * from customer_orders where customer_id='$cpromo_id' group by pro_id order by order_id limit 7";
                         $run_cpromo_pro = mysqli_query($con,$get_cpromo_pro);

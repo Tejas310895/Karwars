@@ -1,9 +1,9 @@
 <?php
 
 
-session_start();
+// session_start();
 
-    if(!isset($_SESSION['customer_email'])){
+    if(!isset($_COOKIE['user'])){
 
         echo "<script>window.open('../checkout.php','_self')</script>";
 
@@ -105,9 +105,9 @@ session_start();
             <div class="col-10 px-4">
                 <?php 
                 
-                $c_email = $_SESSION['customer_email'];
+                $c_id = $_COOKIE['user'];
 
-                $get_user = "select * from customers where customer_email='$c_email'";
+                $get_user = "select * from customers where customer_id='$c_id'";
 
                 $run_user = mysqli_query($con,$get_user);
 
@@ -170,7 +170,7 @@ session_start();
 
                 if(isset($_POST['insertuser'])){
 
-                    $c_mail = $_SESSION['customer_email'];
+                    $c_id = $_COOKIE['user'];
 
                     $c_name = $_POST['c_name'];
 
@@ -182,7 +182,7 @@ session_start();
 
                     $c_newpass = password_hash($_POST['c_newpass'], PASSWORD_DEFAULT);
                     
-                    $get_user_id = "select * from customers where customer_email='$c_mail'";
+                    $get_user_id = "select * from customers where customer_id='$c_id'";
 
                     $run_user_id = mysqli_query($con,$get_user_id);
 
@@ -225,15 +225,15 @@ session_start();
 
     <?php 
 
-        $session_email = $_SESSION['customer_email'];
+        // $session_email = $_SESSION['customer_email'];
 
-        $get_c_id = "select * from customers where customer_email='$session_email'";
+        // $get_c_id = "select * from customers where customer_email='$session_email'";
 
-        $run_c_id = mysqli_query($con,$get_c_id);
+        // $run_c_id = mysqli_query($con,$get_c_id);
 
-        $row_c_id = mysqli_fetch_array($run_c_id);
+        // $row_c_id = mysqli_fetch_array($run_c_id);
 
-        $c_id = $row_c_id['customer_id'];
+        //$c_id = $row_c_id['customer_id'];
 
     ?>
 
@@ -371,15 +371,15 @@ session_start();
                  
                 <?php 
 
-                $c_mail = $_SESSION['customer_email'];
+                // $c_mail = $_SESSION['customer_email'];
                 
-                $get_customer_id = "select * from customers where customer_email='$c_mail'";
+                // $get_customer_id = "select * from customers where customer_email='$c_mail'";
 
-                $run_customer_id = mysqli_query($con,$get_customer_id);
+                // $run_customer_id = mysqli_query($con,$get_customer_id);
 
-                $row_customer_id = mysqli_fetch_array($run_customer_id);
+                // $row_customer_id = mysqli_fetch_array($run_customer_id);
 
-                $c_id = $row_customer_id['customer_id'];
+                // $c_id = $row_customer_id['customer_id'];
 
                 $get_address = "select * from customer_address where customer_id='$c_id'";
 
@@ -471,7 +471,7 @@ session_start();
 
             if(isset($_POST['insertadd'])){
 
-                $c_mail = $_SESSION['customer_email'];
+                $c_id = $_COOKIE['user'];
 
                 $c_city = $_POST['c_city'];
 
@@ -483,7 +483,7 @@ session_start();
 
                 $add_type = $_POST['add_type'];
                 
-                $get_user_id = "select * from customers where customer_email='$c_mail'";
+                $get_user_id = "select * from customers where customer_id='$c_id'";
 
                 $run_user_id = mysqli_query($con,$get_user_id);
 
@@ -592,7 +592,7 @@ session_start();
                         <div class="row pb-2">
                             <div class="col-12"><h5 class="lg_title text-center">Are You Sure? </h5></div>
                             <div class="col-6"><a href="my_account.php" class="btn btn-success text-white pull-right">No</a></div>
-                            <div class="col-6"><a href="logout.php" class="btn btn-danger text-white pull-left">Yes</a></div>
+                            <div class="col-6"><a href="../logout.php" class="btn btn-danger text-white pull-left">Yes</a></div>
                         </div>
                     </div>
                 </div>

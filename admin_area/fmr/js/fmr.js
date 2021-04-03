@@ -161,4 +161,63 @@ $(document).ready(function () {
         $('#send_otp').removeClass('d-none');
         $('#c_contact').attr('readonly' , false);
     });
+
+/* customer login */
+    $(document).on('click', '#send_log_otp', function () {
+        var send_log_otp = $("#c_log_contact").val();
+
+        if(send_log_otp.length<10){
+            alert('Enter mobile number properly');
+        }else{
+        $.ajax({
+            type: "post",
+            url: "./otp_verification.php",
+            data: {"send_log_otp":send_log_otp},
+            success: function (data) {
+                if(data==1){
+                $('#otp_log_input').removeClass('d-none');
+                $('#send_log_otp').addClass('d-none');
+                $('#change_log_no').removeClass('d-none');
+                $('#c_log_contact').attr('readonly' , true);
+                }if(data==2){
+                    alert('Number not Registered Please register');
+                }
+            }
+        });
+    }
+    });
+    $(document).on('click', '#otp_log_verify', function () {
+        var otp_log_verify = $("#c_log_otp").val();
+        var c_log_verify = $("#c_log_contact").val();
+
+        if(otp_log_verify.length<4){
+            alert('Enter Invalid');
+        }else{
+        $.ajax({
+            type: "post",
+            url: "./otp_verification.php",
+            dataType: "json",
+            data: {"otp_log_verify":otp_log_verify,
+                   "c_log_verify":c_log_verify},
+            success: function (data) {
+                if(data==1){
+                alert('your are Logged in ');
+                window.location.href = './';
+                $('#otp_log_input').addClass('d-none');
+                $('#send_log_otp').addClass('d-none');
+                $('#c_log_contact').attr('readonly' , true);
+                }else{
+                    alert('Wrong Otp, Try Again');
+                }
+            }
+        });
+    }
+    });
+    $(document).on('click', '#change_log_no', function () {
+        $('#otp_log_input').addClass('d-none');
+        $('#change_log_no').addClass('d-none');
+        $('#send_log_otp').removeClass('d-none');
+        $('#c_log_contact').attr('readonly' , false);
+    });
+/* customer login */
 });

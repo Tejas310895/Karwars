@@ -15,6 +15,12 @@ if(isset($_GET['update_order'])){
 
   $run_status_del = mysqli_query($con,$update_status_del);
 
+  $update_discount = "UPDATE customer_discounts set discount_date='$today' where invoice_no='$update_order'";
+  $run_update_discount = mysqli_query($con,$update_discount);
+
+  $update_charges = "UPDATE order_charges set updated_date='$today' where invoice_id='$update_order'";
+  $run_update_charges = mysqli_query($con,$update_charges);
+
 
     echo "<script>alert('Status Updated')</script>";
 
