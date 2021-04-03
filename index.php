@@ -214,7 +214,17 @@
         </div>
     <!-- Offer Zone -->
     <!-- banner display -->
-    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2">
+    <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 px-0">
+                    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_53_2x-50_QdGpQJwFy.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
+            </div>
+            <div class="col-6 px-0">
+                    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_54_2x-50_pDIRq4GgTi.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
+            </div>
+        </div>
+    </div>
     <!-- banner display -->
     <!-- <div class="swiper-container">
             <div class="swiper-wrapper"> -->
