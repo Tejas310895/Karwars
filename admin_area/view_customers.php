@@ -22,7 +22,7 @@
             <th>Contact</th>
             <th>Email</th>
             <th>Address</th>
-            <th>Ip Address</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -43,7 +43,7 @@
 
         $customer_contact = $row_customer['customer_contact'];
 
-        $customer_ip = $row_customer['customer_ip'];
+        $updated_date = $row_customer['updated_date'];
     
     ?>
         <tr>
@@ -80,7 +80,7 @@
                 ?>
             </select>
             </td>
-            <td class="text-center"><?php echo $customer_ip; ?></td>
+            <td class="text-center"><?php echo date('d/M/Y(h:i a)',strtotime($updated_date)); ?></td>
         </tr>
     <?php } ?>
     </tbody>
