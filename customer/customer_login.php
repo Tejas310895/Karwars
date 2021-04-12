@@ -36,7 +36,7 @@
             <div class="input-group mt-1 d-none" id="otp_log_input">
                 <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control py-1" name="c_log_otp" id="c_log_otp" placeholder="Enter OTP" aria-label="Recipient's username" required>
                 <div class="input-group-append">
-                <button class="btn btn-sm btn-primary" type="button" id="otp_log_verify">Verify</button>
+                <button class="btn btn-sm btn-primary" type="button" id="otp_log_verify">Log In</button>
                 </div>
             </div>
         </div>
