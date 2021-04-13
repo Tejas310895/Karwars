@@ -36,7 +36,7 @@
             <div class="input-group mt-1 d-none" id="otp_log_input">
                 <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" class="form-control py-1" name="c_log_otp" id="c_log_otp" placeholder="Enter OTP" aria-label="Recipient's username" required>
                 <div class="input-group-append">
-                <button class="btn btn-sm btn-primary" type="button" id="otp_log_verify">Log In</button>
+                <button class="btn btn-md btn-primary" type="button" id="otp_log_verify">Log In</button>
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
 <!-- login form -->
 
 <div class="container px-5">
-    <h5 class=" text-center register_link mt-2">Not a Member?</h5>
-    <a href="./customer_register" class="btn btnregister_link text-center btn-block p-0">Register Here</a>
+    <h5 class=" text-center register_link mt-5">Not a Member?<a href="./customer_register" class="btn btn_link btn-block p-0">Click Here</a></h5>
+    <!-- <a href="./customer_register" class="btn btnregister_link text-center btn-block p-0">Register Here</a> -->
 </div>
 
 
