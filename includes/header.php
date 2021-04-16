@@ -35,7 +35,7 @@ if(isset($_GET['pro_id'])){
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="This diwali save big on your grocery orders,Get upto 50% discount on all grocery products with free home delivery."/>
+    <meta name="description" content="PRE-MONSOON SALE IS ON | GET UPTO 60% OFF ON GROCERIES VEGETABLES FRUITS ... AND SAVE MORE WITH OUR DEALS"/>
     <link rel="shortcut icon" type="image/png" href="../admin_area/admin_images/wrnlogo.png"/>
     <title>Order Your Grocerys on Karwars | Upto 50% Off On All Grocery Products</title>
     <!-- google font -->
