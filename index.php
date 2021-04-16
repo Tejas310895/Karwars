@@ -229,7 +229,7 @@
 
     <!-- season banner -->
     <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/ugadi_siteArtboard_57_2x-100_qej3NCv1F.jpg" alt="" class="img-fluid mx-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/pre_monsoon_site1Artboard_60_2x-100_1__nKU3uasfg.jpg" alt="" class="img-fluid mx-0">
     </div>
     <div class="container-fluid px-0 mb-2">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/buy_get_1Artboard_58_2x-100_bENp0CJNI.jpg" alt="" class="img-fluid mx-0">
