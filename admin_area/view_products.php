@@ -54,6 +54,8 @@
 
                 $product_price = $row_product['product_price'];
 
+                $price_display = $row_product['price_display'];
+
                 $product_stock = $row_product['product_stock'];
 
                 $product_position = $row_product['product_position'];
@@ -77,7 +79,7 @@
                     <td>
                         <img src="<?php echo $product_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                     </td>
-                    <td><?php echo $product_title; ?></td>
+                    <td><?php echo $product_title; ?> <span class="badge badge-danger"><?php echo round(($product_price/$price_display)*100)."%"; ?></span></td>
                     <td><?php echo $product_desc; ?></td>
                     <td>&#8377; <?php echo $product_price; ?></td>
                     <td>
