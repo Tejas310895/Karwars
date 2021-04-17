@@ -80,7 +80,7 @@
                     <td>
                         <img src="<?php echo $product_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                     </td>
-                    <td><?php echo $product_title; ?> <span class="badge badge-danger"><?php if($price_display>0){echo round(($product_price/$price_display)*100)."%";} ?></span></td>
+                    <td><?php echo $product_title; ?> <span class="badge badge-danger"><?php if($price_display>0 || $price_display>$product_price){echo round(($product_price/$price_display)*100)."%";} ?></span></td>
                     <td><?php echo $product_desc; ?></td>
                     <td>&#8377; <?php echo $product_price; ?></td>
                     <td>
