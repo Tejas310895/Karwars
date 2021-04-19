@@ -71,12 +71,17 @@
                 $row_store = mysqli_fetch_array($run_store);
 
                 $store_title = $row_store['store_title'];
+                $cat_id = $row_store['cat_id'];
 
-            
+                $get_cat = "select * from categories where cat_id='$cat_id'"; 
+                $run_cat = mysqli_query($con,$get_cat);
+                $row_cat = mysqli_fetch_array($run_cat);
+
+                $cat_title = $row_cat['cat_title'];
             ?>
                 <tr class="text-center">
                     <td ><?php echo ++$counter; ?></td>
-                    <td ><?php echo $store_title; ?></td>
+                    <td ><?php echo $cat_title; ?></td>
                     <td>
                         <img src="<?php echo $product_img1; ?>" alt="" class="img-thumbnail border-0" width="60px">
                     </td>
