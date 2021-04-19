@@ -55,7 +55,7 @@
 
                 $product_price = $row_product['product_price'];
 
-                $vendor_price = $row_product['venor_price'];
+                $vendor_price = $row_product['vendor_price'];
 
                 $price_display = $row_product['price_display'];
 
@@ -90,8 +90,8 @@
                     </td>
                     <td><?php echo $product_title; ?> <span class="badge badge-danger"><?php if($price_display>0 || $price_display>$product_price){echo (100-(round(($product_price/$price_display)*100)))."%";} ?></span></td>
                     <td><?php echo $product_desc; ?></td>
-                    <td>&#8377; <?php echo $product_price; ?></td>
                     <td>&#8377; <?php echo $vendor_price; ?></td>
+                    <td>&#8377; <?php echo $product_price; ?></td>
                     <td>
                         <form action="process_order.php?update_stock=<?php echo $product_id; ?>" class="form-group" method="post">
                         <div class="input-group">
