@@ -36,7 +36,7 @@ include("includes/header.php");
                 ?>
         </div>
         <div class="col-6">
-            <img src="admin_area/admin_images/dashlogo.png" alt="" class="img-thumbnail d-bock mx-auto bg-transparent brand-logo border-0 rounded-0">
+            <img src="admin_area/admin_images/karwarslogo.png" alt="" class="img-thumbnail d-bock mx-auto bg-transparent brand-logo border-0 rounded-0">
         </div>
         <div class="col-3">
         <!-- toggle -->
