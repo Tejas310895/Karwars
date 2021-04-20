@@ -32,6 +32,7 @@
                 while($row_user = mysqli_fetch_array($run_user)){
                     
                     $user_id = $row_user['user_id'];
+                    $exp_date = $row_user['exp_date'];
 
                     if(strlen($user_id)<10){
                         $get_customer = "select * from customers where customer_id='$user_id'";
@@ -46,6 +47,7 @@
                     }
                 ?>
                 <tr>
+                    <td><?php echo date('d/M/Y(h:i a)',strtotime($exp_date)); ?></td>
                     <td><?php echo $customer_name; ?></td>
                     <td><?php echo $customer_contact; ?></td>
                     <td>
