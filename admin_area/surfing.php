@@ -18,7 +18,6 @@
                 <table id="example" class="table table-striped" cellspacing="0" width="100%">
                 <thead>
                 <tr class="text-center">
-                    <th>Sl.No</th>
                     <th>Customer Name</th>
                     <th>Customer Mobile</th> 
                     <th class="text-left">Actions</th>
@@ -27,11 +26,11 @@
             <tbody class="text-center">
                 <?php 
                 
-                $get_user = "select * from cart group by user_id order by exp_date desc";
+                $get_user = "select * from cart where LENGTH(user_id)<10 group by user_id order by exp_date desc";
                 $run_user = mysqli_query($con,$get_user);
                 $counter = 0;
                 while($row_user = mysqli_fetch_array($run_user)){
-                    $counter = ++$counter;
+                    
                     $user_id = $row_user['user_id'];
 
                     if(strlen($user_id)<10){
@@ -47,7 +46,6 @@
                     }
                 ?>
                 <tr>
-                    <td><?php echo $counter; ?></td>
                     <td><?php echo $customer_name; ?></td>
                     <td><?php echo $customer_contact; ?></td>
                     <td>
