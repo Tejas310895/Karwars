@@ -18,6 +18,7 @@
                 <table id="example" class="table table-striped" cellspacing="0" width="100%">
                 <thead>
                 <tr class="text-center">
+                    <th>Date</th>
                     <th>Customer Name</th>
                     <th>Customer Mobile</th> 
                     <th class="text-left">Actions</th>
