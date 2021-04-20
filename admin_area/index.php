@@ -105,7 +105,7 @@
                         $count = mysqli_num_rows($run_c_count);
                         
                         ?>
-                        <h5 class="mt-3"><?php echo $count; ?> Customer are surfing</h5>
+                        <h5 class="mt-3"><a href="index.php?surfing"><?php echo $count; ?> Customer are surfing</a></h5>
                       </li>
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -505,6 +505,12 @@
               }
 
               //FMR PANEL //
+
+              if(isset($_GET['surfing'])){
+                    
+                include("surfing.php");
+                
+              }
 
             ?>
 
