@@ -65,56 +65,56 @@ $cancel_count = mysqli_num_rows($run_cancel_count);
 
 //$cancel_count = $row_cancel_count['count'];
 
+$get_cancel_sales_today = "SELECT sum(due_amount) AS total FROM customer_orders where CAST(order_date as DATE)='$today' AND order_status='Cancelled'";
 
+$run_cancel_sales_today = mysqli_query($con,$get_cancel_sales_today);
+
+$row_cancel_sales_today = mysqli_fetch_array($run_cancel_sales_today);
+
+$cancel_sales_today = $row_cancel_sales_today['total'];
+
+$get_cancel_count_today = "SELECT DISTINCT invoice_no FROM customer_orders where CAST(order_date as DATE)='$today' AND order_status='Cancelled'";
+
+$run_cancel_count_today = mysqli_query($con,$get_cancel_count_today);
+
+$cancel_count_today = mysqli_num_rows($run_cancel_count_today);
 
 ?>
         
         <div class="row">
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total Sales</h5>
-                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($total_sales>0){echo $total_sales;}else{echo '0';}; ?> </h3>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-coins"></i>₹ <?php if($total_sales>0){echo $total_sales;}else{echo '0';}; ?> </h3>
+                <h5 class="text-primary">Today Sales : ₹ <?php if($today_sales>0){echo $today_sales;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">Daily Sales</h5>
-                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($today_sales>0){echo $today_sales;}else{echo '0';} ?> </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-category">Total Orders</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($total_count>0){echo $total_count;}else{echo '0';} ?> </h3>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php if($total_count>0){echo $total_count;}else{echo '0';} ?> </h3>
+                <h5 class="text-primary">Today Orders : <?php if($today_count>0){echo $today_count;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Today Orders</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($today_count>0){echo $today_count;}else{echo '0';} ?> </h3>
+                <h5 class="card-category">Total Sales Lost</h5>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-coins"></i>₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?> </h3>
+                <h5 class="text-primary">Today Sales Lost : ₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
-          <div class="col-lg-2">
+          <div class="col-lg-3">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Sales Lost</h5>
-                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?> </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-category">Orders Cancelled</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?> </h3>
+                <h5 class="card-category">Total Orders Cancelled</h5>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?> </h3>
+                <h5 class="text-primary">Today Orders Cancelled : <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
