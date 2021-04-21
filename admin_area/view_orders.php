@@ -105,7 +105,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
               <div class="card-header">
                 <h5 class="card-category">Total Sales Lost</h5>
                 <h3 class="card-title mb-0"><i class="tim-icons icon-coins"></i>₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?> </h3>
-                <h5 class="text-primary">Today Sales Lost : ₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?></h5>
+                <h5 class="text-primary">Today Sales Lost : ₹ <?php if($cancel_sales_today>0){echo $cancel_sales_today;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
               <div class="card-header">
                 <h5 class="card-category">Total Orders Cancelled</h5>
                 <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?> </h3>
-                <h5 class="text-primary">Today Orders Cancelled : <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?></h5>
+                <h5 class="text-primary">Today Orders Cancelled : <?php if($cancel_count_today>0){echo $cancel_count_today;}else{echo '0';} ?></h5>
               </div>
             </div>
           </div>
