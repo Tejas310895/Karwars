@@ -15,6 +15,111 @@
 
 ?>
 
+<?php 
+
+$get_total_sales = "SELECT sum(due_amount) AS total FROM customer_orders where order_status='Delivered'";
+
+$run_total_sales = mysqli_query($con,$get_total_sales);
+
+$row_total_sales = mysqli_fetch_array($run_total_sales);
+
+$total_sales = $row_total_sales['total'];
+
+$get_today_sales = "SELECT sum(due_amount) AS total FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Picked')";
+
+$run_today_sales = mysqli_query($con,$get_today_sales);
+
+$row_today_sales = mysqli_fetch_array($run_today_sales);
+
+$today_sales = $row_today_sales['total'];
+
+$get_total_count = "SELECT DISTINCT invoice_no FROM customer_orders where order_status='Delivered'";
+
+$run_total_count = mysqli_query($con,$get_total_count);
+
+$total_count = mysqli_num_rows($run_total_count);
+
+//$total_count = $row_total_count['count'];
+
+$get_today_count = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Picked')";
+
+$run_today_count = mysqli_query($con,$get_today_count);
+
+$today_count = mysqli_num_rows($run_today_count);
+
+// $today_count = $row_today_count['count'];
+
+$get_cancel_sales = "SELECT sum(due_amount) AS total FROM customer_orders where order_status='Cancelled'";
+
+$run_cancel_sales = mysqli_query($con,$get_cancel_sales);
+
+$row_cancel_sales = mysqli_fetch_array($run_cancel_sales);
+
+$cancel_sales = $row_cancel_sales['total'];
+
+$get_cancel_count = "SELECT DISTINCT invoice_no FROM customer_orders where order_status='Cancelled'";
+
+$run_cancel_count = mysqli_query($con,$get_cancel_count);
+
+$cancel_count = mysqli_num_rows($run_cancel_count);
+
+//$cancel_count = $row_cancel_count['count'];
+
+
+
+?>
+        
+        <div class="row">
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Total Sales</h5>
+                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($total_sales>0){echo $total_sales;}else{echo '0';}; ?> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Daily Sales</h5>
+                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($today_sales>0){echo $today_sales;}else{echo '0';} ?> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Total Orders</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($total_count>0){echo $total_count;}else{echo '0';} ?> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Today Orders</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($today_count>0){echo $today_count;}else{echo '0';} ?> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Sales Lost</h5>
+                <h3 class="card-title"><i class="tim-icons icon-coins"></i>₹ <?php if($cancel_sales>0){echo $cancel_sales;}else{echo '0';} ?> </h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Orders Cancelled</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast"></i> <?php if($cancel_count>0){echo $cancel_count;}else{echo '0';} ?> </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
 <div class="row">
         <div class="col-lg-12 col-md-12">
             <div class="card card-tasks mb-0">
