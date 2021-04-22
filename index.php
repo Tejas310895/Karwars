@@ -215,6 +215,11 @@
     <!-- Offer Zone -->
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
+    <!-- stay safe -->
+    <div class="container-fluid px-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
+    </div>
+    <!-- stay safe -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-6 px-0">
