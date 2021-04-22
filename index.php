@@ -162,15 +162,15 @@
     </a>
     </div>
 <!-- banner carousel -->
-<!-- <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="alert alert-danger border border-danger text-center" role="alert">
-                Orders of 3rd Feb night and 4th Feb will be delivered on 5th due to transport issue <br> Sorry for inconvenience caused
+            <div class="alert alert-success border text-center border-0" role="alert">
+                Based on the latest government guidelines, only essential items will be delivered and there may be delay in deliveries, we appreciate your patience during these difficult times as we will try to serve you better.
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- product swipe -->
     <div class="container-fluid px-0">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_300Artboard_1_2x-100_i6fUFfX26.jpg" alt="" class="img-fluid mx-0">
