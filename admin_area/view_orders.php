@@ -25,7 +25,7 @@ $row_total_sales = mysqli_fetch_array($run_total_sales);
 
 $total_sales = $row_total_sales['total'];
 
-$get_today_sales = "SELECT sum(due_amount) AS total FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Picked')";
+$get_today_sales = "SELECT sum(due_amount) AS total FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Packed')";
 
 $run_today_sales = mysqli_query($con,$get_today_sales);
 
@@ -41,7 +41,7 @@ $total_count = mysqli_num_rows($run_total_count);
 
 //$total_count = $row_total_count['count'];
 
-$get_today_count = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Picked')";
+$get_today_count = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Delivered','Packed')";
 
 $run_today_count = mysqli_query($con,$get_today_count);
 
