@@ -291,9 +291,9 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                                                         <?php echo $customer_landmark; ?>, 
                                                                         <?php echo $customer_city; ?> .
                                                                         </h5>
-                                          <button id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>" title="view">
+                                          <a href="#" id="show_details" class="btn btn-primary text-white" data-toggle="modal" data-target="#KK<?php echo $invoice_id;?>" title="view">
                                               <i class="tim-icons icon-alert-circle-exc text-white"></i>
-                                          </button>
+                                          </a>
                                           <a class="btn btn-primary" href="index.php?confirm_order=<?php echo $invoice_id;?>" title="Edit">
                                               <i class="tim-icons icon-pencil text-white"></i>
                                           </a>
