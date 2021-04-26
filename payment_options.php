@@ -90,22 +90,25 @@ $customer_id = $_COOKIE['user'];
                     date_default_timezone_set('Asia/Kolkata');
 
                     $today = date("Y-m-d");
+                    $today_nght = date("H:i");
 
                     $get_today_order = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed')";
                     $run_today_order = mysqli_query($con,$get_today_order);
                     $count_today_order = mysqli_num_rows($run_today_order);
 
-                    if($count_today_order<=15){
+                    if($count_today_order<=15 && $today_nght<='18:00'){
+                        $x = 0;
+                    }elseif($count_today_order<=15 && $today_nght>='18:00'){
                         $x = 1;
                     }elseif($y>15 && $y<=30){
-                        $x = 2;
+                        $x = 1;
                     }elseif($y>30 && $y<=45){
-                        $x = 3;
+                        $x = 2;
                     }elseif($y>45 && $y<=60){
-                        $x = 4;
+                        $x = 3;
                     }
 
-                    for($a = $x; $a <= 4; $a++)
+                    for($a = $x; $a <= 3; $a++)
                         {
 
                         date_default_timezone_set('Asia/Kolkata');
