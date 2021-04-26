@@ -182,7 +182,7 @@
 </div>
 <!-- product swipe -->
     <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_300Artboard_1_2x-100_i6fUFfX26.jpg" alt="" class="img-fluid mx-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_ord_amtArtboard_1_2x-100_YjDvAtd9z.jpg" alt="" class="img-fluid mx-0">
     </div>
 
     <!-- Offer Zone -->
