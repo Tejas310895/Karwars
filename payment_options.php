@@ -108,15 +108,15 @@ $customer_id = $_COOKIE['user'];
                         $x = 3;
                     }
 
-                    for($a = $x; $a <= 3; $a++)
+                    for($a = $x; $a >= 0 && $a <= 3; $a++)
                         {
 
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
                         $next_day = date('Y-m-d', strtotime('+'.$a.' day', strtotime($this_day)));
                     ?>
-                        <option value="<?php echo $next_day.$a; ?>"><?php echo date('l d-M-Y', strtotime($next_day)); ?></option>
-                    <?php } ?>
+                        <option value="<?php echo $next_day; ?>"><?php echo date('l d-M-Y', strtotime($next_day)); ?></option>
+                    <?php }  ?>
 
                     </select>
                 </div>
