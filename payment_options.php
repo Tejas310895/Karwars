@@ -48,6 +48,7 @@ $customer_id = $_COOKIE['user'];
                 $count = mysqli_num_rows($run_add_count);
                 
                 ?>
+                <button type="button" class="btn btn-secondary btn-block mb-2" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" >ADD NEW ADDRESS</button>
                 <form action="order.php" class="add_form" method="post" style="display:<?php if($count>0){echo 'block';}else{echo 'none';} ?>;">
                 <input type="hidden" name="c_id" class="form-control" value="<?php echo $customer_id; ?>">
                 <h5 class="add_head">Select Your Address</h5>
@@ -81,6 +82,41 @@ $customer_id = $_COOKIE['user'];
 
                     </select>
                 </div>
+                <h5 class="add_head">Delivery Schedule</h5>
+                <div class="form-group">
+                    <select class="custom-select select_address" name='schedule_date'>
+                    <?php
+        
+                    date_default_timezone_set('Asia/Kolkata');
+
+                    $today = date("Y-m-d");
+
+                    $get_today_order = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed')";
+                    $run_today_order = mysqli_query($con,$get_today_order);
+                    $count_today_order = mysqli_num_rows($run_today_order);
+
+                    if($count_today_order<=15){
+                        $x = 1;
+                    }elseif($y>15 && $y<=30){
+                        $x = 2;
+                    }elseif($y>30 && $y<=45){
+                        $x = 3;
+                    }elseif($y>45 && $y<=60){
+                        $x = 4;
+                    }
+
+                    for($a = $x; $a <= 4; $a++)
+                        {
+
+                        date_default_timezone_set('Asia/Kolkata');
+                        $this_day = date("Y-m-d");
+                        $next_day = date('Y-m-d', strtotime('+'.$a.' day', strtotime($this_day)));
+                    ?>
+                        <option value="<?php echo $next_day; ?>"><?php echo date('l d-M-Y', strtotime($next_day)); ?></option>
+                    <?php } ?>
+
+                    </select>
+                </div>
                 <!-- <div class="form-group my-4">
                 <h5 class="add_head my-3">Schedule your Delivery</h5>
                 <input type="text" class="form-control select_address" name="date" id="datepicker" required>
@@ -101,7 +137,6 @@ $customer_id = $_COOKIE['user'];
                 </div> -->
             <button type="submit" class="btn btn-success btn-block add_head_btn fixed-bottom">Place Order</button>
         </form>
-        <button type="button" class="btn btn-secondary btn-block mb-2" data-toggle="modal" data-target="#inseradd" data-whatever="$add_id" >ADD NEW ADDRESS</button>
         </div>
     </div>
 

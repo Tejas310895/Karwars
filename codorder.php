@@ -6,6 +6,8 @@ if(isset($_POST['c_id'])){
 
     $add_id = $_POST['add_id'];
 
+    $schedule_date = $_POST['schedule_date'];
+
     //$date = $_POST['date'];
 
     date_default_timezone_set('Asia/Kolkata');
@@ -57,8 +59,8 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
         $client_id = $row_products['client_id'];
 
-        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,vendor_due_amount,invoice_no,qty,order_date,del_date,order_status,product_status,client_id) 
-        values ('$customer_id','$add_id',' $pro_id','$sub_total','$vendor_sub_total','$invoice_no','$pro_qty','$today','$today','$status','Deliver','$client_id')";
+        $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,vendor_due_amount,invoice_no,qty,order_date,del_date,order_schedule,order_status,product_status,client_id) 
+        values ('$customer_id','$add_id',' $pro_id','$sub_total','$vendor_sub_total','$invoice_no','$pro_qty','$today','$today','$schedule_date','$status','Deliver','$client_id')";
 
         $run_customer_order = mysqli_query($con,$insert_customer_order);
 
@@ -84,7 +86,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $run_user_orders_count = mysqli_query($con,$get_user_order_count);
         $user_orders_count = mysqli_num_rows($run_user_orders_count);
 
-        if($user_orders_count==1 && $dis_total>300){
+        if($user_orders_count==1 && $dis_total>499){
          $insert_discount = "insert into customer_discounts (invoice_no,discount_type,discount_amount,discount_date) values ('$invoice_no','First Order Discount','25','$today')";
          $run_insert_discount = mysqli_query($con,$insert_discount);
         }
@@ -105,7 +107,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
         $del_charges = $row_del_charges['del_charges'];
 
-        if($del_total<300){
+        if($del_total<499){
             $insert_del_charges = "insert into order_charges (invoice_id,del_charges,updated_date) values ('$invoice_no','$del_charges','$today')";
             $run_insert_del_charges = mysqli_query($con,$insert_del_charges);
         }

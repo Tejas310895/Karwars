@@ -192,11 +192,11 @@
 
 <!-- checkout float -->
     <div class="container-fluid px-0 fixed-bottom " style="display:<?php if($count>0){echo"block";}else{echo"none";} ?>;">
-    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2" ><?php if($total>$min_price&&$total<300){echo "Add more ".(300-$total)." for free delivery";}?>
+    <h5 class="save_total text-center bg-white mx-0 mb-0 py-2" ><?php if($total>$min_price&&$total<499){echo "Add more ".(499-$total)." for free delivery";}?>
     
     <?php 
 
-    if($total>300){
+    if($total>499){
     
     if(isset($_COOKIE['user'])){
 
@@ -230,7 +230,7 @@
         <div class="row cart_bottom">
             <div class="col-6 pl-4 pr-0">
                 <h5 class="item_count pt-1 mb-0"><?php echo $count; ?> Items</h4>
-                <h3 class="item_cost mb-0">Total: ₹<?php echo ($total); ?><?php if(($total>$min_price)&&($total<300)){ echo "+".$del_charges."<small style='font-size:0.5rem;'>Charges</small>";}?></h3>
+                <h3 class="item_cost mb-0">Total: ₹<?php echo ($total); ?><?php if(($total>$min_price)&&($total<499)){ echo "+".$del_charges."<small style='font-size:0.5rem;'>Charges</small>";}?></h3>
             </div>
             <?php 
             
