@@ -115,7 +115,7 @@ $customer_id = $_COOKIE['user'];
                         $this_day = date("Y-m-d");
                         $next_day = date('Y-m-d', strtotime('+'.$a.' day', strtotime($this_day)));
                     ?>
-                        <option value="<?php echo $next_day; ?>"><?php echo date('l d-M-Y', strtotime($next_day)); ?></option>
+                        <option value="<?php echo $next_day.$x; ?>"><?php echo date('l d-M-Y', strtotime($next_day)); ?></option>
                     <?php } ?>
 
                     </select>
