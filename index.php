@@ -90,7 +90,8 @@
             <div class="col-10 pl-2" style="padding-top:5px;">
                 <div class="alert mb-0 px-1 pt-1 pb-0 border-0" role="alert">
                     <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;">DELIVERY EXPEXTED BY*</h6>
-                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;"><?php echo $delivery_by; ?></h6>
+                    <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;">Next Available delivery Slot</h6>
+                    <!-- <h6 class="mb-0" style="font-family:Josefin Sans; font-size:0.8rem;"><?php //echo $delivery_by; ?></h6> -->
                 </div>
             </div>
         </div>
