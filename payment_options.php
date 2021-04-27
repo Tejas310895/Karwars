@@ -84,7 +84,7 @@ $customer_id = $_COOKIE['user'];
                 </div>
                 <h5 class="add_head">Delivery Schedule</h5>
                 <div class="form-group">
-                    <select class="custom-select select_address" name='schedule_date'>
+                    <select class="custom-select select_address" name="schedule_date">
                     <?php
         
                     date_default_timezone_set('Asia/Kolkata');
@@ -103,7 +103,7 @@ $customer_id = $_COOKIE['user'];
                         echo  "<option value=".date('Y-m-d', strtotime('+1 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+1 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+2 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+2 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
-                    }elseif($count_today_order<=15 && $today_nght>='18:00'){
+                    }elseif($count_today_order<=15 && $today_nght>='10:00'){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
                         echo  "<option value=".date('Y-m-d', strtotime('+1 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+1 day', strtotime($this_day)))."</option>";
@@ -119,17 +119,7 @@ $customer_id = $_COOKIE['user'];
                         $this_day = date("Y-m-d");
                         echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
                     }
-
-                    // for($a = $x; $a >= 0 && $a <= 3; $a++)
-                    //     {
-
-                    //     date_default_timezone_set('Asia/Kolkata');
-                    //     $this_day = date("Y-m-d");
-                    //     $next_day = date('Y-m-d', strtotime('+'.$a.' day', strtotime($this_day)));
-                    // ?>
-                    <!--<option value="<?php //echo $next_day; ?>"><?php //echo date('l d-M-Y', strtotime($next_day)); ?></option>-->
-                     <?php //}  ?>
-
+                    ?>
                     </select>
                 </div>
                 <!-- <div class="form-group my-4">
