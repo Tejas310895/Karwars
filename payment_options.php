@@ -92,11 +92,11 @@ $customer_id = $_COOKIE['user'];
                     $today = date("Y-m-d");
                     $today_nght = date("H:i");
 
-                    $get_today_order = "SELECT DISTINCT invoice_no FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed')";
+                    $get_today_order = "SELECT * FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed') group by invoice_no";
                     $run_today_order = mysqli_query($con,$get_today_order);
                     $count_today_order = mysqli_num_rows($run_today_order);
 
-                    if($count_today_order<=15 && $today_nght<='18:00'){
+                    if($count_today_order<=15 && $today_nght<='10:00'){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
                         echo  "<option value=".date('Y-m-d', strtotime('+0 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+0 day', strtotime($this_day)))."</option>";
