@@ -129,7 +129,7 @@ if(isset($_POST['show'])){
             $due_amount = $row_invoice['due_amount'];
             $client_id = $row_invoice['client_id'];
 
-            $pro_price = $due_amount/$qty;
+            $unit_price = $due_amount/$qty;
 
             $get_customer = "select * from customers where customer_id='$customer_id'";
 
@@ -184,8 +184,7 @@ if(isset($_POST['show'])){
         <td class='text-center'>$Contact</td>
         <td class='text-center'>$address, $phase, $landmark, $city</td>
         <td class='text-center'>$pro_name-$pro_desc</td>
-        <td class='text-center'>$pro_price</td>
-        <td class='text-center'>$ven_price</td>
+        <td class='text-center'>$unit_price</td>
         <td class='text-center'>$qty</td>
         <td class='text-center'>$due_amount</td>
     </tr>
