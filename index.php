@@ -242,12 +242,12 @@
     <!-- banner display -->
 
     <!-- season banner -->
-    <div class="container-fluid px-0">
+    <!-- <div class="container-fluid px-0">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/pre_monsoon_site1Artboard_60_2x-100_1__nKU3uasfg.jpg" alt="" class="img-fluid mx-0">
     </div>
     <div class="container-fluid px-0 mb-2">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/buy_get_1Artboard_58_2x-100_bENp0CJNI.jpg" alt="" class="img-fluid mx-0">
-    </div>
+    </div> -->
     <!-- season banner -->
 
     <!-- <div class="swiper-container">
@@ -333,7 +333,7 @@
 <!-- product swipe -->
 
 <!-- sale @ -->
-<div class="container-fluid mb-3 px-3">
+<!-- <div class="container-fluid mb-3 px-3">
     <fieldset class="p-2" style="border: 3px solid #4da3ff;">
         <legend class="text-center text-white" style="font-family:jost;width:60%;background-color: #4da3ff;border-radius:10px;">Dhamaka Deals @</legend>
         <ul class="nav nav-pills nav-fill justify-content-center">
@@ -348,7 +348,7 @@
             </li>
         </ul>
     </fieldset>
-</div>
+</div> -->
 <!-- sale @ -->
 
 <!-- floatnav -->
