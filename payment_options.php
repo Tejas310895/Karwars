@@ -82,9 +82,12 @@ $customer_id = $_COOKIE['user'];
 
                     </select>
                 </div>
-                <h5 class="add_head">Delivery Schedule</h5>
+                <h5 class="add_head">Delivery Date <br>
+                <small class="text-center">(Date when you will get your delivery)</small>
+                </h5>
                 <div class="form-group">
-                    <select class="custom-select select_address" name="schedule_date">
+                    <select class="custom-select select_address" name="schedule_date" required>
+                    <option value="" selected disabled hidden>Select Delivery Date</option>
                     <?php
         
                     date_default_timezone_set('Asia/Kolkata');
