@@ -284,6 +284,8 @@
             $order_del_date = $row_order_pro['del_date'];
 
             $order_date = $row_order_pro['order_date'];
+            
+            $order_schedule = $row_order_pro['order_schedule'];
 
             $order_status = $row_order_pro['order_status'];
 
@@ -320,16 +322,17 @@
             <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body bg-white py-1">
                     <div class="card mb-2" style="max-width: 100%;">
-                            <div class="card-header">
+                            <div class="card-header py-1">
                                 <div class="row">
-                                    <div class="col-6"><h5 class="order_id">ID - <?php echo $invoice_id; ?></h5></div>
-                                    <div class="col-6"><h5 class="order_status text-right"><?php echo $order_status; ?></h5></div>
+                                    <h4 class="mb-1 order_status <?php if($order_status==='Delivered' || $order_status==='Cancelled'){echo 'd-none';};?>">Arriving by <?php echo date('d-M',strtotime($order_schedule)); ?></h4>
+                                    <div class="col-8 px-0"><h5 class="order_id mb-0"> ID - <?php echo $invoice_id; ?></h5></div>
+                                    <div class="col-4 px-0"><h5 class="order_status text-right mb-0"> <?php echo $order_status; ?></h5></div>
                                 </div>
                             </div>
                             <div class="card-body py-1">
                                 <div class="row">
                                     <div class="col-9">
-                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items <?php echo $order_status; ?></h5>
+                                        <h5 class="card-title mb-0"><?php echo $row_order_count; ?> Items</h5>
                                         <h4 class="card-title mb-0 <?php if($order_sum>=1){echo 'show';}else{echo 'd-none';}?>">₹ <?php echo  $order_sum-$discount_amount; ?><?php if($del_charges>0){echo "+".$del_charges;}?></h4>
                                         <p class="card-text mb-0  <?php if($txn_status==='TXN_SUCCESS'){echo 'text-success';}else{echo 'text-danger'; } ?>" style="font-size:0.7rem;font-weight:bold;">
                                         <?php 
