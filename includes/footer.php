@@ -51,6 +51,12 @@ window.addEventListener('resize', function() {
 });
 </script>
 <script>
+    window.onload = function() {
+        // similar behavior as clicking on a link
+        window.location = "shop_close";
+    }
+</script>
+<script>
 // Add event listener offline to detect network loss.
 window.addEventListener("offline", function(e) {
     showPopForOfflineConnection();
