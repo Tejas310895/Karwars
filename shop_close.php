@@ -6,10 +6,9 @@
                 <br> <br>
                 <h1 class="text-center" style="font-family:Fredoka One;color:red;">Sorry!</h1>
                 <h6 class="text-center" style="font-family:Josefin Sans;">(Our Deliveries are closed)</h6><br>
-                <h5 class="text-center" style="font-family:Josefin Sans;">Due to rapid increase of covid-19 cases in karwar our operations are been affected, So till the operations are back to the root the deliveries will be closed</h5>
+                <h5 class="text-center" style="font-family:Josefin Sans;">To cope up with covid-19 regulations and demand we are improving our delivery services to serve you faster and better. We will be back in next 72 hours to accept orders</h5>
                 <br>
-                <h5 class="text-center" style="font-family:Josefin Sans;">We will start our services shortly</h5>
-                <h2 class="text-center" style="font-family:Josefin Sans;color:green;">Stay Home | Stay safe</h2>
+                <h3 class="text-center" style="font-family:Josefin Sans;color:green;">Stay Home | Stay safe</h3>
            </div>
        </div>
    </div> 
