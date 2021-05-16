@@ -167,7 +167,7 @@
     <div class="row">
         <div class="col-12">
             <div class="alert alert-warning alert-dismissible fade show text-center text-uppercase" role="alert">
-                <strong>We are open for delivery ORDER NOW</strong>
+                <strong>There may be delay in orders delivery due to the effect of cyclone.</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
