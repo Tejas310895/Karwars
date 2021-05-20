@@ -166,16 +166,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="alert alert-warning alert-dismissible fade show text-center text-uppercase" role="alert">
-                <strong>There may be delay in orders delivery due to the effect of cyclone.</strong>
+            <div class="alert alert-success alert-dismissible fade show border text-center border-0" role="alert">
+                    Due to the restrictions(due to covid) for entry in most of the areas in sadashivgadh orders will not be accepted in Sadashivgadh.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="alert alert-success border text-center border-0" role="alert">
-                Based on the latest government guidelines, only essential items will be delivered and there may be delay in deliveries, we appreciate your patience during these difficult times as we will try to serve you better.
             </div>
         </div>
     </div>
@@ -186,29 +181,29 @@
     </div>
 
     <!-- Offer Zone -->
-        <div class="container-fluid my-2 py-2 offer_container">
+        <!-- <div class="container-fluid my-2 py-2 offer_container">
             <div class="swiper-container">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper"> -->
                     <?php 
                     
-                    $get_per_off = "select * from slider where image_type='promo_images' LIMIT 7";
-                    $run_per_off = mysqli_query($con,$get_per_off);
-                    while($row_per_off = mysqli_fetch_array($run_per_off)){
+                    // $get_per_off = "select * from slider where image_type='promo_images' LIMIT 7";
+                    // $run_per_off = mysqli_query($con,$get_per_off);
+                    // while($row_per_off = mysqli_fetch_array($run_per_off)){
 
-                        $slide_name = $row_per_off['slide_name'];
-                        $slide_image = $row_per_off['slide_image'];
-                        $slide_url = $row_per_off['slide_url'];
+                    //     $slide_name = $row_per_off['slide_name'];
+                    //     $slide_image = $row_per_off['slide_image'];
+                    //     $slide_url = $row_per_off['slide_url'];
 
                     ?>
-                    <div class='swiper-slide'>
-                        <a href="<?php echo $slide_url; ?>">
-                            <img class="card-img-top per_off_img" src="<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>">
+                    <!-- <div class='swiper-slide'>
+                        <a href="<?php //echo $slide_url; ?>">
+                            <img class="card-img-top per_off_img" src="<?php //echo $slide_image; ?>" alt="<?php //echo $slide_name; ?>">
                         </a>
-                    </div>
-                    <?php } ?>
-                </div>
+                    </div> -->
+                    <?php //} ?>
+                <!-- </div> -->
                 <!-- <div class="swiper-pagination"></div> -->
-            </div>
+            <!-- </div> -->
             <!-- <div class="row pl-1 text-center">
                 <a href="shop_offer?offer_zone=10" class="btn offer_box">
                     <h6 class="text-light pt-2">Below-10%</h6>
@@ -220,16 +215,22 @@
                     <h6 class="text-light pt-2">30%-Above</h6>
                 </a>
             </div> -->
-        </div>
+        <!-- </div> -->
     <!-- Offer Zone -->
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
+    <div class="container-fluid p-2">
+        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_64_2x-100_nVhmDvMV8.jpg" alt="" class="img-fluid mx-0 rounded">
+    </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
     </div>
     <!-- stay safe -->
-    <div class="container-fluid">
+    <div class="container-fluid p-2">
+        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_63_2x-100_9y0arlCrX.jpg" alt="" class="img-fluid mx-0 rounded">
+    </div>
+    <!-- <div class="container-fluid">
         <div class="row">
             <div class="col-6 px-0">
                     <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_53_2x-50_QdGpQJwFy.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
@@ -238,7 +239,7 @@
                     <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_54_2x-50_pDIRq4GgTi.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- banner display -->
 
     <!-- season banner -->
