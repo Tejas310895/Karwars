@@ -167,7 +167,7 @@
     <div class="row">
         <div class="col-12">
             <div class="alert alert-success alert-dismissible fade show border text-center border-0" role="alert">
-                    Due to the restrictions(due to covid) for entry in most of the areas in sadashivgadh orders will not be accepted in Sadashivgadh.
+                    Due to the restrictions(due to covid) for entry in most of the areas in sadashivgadh orders will not be accepted from Sadashivgadh.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -220,7 +220,7 @@
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_64_2x-100_nVhmDvMV8.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_64_2x-100_1__KX-pUPaC-u.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
