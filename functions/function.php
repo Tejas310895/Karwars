@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect('localhost','u464233779_karwars','Akshay@11','u464233779_karwars');
+$db = mysqli_connect('localhost','u464233779_karwars','Akshay@11','u464233779_karwars');
 /// begin getRealIpUser functions ///
 
 function getRealIpUser(){
