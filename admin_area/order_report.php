@@ -53,6 +53,7 @@
             <th>ADDRESS</th>
             <th>ITEMS</th>
             <th>UNIT COST</th>
+            <th>Margin(%)</th>
             <th>QTY</th>
             <th>TOTAL</th>
 		</tr>

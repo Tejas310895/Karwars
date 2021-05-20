@@ -17,7 +17,7 @@
 
                         <?php 
                         
-                        if(!isset($_SESSION['customer_email'])){
+                        if(!isset($_COOKIE['user'])){
 
                             echo "
                             <a href='checkout.php'>
@@ -31,15 +31,13 @@
 
                         }else{
 
-                            $c_email = $_SESSION['customer_email'];
+                            $c_id = $_COOKIE['user'];
 
-                            $get_name = "select * from customers where customer_email='$c_email'";
+                            $get_name = "select * from customers where customer_id='$c_id'";
 
                             $run_name = mysqli_query($con,$get_name);
 
                             $row_name = mysqli_fetch_array($run_name);
-
-                            $c_id = $row_name['customer_id'];
 
                             $c_name = $row_name['customer_name'];
 
