@@ -6,7 +6,7 @@
                 <br> <br>
                 <h1 class="text-center" style="font-family:Fredoka One;color:red;">Sorry!</h1>
                 <h6 class="text-center" style="font-family:Josefin Sans;">(Our Deliveries are closed)</h6><br>
-                <h5 class="text-center" style="font-family:Josefin Sans;">To cope up with covid-19 regulations and demand we are improving our delivery services to serve you faster and better. We will be back by 16th May (Sunday) to accept orders</h5>
+                <h5 class="text-center" style="font-family:Josefin Sans;">Due to the new guidelines by the Authorities the deliveries will not be allowed till 24th May, So we will be unable to accept the orders. Sorry for the inconvenience caused</h5>
                 <br>
                 <h3 class="text-center" style="font-family:Josefin Sans;color:green;">Stay Home | Stay safe</h3>
            </div>
