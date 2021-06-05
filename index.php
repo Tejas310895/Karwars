@@ -220,7 +220,7 @@
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_64_2x-100_1__KX-pUPaC-u.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/VEGETABLES_AVAArtboard_64_4x-100_1__xDb05a2as.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
