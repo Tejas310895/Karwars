@@ -220,7 +220,7 @@
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/VEGETABLES_AVAArtboard_64_4x-100_1__xDb05a2as.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_68_2x-100_hlvt8SPS5.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
@@ -228,7 +228,11 @@
     </div>
     <!-- stay safe -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/banners_may_20Artboard_63_2x-100_9y0arlCrX.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_67_2x-100_YCo29417_.jpg" alt="" class="img-fluid mx-0 rounded">
+    </div>
+
+    <div class="container-fluid p-2">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_69_2x-100_khxYsQhlh.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- <div class="container-fluid">
         <div class="row">
@@ -509,6 +513,8 @@
 
             $cat_img = $row_cat['cat_image'];
 
+            
+
         
         ?>
                         <div class="col-4 px-0">
@@ -524,62 +530,67 @@
     </div>    
 
 <!-- Product Categories -->
-    <div class="container-fluid mt-3">
+<!-- believe in us -->
+    <div class="container-fluid p-2">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_70_2x-100_zIDxdJ4Xc.jpg" alt="" class="img-fluid mx-0 rounded">
+    </div>
+<!-- believe in us -->
+    <!-- <div class="container-fluid mt-3">
         <div class="row">
             <div class="<?php 
                 
-                if(!isset($_COOKIE['user'])){
-                    echo "col-6 px-0";
-                }else{
-                    echo "col-6 px-0";
-                }
+                // if(!isset($_COOKIE['user'])){
+                //     echo "col-6 px-0";
+                // }else{
+                //     echo "col-6 px-0";
+                // }
                 ?> ml-2" style="background-color:#29ABE2;border-radius:10px 10px 0px 0px;">
                 <h5 class="text-center pt-2 text-white" style="font-family:Josefin Sans;">
                 <?php 
                 
-                if(!isset($_COOKIE['user'])){
-                    echo "You May Like";
-                }else{
-                    echo "Recently Ordered";
-                }
+                // if(!isset($_COOKIE['user'])){
+                //     echo "You May Like";
+                // }else{
+                //     echo "Recently Ordered";
+                // }
                 ?>
                 </h5>
             </div>
         </div>
-    </div>
+    </div> -->
    <!-- Offer Zone -->
-        <div class="container-fluid mb-2 py-2 mx-2 offer_container" style="background-color:#29ABE2;">
+        <!-- <div class="container-fluid mb-2 py-2 mx-2 offer_container" style="background-color:#29ABE2;">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <?php 
                     
-                    if(!isset($_COOKIE['user'])){
+                    // if(!isset($_COOKIE['user'])){
 
-                    ?>
-                    <?php 
+                    // ?>
+                    // <?php 
                     
-                    $get_promo_pro = "select * from promo_products";
-                    $run_promo_pro = mysqli_query($con,$get_promo_pro);
-                    while($row_promo_pro=mysqli_fetch_array($run_promo_pro)){
-                        $store_id = $row_promo_pro['store_id'];
+                    // $get_promo_pro = "select * from promo_products";
+                    // $run_promo_pro = mysqli_query($con,$get_promo_pro);
+                    // while($row_promo_pro=mysqli_fetch_array($run_promo_pro)){
+                    //     $store_id = $row_promo_pro['store_id'];
 
-                        $get_store_pro = "select * from store where store_id='$store_id'";
-                        $run_store_pro = mysqli_query($con,$get_store_pro);
-                        $row_store_pro = mysqli_fetch_array($run_store_pro);
+                    //     $get_store_pro = "select * from store where store_id='$store_id'";
+                    //     $run_store_pro = mysqli_query($con,$get_store_pro);
+                    //     $row_store_pro = mysqli_fetch_array($run_store_pro);
 
-                        $store_img = $row_store_pro['store_img'];
-                        $store_title = $row_store_pro['store_title'];
+                    //     $store_img = $row_store_pro['store_img'];
+                    //     $store_title = $row_store_pro['store_title'];
                     ?>
                     <div class='swiper-slide'>
-                        <a href="shop?store_id=<?php echo $store_id; ?>">
+                        <a href="shop?store_id=<?php //echo $store_id; ?>">
                             <div class="card" style="width: 6rem;">
-                                <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $store_img; ?>" alt="<?php echo $store_title; ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $store_title; ?></h6>
+                                <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $store_img; ?>" alt="<?php //echo $store_title; ?>" style="height:80px;">
+                                <h6 class="card-title mb-1" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php //echo $store_title; ?></h6>
                             </div>
                         </a>
                     </div>
-                    <?php } ?>
-                    <?php }else{ ?>
+                    <?php //} ?>
+                    <?php //}else{ ?>
                         <?php 
 
                         // $c_email = $_COOKIE['user'];
@@ -590,42 +601,42 @@
 
                         // $row_name = mysqli_fetch_array($run_name);
 
-                        $cpromo_id = $_COOKIE['user'];
+                        // $cpromo_id = $_COOKIE['user'];
                             
-                        $get_cpromo_pro = "select * from customer_orders where customer_id='$cpromo_id' group by pro_id order by order_id limit 7";
-                        $run_cpromo_pro = mysqli_query($con,$get_cpromo_pro);
-                        while($row_cpromo_pro = mysqli_fetch_array($run_cpromo_pro)){
+                        // $get_cpromo_pro = "select * from customer_orders where customer_id='$cpromo_id' group by pro_id order by order_id limit 7";
+                        // $run_cpromo_pro = mysqli_query($con,$get_cpromo_pro);
+                        // while($row_cpromo_pro = mysqli_fetch_array($run_cpromo_pro)){
 
-                            $cpromo_pro_id = $row_cpromo_pro['pro_id'];
+                        //     $cpromo_pro_id = $row_cpromo_pro['pro_id'];
 
-                            $get_cpromo_store_id = "select * from products where product_id='$cpromo_pro_id'";
-                            $run_cpromo_store_id = mysqli_query($con,$get_cpromo_store_id);
-                            $row_cpromo_store_id = mysqli_fetch_array($run_cpromo_store_id);
+                        //     $get_cpromo_store_id = "select * from products where product_id='$cpromo_pro_id'";
+                        //     $run_cpromo_store_id = mysqli_query($con,$get_cpromo_store_id);
+                        //     $row_cpromo_store_id = mysqli_fetch_array($run_cpromo_store_id);
 
-                            $cpromo_store_id = $row_cpromo_store_id['store_id'];
-                            $cpromo_product_id = $row_cpromo_store_id['product_id'];
-                            $cpromo_product_title = $row_cpromo_store_id['product_title'];
-                            $cpromo_product_img1 = $row_cpromo_store_id['product_img1'];
-                            $cpromo_product_desc = $row_cpromo_store_id['product_desc'];
+                        //     $cpromo_store_id = $row_cpromo_store_id['store_id'];
+                        //     $cpromo_product_id = $row_cpromo_store_id['product_id'];
+                        //     $cpromo_product_title = $row_cpromo_store_id['product_title'];
+                        //     $cpromo_product_img1 = $row_cpromo_store_id['product_img1'];
+                        //     $cpromo_product_desc = $row_cpromo_store_id['product_desc'];
 
                         
                         ?>
                     <div class='swiper-slide'>
-                        <a href="shop?store_id=<?php echo $cpromo_store_id; ?>#<?php echo $cpromo_product_id; ?>">
+                        <a href="shop?store_id=<?php //echo $cpromo_store_id; ?>#<?php //echo $cpromo_product_id; ?>">
                             <div class="card" style="width: 6rem;">
-                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php echo $cpromo_product_img1; ?>" alt="<?php echo $cpromo_product_title; ?>" style="height:80px;">
+                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $cpromo_product_img1; ?>" alt="<?php //echo $cpromo_product_title; ?>" style="height:80px;">
                             <div class="card-body p-1">
                             <h6 class="card-title mb-1 mx-0 text-center" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
                             </div>
                             </div>
                         </a>
                     </div>
-                    <?php } ?>
-                    <?php } ?>
+                    <?php //} ?>
+                    <?php //} ?>
                 </div>
-                <!-- <div class="swiper-pagination"></div> -->
+                <div class="swiper-pagination"></div> 
             </div>
-        </div>
+        </div> -->
     <!-- Offer Zone -->
     
     <!-- offer -->
