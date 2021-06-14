@@ -75,7 +75,7 @@ if(isset($_POST['view'])){
 
     echo "
     <tr>
-        <td class='text-center'> $counter </td>
+        <td class='text-center'> $pro_id </td>
         <td class='text-center'>$client</td>
         <td class='text-center'>$pro_title</td>
         <td class='text-center'>$pro_desc</td>
@@ -176,7 +176,7 @@ if(isset($_POST['show'])){
 
     echo "
     <tr>
-        <td class='text-center'>$product_id</td>
+        <td class='text-center'>$counter</td>
         <td class='text-center'>$client</td>
         <td class='text-center'>$status</td>
         <td class='text-center'>$invoice_no</td>
