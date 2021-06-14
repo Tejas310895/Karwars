@@ -157,6 +157,7 @@ if(isset($_POST['show'])){
 
             $row_pro = mysqli_fetch_array($run_pro);
 
+            $product_id = $row_pro['product_id'];
             $pro_name = $row_pro['product_title'];
             $pro_desc = $row_pro['product_desc'];
             $pro_price = $row_pro['product_price'];
@@ -175,7 +176,7 @@ if(isset($_POST['show'])){
 
     echo "
     <tr>
-        <td class='text-center'>$counter</td>
+        <td class='text-center'>$product_id</td>
         <td class='text-center'>$client</td>
         <td class='text-center'>$status</td>
         <td class='text-center'>$invoice_no</td>
