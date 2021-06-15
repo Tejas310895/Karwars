@@ -5,7 +5,6 @@
 
 ?>
 
-
 <!-- header -->
     <div class="container-fluid geolocation fixed-top pt-0 mt-0 px-0 mx-0 bg-white">
         <div class="row">
@@ -220,7 +219,7 @@
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_68_2x-100_hlvt8SPS5.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/secondayArtboard_9_4x-100_EOnR_D9i0.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
@@ -513,12 +512,49 @@
 
             $cat_img = $row_cat['cat_image'];
 
-            
+            $get_store_of = "select * from store where cat_id=$cat_id";
+            $run_store_of = mysqli_query($con,$get_store_of);
+            $cat_dis_res = 0;
+            $avg_count = 0;
+            while($row_store_of=mysqli_fetch_array($run_store_of)){
+
+                $store_id_of = $row_store_of['store_id'];
+
+                $get_pro_dis = "select (1-(product_price/price_display)) as cat_dis from products where store_id=$store_id_of order by cat_dis desc limit 1";
+                $run_pro_dis = mysqli_query($con,$get_pro_dis);
+                $row_pro_dis = mysqli_fetch_array($run_pro_dis);
+
+                $cat_dis = $row_pro_dis['cat_dis'];
+
+                if(is_null($cat_dis) || $cat_dis<=0){
+                    $cat_dis_res = 0;
+                    $avg_count = 0;
+                }else{
+                    $cat_dis_res += $cat_dis;
+                    $avg_count = ++$avg_count;
+                }
+
+            }
 
         
         ?>
                         <div class="col-4 px-0">
                             <a href="store.php?cat=<?php echo $cat_id;?>">
+                            <?php 
+                                        
+                                        if($cat_dis_res<=0){
+
+                                        }else{
+                                            $display_badge = round(($cat_dis_res/$avg_count)*100);
+                                        echo "
+                                <span class='badge badge-danger off_badge'>
+                                    <h6 class='mb-0 pt-1'>
+                                        $display_badge%
+                                    </h6>
+                                    <h6 style='font-size:.6rem;' class='mb-4'>OFF</h6>
+                                </span> 
+                                
+                                ";} ?>
                                 <img src="<?php echo $cat_img; ?>" class="img-thumbnail bg-transparent border-0" alt="..." >
                             </a>
                         </div>
