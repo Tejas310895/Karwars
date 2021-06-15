@@ -200,6 +200,25 @@ span.icon-name{
     padding-bottom: 3px;
 }
 
+
+.off_badge{
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    display: block;
+    border-radius: 1rem;
+    border: none;
+    color:#fff;
+    top: 4%;
+    right: 8%;
+    font-size: .85rem;
+    padding-left: 1px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+}
+
 /* floatnav */
 
 /* fixed nav */
@@ -891,6 +910,5 @@ a.offer_box{
   /* toggle */
 
   /* loader */
-
 
   /* loader */
