@@ -227,7 +227,7 @@
     </div>
     <!-- stay safe -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_67_2x-100_YCo29417_.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
 
     <div class="container-fluid p-2">
