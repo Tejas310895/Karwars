@@ -219,7 +219,7 @@
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/secondayArtboard_9_4x-100_EOnR_D9i0.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_13_2x-100_Vv43SQfkA.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <!-- stay safe -->
     <div class="container-fluid px-0">
