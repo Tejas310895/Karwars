@@ -116,6 +116,8 @@
                 $c_name = $row_user['customer_name'];
 
                 $c_contact = $row_user['customer_contact'];
+
+                $c_email = $row_user['customer_email'];
                 
                 ?>
                 <h5 class="user_name mt-1"><?php echo $c_name; ?></h5>
