@@ -102,23 +102,23 @@ $customer_id = $_COOKIE['user'];
                     if($count_today_order<=20){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
+                        echo  "<option value=".date('Y-m-d', strtotime('+0 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+0 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+1 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+1 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+2 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+2 day', strtotime($this_day)))."</option>";
-                        echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
                     }elseif($count_today_order>20 && $count_today_order<=40){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
+                        echo  "<option value=".date('Y-m-d', strtotime('+1 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+1 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+2 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+2 day', strtotime($this_day)))."</option>";
-                        echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
                     }elseif($count_today_order>40 && $count_today_order<=75){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
+                        echo  "<option value=".date('Y-m-d', strtotime('+2 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+2 day', strtotime($this_day)))."</option>";
                         echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
-                        echo  "<option value=".date('Y-m-d', strtotime('+4 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+4 day', strtotime($this_day)))."</option>";
                     }elseif($count_today_order>75 && $count_today_order<=100){
                         date_default_timezone_set('Asia/Kolkata');
                         $this_day = date("Y-m-d");
-                        echo  "<option value=".date('Y-m-d', strtotime('+4 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+4 day', strtotime($this_day)))."</option>";
+                        echo  "<option value=".date('Y-m-d', strtotime('+3 day', strtotime($this_day))).">".date('l d-M-Y', strtotime('+3 day', strtotime($this_day)))."</option>";
                     }
                     ?>
                     </select>
