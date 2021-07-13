@@ -15,7 +15,7 @@ $current_year = date("Y");
     // multiple recipients
 // $to  = 'aidan@example.com' . ', '; 
 // $to .= 'wez@example.com';
-$to  = 'aidan@example.com'; 
+$to  = 'tshirsat700@gmail.com'; 
 
 // subject
 $subject = 'Daily Reports';
