@@ -62,6 +62,7 @@ while($row_montly_report=mysqli_fetch_array($run_montly_report)){
 
     $dlc_credits_total = 0;
     $discount_total = 0;
+    $amount_sum = 0;
     while($row_orders_sum=mysqli_fetch_array($run_orders_sum)){
 
         $invoice_no = $row_orders_sum['invoice_no'];
@@ -82,13 +83,14 @@ while($row_montly_report=mysqli_fetch_array($run_montly_report)){
 
         $discount_total += $discounts;
 
+        $get_amount_sum = "SELECT sum(due_amount) as amount_sum from customer_orders where invoice_no='$invoice_no' and order_status='Delivered' and product_status='Deliver'";
+        $run_amount_sum = mysqli_query($con,$get_amount_sum);
+        $row_amount_sum = mysqli_fetch_array($run_amount_sum);
+    
+        $amount_unit = $row_amount_sum['amount_sum'];
+        $amount_sum += $amount_unit;
     }
 
-    $get_amount_sum = "SELECT sum(due_amount) as amount_sum from customer_orders where CAST(order_date as DATE)='$str_date' and order_status='Delivered' and product_status='Deliver' group by invoice_no";
-    $run_amount_sum = mysqli_query($con,$get_amount_sum);
-    $row_amount_sum = mysqli_fetch_array($run_amount_sum);
-
-    $amount_sum = $row_amount_sum['amount_sum'];
     $margin = $amount_sum*0.07;
     $dlc_debits = $orders_sum*40;
     $profits = ($margin-$dlc_debits-$discount_total)+$dlc_credits_total;
