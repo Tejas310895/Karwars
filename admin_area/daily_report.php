@@ -52,6 +52,7 @@ $dlc_debits_gt = 0;
 $discounts_gt = 0;
 while($row_montly_report=mysqli_fetch_array($run_montly_report)){
     $report_date = $row_montly_report['order_date'];
+    $day_format = date('d-M',strtotime($report_date));
 
     $str_date = date('Y-m-d',strtotime($report_date));
 
@@ -101,7 +102,7 @@ while($row_montly_report=mysqli_fetch_array($run_montly_report)){
 $message .="
 
 <tr>
-<td>date('d-M',strtotime($report_date)); ?></td>
+<td>$day_format</td>
 <td>$orders_sum</td>
 <td>$amount_sum</td>
 <td>$margin</td>
