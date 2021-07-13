@@ -42,7 +42,7 @@ $message = "
     </thead>
     <tbody>";
 
-$get_montly_report = "SELECT * FROM customer_orders WHERE MONTH(order_date) = 6 AND YEAR(order_date) = $current_year AND order_status='Delivered' group by DAY(order_date)";
+$get_montly_report = "SELECT * FROM customer_orders WHERE MONTH(order_date) = $current_month AND YEAR(order_date) = $current_year AND order_status='Delivered' group by DAY(order_date)";
 $run_montly_report = mysqli_query($con,$get_montly_report);
 $orders_gt = 0;
 $amount_gt = 0;
