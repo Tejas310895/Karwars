@@ -18,7 +18,7 @@ $to .= 'personalphone18@gmail.com';
 // $to  = 'tshirsat700@gmail.com'; 
 
 // subject
-$subject = 'Daily Reports';
+$subject = 'Karwars Grocery Daily Reports';
 
 // message
 $message = "
