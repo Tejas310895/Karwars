@@ -13,9 +13,9 @@ $current_year = date("Y");
 <?php
 
     // multiple recipients
-// $to  = 'aidan@example.com' . ', '; 
-// $to .= 'wez@example.com';
-$to  = 'tshirsat700@gmail.com'; 
+$to  = 'tshirsat700@gmail.com' . ', '; 
+$to .= 'personalphone18@gmail.com';
+// $to  = 'tshirsat700@gmail.com'; 
 
 // subject
 $subject = 'Daily Reports';
@@ -144,7 +144,7 @@ $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 // Additional headers
 $headers .= 'To: Tejas <tshirsat700@gmail.com>' . "\r\n";
 $headers .= 'From: Tejas <tshirsat700@gmail.com>' . "\r\n";
-// $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+$headers .= 'Cc: shirsatbp@gmail.com' . "\r\n";
 // $headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
 // Mail it
