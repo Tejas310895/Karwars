@@ -55,15 +55,11 @@ if(isset($_GET['print'])){
 
     $customer_city = $row_add['customer_city'];
 
-    $get_min = "select * from admins";
+	$get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
+	$run_del_charges = mysqli_query($con,$get_del_charges);
+	$row_del_charges = mysqli_fetch_array($run_del_charges);
 
-    $run_min = mysqli_query($con,$get_min);
-
-    $row_min = mysqli_fetch_array($run_min);
-
-    $min_price = $row_min['min_order'];
-
-    $del_charges = $row_min['del_charges'];
+	$del_charges = $row_del_charges['del_charges'];
 
     $get_txn = "select * from paytm where ORDERID='$invoice_id'";
 
