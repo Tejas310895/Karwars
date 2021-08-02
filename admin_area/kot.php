@@ -8,6 +8,7 @@ if(isset($_GET['print'])){
     $invoice_id = $_GET['print'];
 
     $get_orders = "select * from customer_orders where invoice_no='$invoice_id'";
+    
 
     $run_orders = mysqli_query($con,$get_orders);
 
