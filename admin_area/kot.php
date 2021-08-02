@@ -118,7 +118,7 @@ if(isset($_GET['print'])){
 
 
 
-                $get_vendor = "select distinct(client_id) from customer_orders";
+                $get_vendor = "select distinct(client_id) from customer_orders where invoice_no='$invoice_id'";
                 $run_vendor = mysqli_query($con,$get_vendor);
                 while ($row_vendor=mysqli_fetch_array($run_vendor)) {
 
@@ -128,6 +128,14 @@ if(isset($_GET['print'])){
                 $run_client = mysqli_query($con,$get_client);
                 $row_client = mysqli_fetch_array($run_client);
                 $vendor_name = $row_client['client_shop'];
+
+                echo "
+                <tr>
+                <td colspan='4'>
+                <h5 class='text-center'>$vendor_name</h5>
+                </td>
+                </tr>
+                ";
 
                 $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver' and client_id='$vendor_id'";
 
@@ -185,14 +193,6 @@ if(isset($_GET['print'])){
 					// $total += $sub_total;
 
 					$counter = ++$counter;
-
-                    echo "
-                    <tr>
-                    <td colspan='4'>
-                    <h5 class='text-center'>$vendor_name</h5>
-                    </td>
-                    </tr>
-                    ";
 
 					if($product_status==='Deliver'){
 
