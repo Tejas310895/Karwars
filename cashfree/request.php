@@ -88,8 +88,8 @@ $orderNote = "Order Payment";
 $customerName = $c_name;
 $customerPhone = $c_contact;
 $customerEmail = $c_email;
-$returnUrl = "http://karwars.in/cashfree/response.php";
-$notifyUrl = "http://karwars.in/cashfree/response.php";
+$returnUrl = "https://karwars.in/cashfree/response.php";
+$notifyUrl = "https://karwars.in/cashfree/response.php";
 
 
 ?>
