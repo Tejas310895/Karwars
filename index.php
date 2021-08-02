@@ -176,7 +176,7 @@
 </div> -->
 <!-- product swipe -->
     <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_ord_amtArtboard_1_2x-100_YjDvAtd9z.jpg" alt="" class="img-fluid mx-0">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_ord_amtArtboard_1_2x-100_YjDvAtd9z.jpg" alt="" class="img-fluid mx-0">
     </div>
 
     <!-- Offer Zone -->
@@ -218,21 +218,26 @@
     <!-- Offer Zone -->
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
+    <a href="https://karwars.in/shop?store_id=40">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_74_2x-100_W9TLM2pmaA.jpg?updatedAt=1627924915176" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+    <a href="https://karwars.in/shop?store_id=36">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_78_2x-100_t9CKeE1jRr.jpg?updatedAt=1627924918767" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+    <a href="https://karwars.in/shop?store_id=64">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_75_2x-100_ESnwxPKVvW.jpg?updatedAt=1627924916162" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+    <a href="https://karwars.in/shop?store_id=63">
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_13_2x-100_Vv43SQfkA.jpg" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_73_2x-100_RJXJ_sMTbpi.jpg?updatedAt=1627924914381" alt="" class="img-fluid mx-0 rounded">
     </div>
-    <!-- stay safe -->
-    <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
-    </div>
-    <!-- stay safe -->
-    <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
-    </div>
-
-    <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_69_2x-100_khxYsQhlh.jpg" alt="" class="img-fluid mx-0 rounded">
-    </div>
+    </a>
     <!-- <div class="container-fluid">
         <div class="row">
             <div class="col-6 px-0">
@@ -567,9 +572,32 @@
 
 <!-- Product Categories -->
 <!-- believe in us -->
+    <a href="https://karwars.in/shop?store_id=1">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_79_2x-100_YSVV1PQvt_.jpg?updatedAt=1627924914055" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+    <a href="https://karwars.in/store.php?cat=15">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_76_2x-100_bbnNyh3DQ73.jpg?updatedAt=1627924917005" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+    <div class="container-fluid p-2">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
+    </div>
     <div class="container-fluid p-2">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_70_2x-100_zIDxdJ4Xc.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
+    <a href="https://karwars.in/store.php?cat=17">
+        <div class="container-fluid p-2">
+            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_77_2x-100_Mlr9DYxXi8.jpg?updatedAt=1627924917953" alt="" class="img-fluid mx-0 rounded">
+        </div>
+    </a>
+        <!-- stay safe -->
+        <div class="container-fluid px-0">
+        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
+    </div>
+    <!-- stay safe -->
 <!-- believe in us -->
     <!-- <div class="container-fluid mt-3">
         <div class="row">

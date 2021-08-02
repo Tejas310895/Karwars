@@ -79,7 +79,7 @@
 
   <!-- datatables -->
   <link rel='stylesheet' href='https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css'>
-
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
 </head>
 
@@ -511,6 +511,127 @@
                 include("surfing.php");
                 
               }
+
+              if(isset($_GET['view_coupon'])){
+                    
+                include("view_coupon.php");
+                
+              }
+
+              if(isset($_GET['insert_coupon'])){
+                    
+                include("insert_coupon.php");
+                
+              }
+
+              if(isset($_GET['edit_coupon'])){
+                    
+                include("edit_coupon.php");
+                
+              }
+
+              if(isset($_GET['demoorders'])){
+                    
+                include("demoorders.php");
+                
+              }
+
+              
+              if(isset($_GET['purchase_orders'])){
+                    
+                include("purchase_orders.php");
+                
+              }
+
+              if(isset($_GET['insert_purchase_orders'])){
+                    
+                include("insert_purchase_orders.php");
+                
+              }
+
+              
+              if(isset($_GET['del_executive'])){
+                    
+                include("del_executive.php");
+                
+              }
+
+              
+              if(isset($_GET['del_bonus_sheet'])){
+                    
+                include("del_bonus_sheet.php");
+                
+              }
+
+              
+              if(isset($_GET['del_settlement_sheet'])){
+                    
+                include("del_settlement_sheet.php");
+                
+              }
+
+              
+              if(isset($_GET['del_debit_sheet'])){
+                    
+                include("del_debit_sheet.php");
+                
+              }
+
+              
+              if(isset($_GET['del_notice_board'])){
+                    
+                include("del_notice_board.php");
+                
+              }
+
+              if(isset($_GET['register_del'])){
+                    
+                include("register_del.php");
+                
+              }
+
+              if(isset($_GET['del_details'])){
+                    
+                include("del_details.php");
+                
+              }
+
+              if(isset($_GET['del_raise_bonus'])){
+                    
+                include("del_raise_bonus.php");
+                
+              }
+
+              if(isset($_GET['raise_del_credit'])){
+                    
+                include("raise_del_credit.php");
+                
+              }
+
+              if(isset($_GET['del_raise_debit'])){
+                    
+                include("del_raise_debit.php");
+                
+              }
+
+              if(isset($_GET['send_del_notification'])){
+                    
+                include("send_del_notification.php");
+                
+              }
+
+              if(isset($_GET['purchase_invoice_entries'])){
+                    
+                include("purchase_invoice_entries.php");
+                
+              }
+
+              if(isset($_GET['insert_purchase_invoice'])){
+                    
+                include("insert_purchase_invoice.php");
+                
+              }
+
 
             ?>
 

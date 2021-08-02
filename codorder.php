@@ -6,7 +6,7 @@ if(isset($_POST['c_id'])){
 
     $add_id = $_POST['add_id'];
 
-    $schedule_date = $_POST['schedule_date'];
+    // $schedule_date = $_POST['schedule_date'];
 
     //$date = $_POST['date'];
 
@@ -60,7 +60,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $client_id = $row_products['client_id'];
 
         $insert_customer_order = "insert into customer_orders (customer_id,add_id,pro_id,due_amount,vendor_due_amount,invoice_no,qty,order_date,del_date,order_schedule,order_status,product_status,client_id) 
-        values ('$customer_id','$add_id',' $pro_id','$sub_total','$vendor_sub_total','$invoice_no','$pro_qty','$today','$today','$schedule_date','$status','Deliver','$client_id')";
+        values ('$customer_id','$add_id',' $pro_id','$sub_total','$vendor_sub_total','$invoice_no','$pro_qty','$today','$today','$today','$status','Deliver','$client_id')";
 
         $run_customer_order = mysqli_query($con,$insert_customer_order);
 
@@ -76,19 +76,64 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 }
     if($run_customer_order){
 
+        if(isset($_POST['coupon_id'])){
+        $coupon_id = $_POST['coupon_id'];
+
         $get_dis_total = "select sum(due_amount) as dis_total from customer_orders WHERE invoice_no='$invoice_no'";
         $run_dis_total = mysqli_query($con,$get_dis_total);
         $row_dis_total = mysqli_fetch_array($run_dis_total);
 
         $dis_total = $row_dis_total['dis_total'];
 
-        $get_user_order_count = "SELECT customer_id,invoice_no FROM customer_orders WHERE customer_id='$customer_id' GROUP BY customer_id,invoice_no";
-        $run_user_orders_count = mysqli_query($con,$get_user_order_count);
-        $user_orders_count = mysqli_num_rows($run_user_orders_count);
+        $get_coupon_det = "select * from coupons where coupon_id='$coupon_id'";
+        $run_coupon_det = mysqli_query($con,$get_coupon_det);
+        $row_coupon_det = mysqli_fetch_array($run_coupon_det);
 
-        if($user_orders_count==1 && $dis_total>499){
-         $insert_discount = "insert into customer_discounts (invoice_no,discount_type,discount_amount,discount_date) values ('$invoice_no','First Order Discount','25','$today')";
+        $dis_coupon_code = $row_coupon_det['coupon_code'];
+        $dis_coupon_type = $row_coupon_det['coupon_type'];
+
+        $get_coupon_dis_req = "select * from coupon_controls where coupon_code='$dis_coupon_code'";
+        $run_coupon_dis_req = mysqli_query($con,$get_coupon_dis_req);
+        $row_coupon_dis_req = mysqli_fetch_array($run_coupon_dis_req);
+
+        $dis_coupon_unit = $row_coupon_dis_req['coupon_unit'];
+        $dis_coupon_use_id = $row_coupon_dis_req['coupon_use_id'];
+        $dis_upto_limit = $row_coupon_dis_req['upto_limit'];
+
+        if($dis_coupon_type==='percent'){
+            $percent_off = $dis_total * ($dis_coupon_unit/100);
+            if($percent_off>$dis_upto_limit){
+                $dis_amt = $dis_upto_limit;
+            }else{
+                $dis_amt = $percent_off;
+            }
+            $discount_type = 'amount';
+        }elseif ($dis_coupon_type==='amount') {
+            $dis_amt = $dis_coupon_unit;
+            $discount_type = 'amount';
+        }elseif ($dis_coupon_type==='product') {
+            $dis_amt = $dis_coupon_use_id;
+            $discount_type = 'product';
+        }
+
+         $insert_discount = "insert into customer_discounts (invoice_no,
+                                                            customer_id,
+                                                            coupon_code,
+                                                            discount_type,
+                                                            discount_amount,
+                                                            discount_date) 
+                                                            values 
+                                                            ('$invoice_no',
+                                                            '$customer_id',
+                                                            '$dis_coupon_code',
+                                                            '$discount_type',
+                                                            '$dis_amt',
+                                                            '$today')";
          $run_insert_discount = mysqli_query($con,$insert_discount);
+
+         if($run_insert_discount){
+            setcookie("promo", "", time() - 1);
+         }
         }
         
     }

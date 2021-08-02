@@ -114,4 +114,39 @@
          if ( window.history.replaceState ) {
             window.history.replaceState( null, null, window.location.href );
           }
+
+          $("input[name='coupon_code']").change(function (e) { 
+              e.preventDefault();
+                if ($(this).is(":checked")) {
+                    coupon_id = $(this).val();
+                    item_total = $('#item_total_price').val();
+                    $.ajax({
+                        type: "post",
+                        url: "./ajax_coupon.php",
+                        data: {coupon_id:coupon_id,item_total:item_total},
+                        success: function (response) {
+                            alert(response);
+                            location.reload(false);
+                        }
+                    });
+                }              
+          });
+
+          $("#coupon_del").click(function (e) { 
+              e.preventDefault();
+              $.ajax({
+                type: "post",
+                url: "./ajax_coupon.php",
+                data: {coupon_delete:'coupon_delete'},
+                success: function (response) {
+                    alert(response);
+                    location.reload(false);
+                }
+            });
+          });
+
+          $("#order_submit").submit(function () { 
+              $('#order_submit_btn').addClass('d-none');
+              $('#order_submit_loading').removeClass('d-none');
+          });
     });

@@ -7,6 +7,8 @@ if(isset($_GET['print'])){
 
     $invoice_id = $_GET['print'];
 
+	$bags = $_GET['bags_no'];
+
     $get_orders = "select * from customer_orders where invoice_no='$invoice_id'";
 
     $run_orders = mysqli_query($con,$get_orders);
@@ -97,6 +99,8 @@ if(isset($_GET['print'])){
 			.table-bordered td, .table-bordered th{
 				border:2px solid #000 !important;
 			}
+			.pagebreak { page-break-before: always; }
+                        }
 
 		}
 	</style>
@@ -126,7 +130,7 @@ if(isset($_GET['print'])){
 		<thead>
 		<tr>
 		<th  style="border:3px solid #000;">Order ID</th><th style="border:3px solid #000;"><?php echo $invoice_id; ?></th>
-		<th style="border:3px solid #000;">Payment Mode</th><th style="border:3px solid #000;"><?php if($txn_status==='TXN_SUCCESS'){echo "PREPAID";}else{echo "POSTPAID";} ?></th>
+		<th style="border:3px solid #000;">Payment Mode</th><th style="border:3px solid #000;"><?php if($txn_status==='SUCCESS'){echo "PREPAID";}else{echo "POSTPAID";} ?></th>
 		<th style="border:3px solid #000;">Delivery Slot</th><th style="border:3px solid #000;"><?php echo date("d/M/Y", strtotime($del_date)); ?></th>
 		</tr>
 		</thead>
@@ -333,6 +337,20 @@ if(isset($_GET['print'])){
 				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Follow us on: https://www.facebook.com/karwars.in</h5>
 				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Thank You 😊 Order Again</h5>
 			</div>
+		</div>
+	</div>
+	<div class="pagebreak mx-1">
+		<div class="row ml-1">
+			<?php 
+			
+			for ($i=0; $i < $bags; $i++) { 
+
+			?>
+			<div class="col-2 border ml-1">
+				<h2 class="text-left"><?php echo $i+1; ?></h2>
+				<h4 class="text-left"><?php echo $c_name; ?></h4>
+			</div>
+			<?php } ?>
 		</div>
 	</div>
 </body>

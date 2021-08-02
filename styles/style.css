@@ -5,8 +5,7 @@ body{
     padding-top: 12%;
     padding-bottom: 15%;
     background-color: #fff;
-    overflow-x: hidden;
-    overscroll-behavior: none;
+    overflow-x: hidden !important;
 }
 
 
@@ -438,7 +437,6 @@ a.pro_store{
 
 .pro_cart{
     margin-top: 14%;
-    margin-bottom: 14%;
     overflow-y:auto;
     height:auto;
     max-height:100%;
@@ -511,8 +509,30 @@ a.pro_store{
 }
 
 .bill_head{
-    font-family: Concert One;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-family: 'Josefin Sans';
+}
+
+.total_text {
+    font-size: 1.2rem;
+    font-family: 'Josefin Sans';
+}
+
+.del-text{
+    font-size: .9rem;
+    font-family: 'Josefin Sans';
+}
+
+.Grand-text{
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Josefin Sans';
+}
+
+.inc-tax{
+    font-size: .8rem;
+    font-family: 'Josefin Sans';
+    margin-top: -5px;
 }
 
 .bill_sub_total{
@@ -567,6 +587,97 @@ a.pro_store{
 
 
 /* cart */
+
+/* cart form */
+
+.del_add{
+    border-radius: 0px;
+    text-decoration: none;
+    border: none;
+    background-image:
+    linear-gradient(45deg, transparent 50%, rgb(145, 145, 145) 60%),
+    linear-gradient(135deg, rgb(145, 145, 145) 40%, transparent 50%) !important;
+    background-position:
+        calc(100% - 30px) 14px,
+        calc(100% - 20px) 14px,
+        100% 0;
+    background-size:
+        10px 10px,
+        10px 10px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.del_add>option{
+    font-family: Laila;
+}
+
+.del_new_btn{
+    font-size: .7rem;
+}
+
+.del_lable{
+    font-size: 1.2rem;
+    font-family: Laila;
+}
+
+.promo_btn{
+    font-family: Concert One;
+    font-size: .9rem;
+}
+
+.promo_text{
+    font-family: Laila;
+    color: grey;
+}
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+ .select:focus,.select:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+ .cart_pro_text{
+     font-weight: bold;
+     font-size: 1rem;
+     font-family: Laila;
+ }
+
+ .min_cart_ord{
+    font-size: 1rem;
+    font-family: Laila;
+ }
+
+ .promo-coupon{
+     border: 1px solid rgb(43, 43, 43);
+     border-style: dashed;
+ }
+
+ .coupon_text{
+     font-size: 0.9rem;
+ }
+
+ .cou-text{
+    font-size: 1rem;
+    font-family: Josefin Sans;
+ }
+
+ .login_sub{
+    font-size: 1rem;
+    font-family: Josefin Sans;
+ }
+
+ .login_title{
+    font-size: 1.1rem;
+    font-family: Josefin Sans;
+ }
+
+/* cart form */
 
 /* register */
 
@@ -912,3 +1023,17 @@ a.offer_box{
   /* loader */
 
   /* loader */
+
+  /* select */
+
+  .payment_mode {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 2px;
+    text-overflow: '';
+    height: calc(1.5em + 1.05rem + 2px);
+  }
+
+  .btn:focus {
+    outline: none !important;
+}

@@ -50,6 +50,12 @@
             </a>
           </li>
           <li>
+            <a href="index.php?purchase_invoice_entries">
+              <i class="tim-icons icon-paper"></i>
+              <p>Purchase Invoices</p>
+            </a>
+          </li>
+          <li>
             <a class="btn btn-link text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             <i class="tim-icons icon-vector"></i>
             <p class="text-left">FMR Manager</p>
@@ -71,6 +77,33 @@
                   </li>
                   <li>
                     <a class="p-1" href="index.php?fmr_notice_board">Notice Board</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="btn btn-link text-white" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="tim-icons icon-vector"></i>
+            <p class="text-left">Delivery Manager</p>
+            </a>
+            <div class="collapse ml-4 mr-1" id="collapseExample1">
+              <div class="card card-body bg-transparent px-0 py-1">
+                <ul class="pl-4">
+                  <li>
+                    <a class="p-1" href="index.php?del_executive">Delivery Executive</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?del_bonus_sheet">Bonus Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?del_settlement_sheet">Settlement Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?del_debit_sheet">Debit Sheet</a>
+                  </li>
+                  <li>
+                    <a class="p-1" href="index.php?del_notice_board">Notice Board</a>
                   </li>
                 </ul>
               </div>
@@ -104,6 +137,12 @@
             <a href="index.php?view_customers">
               <i class="tim-icons icon-badge"></i>
               <p>CUSTOMERS</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.php?view_coupon">
+              <i class="tim-icons icon-tag"></i>
+              <p>COUPONS</p>
             </a>
           </li>
           <li>
