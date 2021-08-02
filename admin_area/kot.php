@@ -8,7 +8,7 @@ if(isset($_GET['print'])){
     $invoice_id = $_GET['print'];
 
     $get_orders = "select * from customer_orders where invoice_no='$invoice_id'";
-    
+
 
     $run_orders = mysqli_query($con,$get_orders);
 
@@ -116,12 +116,18 @@ if(isset($_GET['print'])){
 			<tbody>
 			<?php
 
-                $get_vendor = "select * from clients";
+
+
+                $get_vendor = "select * from customer_order group by client_id";
                 $run_vendor = mysqli_query($con,$get_vendor);
                 while ($row_vendor=mysqli_fetch_array($run_vendor)) {
 
                 $vendor_id = $row_vendor['client_id'];
-                $vendor_name = $row_vendor['client_shop'];
+
+                $get_client = "select * from clients where client_id=$vendor_id";
+                $run_client = mysqli_query($con,$get_client);
+                $row_client = mysqli_fetch_array($run_client);
+                $vendor_name = $row_client['client_shop'];
 
                 $get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver' and client_id='$vendor_id'";
 
