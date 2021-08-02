@@ -648,13 +648,13 @@ if(!empty($_COOKIE['user'])){
 
                     echo "<script>alert('Address Updated')</script>";
 
-                    echo "<script>window.open('checkout','_self')</script>";
+                    echo "<script>window.open('cart','_self')</script>";
 
                 }else{
 
                     echo "<script>alert('Sorry Address not updated try again')</script>";
 
-                    echo "<script>window.open('checkout','_self')</script>";
+                    echo "<script>window.open('cart','_self')</script>";
 
                 }
                 
