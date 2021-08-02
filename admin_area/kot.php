@@ -118,7 +118,7 @@ if(isset($_GET['print'])){
 
 
 
-                $get_vendor = "select * from customer_orders group by client_id";
+                $get_vendor = "select distinct(client_id) from customer_orders";
                 $run_vendor = mysqli_query($con,$get_vendor);
                 while ($row_vendor=mysqli_fetch_array($run_vendor)) {
 
