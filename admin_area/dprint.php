@@ -86,6 +86,10 @@ if(isset($_GET['print'])){
 	<title>Bill</title>
 	<style>
 
+		body{
+			font-weight:bold;
+		}
+
 		@media print{
 			table,thead{
 				border:2px solid #000 !important;
@@ -220,7 +224,7 @@ if(isset($_GET['print'])){
 
 						echo "
 
-						<tr style='font-size:1.2rem;' class='font-weight-normal'>
+						<tr style='font-size:1.2rem;'>
 						<td>$counter</td>
 						<td>$pro_title $pro_desc</td>
 						<td class='text-center'>$qty</td>
@@ -233,7 +237,7 @@ if(isset($_GET['print'])){
 
 						echo "
 
-						<tr style='font-size:1.2rem;' class='font-weight-normal'>
+						<tr style='font-size:1.2rem;'>
 						<td>$counter</td>
 						<td>$pro_title $pro_desc</td>
 						<td class='text-center'>$qty</td>
@@ -326,6 +330,8 @@ if(isset($_GET['print'])){
 			<div class="col-12">
 				<hr class="mb-0" style="border-top:1px solid #999;height:10px;">
 				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">WERNEAR TECHNOLOGIES, Habbuwada Karwar, 581301. GSTIN:27AADFW3376J1ZR</h5>
+				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Follow us on: https://www.facebook.com/karwars.in</h5>
+				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Thank You 😊 Order Again</h5>
 			</div>
 		</div>
 	</div>
