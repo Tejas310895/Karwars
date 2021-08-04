@@ -101,10 +101,10 @@ if(!empty($_COOKIE['user'])){
                         <option selected disabled value="">Select Delivery Schedule</option> -->
                         <?php
         
-                        // date_default_timezone_set('Asia/Kolkata');
+                        date_default_timezone_set('Asia/Kolkata');
 
-                        // $today = date("Y-m-d");
-                        // $today_nght = date("H:i");
+                        $today = date("Y-m-d");
+                        $today_nght = date("H:i");
 
                         // $get_today_order = "SELECT * FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed') group by invoice_no";
                         // $run_today_order = mysqli_query($con,$get_today_order);
