@@ -278,6 +278,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                             </div>
                             <div class='col-md-4 col-lg-4 border-right'>
                                 <h5 class='card-title text-uppercase  mt-2 mb-1'>Name- $c_name</h5>
+                                <h5 class='card-title text-uppercase  mt-2 mb-1'>Name- $c_contact</h5>
                                 <h5 class='card-title'>
                                     Address - $customer_address $customer_phase $customer_landmark $customer_city.
                                 </h5>
