@@ -195,31 +195,37 @@ if(!empty($_COOKIE['user'])){
 
                                             if(in_array($customer_id, $myArr)){
 
-                                                if($count_customer_limit>=$coupon_usage_limit){
+                                                if(($coupon_usage_limit<$count_customer_limit) || ($coupon_usage_limit==$count_customer_limit)){
 
-                                                    $coupon_visible=false;
+                                                    $coupon_visible='false';
                                                     
                                                 }else {
-                                                    $coupon_visible=true;
+                                                    $coupon_visible='true';
                                                 }
                                                 
                                             }else {
-                                                $coupon_visible=false;
+                                                $coupon_visible='false';
                                             }
                                             
                                         }else {
 
-                                            $coupon_visible=true;
+                                            if(($coupon_usage_limit<$count_customer_limit) || ($coupon_usage_limit==$count_customer_limit)){
+
+                                                $coupon_visible='false';
+                                                
+                                            }else {
+                                                $coupon_visible='true';
+                                            }
 
                                         }
 
-                                        if($coupon_visible===true){
+                                        if($coupon_visible==='true'){
 
                                             echo "
                                             <div class='form-check'>
                                                 <input class='form-check-input' type='radio' name='coupon_code' id='coupon_code' value='$coupon_id'>
                                                 <label class='form-check-label' for='exampleRadios1'>
-                                                    <h6 class='mb-0 p-1 bg-warning w-25 text-center text-white pb-0'>$coupon_code</h6>
+                                                    <h6 class='mb-0 p-1 bg-warning w-100 text-center text-white pb-0'>$coupon_code</h6>
                                                     $coupon_desc
                                                 </label>
                                             </div>
@@ -231,7 +237,7 @@ if(!empty($_COOKIE['user'])){
                                     ?>
                                     <?php 
                                     
-                                    if($coupon_count<=0){
+                                    if(($coupon_count<=0) || ($coupon_visible==='false')){
                                         echo "
                                             <h5 class='text-center'>No Coupons Available for now will update shortly</h5>
                                         ";
@@ -546,44 +552,82 @@ if(!empty($_COOKIE['user'])){
                 }else{
                     echo "
                     <div class='row fixed-bottom'>
-                        <div class='col-6 px-0'>
-                            <select class='form-control rounded-0 border border-bottom-0 payment_mode' name='pay_type' id='exampleFormControlSelect1' style='font-family:Josefin Sans;padding-top:12px;padding-left:20px;outline:none !important;' required>
-                                <option value=''>Select Payment Mode</option>
-                                <option value='CASHFREE'>Pay Online Now</option>
-                                <option value='POD'>Pay On Delivery</option>
-                            </select>
-                        </div>
-                        <div class='col-6 px-0'>
-                            <button type='submit' id='order_submit_btn' class='btn btn-success btn-block add_head_btn pl-0 pt-1'>
-                                Place Order
+                        <div class='col-12 px-0'>
+                            <button type='button' id='order_submit_btn' class='btn btn-success btn-block add_head_btn pl-0 pt-1' data-toggle='modal' data-target='#pay_mode'>
+                                Select Payment Mode
                             </button>
                         </div>
                     </div>
-                    <button id='order_submit_loading' class='btn btn-success btn-block add_head_btn fixed-bottom d-none'>
-                    <img src='admin_area/admin_images/loadingbar.gif' alt='' class='img-thumbnail mx-auto bg-transparent border-0 p-0' width='35px'> Loading
-                    </button>
-                    
                     ";
                 }
                  ?>
             </div>
             <?php }else{ ?>
             <div class="col-12 pr-2">
-                    <a href='checkout' class='btn btn-success btn-block btn-md pt-1 pb-0'>
-                        <h6 class="login_title mb-0">Login / SignUp</h6>
-                        <small class="login_sub">You are one step away to order</small>
-                    </a>
+                <a href='checkout' class='btn btn-success btn-block btn-md pt-1 pb-0'>
+                    <h6 class="login_title mb-0">Login / SignUp</h6>
+                    <small class="login_sub">You are one step away to order</small>
+                </a>                   
             </div>
             <?php } ?>
         </div>
     </div>
 <!-- checkout float -->
+    <!-- Paymode -->
+    <div class="modal fade" id="pay_mode" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog m-0" role="document" style="border-radius:20px 20px 0px 0px;">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div> -->
+                <div class="modal-body pb-2">
+                    <div class="alert alert-primary mb-3 px-2 py-1">
+                        <div class="row">
+                            <div class="col-1">
+                                <img src="admin_area/admin_images/cod.png" width="20">
+                            </div>
+                            <div class="col-9">
+                                <label class="form-check-label cod_text" for="exampleRadios1">
+                                    <h5 class="mb-0">Pay on Delivery</h5>
+                                </label>
+                            </div>
+                            <div class="col-1">
+                                <input class="form-check-input mt-2 mx-0" type="radio" name="pay_type" value="POD" checked>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-primary mb-2 px-2 py-1">
+                        <div class="row">
+                            <div class="col-1">
+                                <img src="admin_area/admin_images/card.png" width="20">
+                            </div>
+                            <div class="col-9">
+                                <label class="form-check-label paytm_text" for="exampleRadios2">
+                                    <h5 class="mb-0">Wallet/Cards/Upi</h5>
+                                </label>
+                            </div>
+                            <div class="col-1">
+                                <input class="form-check-input mt-2 mx-0" type="radio" name="pay_type"  value="CASHFREE">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:0;">
+                    <button type="submit" class="btn btn-success btn-block"><h5 class="mb-0" style="font-family: Josefin Sans;">Place Order</h5></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+
 
  <!-- insertadd -->
 
  <div class="modal fade" id="inseradd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document" style="border-radius: 20px 20px 0px 0px;">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-center" id="exampleModalLabel">ADD NEW ADDRESS</h5>
@@ -593,19 +637,19 @@ if(!empty($_COOKIE['user'])){
                     <input type="hidden" name="c_city" value="Karwar">
                     <div class="form-group">
                         <label>Area</label>
-                        <input type="text" name="c_landmark" class="form-control" placeholder="Example:habbuwada">
+                        <input type="text" name="c_landmark" class="form-control" placeholder="Example:habbuwada" required>
                     </div>
                     <div class="form-group">
                         <label>Landmark</label>
-                        <input type="text" name="c_phase" class="form-control" placeholder="Example:Near bus stand">
+                        <input type="text" name="c_phase" class="form-control" placeholder="Example:Near bus stand" required>
                     </div>
                     <div class="form-group ">
                         <label>Society & Flat No/ House No</label>
-                        <input type="text" class="form-control" id="address" name="c_address" aria-describedby="emailHelp" placeholder="Enter Address">
+                        <input type="text" class="form-control" id="address" name="c_address" aria-describedby="emailHelp" placeholder="Enter Address" required>
                     </div>
                     <div class="form-group ">
                         <label>Address type</label>
-                        <input type="text" class="form-control" id="ctype" name="add_type" aria-describedby="emailHelp" placeholder="Home/Office/Others">
+                        <input type="text" class="form-control" id="ctype" name="add_type" aria-describedby="emailHelp" placeholder="Home/Office/Others" required>
                     </div>
                     <button type="submit" name="insertadd" class="btn btn-primary" >Submit</button>
                     </form>
@@ -663,7 +707,7 @@ if(!empty($_COOKIE['user'])){
 
             ?>
 <!-- insertadd -->
-
+</div>
 
 <?php 
 
