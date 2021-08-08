@@ -30,10 +30,10 @@ if(isset($_POST['del_id'])){
 
     if($run_insert_delivery){
         echo "<script>alert('Status Updated')</script>";
-        echo "<script>window.open('index.php?demoorders','_self')</script>";    
+        echo "<script>window.open('index.php?view_orders','_self')</script>";    
     }else {
         echo "<script>alert('Status Updation Failed')</script>";
-        echo "<script>window.open('index.php?demoorders','_self')</script>";    
+        echo "<script>window.open('index.php?view_orders','_self')</script>";    
     }
 }
 
@@ -45,10 +45,10 @@ if(isset($_GET['assign_id'])){
 
     if($run_delete_assign){
         echo "<script>alert('Cancelled Successfully')</script>";
-        echo "<script>window.open('index.php?demoorders','_self')</script>";    
+        echo "<script>window.open('index.php?view_orders','_self')</script>";    
     }else {
         echo "<script>alert('Cancelled Failed')</script>";
-        echo "<script>window.open('index.php?demoorders','_self')</script>";    
+        echo "<script>window.open('index.php?view_orders','_self')</script>";    
     }
 
 }
