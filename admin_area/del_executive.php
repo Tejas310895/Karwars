@@ -25,6 +25,7 @@
             <th>DEL Code</th>
             <th>Name</th>
             <th>Orders</th>
+            <th>Amount</th>
             <th>Earnings</th>
             <th>Bonus</th>
             <th>Settelments</th>
@@ -49,6 +50,7 @@
         $row_del_earnings = mysqli_fetch_array($run_del_earnings);
         
         $total_earnings = $row_del_earnings['total_earnings'];
+        
 
         $get_orders_count = "select * from orders_delivery_assign where delivery_partner_id='$delivery_partner_id'";
         $run_orders_count = mysqli_query($con,$get_orders_count);
@@ -71,8 +73,19 @@
         $row_settelments = mysqli_fetch_array($run_settelments);
 
         $total_settelments = $row_settelments['total_settelments'];
+        $order_total = 0;
+        while ($row_orders_count=mysqli_fetch_array($run_orders_count)) {
+            $del_invoice_no = $row_ledger_amount['invoice_no'];
 
-        $balance = ($total_earnings+$total_bonus)-($total_debits+$total_settelments)
+            $get_order_amount = "select sum(due_amount) as order_amount from customer_orders where invoice_no='$del_invoice_no' and order_status='Delivered'";
+            $run_order_amount = mysqli_query($con,$get_order_amount);
+            $row_order_amount = mysqli_fetch_array($run_order_amount);
+
+            $order_amount = $row_order_amount['order_amount'];
+            $order_total += $order_amount;
+        }
+
+        $balance = ($total_earnings+$total_bonus+$order_total)-($total_debits+$total_settelments)
 
         ?>
         <tr>
@@ -81,6 +94,7 @@
             <td><?php echo $delivery_partner_code;?></td>
             <td><?php echo $delivery_partner_name;?></td>
             <td><?php echo $orders_count;?></td>
+            <td><?php echo $order_total;?></td>
             <td><?php echo $total_earnings;?></td>
             <td><?php echo $total_bonus;?></td>
             <td><?php echo $total_settelments;?></td>
