@@ -82,7 +82,41 @@
             $row_order_amount = mysqli_fetch_array($run_order_amount);
 
             $order_amount = $row_order_amount['order_amount'];
-            $order_total += $order_amount;
+
+            $get_discount = "select * from customer_discounts where invoice_no='$del_invoice_no'";
+            $run_discount = mysqli_query($con,$get_discount);
+            $row_discount = mysqli_fetch_array($run_discount);
+
+            $coupon_code = $row_discount['coupon_code'];
+            $discount_type = $row_discount['discount_type'];
+            $discount_amount = $row_discount['discount_amount'];
+
+            $get_del_charges = "select * from order_charges where invoice_id='$del_invoice_no'";
+            $run_del_charges = mysqli_query($con,$get_del_charges);
+            $row_del_charges = mysqli_fetch_array($run_del_charges);
+
+            $del_charges = $row_del_charges['del_charges'];
+
+            if($discount_type==='amount'){
+
+                $grand_total = ($order_amount+$del_charges)-$discount_amount;
+
+              }elseif ($discount_type==='product') {
+
+                $get_off_pro = "select * from products where product_id='$discount_amount'";
+                $run_off_pro = mysqli_query($con,$get_off_pro);
+                $row_off_pro = mysqli_fetch_array($run_off_pro);
+
+                $off_product_price = $row_off_pro['product_price'];
+
+                $grand_total = ($order_amount+$del_charges)+$off_product_price;
+                
+              }elseif (empty($discount_type)) {
+
+                $grand_total = $order_amount+$del_charges;
+                
+              }
+              $order_total += $grand_total;
         }
 
         $balance = ($total_earnings+$total_bonus+$order_total)-($total_debits+$total_settelments)
