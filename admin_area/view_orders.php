@@ -330,6 +330,13 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 ";
                                 $get_del_boy_count = "select * from orders_delivery_assign where invoice_no='$invoice_id'";
                                 $run_del_boy_count = mysqli_query($con,$get_del_boy_count);
+                                $row_del_boy_count = mysqli_fetch_array($run_del_boy_count);
+                                $delivery_partner_show_id = $row_del_boy_count['delivery_partner_id'];
+
+                                $get_del_show = "select * from delivery_partner where delivery_partner_id='$delivery_partner_show_id'";
+                                $run_del_show = mysqli_query($con,$get_del_show);
+                                $row_del_show = mysqli_fetch_array($run_del_show);
+                                $delivery_partner_name = $row_del_show['delivery_partner_name'];
                                 $del_boy_count = mysqli_num_rows($run_del_boy_count);
                                 if($del_boy_count<=0){
                                 echo"
@@ -356,7 +363,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 </form>";
 
                             }else {
-                                echo "<a class='btn btn-info' href='ajax_orders.php?assign_id=$invoice_id'>Change Delivery Agent</a>";
+                                echo "<small class='text-white pr-3 font-weight-bold text-uppercase'>$delivery_partner_name</small><a class='btn btn-info' href='ajax_orders.php?assign_id=$invoice_id'>Change Delivery Agent</a>";
                             }
                             echo "</div>
                         </div>
