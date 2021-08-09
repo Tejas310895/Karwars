@@ -87,12 +87,6 @@
 
             $txn_status = $row_payment_status['STATUS'];
 
-            if($txn_status==='SUCCESS'){
-                $order_amount = $row_order_amount['order_amount'];
-                }else {
-                    $order_amount = 0;
-                }
-
             $get_discount = "select * from customer_discounts where invoice_no='$del_invoice_no'";
             $run_discount = mysqli_query($con,$get_discount);
             $row_discount = mysqli_fetch_array($run_discount);
@@ -109,7 +103,11 @@
 
             if($discount_type==='amount'){
 
-                $grand_total = ($order_amount+$del_charges)-$discount_amount;
+                if($txn_status==='SUCCESS'){
+                    $grand_total = 0;
+                }else {
+                        $grand_total = ($order_amount+$del_charges)-$discount_amount;
+                    }
 
               }elseif ($discount_type==='product') {
 
@@ -119,11 +117,19 @@
 
                 $off_product_price = $row_off_pro['product_price'];
 
-                $grand_total = ($order_amount+$del_charges)+$off_product_price;
+                if($txn_status==='SUCCESS'){
+                    $grand_total = 0;
+                }else {
+                    $grand_total = ($order_amount+$del_charges)+$off_product_price;
+                }
                 
               }elseif (empty($discount_type)) {
 
-                $grand_total = $order_amount+$del_charges;
+                if($txn_status==='SUCCESS'){
+                    $grand_total = 0;
+                }else {
+                    $grand_total = $order_amount+$del_charges;
+                }
                 
               }
               $order_total += $grand_total;
