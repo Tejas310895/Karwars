@@ -81,7 +81,17 @@
             $run_order_amount = mysqli_query($con,$get_order_amount);
             $row_order_amount = mysqli_fetch_array($run_order_amount);
 
-            $order_amount = $row_order_amount['order_amount'];
+            $get_payment_status = "select * from paytm where ORDERID='$del_invoice_no'";
+            $run_payment_status = mysqli_query($con,$get_payment_status);
+            $row_payment_status = mysqli_fetch_array($run_payment_status);
+
+            $txn_status = $row_payment_status['STATUS'];
+
+            if($txn_status==='SUCCESS'){
+                $order_amount = $row_order_amount['order_amount'];
+                }else {
+                    $order_amount = 0;
+                }
 
             $get_discount = "select * from customer_discounts where invoice_no='$del_invoice_no'";
             $run_discount = mysqli_query($con,$get_discount);
