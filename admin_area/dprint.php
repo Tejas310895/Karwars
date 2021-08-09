@@ -7,7 +7,7 @@ if(isset($_GET['print'])){
 
     $invoice_id = $_GET['print'];
 
-	$bags = $_GET['bags_no'];
+	// $bags = $_GET['bags_no'];
 
     $get_orders = "select * from customer_orders where invoice_no='$invoice_id'";
 
@@ -332,26 +332,26 @@ if(isset($_GET['print'])){
 				<h5 style="font-size:1rem;font-family:Courgette;">For online payments refunds shall be processed online, no cash refunds will be allowed.</h5>
 			</div>
 			<div class="col-12">
-				<hr class="mb-0" style="border-top:1px solid #999;height:10px;">
-				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">WERNEAR TECHNOLOGIES, Habbuwada Karwar, 581301. GSTIN:27AADFW3376J1ZR</h5>
-				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Follow us on: https://www.facebook.com/karwars.in</h5>
-				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;">Thank You 😊 Order Again</h5>
+				<hr class="mb-0" style="border-top:1px solid #999;height:10px;font-weight:bold;">
+				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;font-weight:bold;">WERNEAR TECHNOLOGIES, Habbuwada Karwar, 581301. GSTIN:27AADFW3376J1ZR</h5>
+				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;font-weight:bold;">Follow us on: https://www.facebook.com/karwars.in</h5>
+				<h5 style="font-size:1rem;font-family:Raleway;text-align:center;font-weight:bold;">Thank You 😊 Order Again</h5>
 			</div>
 		</div>
 	</div>
-	<div class="pagebreak mx-1">
+	<!-- <div class="pagebreak mx-1">
 		<div class="row ml-1">
 			<?php 
 			
-			for ($i=0; $i < $bags; $i++) { 
+			// for ($i=0; $i < $bags; $i++) { 
 
 			?>
 			<div class="col-2 border ml-1">
-				<h2 class="text-left"><?php echo $i+1; ?></h2>
-				<h4 class="text-left"><?php echo $c_name; ?></h4>
+				<h2 class="text-left"><?php //echo $i+1; ?></h2>
+				<h4 class="text-left"><?php //echo $c_name; ?></h4>
 			</div>
-			<?php } ?>
+			<?php //} ?>
 		</div>
-	</div>
+	</div> -->
 </body>
 </html>
