@@ -142,6 +142,8 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
 
             $order_date = $row_orders['order_date'];
 
+            $d_date = date('d-M-y H:m A',strtotime($order_date));
+
             $order_schedule = $row_orders['order_schedule'];
 
             $order_status = $row_orders['order_status'];
@@ -252,6 +254,25 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                     $payment_check = "<div class='alert alert-info p-1 text-center mb-0' role='alert'>
                                             POSTPAID
                                         </div>";
+                                        
+                                        $get_link = "select * from payment_links where invoice_id='$invoice_id'";
+                                        $run_link = mysqli_query($con,$get_link);
+                                        $row_link = mysqli_fetch_array($run_link);
+                                        $link_count = mysqli_num_rows($run_link);
+                                        
+                                        if($link_count<=0){
+                                            $payment_link = "
+                                                            <a href='pay_link.php?order_id=$invoice_id' class='btn btn-success text-white' title='Generate Link'>
+                                                                <i class='tim-icons icon-link-72 text-white'></i>
+                                                            </a>
+                                                            ";
+                                        }else {
+                                            $payment_link = "
+                                                            <a href='process_orders.php?order_link=$invoice_id' class='btn btn-success text-white' title='Send Link'>
+                                                                <i class='tim-icons icon-chat-33 text-white'></i>
+                                                            </a>
+                                                            ";
+                                        }
                     $refund_check = "";
                 }
 
@@ -268,34 +289,32 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 <div class='row'>
                                     <div class='col-6'>
                                         <h5 class='card-title'>Amount - ₹$grand_total/-";
-                                        echo $total;
-                                        if($del_charges>0){echo "+".$del_charges."dlc";}
-                                        if($discount_type==='amount'){echo "-".$discount_amount."dc";}
+                                        if($del_charges>0 && $discount_type==='amount'){
+                                            echo "(".$total."+".$del_charges."dlc -".$discount_amount."dc";
+                                        }elseif ($del_charges>0) {
+                                            echo "(".$total."+".$del_charges."dlc";
+                                        }elseif ($discount_type==='amount') {
+                                            echo "(".$total."-".$discount_amount."dc";
+                                        }
                                         echo ")</h5>
                                     </div>
                                     <div class='col-6'>$refund_check</div>
                                 </div>
                             </div>
                             <div class='col-md-4 col-lg-4 border-right'>
-                                <h5 class='card-title text-uppercase  mt-2 mb-1'>Name- $c_name</h5>
+                                <h5 class='card-title text-uppercase  mt-2 mb-1'>Name- $c_name(Date:$d_date)</h5>
                                 <h5 class='card-title text-uppercase  mt-2 mb-1'>Name- $c_contact</h5>
                                 <h5 class='card-title'>
                                     Address - $customer_address $customer_phase $customer_landmark $customer_city.
                                 </h5>
-                                <form action='dprint.php' target='_blank' method='get' class='mt-2'>
-                                    <div class='input-group'>
-                                        <input type='hidden' name='print' value='$invoice_id'>
-                                        <input type='number' class='form-control bg-white text-dark rounded-0' name='bags_no' placeholder='No. of bags' aria-label='Username' required>
-                                        <div class='input-group-append border-0'>
-                                            <button class='btn btn-md btn-dark mt-0' type='submit'>print</button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                             <div class='col-md-5 col-lg-5 text-right'>
                                 <button id='show_details' class='btn btn-success text-white' data-toggle='modal' data-target='#KK$invoice_id' title='view'>
                                     <i class='tim-icons icon-alert-circle-exc text-white'></i>
                                 </button>
+                                <a class='btn btn-info' href='dprint.php?print=$invoice_id' target='_blank'>
+                                    <i class='fas fa-print text-white'></i>
+                                </a>
                                 <a class='btn btn-info' href='kot.php?print=$invoice_id' target='_blank'>
                                     <i class='tim-icons icon-paper text-white'></i>
                                 </a>
