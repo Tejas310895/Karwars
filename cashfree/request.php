@@ -1,18 +1,18 @@
 <?php
 
-		$get_txn = "select * from customer_orders where invoice_no=$invoice_no";
+		// $get_txn = "select * from customer_orders where invoice_no=$invoice_no";
 
-		$run_txn = mysqli_query($con,$get_txn);
+		// $run_txn = mysqli_query($con,$get_txn);
 
-		$count = mysqli_num_rows($run_txn);
+		// $count = mysqli_num_rows($run_txn);
 
-		$row_txn = mysqli_fetch_array($run_txn);
+		// $row_txn = mysqli_fetch_array($run_txn);
 
-		$c_id = $row_txn['customer_id'];
+		// $c_id = $row_txn['customer_id'];
+
+      $c_id = $customer_id;
 
     $applicationId = '4650665d5636e6e9464179340564';
-
-		if($count>0){
 
       $get_customer = "select * from customers where customer_id='$c_id'";
 
@@ -48,34 +48,27 @@
 
       $del_charges = $row_del_charges['del_charges'];
 
-      if($discount_type==='amount'){
+      // if($discount_type==='amount'){
 
-          $grand_total = ($total+$del_charges)-$discount_amount;
+      //     $grand_total = ($total+$del_charges)-$discount_amount;
 
-        }elseif ($discount_type==='product') {
+      //   }elseif ($discount_type==='product') {
 
-          $get_off_pro = "select * from products where product_id='$discount_amount'";
-          $run_off_pro = mysqli_query($con,$get_off_pro);
-          $row_off_pro = mysqli_fetch_array($run_off_pro);
+      //     $get_off_pro = "select * from products where product_id='$discount_amount'";
+      //     $run_off_pro = mysqli_query($con,$get_off_pro);
+      //     $row_off_pro = mysqli_fetch_array($run_off_pro);
 
-          $off_product_price = $row_off_pro['product_price'];
+      //     $off_product_price = $row_off_pro['product_price'];
 
-          $grand_total = ($total+$del_charges)+$off_product_price;
+      //     $grand_total = ($total+$del_charges)+$off_product_price;
           
-        }elseif (empty($discount_type)) {
+      //   }elseif (empty($discount_type)) {
 
-          $grand_total = $total+$del_charges;
+      //     $grand_total = $total+$del_charges;
           
-        }
+      //   }
 
-
-	}else{
-
-
-		echo "<script>alert('Payment Failed')</script>";
-
-        echo "<script>window.open('customer/my_account','_self')</script>";
-	}
+      $grand_total = $txn_total;
 
 ?>
 <?php 
@@ -90,6 +83,8 @@ $customerPhone = $c_contact;
 $customerEmail = $c_email;
 $returnUrl = "https://karwars.in/cashfree/response.php";
 $notifyUrl = "https://karwars.in/cashfree/response.php";
+// $returnUrl = "http://localhost/kaRWARS/Karwars/cashfree/response.php";
+// $notifyUrl = "http://localhost/kaRWARS/Karwars/cashfree/response.php";
 
 
 ?>
@@ -104,7 +99,7 @@ $notifyUrl = "https://karwars.in/cashfree/response.php";
 
 
 <?php 
-$mode = "PROD"; //<------------ Change to TEST for test server, PROD for production
+$mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
 
 // extract($_POST);
   $secretKey = "209d3f7ab9e04a78cfdfa2ad2e97dd14541e18d3";

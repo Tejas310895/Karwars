@@ -101,6 +101,8 @@ if(isset($_GET['print'])){
 		<table class="table table-bordered mt-2 head">
 		<thead>
 		<tr>
+		<h5 class="mb-0"><strong>Delivery Statement (Ordered On : <?php echo date("d/M/Y", strtotime($date)); ?> )</strong></h5>
+		<h5 class="mb-0"><strong>Name :</strong> <?php echo strtoupper($c_name); ?> / <strong>Mobile :</strong> +91 <?php echo $c_contact; ?> / <strong>Address :</strong><?php echo $customer_address; ?>, <?php echo $customer_landmark; ?>, <?php echo $customer_phase; ?>, <?php echo $customer_city; ?>. </h5>
         <th  style="border:3px solid #000;">Customer Name</th><th style="border:3px solid #000;"><?php echo $c_name; ?></th>
 		<th  style="border:3px solid #000;">Order ID</th><th style="border:3px solid #000;"><?php echo $invoice_id; ?></th>
 		</tr>

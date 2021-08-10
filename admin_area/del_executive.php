@@ -81,6 +81,8 @@
             $run_order_amount = mysqli_query($con,$get_order_amount);
             $row_order_amount = mysqli_fetch_array($run_order_amount);
 
+            $order_amount = $row_order_amount['order_amount'];
+
             $get_payment_status = "select * from paytm where ORDERID='$del_invoice_no'";
             $run_payment_status = mysqli_query($con,$get_payment_status);
             $row_payment_status = mysqli_fetch_array($run_payment_status);

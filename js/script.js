@@ -149,4 +149,5 @@
               $('#order_submit_btn').addClass('d-none');
               $('#order_submit_loading').removeClass('d-none');
           });
+
     });

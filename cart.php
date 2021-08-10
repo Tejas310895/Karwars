@@ -62,7 +62,6 @@ if(!empty($_COOKIE['user'])){
                 <div class="col-12">
                     <div class="form-group">
                         <select class="form-control del_add pl-3" id="exampleFormControlSelect1" name='add_id' oninvalid="this.setCustomValidity('Select the delivery address first')" oninput="this.setCustomValidity('')" required>
-                        <option selected disabled value="">Select Delivery Address</option>
                         <?php
                     
                         $get_c_add = "select * from customer_address where customer_id='$customer_id'";
@@ -314,7 +313,7 @@ if(!empty($_COOKIE['user'])){
         
             $del_charges = $row_min['del_charges'];
 
-            if($total>=$min_price){$add_del=0;}else{$add_del=$del_charges;}
+            if($total>=499){$add_del=0;}else{$add_del=$del_charges;}
             
         ?>
         <!-- Billing Section -->
@@ -329,10 +328,10 @@ if(!empty($_COOKIE['user'])){
                 <h5 class="bill-text text-right mb-1">₹ <?php echo $total; ?></h5>
                 <input type="hidden" id="item_total_price" value="<?php echo $total; ?>">
             </div>
-            <div class="col-6 pull-left <?php if($total>=$min_price){echo"d-none";}else{echo"show";}?>">
+            <div class="col-6 pull-left <?php if($total>=499){echo"d-none";}else{echo"show";}?>">
                 <h5 class="del-text mb-1">Delivery Charges</h5>
             </div>
-            <div class="col-6 pull-right <?php if($total>=$min_price){echo"d-none";}else{echo"show";}?>">
+            <div class="col-6 pull-right <?php if($total>=499){echo"d-none";}else{echo"show";}?>">
                 <h5 class="del-text mb-1 text-right">₹ <?php echo $del_charges; ?></h5>
             </div>
             <?php 
@@ -393,9 +392,9 @@ if(!empty($_COOKIE['user'])){
             <div class="col-6 pull-right">
                 <h5 class="Grand-text text-right mb-0 pt-3">₹ <?php echo ($total+$add_del)-$dis_amt; ?></h5>
             </div>
-            <div class="col-12 <?php if($total>=$min_price){echo"d-none";}else{echo"show";}?>">
+            <div class="col-12 <?php if($total>=499){echo"d-none";}else{echo"show";}?>">
                 <h6 class="min_cart_ord text-danger pt-1 text-center">
-                    Get Free Delivery Above ₹<?php echo $min_price; ?>
+                    Get Free Delivery Above ₹499
                 </h6>
             </div>
         </div>
