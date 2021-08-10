@@ -99,7 +99,7 @@ $notifyUrl = "https://karwars.in/cashfree/response.php";
 
 
 <?php 
-$mode = "TEST"; //<------------ Change to TEST for test server, PROD for production
+$mode = "PROD"; //<------------ Change to TEST for test server, PROD for production
 
 // extract($_POST);
   $secretKey = "209d3f7ab9e04a78cfdfa2ad2e97dd14541e18d3";
