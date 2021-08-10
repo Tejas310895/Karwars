@@ -598,7 +598,7 @@ if(!empty($_COOKIE['user'])){
                             </div>
                         </div>
                     </div>
-                    <div class="alert alert-primary mb-2 px-2 py-1">
+                    <!-- <div class="alert alert-primary mb-2 px-2 py-1">
                         <div class="row">
                             <div class="col-1">
                                 <img src="admin_area/admin_images/card.png" width="20">
@@ -612,7 +612,7 @@ if(!empty($_COOKIE['user'])){
                                 <input class="form-check-input mt-2 mx-0" type="radio" name="pay_type"  value="CASHFREE">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="modal-footer" style="border-top:0;">
                     <button type="submit" class="btn btn-success btn-block"><h5 class="mb-0" style="font-family: Josefin Sans;">Place Order</h5></button>
