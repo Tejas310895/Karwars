@@ -257,25 +257,6 @@ if(isset($_GET['print'])){
 				?>
                 <?php //} ?>
                 <?php 
-                 $get_payment_status = "select * from paytm where ORDERID='$invoice_id'";
-				 $run_payment_status = mysqli_query($con,$get_payment_status);
-				 $row_payment_status = mysqli_fetch_array($run_payment_status);
- 
-				 $txn_status = $row_payment_status['STATUS'];
-				 $TXNAMOUNT = $row_payment_status['TXNAMOUNT'];
-
-				 $payment_check = "<div class='alert alert-success p-1 text-center mb-0' role='alert'>
-										PREPAID
-									</div>";
-				if($TXNAMOUNT!==$grand_total){
-				$refund_amt = $TXNAMOUNT-$grand_total;
-				$refund_check = "<tr style='border-top:3px solid #000;'>
-									<th colspan='4' class='text-right'>Refund Amount :</th>
-									<th class='text-center'>Rs.$refund_amt;</th>	
-								</tr>";
-				}else {
-				$refund_check = "";
-				}
 
                 $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'";
                 $run_discount = mysqli_query($con,$get_discount);
@@ -337,7 +318,6 @@ if(isset($_GET['print'])){
                         <td class="text-center"><?php echo $del_charges; ?>.00</td>
                     </tr>
                 <?php } ?>
-				<?php echo $refund_check; ?>
 				<tr style="border-top:3px solid #000;">
 				    <th colspan="4" class="text-right">GRAND TOTAL :</th>
 					<th class="text-center">Rs. <?php echo $grand_total; ?>.00</th>	
