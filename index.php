@@ -233,9 +233,9 @@
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_75_2x-100_ESnwxPKVvW.jpg?updatedAt=1627924916162" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a>
-    <a href="https://karwars.in/shop?store_id=63">
+    <a href="#">
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/first_pageArtboard_80_2x-100_SgOfgCOxJLd.jpg?updatedAt=1628950156333" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/first_pageArtboard_80_2x-100_jpydbiHSrLj.jpg?updatedAt=1628951509139" alt="" class="img-fluid mx-0 rounded">
     </div>
     </a>
     <!-- <div class="container-fluid">
