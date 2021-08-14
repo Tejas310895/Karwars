@@ -235,7 +235,7 @@
     </a>
     <a href="https://karwars.in/shop?store_id=63">
     <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_73_2x-100_RJXJ_sMTbpi.jpg?updatedAt=1627924914381" alt="" class="img-fluid mx-0 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/first_pageArtboard_80_2x-100_SgOfgCOxJLd.jpg?updatedAt=1628950156333" alt="" class="img-fluid mx-0 rounded">
     </div>
     </a>
     <!-- <div class="container-fluid">
