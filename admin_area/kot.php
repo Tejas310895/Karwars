@@ -221,10 +221,15 @@ if(isset($_GET['print'])){
 						";	
 
 					}
-
 					}
 
 				}
+				echo "
+				<tr>
+					<th colspan='3' class='text-right'>Total</th>
+					<th>$total</th>
+				</tr>
+				";
                 }   
 				?>		
 			</tbody>
