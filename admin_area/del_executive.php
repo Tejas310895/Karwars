@@ -31,8 +31,8 @@
             <th>Debits</th>
             <th>Order Stm</th>
             <th>Salary Stm</th>
-            <th>Pending AMT</th>
-            <th>Pending Pay</th>
+            <th>Pending AMT <br> (Ghevche)</th>
+            <th>Pending Pay <br> (Devche)</th>
         </tr>
     </thead>
     <tbody>
