@@ -28,9 +28,11 @@
             <th>Amount</th>
             <th>Earnings</th>
             <th>Bonus</th>
-            <th>Settelments</th>
             <th>Debits</th>
-            <th>Balance</th>
+            <th>Order Stm</th>
+            <th>Salary Stm</th>
+            <th>Pending AMT</th>
+            <th>Pending Pay</th>
         </tr>
     </thead>
     <tbody>
@@ -73,23 +75,38 @@
         $row_settelments = mysqli_fetch_array($run_settelments);
 
         $total_settelments = $row_settelments['total_settelments'];
-        $order_total = 0;
-        while ($row_orders_count=mysqli_fetch_array($run_orders_count)) {
-            $del_invoice_no = $row_orders_count['invoice_no'];
+        
+        $get_salary = "select sum(salary_amt) as total_salary from del_payroll where delivery_partner_id='$delivery_partner_id'";
+        $run_salary = mysqli_query($con,$get_salary);
+        $row_salary = mysqli_fetch_array($run_salary);
 
-            $get_order_amount = "select sum(due_amount) as order_amount from customer_orders where invoice_no='$del_invoice_no' and order_status='Delivered' and product_status='Deliver'";
+        $total_salary = $row_salary['total_salary'];
+
+        $order_total = 0;
+        $get_order_count = "select * from orders_delivery_assign where delivery_partner_id='$delivery_partner_id'";
+        $run_order_count = mysqli_query($con,$get_order_count);
+        while ($row_orders_count=mysqli_fetch_array($run_order_count)) {
+            $del_count_invoice_no = $row_orders_count['invoice_no'];
+
+            $get_order_status = "select * from customer_orders where invoice_no='$del_count_invoice_no'";
+            $run_order_status = mysqli_query($con,$get_order_status);
+            $row_order_status = mysqli_fetch_array($run_order_status);
+
+            $order_status_bal = $row_order_status['order_status'];
+
+            $get_order_amount = "select sum(due_amount) as order_amount from customer_orders where invoice_no='$del_count_invoice_no' and order_status='Delivered' and product_status='Deliver'";
             $run_order_amount = mysqli_query($con,$get_order_amount);
             $row_order_amount = mysqli_fetch_array($run_order_amount);
 
             $order_amount = $row_order_amount['order_amount'];
 
-            $get_payment_status = "select * from paytm where ORDERID='$del_invoice_no'";
+            $get_payment_status = "select * from paytm where ORDERID='$del_count_invoice_no'";
             $run_payment_status = mysqli_query($con,$get_payment_status);
             $row_payment_status = mysqli_fetch_array($run_payment_status);
 
             $txn_status = $row_payment_status['STATUS'];
 
-            $get_discount = "select * from customer_discounts where invoice_no='$del_invoice_no'";
+            $get_discount = "select * from customer_discounts where invoice_no='$del_count_invoice_no'";
             $run_discount = mysqli_query($con,$get_discount);
             $row_discount = mysqli_fetch_array($run_discount);
 
@@ -97,19 +114,24 @@
             $discount_type = $row_discount['discount_type'];
             $discount_amount = $row_discount['discount_amount'];
 
-            $get_del_charges = "select * from order_charges where invoice_id='$del_invoice_no'";
+            $get_del_charges = "select * from order_charges where invoice_id='$del_count_invoice_no'";
             $run_del_charges = mysqli_query($con,$get_del_charges);
             $row_del_charges = mysqli_fetch_array($run_del_charges);
 
-            $del_charges = $row_del_charges['del_charges'];
+            if($order_status_bal==='Delivered'){
+              $del_charges = $row_del_charges['del_charges'];
+            }else{
+              $del_charges = 0;
+            }
+
+            if($txn_status==='SUCCESS'){
+              $grand_total = 0;
+          }else {
 
             if($discount_type==='amount'){
 
-                if($txn_status==='SUCCESS'){
-                    $grand_total = 0;
-                }else {
-                        $grand_total = ($order_amount+$del_charges)-$discount_amount;
-                    }
+                $grand_total = ($order_amount+$del_charges)-$discount_amount;
+                $order_total += $grand_total;
 
               }elseif ($discount_type==='product') {
 
@@ -119,25 +141,16 @@
 
                 $off_product_price = $row_off_pro['product_price'];
 
-                if($txn_status==='SUCCESS'){
-                    $grand_total = 0;
-                }else {
                     $grand_total = ($order_amount+$del_charges)+$off_product_price;
-                }
+                    $order_total += $grand_total;
                 
               }elseif (empty($discount_type)) {
 
-                if($txn_status==='SUCCESS'){
-                    $grand_total = 0;
-                }else {
                     $grand_total = $order_amount+$del_charges;
-                }
-                
+                    $order_total += $grand_total;
               }
-              $order_total += $grand_total;
         }
-
-        $balance = ($total_earnings+$total_bonus+$order_total)-($total_debits+$total_settelments)
+      }
 
         ?>
         <tr>
@@ -149,9 +162,11 @@
             <td><?php echo $order_total;?></td>
             <td><?php echo $total_earnings;?></td>
             <td><?php echo $total_bonus;?></td>
-            <td><?php echo $total_settelments;?></td>
             <td><?php echo $total_debits;?></td>
-            <td><?php echo $balance;?></td>
+            <td><?php echo $total_settelments;?></td>
+            <td><?php echo $total_salary;?></td>
+            <td><?php echo $order_total-$total_settelments;?></td>
+            <td><?php echo ($total_earnings+$total_bonus)-($total_salary+$total_debits);?></td>
         </tr>
         <?php } ?>
     </tbody>
