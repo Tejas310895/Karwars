@@ -220,4 +220,19 @@ $(document).ready(function () {
         $('#c_log_contact').attr('readonly' , false);
     });
 /* customer login */
+
+/* del details */
+$("#get_del_details").click(function (e) { 
+    e.preventDefault();
+    var del_code = $("#del_code").val();
+    $.ajax({
+        type: "post",
+        url: "./fmr/get_del_details.php",
+        data: {"del_code":del_code},
+        success: function (response) {
+            $("#del_details").html(response);
+            alert(data);
+        }
+    });
+});
 });

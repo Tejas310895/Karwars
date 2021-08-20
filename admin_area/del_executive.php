@@ -13,6 +13,7 @@
            </div>
            <div class="col-lg-6 col-md-6">
             <a href="index.php?register_del" class="btn btn-success pull-right">Register DEL EXE</a>
+            <a href="index.php?del_details" class="btn btn-primary pull-right">DEL Details</a>
            </div>
        </div>
 <div class="row">
