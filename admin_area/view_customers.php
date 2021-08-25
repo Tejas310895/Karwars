@@ -21,10 +21,10 @@
             <th>Name</th>
             <th>Contact</th>
             <th>Email</th>
-            <th>Address</th>
-            <th>Date</th>
             <th>TNAMT</th>
             <th>TNC</th>
+            <th>Address</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -63,6 +63,8 @@
             <td><?php echo $customer_name; ?></td>
             <td>+91 <?php echo $customer_contact; ?></td>
             <td><?php echo $customer_email; ?></td>
+            <td><?php echo $order_amount; ?></td>
+            <td><?php echo $order_count; ?></td>
             <td>
             <select class="custom-select">
                 <?php 
@@ -93,8 +95,6 @@
             </select>
             </td>
             <td class="text-center"><?php echo date('d/M/Y(h:i a)',strtotime($updated_date)); ?></td>
-            <td><?php echo $order_amount; ?></td>
-            <td><?php echo $order_count; ?></td>
         </tr>
     <?php } ?>
     </tbody>
