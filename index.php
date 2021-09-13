@@ -162,7 +162,7 @@
     </a>
     </div>
 <!-- banner carousel -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-12">
             <div class="alert alert-danger alert-dismissible fade show border text-justify border-0" role="alert">
@@ -173,7 +173,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- product swipe -->
     <div class="container-fluid px-0">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_ord_amtArtboard_1_2x-100_YjDvAtd9z.jpg" alt="" class="img-fluid mx-0">
