@@ -23,7 +23,7 @@
             <th colspan="2" class="border bg-success text-dark">VEGETABLES</th>
             <th colspan="2" class="border bg-warning text-dark">FRUITS</th>
             <th colspan="2" class="border bg-danger text-dark">SWEETS</th>
-            <th colspan="2" class="border bg-primary text-dark">OFFERS</th>
+            <th colspan="2" class="border bg-primary text-dark">YASIN</th>
             <th  rowspan="2" class="border">DISCOUNTS</th>
             <th  rowspan="2" class="border">CHARGES</th>
         </tr>
