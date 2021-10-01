@@ -100,6 +100,9 @@
                     <a class="p-1" href="index.php?del_settlement_sheet">Settlement Sheet</a>
                   </li>
                   <li>
+                    <a class="p-1" href="index.php?del_salary_sheet">Salary Sheet</a>
+                  </li>
+                  <li>
                     <a class="p-1" href="index.php?del_debit_sheet">Debit Sheet</a>
                   </li>
                   <li>
@@ -155,6 +158,12 @@
             <a href="index.php?view_client">
               <i class="tim-icons icon-vector"></i>
               <p>CLIENTS</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.php?view_merchant">
+              <i class="tim-icons icon-vector"></i>
+              <p>MERCHANTS</p>
             </a>
           </li>
           <li>

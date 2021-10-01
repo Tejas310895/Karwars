@@ -632,6 +632,42 @@
                 
               }
 
+              if(isset($_GET['del_salary_sheet'])){
+                    
+                include("del_salary_sheet.php");
+                
+              }
+
+              if(isset($_GET['del_raise_salary'])){
+                    
+                include("del_raise_salary.php");
+                
+              }
+
+              if(isset($_GET['view_merchant'])){
+                    
+                include("view_merchant.php");
+                
+              }
+
+              if(isset($_GET['insert_merchant'])){
+                    
+                include("insert_merchant.php");
+                
+              }
+
+              if(isset($_GET['edit_merchant'])){
+                    
+                include("edit_merchant.php");
+                
+              }
+
+              if(isset($_GET['merchant_products'])){
+                    
+                include("merchant_products.php");
+                
+              }
+
 
             ?>
 
