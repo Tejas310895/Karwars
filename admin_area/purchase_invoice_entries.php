@@ -52,15 +52,15 @@
 
                 $sorted_array = unserialize($product_array);
 
-                $get_seller = "select * from clients where client_id='$seller_id'";
+                $get_seller = "select * from merchants where merchant_id='$seller_id'";
                 $run_seller = mysqli_query($con,$get_seller);
                 $row_seller = mysqli_fetch_array($run_seller);
 
-                $client_name = $row_seller['client_name'];
+                $merchant_name = $row_seller['merchant_name'];
             ?>
                 <tr class="text-center">
                     <td><?php echo ++$counter; ?></td>
-                    <td><?php echo $client_name; ?></td>
+                    <td><?php echo $merchant_name; ?></td>
                     <td><?php echo $purchase_invoice_no; ?></td>
                     <td><?php echo date("d-M-y",strtotime($purchase_invoice_date)); ?></td>
                     <td>
@@ -84,7 +84,7 @@
                                                     <th class="text-center">ITEMS</th>
                                                     <th class="text-center">QTY</th>
                                                     <th class="text-center">PRICE</th>
-                                                    <th class="text-center">GST</th>
+                                                    <th class="text-center">GST %</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -105,7 +105,7 @@
 
                                             $total_price = $price/$qty;   
                                             
-                                            $grand_total += $total_price;
+                                            $grand_total += $price;
 
                                             $get_pro = "select * from products where product_id='$pro_id'";
 
@@ -126,9 +126,9 @@
                                             ?>
                                                 <tr>
                                                     <td class="text-center"><?php echo $pro_title; ?><br><?php echo $pro_desc; ?></td>
-                                                    <td class="text-center"><?php echo $qty; ?> X ₹<?php echo $price; ?></td>
-                                                    <td class="text-center"><?php echo $total_price; ?></td>
-                                                    <td class="text-center">₹ <?php echo $gst; ?></td>
+                                                    <td class="text-center"><?php echo $qty; ?> X ₹<?php echo $total_price; ?></td>
+                                                    <td class="text-center"><?php echo $price; ?></td>
+                                                    <td class="text-center"><?php echo $gst; ?></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>
@@ -154,8 +154,8 @@
                     </td>
                     <td class="td-actions text-center">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success btn-sm btn-icon" data-toggle="modal" data-target="#PE<?php echo $purchase_invoice_id; ?>">
-                            <i class="tim-icons icon-settings"></i>
+                        <button type="button" class="btn btn-primary btn-sm btn-icon" data-toggle="modal" data-target="#PE<?php echo $purchase_invoice_id; ?>">
+                            <i class="tim-icons icon-money-coins"></i>
                         </button>
                         
                         <!-- Modal -->
@@ -171,18 +171,18 @@
                                     <div class="modal-body">
                                         <form action="" method="post">
                                             <input type="hidden" name="purchase_invoice_id" value="<?php echo $purchase_invoice_id; ?>">
-                                            <div class="form-group">
-                                              <label>Transaction Mode</label>
-                                              <select class="form-control" name="purchase_txn_type" id="purchase_txn_type" required>
+                                            <div class="form-group row mb-2">
+                                              <label class="text-dark col-4">Transaction Mode</label>
+                                              <select class="form-control col-8" name="purchase_txn_type" id="purchase_txn_type" required>
                                                 <option value="" selected disabled>Select Payment Mode</option>
                                                 <option value="Cheque">Cheque</option>
                                                 <option value="NEFT">NEFT</option>
                                                 <option value="IMPS">IMPS</option>
                                               </select>
                                             </div>
-                                            <div class="form-group">
-                                              <label>Reference No.</label>
-                                              <input type="text" class="form-control text-dark" name="purchase_ref_no" id="purchase_ref_no" aria-describedby="helpId" placeholder="Enter Reference Number" required>
+                                            <div class="form-group row mb-2">
+                                              <label class="text-dark col-4" >Reference No.</label>
+                                              <input type="text" class="form-control text-dark col-8" name="purchase_ref_no" id="purchase_ref_no" aria-describedby="helpId" placeholder="Enter Reference Number" required>
                                             </div>
                                             <button type="submit" name="payment_submit" class="btn btn-primary">Submit</button>
                                         </form>
@@ -193,6 +193,9 @@
                                 </div>
                             </div>
                         </div>
+                        <a class="btn btn-success btn-sm btn-icon" href="process_order.php?update_purchase=<?php echo $purchase_invoice_id; ?>" onclick="return confirm('Are you sure?')" title="Update Details">
+                            <i class="tim-icons icon-cloud-upload-94"></i>
+                        </a>
                     </td>
                 </tr>
 

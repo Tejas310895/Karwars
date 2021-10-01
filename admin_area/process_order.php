@@ -392,4 +392,42 @@ if(isset($_GET['cancel_order'])){
 
   }
 
+  if(isset($_GET['update_purchase'])){
+
+    $purchase_invoice_id = $_GET['update_purchase'];
+
+    $get_purchase_data = "select * from purchase_invoice_entry where purchase_invoice_id='$purchase_invoice_id'";
+    $run_purchase_data = mysqli_query($con,$get_purchase_data);
+    $row_purchase_data = mysqli_fetch_array($run_purchase_data);
+
+    $product_array = $row_purchase_data['product_array'];
+
+    $unserialize_array = unserialize($product_array);
+
+    $arr_length = count($unserialize_array);
+
+    for ($i=0; $i < $arr_length; $i++) {
+
+      $product_pur_id = $unserialize_array[$i][0];
+      $product_pur_qty = $unserialize_array[$i][1];
+      $vendor_pur_price = $unserialize_array[$i][2];
+
+      $vendor_pur_u_price = $vendor_pur_price/$product_pur_qty;
+
+      $update_purchase_price = "update products set vendor_price='$vendor_pur_u_price',warehouse_stock='$product_pur_qty' where product_id='$product_pur_id'";
+      $run_update_purchase_price = mysqli_query($con,$update_purchase_price);
+      
+    }
+
+    if($run_update_purchase_price){
+      echo "<script>alert('Updated Successfully')</script>";
+      echo "<script>window.open('index.php?purchase_invoice_entries','_self')</script>";
+    }else {
+      echo "<script>alert('Update Failed')</script>";
+      echo "<script>window.open('index.php?purchase_invoice_entries','_self')</script>";
+    }
+
+    // var_dump($unserialize_array);
+
+  }
 ?>

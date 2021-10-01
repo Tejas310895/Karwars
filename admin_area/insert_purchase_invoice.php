@@ -19,23 +19,23 @@ if(!isset($_SESSION['admin_email'])){
        </div>
        <form id="insert_purchase" method="post" action="">
         <div class="row">
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-3 col-md-3">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Seller Name</label>
                     <select class="form-control" name="client_id" id="exampleFormControlSelect1" required>
                     <?php 
                                 echo "<option disabled selected value>Choose the Seller</option>";
-                                $get_client = "select * from clients";
-                                $run_client = mysqli_query($con,$get_client);
+                                $get_merchant = "select * from merchants";
+                                $run_merchant = mysqli_query($con,$get_merchant);
                                 
-                                while ($row_client=mysqli_fetch_array($run_client)){
+                                while ($row_merchant=mysqli_fetch_array($run_merchant)){
                                     
-                                    $client_id = $row_client['client_id'];
-                                    $client_title = $row_client['client_shop'];
+                                    $merchant_id = $row_merchant['merchant_id'];
+                                    $merchant_name = $row_merchant['merchant_name'];
                                     
                                     echo "
                                     
-                                    <option value='$client_id'> $client_title </option>
+                                    <option value='$merchant_id'> $merchant_name </option>
                                     
                                     ";
                                     
@@ -45,16 +45,22 @@ if(!isset($_SESSION['admin_email'])){
                     </select>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-3 col-md-3">
                 <div class="form-group">
                 <label for="">Purchase Invoice</label>
                 <input type="text" name="purchase_invoice_no" id="purchase_invoice_no" class="form-control" placeholder="Enter Purchase Invoice" aria-describedby="helpId" required>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-3 col-md-3">
                 <div class="form-group">
                 <label for="">Purchase Invoice Date</label>
                 <input type="date" name="purchase_invoice_date" id="purchase_invoice_date" class="form-control" placeholder="Enter Invoice Date" aria-describedby="helpId" required>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="form-group">
+                <label for="">Purchase Payment Date</label>
+                <input type="date" name="purchase_payment_date" id="purchase_payment_date" class="form-control" placeholder="Enter Payment Date" aria-describedby="helpId" required>
                 </div>
             </div>
         </div>
@@ -124,13 +130,14 @@ if(!isset($_SESSION['admin_email'])){
 <?php 
 
 if(isset($_POST['submit'])){
-    $client_id = $_POST['client_id'];
+    $merchant_id = $_POST['client_id'];
     $purchase_invoice_no = $_POST['purchase_invoice_no'];
     $purchase_invoice_date = $_POST['purchase_invoice_date'];
     $product_idArr = $_POST['product_id'];
     $product_qtyArr = $_POST['product_qty'];
     $vendor_priceArr = $_POST['vendor_price'];
     $gst_rateArr = $_POST['gst_rate'];
+    $purchase_payment_date = $_POST['purchase_payment_date'];
 
     date_default_timezone_set('Asia/Kolkata');
 
@@ -157,14 +164,21 @@ if(isset($_POST['submit'])){
                                                                     purchase_invoice_no,
                                                                     purchase_invoice_date,
                                                                     product_array,
+                                                                    payment_status,
+                                                                    purchase_payment_date,
                                                                     updated_date)
                                                                      values
-                                                                     ('$client_id',
-                                                                     '$purchase_invoice_no',
-                                                                     '$purchase_invoice_date',
-                                                                     '$serialized_array',
-                                                                     '$today')";
+                                                                     ('$merchant_id',
+                                                                      '$purchase_invoice_no',
+                                                                      '$purchase_invoice_date',
+                                                                      '$serialized_array',
+                                                                      'unpaid',
+                                                                      '$purchase_payment_date',
+                                                                      '$today')";
             $run_insert_purchase = mysqli_query($con,$insert_purchase);
+
+            // $stock_update = "update products set warehouse_stock=warehouse_stock+'$product_qty' where product_id='$product_id'";
+            // $run_stock_update = mysqli_query($con,$stock_update);
 
             if($run_insert_purchase){
                 echo "<script>alert('Purchase Invoice Inserted')</script>";
