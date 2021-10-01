@@ -127,7 +127,7 @@ if(!isset($_SESSION['admin_email'])){
                 </div>
                 </div>
                    <div class="w-100"></div>
-                   <div class="col-4">
+                   <div class="col-2">
                         <div class="form-group">
                             <label>HSN CODE</label>
                             <input type="number" name="product_hsn" step="0.01" class="form-control" placeholder="Enter Hsn Code" required>
@@ -135,26 +135,58 @@ if(!isset($_SESSION['admin_email'])){
                    </div>
                    <div class="col-2">
                         <div class="form-group">
-                            <label>CGST</label>
-                            <input type="number" name="product_cgst" step="0.01" class="form-control" placeholder="Enter CGST" required>
-                        </div>
-                   </div>
-                   <div class="col-2">
-                       <div class="form-group">
-                            <label>SGST</label>
-                            <input type="number" name="product_sgst" step="0.01" class="form-control" placeholder="Enter SGST" required>
-                        </div>
-                   </div>
-                   <div class="col-2">
-                        <div class="form-group">
-                            <label>IGST</label>
-                            <input type="number" name="product_igst" step="0.01" class="form-control" placeholder="Enter IGST" required>
+                            <label>GST Rate</label>
+                            <input type="number" name="product_gst_rate" step="0.01" class="form-control" placeholder="Enter gst percentage" required>
                         </div>
                    </div>
                    <div class="col-2">
                         <div class="form-group">
                             <label>CESS</label>
                             <input type="number" name="product_cess" step="0.01" class="form-control" placeholder="Enter CESS" required>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Merchant Id</label>
+                            <select class="form-control" name="merchant" id="exampleFormControlSelect1" required>
+                            <?php 
+                                    
+                                    $get_merchants = "select * from merchants";
+                                    $run_merchants = mysqli_query($con,$get_merchants);
+                                    
+                                    while ($row_merchants=mysqli_fetch_array($run_merchants)){
+                                        
+                                        $merchant_id = $row_merchants['merchant_id'];
+                                        $merchant_name = $row_merchants['merchant_name'];
+                                        
+                                        echo "
+                                        
+                                        <option value='$merchant_id'> $merchant_name </option>
+                                        
+                                        ";
+                                        
+                                    }
+                                    
+                                    ?>
+                            </select>
+                        </div>
+                   </div>
+                   <div class="col-2">
+                       <div class="form-group">
+                            <label>Minimum Required</label>
+                            <input type="number" name="product_stock_limit" step="0.01" class="form-control" placeholder="Enter Required Stock in Godown" required>
+                        </div>
+                   </div>
+                   <div class="col-1">
+                        <div class="form-group">
+                            <label>Rack No</label>
+                            <input type="number" name="rack_no" step="0.01" class="form-control" placeholder="Enter no" required>
+                        </div>
+                   </div>
+                   <div class="col-1">
+                        <div class="form-group">
+                            <label>Shelf No</label>
+                            <input type="number" name="shelf_no" step="0.01" class="form-control" placeholder="Enter no" required>
                         </div>
                    </div>
                    <div class="w-100"></div>
@@ -179,12 +211,14 @@ if(isset($_POST['submit'])){
     $product_keywords = $_POST['product_keywords'];
     $product_desc = $_POST['product_desc'];
     $product_stock = $_POST['product_stock'];
-    $product_hsn = $_POST['product_hsn'];
-    $product_cgst = $_POST['product_cgst'];
-    $product_sgst = $_POST['product_sgst'];
-    $product_igst = $_POST['product_igst'];
-    $product_cess = $_POST['product_cess'];
     $client = $_POST['client'];
+    $product_hsn = $_POST['product_hsn'];
+    $product_gst_rate = $_POST['product_gst_rate'];
+    $product_cess = $_POST['product_cess'];
+    $merchant = $_POST['merchant'];
+    $product_stock_limit = $_POST['product_stock_limit'];
+    $rack_no = $_POST['rack_no'];
+    $shelf_no = $_POST['shelf_no'];
     
     $product_img1 = $_POST['product_img1'];
     
@@ -203,12 +237,15 @@ if(isset($_POST['submit'])){
                                             product_desc,
                                             product_stock,
                                             product_hsn,
-                                            product_cgst,
-                                            product_sgst,
-                                            product_igst,
-                                            product_cess,
+                                            product_gst_type,
+                                            product_gst_rate,
+                                            pro_cess,
                                             product_visibility,
-                                            client_id) 
+                                            client_id,
+                                            merchant_id,
+                                            product_stock_limit,
+                                            rack_no,
+                                            shelf_no) 
                                     values ('$store',
                                              NOW(),
                                              '$product_title',
@@ -220,12 +257,15 @@ if(isset($_POST['submit'])){
                                              '$product_desc',
                                              '$product_stock',
                                              '$product_hsn',
-                                             '$product_cgst',
-                                             '$product_sgst',
-                                             '$product_igst',
+                                             'STA_TAX',
+                                             '$product_gst_rate',
                                              '$product_cess',
                                              'Y',
-                                             '$client')";
+                                             '$client',
+                                             '$merchant',
+                                             '$product_stock_limit',
+                                             '$rack_no',
+                                             '$shelf_no')";
     
     $run_product = mysqli_query($con,$insert_product);
     
