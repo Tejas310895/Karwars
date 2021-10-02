@@ -27,6 +27,7 @@
             <th>STL Amount</th>
             <th>STL Type</th>
             <th>STL Ref.no</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -37,9 +38,11 @@
         $counter = 0;
         while ($row_settelments=mysqli_fetch_array($run_settelments)) {
             $delivery_partner_id = $row_settelments['delivery_partner_id'];
+            $settlement_id = $row_settelments['settlement_id'];
             $settlement_amt = $row_settelments['settlement_amt'];
             $settlement_type = $row_settelments['settlement_type'];
             $settlement_ref_id = $row_settelments['settlement_ref_id'];
+            $settlement_status = $row_settelments['settlement_status'];
             $updated_date = $row_settelments['updated_date'];
 
             $get_del_details = "select * from delivery_partner where delivery_partner_id='$delivery_partner_id'";
@@ -57,6 +60,19 @@
             <td><?php echo $settlement_amt; ?></td>
             <td><?php echo $settlement_type; ?></td>
             <td><?php echo $settlement_ref_id; ?></td>
+            <?php 
+            
+            if($settlement_status==='active'){
+
+                echo "<td><a href='process_order.php?settle_id=$settlement_id&settle_status=inactive' class='btn btn-danger'>Deny</a></td>";
+
+            }else {
+                
+                echo "<td><a href='process_order.php?settle_id=$settlement_id&settle_status=active' class='btn btn-success'>Approve</a></td>";
+
+            }
+            
+            ?>
         </tr>
         <?php } ?>
     <?php } ?>
