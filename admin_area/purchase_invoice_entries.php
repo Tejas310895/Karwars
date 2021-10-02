@@ -169,7 +169,7 @@
                                             </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="" method="post">
+                                        <form action="process_order.php" method="post">
                                             <input type="hidden" name="purchase_invoice_id" value="<?php echo $purchase_invoice_id; ?>">
                                             <div class="form-group row mb-2">
                                               <label class="text-dark col-4">Transaction Mode</label>

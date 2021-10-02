@@ -430,4 +430,23 @@ if(isset($_GET['cancel_order'])){
     // var_dump($unserialize_array);
 
   }
+  if(isset($_POST['payment_submit'])){
+    
+    $purchase_invoice_id = $_POST['purchase_invoice_id'];
+    $purchase_txn_type = $_POST['purchase_txn_type'];
+    $purchase_ref_no = $_POST['purchase_ref_no'];
+
+    $update_pur_pay = "update purchase_invoice_entry set purchase_txn_type='$purchase_txn_type',purchase_ref_no='$purchase_ref_no',payment_status='paid' where purchase_invoice_id='$purchase_invoice_id'";
+    $run_update_pur_pay = mysqli_query($con,$update_pur_pay);
+
+    if($run_update_pur_pay){
+      echo "<script>alert('Payment Updated')</script>";
+      echo "<script>window.open('index.php?purchase_invoice_entries','_self')</script>";
+    }else {
+      echo "<script>alert('Update Failed')</script>";
+      echo "<script>window.open('index.php?purchase_invoice_entries','_self')</script>";
+    }
+
+  }
+
 ?>
