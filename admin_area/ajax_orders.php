@@ -15,6 +15,12 @@ if(isset($_POST['del_id'])){
     $del_invoice_no = $_POST['del_inc_id'];
     $del_charge = $_POST['del_charge'];
 
+    $get_del_dubli = "select * from orders_delivery_assign where invoice_no='$del_invoice_no'";
+    $run_del_dubli = mysqli_query($con,$get_del_dubli);
+    $check_dubli = mysqli_num_rows($run_del_dubli);
+
+    if($check_dubli<1){
+
     $insert_delivery = "insert into orders_delivery_assign (invoice_no,
                                                             delivery_partner_id,
                                                             delivery_charges,
@@ -35,9 +41,14 @@ if(isset($_POST['del_id'])){
         echo "<script>alert('Status Updation Failed')</script>";
         echo "<script>window.open('index.php?view_orders','_self')</script>";    
     }
+    }else{
+        echo "<script>alert('Already Assigned')</script>";
+        echo "<script>window.open('index.php?view_orders','_self')</script>";    
+    }
 }
 
 if(isset($_GET['assign_id'])){
+
     $assign_inc_id = $_GET['assign_id'];
 
     $delete_assign = "delete from orders_delivery_assign where invoice_no='$assign_inc_id'";
