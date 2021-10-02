@@ -430,6 +430,24 @@ if(isset($_GET['cancel_order'])){
     // var_dump($unserialize_array);
 
   }
+
+  if(isset($_GET['settle_id'])){
+
+    $settlement_id = $_GET['settle_id'];
+    $set_status = $_GET['settle_status'];
+
+    $update_status = "update del_settlements set settlement_status='$set_status' where settlement_id='$settlement_id'";
+    $run_update_status = mysqli_query($con,$update_status);
+
+    if($run_update_status){
+      echo "<script>alert('Settlement Updated')</script>";
+      echo "<script>window.open('index.php?del_settlement_sheet','_self')</script>";
+    }else {
+      echo "<script>alert('Update Failed')</script>";
+      echo "<script>window.open('index.php?del_settlement_sheet','_self')</script>";
+    }
+  }
+
   if(isset($_POST['payment_submit'])){
     
     $purchase_invoice_id = $_POST['purchase_invoice_id'];
