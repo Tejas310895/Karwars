@@ -33,7 +33,7 @@ $(document).ready(function () {
 
     });
 
-    $(".view_report").click(function (e) { 
+    $(".view_report").click(function (e) {
         e.preventDefault();
         
         var show= $(this).attr("type");
@@ -122,5 +122,58 @@ $(document).ready(function () {
             $("input[name='purchase_inc[]']").prop('checked', false);
             $("input[name='purchase_inc[]']").prop('disabled', false);
           }
+    });
+
+    $(".dview_report").click(function (e) {
+        e.preventDefault();        
+        var dshow= $(this).attr("type");
+        var dstart= $('.dstart_date').val();
+        var dend= $('.dend_date').val();
+        var dstatus= $('.dstatus').val();
+
+        function getNumberOfDays(start, end) {
+            const date1 = new Date(start);
+            const date2 = new Date(end);
+        
+            // One day in milliseconds
+            const oneDay = 1000 * 60 * 60 * 24;
+        
+            // Calculating the time difference between two dates
+            const diffInTime = date2.getTime() - date1.getTime();
+        
+            // Calculating the no. of days between two dates
+            const diffInDays = Math.round(diffInTime / oneDay);
+        
+            return diffInDays;
+        }
+        
+        if(dshow!=''&&dstart!=''&&dend!=''){
+
+            if(Date.parse(dstart) > Date.parse(dend)){
+                alert("Invalid Date Range");
+             }else{
+                $('.dview_report').html('Loading');
+                if(getNumberOfDays(dstart, dend)>31){
+                    alert("Select Date Range not more then a month");
+                }else{
+
+                $.ajax({
+                    type: 'post',
+                    url: 'dash_data.php',
+                    datatype: "json",
+                    data: {dshow:dshow,dstart:dstart,dend:dend,dstatus:dstatus},
+                    success: function (response) 
+                    {
+                        $("#dreports").html(response);
+                        $('.dview_report').html('Show');
+                        // $(".download_report").removeClass("d-none");
+                    }
+                });
+            }
+
+            }
+
+        }
+
     });
 });
