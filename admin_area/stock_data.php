@@ -186,6 +186,7 @@ if(isset($_POST['show'])){
         <td class='text-center'>$address, $phase, $landmark, $city</td>
         <td class='text-center'>$pro_name-$pro_desc</td>
         <td class='text-center'>$unit_price</td>
+        <td class='text-center'>$ven_price</td>
         <td class='text-center'>$qty</td>
         <td class='text-center'>$due_amount</td>
     </tr>
