@@ -440,6 +440,8 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
 
                         $pro_img1 = $row_pro['product_img1'];
 
+                        $warehouse_stock = $row_pro['warehouse_stock'];
+
                         // $pro_price = $row_pro['product_price'];
 
                         $pro_desc = $row_pro['product_desc'];
@@ -456,6 +458,13 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
 
                         // $del_charges = $row_min['del_charges'];
 
+                        $get_today_stock = "SELECT sum(qty) AS today_qty FROM customer_orders WHERE CAST(order_date as DATE)='$today' AND order_status in ('Order Placed','Packed') AND pro_id='$pro_id'";
+                        $run_today_stock = mysqli_query($con,$get_today_stock);
+                        $row_today_stock = mysqli_fetch_array($run_today_stock);
+
+                        $today_qty = $row_today_stock['today_qty'];
+
+                        $exceed_stock = $today_qty+$qty;
                         
                         $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
                         $run_del_charges = mysqli_query($con,$get_del_charges);
@@ -468,7 +477,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 <td class="text-center">
                                 <img src="<?php echo $pro_img1; ?>" alt="" class="img-thumbnail border-0" width="40px">
                                 </td>
-                                <td class="text-center"><?php echo $pro_title; ?><br><?php echo $pro_desc; ?></td>
+                                <td class="text-center"><?php echo $pro_title; ?><br><?php echo $pro_desc; ?><br><span class="badge badge-warning <?php if(($warehouse_stock*2)<=$exceed_stock){echo"show";}else{echo"d-none";}?>">Stock warning</span></td>
                                 <td class="text-center"><?php echo $qty; ?> x ₹ <?php echo $pro_price; ?></td>
                                 <td class="text-right">₹ <?php echo $sub_total; ?></td>
                                 <td class="text-right"><?php echo $pro_status; ?></td>
