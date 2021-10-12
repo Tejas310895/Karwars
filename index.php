@@ -113,11 +113,11 @@
 
                         echo "
                         
-                        <div class='carousel-item p-3 active'>
+                        <div class='carousel-item px-0 pb-2 active'>
 
                         <a href='$slide_url'>
 
-                            <img src='$slide_image' class='d-block w-100'>
+                            <img src='$slide_image' class='w-100'>
 
                         </a>
 
