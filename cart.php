@@ -387,7 +387,7 @@ if(!empty($_COOKIE['user'])){
                 <h5 class="cou-text mb-0">Discount <small class="text-uppercase">(<?php echo $dis_coupon_code; ?> Applied)</small></h5>
             </div>
             <div class="col-3 pull-right text-success">
-                <h5 class="cou-text mb-0 text-right"><?php if($dis_amt>0){echo "-₹".$dis_amt;}?></h5>
+                <h5 class="cou-text mb-0 text-right"><?php if(isset($dis_amt)){echo $dis_amt;}?></h5>
                 <input type="hidden" name="coupon_id" value="<?php echo $coupon_dis_id; ?>">
             </div>
             <div class="col-12">
