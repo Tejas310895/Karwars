@@ -372,8 +372,8 @@ if(!empty($_COOKIE['user'])){
                     $row_off_pro_det = mysqli_fetch_array($run_off_pro_det);
 
                     $off_product_det_product_price = $row_off_pro_det['product_price'];
-                    $dis_amt = $off_product_det_product_price;
-                    $grand_total = ($total+$add_del)+$dis_amt;
+                    $dis_amt=0;
+                    $grand_total = ($total+$add_del)+$off_product_det_product_price;
                 }
 
                 if($total<$dis_min_order){
@@ -393,7 +393,7 @@ if(!empty($_COOKIE['user'])){
             <div class="col-12">
                 <small class="text-center text-success <?php if($dis_coupon_type==='product'){echo 'show';}else{echo 'd-none';} ?>" style="margin-top:10px;">Get the offer product in order</small>
             </div>
-            <?php }else{$grand_total = ($total+$add_del);$dis_amt=0;} ?>
+            <?php }else{$grand_total = ($total+$add_del);} ?>
             <div class="col-6 pull-left">
                 <h5 class="Grand-text mb-0 pt-2">Grand Total</h5>
                 <p class="inc-tax mb-0">(Inc. Of all taxes)</p>
