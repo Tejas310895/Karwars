@@ -358,13 +358,22 @@ if(!empty($_COOKIE['user'])){
                     $percent_off = $total * ($dis_coupon_unit/100);
                     if($percent_off>$dis_upto_limit){
                         $dis_amt = $dis_upto_limit;
+                        $grand_total = ($total+$add_del)-$dis_amt;
                     }else{
                         $dis_amt = $percent_off;
+                        $grand_total = ($total+$add_del)-$dis_amt;
                     }
                 }elseif ($dis_coupon_type==='amount') {
                     $dis_amt = $dis_coupon_unit;
+                    $grand_total = ($total+$add_del)-$dis_amt;
                 }elseif ($dis_coupon_type==='product') {
-                    $dis_amt = 0;
+                    $get_off_pro_det = "select * from products where product_id='$dis_coupon_use_id'";
+                    $run_off_pro_det = mysqli_query($con,$get_off_pro_det);
+                    $row_off_pro_det = mysqli_fetch_array($run_off_pro_det);
+
+                    $off_product_det_product_price = $row_off_pro_det['product_price'];
+                    $dis_amt = $off_product_det_product_price;
+                    $grand_total = ($total+$add_del)+$dis_amt;
                 }
 
                 if($total<$dis_min_order){
@@ -384,13 +393,13 @@ if(!empty($_COOKIE['user'])){
             <div class="col-12">
                 <small class="text-center text-success <?php if($dis_coupon_type==='product'){echo 'show';}else{echo 'd-none';} ?>" style="margin-top:10px;">Get the offer product in order</small>
             </div>
-            <?php }else{$dis_amt = 0;} ?>
+            <?php }else{$grand_total = ($total+$add_del);} ?>
             <div class="col-6 pull-left">
                 <h5 class="Grand-text mb-0 pt-2">Grand Total</h5>
                 <p class="inc-tax mb-0">(Inc. Of all taxes)</p>
             </div>
             <div class="col-6 pull-right">
-                <h5 class="Grand-text text-right mb-0 pt-3">₹ <?php echo ($total+$add_del)-$dis_amt; ?></h5>
+                <h5 class="Grand-text text-right mb-0 pt-3">₹ <?php echo $grand_total; ?></h5>
             </div>
             <div class="col-12 <?php if($total>=499){echo"d-none";}else{echo"show";}?>">
                 <h6 class="min_cart_ord text-danger pt-1 text-center">
