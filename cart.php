@@ -357,22 +357,22 @@ if(!empty($_COOKIE['user'])){
                 if($dis_coupon_type==='percent'){
                     $percent_off = $total * ($dis_coupon_unit/100);
                     if($percent_off>$dis_upto_limit){
-                        $dis_amt = $dis_upto_limit;
-                        $grand_total = ($total+$add_del)-$dis_amt;
+                        $dis_amt = "-₹".$dis_upto_limit;
+                        $grand_total = ($total+$add_del)-$dis_upto_limit;
                     }else{
-                        $dis_amt = $percent_off;
-                        $grand_total = ($total+$add_del)-$dis_amt;
+                        $dis_amt = "-₹".$percent_off;
+                        $grand_total = ($total+$add_del)-$percent_off;
                     }
                 }elseif ($dis_coupon_type==='amount') {
-                    $dis_amt = $dis_coupon_unit;
-                    $grand_total = ($total+$add_del)-$dis_amt;
+                    $dis_amt = "-₹".$dis_coupon_unit;
+                    $grand_total = ($total+$add_del)-$dis_coupon_unit;
                 }elseif ($dis_coupon_type==='product') {
                     $get_off_pro_det = "select * from products where product_id='$dis_coupon_use_id'";
                     $run_off_pro_det = mysqli_query($con,$get_off_pro_det);
                     $row_off_pro_det = mysqli_fetch_array($run_off_pro_det);
 
                     $off_product_det_product_price = $row_off_pro_det['product_price'];
-                    $dis_amt=0;
+                    $dis_amt="+₹".$off_product_det_product_price;
                     $grand_total = ($total+$add_del)+$off_product_det_product_price;
                 }
 
