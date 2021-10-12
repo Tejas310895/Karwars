@@ -482,6 +482,7 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 <td class="text-right">₹ <?php echo $sub_total; ?></td>
                                 <td class="text-right"><?php echo $pro_status; ?></td>
                             </tr>
+                            <?php } ?>
                             <?php 
                             
                             if($discount_type==='product'){
@@ -516,7 +517,6 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 <td class="text-center" colspan="2"><?php echo $off_product_det_product_title; ?><br><?php echo $off_product_det_product_desc; ?></td>
                                 <td class="text-right" colspan="2">₹ <?php echo $off_product_det_product_price; ?></td>
                             </tr>
-                            <?php } ?>
                             <?php } ?>
                             <?php } ?>
                         </tbody>
