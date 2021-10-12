@@ -393,7 +393,7 @@ if(!empty($_COOKIE['user'])){
             <div class="col-12">
                 <small class="text-center text-success <?php if($dis_coupon_type==='product'){echo 'show';}else{echo 'd-none';} ?>" style="margin-top:10px;">Get the offer product in order</small>
             </div>
-            <?php }else{$grand_total = ($total+$add_del);} ?>
+            <?php }else{$grand_total = ($total+$add_del);$dis_amt=0;} ?>
             <div class="col-6 pull-left">
                 <h5 class="Grand-text mb-0 pt-2">Grand Total</h5>
                 <p class="inc-tax mb-0">(Inc. Of all taxes)</p>
