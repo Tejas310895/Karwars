@@ -595,6 +595,9 @@ if(isset($_GET['cancel_order'])){
     }
 
     if($run_update_purchase_price){
+      $update_status = "update purchase_invoice_entry set stock_update_status='active' where purchase_invoice_id='$purchase_invoice_id'";
+      $run_update_status = mysqli_query($con,$update_status);
+      
       echo "<script>alert('Updated Successfully')</script>";
       echo "<script>window.open('index.php?purchase_invoice_entries','_self')</script>";
     }else {

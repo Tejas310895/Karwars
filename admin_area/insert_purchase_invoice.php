@@ -165,6 +165,7 @@ if(isset($_POST['submit'])){
                                                                     purchase_invoice_date,
                                                                     product_array,
                                                                     payment_status,
+                                                                    stock_update_status,
                                                                     purchase_payment_date,
                                                                     updated_date)
                                                                      values
@@ -173,6 +174,7 @@ if(isset($_POST['submit'])){
                                                                       '$purchase_invoice_date',
                                                                       '$serialized_array',
                                                                       'unpaid',
+                                                                      'inactive',
                                                                       '$purchase_payment_date',
                                                                       '$today')";
             $run_insert_purchase = mysqli_query($con,$insert_purchase);

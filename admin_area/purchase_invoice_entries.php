@@ -48,6 +48,7 @@
                 $product_array = $row_purchase_inc['product_array'];
                 $purchase_txn_type = $row_purchase_inc['purchase_txn_type'];
                 $purchase_ref_no = $row_purchase_inc['purchase_ref_no'];
+                $stock_update_status = $row_purchase_inc['stock_update_status'];
                 $updated_date = $row_purchase_inc['updated_date'];
 
                 $sorted_array = unserialize($product_array);
@@ -193,7 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-success btn-sm btn-icon" href="process_order.php?update_purchase=<?php echo $purchase_invoice_id; ?>" onclick="return confirm('Are you sure?')" title="Update Details">
+                        <a class="btn btn-success btn-sm btn-icon <?php if($stock_update_status==='inactive'){echo"show";}else{echo"d-none";} ?>" href="process_order.php?update_purchase=<?php echo $purchase_invoice_id; ?>" onclick="return confirm('Are you sure?')" title="Update Details">
                             <i class="tim-icons icon-cloud-upload-94"></i>
                         </a>
                     </td>
