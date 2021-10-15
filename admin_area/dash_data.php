@@ -112,6 +112,8 @@ while($row_bill_diff = mysqli_fetch_array($run_bill_diff)){
 $bill_diff_amount = $row_bill_diff['bill_amount'];
 $bill_diff_total += $bill_diff_amount;
 
+}
+
 if($discount_type==='amount'){
 
     $grand_total = ($total+$del_charges)-$discount_amount;
@@ -131,7 +133,7 @@ if($discount_type==='amount'){
     $grand_total = $total+$del_charges;
     
   }
-}
+
 ?>
         <tr class="text-center">
         <td style="font-size:0.8rem;"><?php echo $status; ?></td>
