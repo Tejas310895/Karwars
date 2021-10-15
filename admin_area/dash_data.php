@@ -94,6 +94,7 @@ $get_discount = "select * from customer_discounts where invoice_no='$invoice_id'
 $run_discount = mysqli_query($con,$get_discount);
 $row_discount = mysqli_fetch_array($run_discount);
 
+$coupon_code = $row_discount['coupon_code'];
 $discount_type = $row_discount['discount_type'];
 $discount_amount = $row_discount['discount_amount'];
 
@@ -110,6 +111,26 @@ while($row_bill_diff = mysqli_fetch_array($run_bill_diff)){
 
 $bill_diff_amount = $row_bill_diff['bill_amount'];
 $bill_diff_total += $bill_diff_amount;
+
+if($discount_type==='amount'){
+
+    $grand_total = ($total+$del_charges)-$discount_amount;
+
+  }elseif ($discount_type==='product') {
+
+    $get_off_pro = "select * from products where product_id='$discount_amount'";
+    $run_off_pro = mysqli_query($con,$get_off_pro);
+    $row_off_pro = mysqli_fetch_array($run_off_pro);
+
+    $off_product_price = $row_off_pro['product_price'];
+
+    $grand_total = ($total+$del_charges)+$off_product_price;
+    
+  }elseif (empty($discount_type)) {
+
+    $grand_total = $total+$del_charges;
+    
+  }
 }
 ?>
         <tr class="text-center">
@@ -124,9 +145,9 @@ $bill_diff_total += $bill_diff_amount;
             <?php echo $customer_city; ?> .
         </td>
         <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
-        <td style="font-size:0.7rem;">₹ <?php echo ($total+$del_charges)-$discount_amount; ?>/-</td>
+        <td style="font-size:0.7rem;">₹ <?php echo $grand_total; ?>/-</td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
-        <td style="font-size:0.7rem; text-align:center;"><?php if($discount_amount>0){echo$discount_amount;}else{echo 0;} ;?></td>
+        <td style="font-size:0.7rem; text-align:center;"><?php if(isset($coupon_code)){echo$coupon_code;}else{echo "nil";} ;?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($bill_diff_total>0){echo$bill_diff_total;}else{echo 0;} ;?></td>
         <td><?php if($txn_status=='SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
         <td class="td-actions" >
