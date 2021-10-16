@@ -164,20 +164,34 @@ $del_charges = $row_del_charges['del_charges'];
                         }
     </style>
     <script>
-        window.onload = function () {
-            window.print();
-        }
+        // window.onload = function () {
+        //     window.print();
+        // }
 
-        window.onafterprint = function(){
-            window.close();
-        }
+        // window.onafterprint = function(){
+        //     window.close();
+        // }
+        $(document).ready(function($) {
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+        
+          if (isAndroid) {
+            // https://developers.google.com/cloud-print/docs/gadget
+            var gadget = new cloudprint.Gadget();
+            gadget.setPrintDocument("url", $('title').html(), window.location.href, "utf-8");
+            gadget.openPrintDialog();
+          } else {
+            window.print();
+          }
+          return false;
+      });
     </script>
 </head>
 <body>
 <div class="pagebreak mt-1 ml-1">
   <div id="invoice-POS">
   <center>
-  <img src="images/karwarslogo.png" alt="" width="120px">
+  <img src="admin_images/karwarslogo.png" alt="" width="120px">
   </center>
     <!-- <center id="top">
       <div class="logo">
@@ -218,11 +232,11 @@ $del_charges = $row_del_charges['del_charges'];
 
             $product_type = $row_product_type['client_pro_type'];
             
-            echo"
-            <tr>
-            <th colspan='3' class='item_type' style='font-size:0.6rem;text-align:left;padding:10px 10px 0px 10px;text-transform: uppercase;background-color:#F0F0F0;'>$product_type</th>
-            </tr>
-            ";
+            // echo"
+            // <tr>
+            // <th colspan='3' class='item_type' style='font-size:0.6rem;text-align:left;padding:10px 10px 0px 10px;text-transform: uppercase;background-color:#F0F0F0;'>$product_type</th>
+            // </tr>
+            // ";
        ?>
         <tbody class="text-center" style="font-weight:bold;">
       <?php
