@@ -220,7 +220,7 @@
     <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
     <a href="https://karwars.in/shop?store_id=40">
         <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_74_2x-100_W9TLM2pmaA.jpg?updatedAt=1627924915176" alt="" class="img-fluid mx-0 rounded">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/dip1Artboard_85_2x-100_KEHceNfarhN.jpg?updatedAt=1634456845823" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a>
     <a href="https://karwars.in/shop?store_id=36">
@@ -577,11 +577,11 @@
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_79_2x-100_YSVV1PQvt_.jpg?updatedAt=1627924914055" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a>
-    <a href="https://karwars.in/store.php?cat=15">
+    <!-- <a href="https://karwars.in/store.php?cat=15">
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_76_2x-100_bbnNyh3DQ73.jpg?updatedAt=1627924917005" alt="" class="img-fluid mx-0 rounded">
         </div>
-    </a>
+    </a> -->
     <div class="container-fluid p-2">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
