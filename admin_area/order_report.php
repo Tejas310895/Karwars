@@ -55,6 +55,7 @@
             <th>UNIT COST</th>
             <th>QTY</th>
             <th>VENDOR TOTAL</th>
+            <th>GST RATE</th>
             <th>TOTAL</th>
 		</tr>
 	</thead>
