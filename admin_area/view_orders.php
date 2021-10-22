@@ -117,7 +117,7 @@ while ($row_stock_g=mysqli_fetch_array($run_stock_g)) {
         <div class="card card-chart">
             <div class="card-header">
                 <h5 class="card-category">Warehouse Stock</h5>
-                <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php echo array_sum($stock_fund); ?> </h3>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php echo round(array_sum($stock_fund),0); ?> </h3>
                 <!-- <h5 class="text-primary">Today Orders : <?php //if($today_count>0){echo $today_count;}else{echo '0';}; ?></h5> -->
             </div>
         </div>
