@@ -288,27 +288,37 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                 </div>
                                 <div class='row'>
                                     <div class='col-6'>
-                                        <h5 class='card-title'>Amount - ₹$grand_total/-";
-                                        if($del_charges>0 && $discount_type==='amount'){
-                                            echo "(".$total."+".$del_charges."dlc -".$discount_amount."dc";
-                                        }elseif ($del_charges>0) {
-                                            echo "(".$total."+".$del_charges."dlc";
-                                        }elseif ($discount_type==='amount') {
-                                            echo "(".$total."-".$discount_amount."dc";
-                                        }elseif ($del_charges>0 && $discount_type==='product') {
-                                            $get_off_pro = "select * from products where product_id='$discount_amount'";
-                                            $run_off_pro = mysqli_query($con,$get_off_pro);
-                                            $row_off_pro = mysqli_fetch_array($run_off_pro);
-                            
-                                            $off_product_price = $row_off_pro['product_price'];
-                                            echo "(".$total."+".$del_charges."dlc +".$off_product_price."dc";
-                                        }elseif ($discount_type==='product') {
-                                            $get_off_pro = "select * from products where product_id='$discount_amount'";
-                                            $run_off_pro = mysqli_query($con,$get_off_pro);
-                                            $row_off_pro = mysqli_fetch_array($run_off_pro);
-                            
-                                            $off_product_price = $row_off_pro['product_price'];
-                                            echo "(".$total."+".$off_product_price."dc";
+                                        <h5 class='card-title'>Amount -₹".$grand_total."/-";
+                                        if($del_charges>=1){
+                                            if(empty($discount_type)){
+                                                echo "(".$total."+".$del_charges."dlc";
+                                            }elseif ($discount_type==='amount') {
+                                                echo "(".$total."+".$del_charges."dlc -".$discount_amount."dc";
+                                            }elseif ($discount_type==='product') {
+                                                $get_off_pro = "select * from products where product_id='$discount_amount'";
+                                                $run_off_pro = mysqli_query($con,$get_off_pro);
+                                                $row_off_pro = mysqli_fetch_array($run_off_pro);
+                                
+                                                $off_product_price = $row_off_pro['product_price'];
+                                                            
+                                                echo "(".$total."+".$del_charges."dlc +".$off_product_price."dc";    
+                                            }
+                                        }else {
+
+                                            if(empty($discount_type)){
+                                                echo "(".$total;
+                                            }elseif ($discount_type==='amount') {
+                                                echo "(".$total."-".$discount_amount."dc";
+                                            }elseif ($discount_type==='product') {
+                                                $get_off_pro = "select * from products where product_id='$discount_amount'";
+                                                $run_off_pro = mysqli_query($con,$get_off_pro);
+                                                $row_off_pro = mysqli_fetch_array($run_off_pro);
+                                
+                                                $off_product_price = $row_off_pro['product_price'];
+                                                            
+                                                echo "(".$total."-".$off_product_price."dc";    
+                                            }
+                                            
                                         }
                                         echo ")</h5>
                                     </div>
