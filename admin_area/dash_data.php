@@ -50,7 +50,7 @@ $status = $row_orders['order_status'];
 
 $order_date = $row_orders['order_date'];
 
-$get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id'";
+$get_total = "SELECT sum(due_amount) AS total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver'";
 
 $run_total = mysqli_query($con,$get_total);
 
