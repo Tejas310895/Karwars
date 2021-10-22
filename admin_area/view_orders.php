@@ -79,6 +79,20 @@ $run_cancel_count_today = mysqli_query($con,$get_cancel_count_today);
 
 $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
 
+$get_stock_g = "select * from products where client_id='6'";
+$run_stock_g = mysqli_query($con,$get_stock_g);
+$stock_fund = array();
+while ($row_stock_g=mysqli_fetch_array($run_stock_g)) {
+    $vendor_price = $row_stock_g['vendor_price'];
+    $warehouse_stock = $row_stock_g['warehouse_stock'];
+    if($vendor_price>=1){
+        $stock_amount = $vendor_price*$warehouse_stock;
+    }else {
+        $stock_amount = 0;
+    }
+    array_push($stock_fund, $stock_amount);
+}
+
 ?>
 <div class="row">
     <div class="col-lg-3">
@@ -96,6 +110,15 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                 <h5 class="card-category">Total Orders</h5>
                 <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php if($total_count>0){echo $total_count;}else{echo '0';}; ?> </h3>
                 <h5 class="text-primary">Today Orders : <?php if($today_count>0){echo $today_count;}else{echo '0';}; ?></h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card card-chart">
+            <div class="card-header">
+                <h5 class="card-category">Warehouse Stock</h5>
+                <h3 class="card-title mb-0"><i class="tim-icons icon-delivery-fast"></i> <?php echo array_sum($stock_fund); ?> </h3>
+                <!-- <h5 class="text-primary">Today Orders : <?php //if($today_count>0){echo $today_count;}else{echo '0';}; ?></h5> -->
             </div>
         </div>
     </div>
