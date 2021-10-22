@@ -295,6 +295,20 @@ $cancel_count_today = mysqli_num_rows($run_cancel_count_today);
                                             echo "(".$total."+".$del_charges."dlc";
                                         }elseif ($discount_type==='amount') {
                                             echo "(".$total."-".$discount_amount."dc";
+                                        }elseif ($del_charges>0 && $discount_type==='product') {
+                                            $get_off_pro = "select * from products where product_id='$discount_amount'";
+                                            $run_off_pro = mysqli_query($con,$get_off_pro);
+                                            $row_off_pro = mysqli_fetch_array($run_off_pro);
+                            
+                                            $off_product_price = $row_off_pro['product_price'];
+                                            echo "(".$total."+".$del_charges."dlc +".$off_product_price."dc";
+                                        }elseif ($discount_type==='product') {
+                                            $get_off_pro = "select * from products where product_id='$discount_amount'";
+                                            $run_off_pro = mysqli_query($con,$get_off_pro);
+                                            $row_off_pro = mysqli_fetch_array($run_off_pro);
+                            
+                                            $off_product_price = $row_off_pro['product_price'];
+                                            echo "(".$total."+".$off_product_price."dc";
                                         }
                                         echo ")</h5>
                                     </div>
