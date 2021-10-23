@@ -113,7 +113,7 @@
 
                         echo "
                         
-                        <div class='carousel-item px-0 pb-2 active'>
+                        <div class='carousel-item px-0 pb-0 active'>
 
                         <a href='$slide_url'>
 
@@ -176,54 +176,32 @@
 </div> -->
 <!-- product swipe -->
     <div class="container-fluid px-0">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/min_ord_amtArtboard_1_2x-100_YjDvAtd9z.jpg" alt="" class="img-fluid mx-0">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/499minArtboard_1_2x-100_G8FSXYXEu6F.jpg?updatedAt=1634977707842" alt="" class="img-fluid mx-0">
     </div>
 
     <!-- Offer Zone -->
-        <!-- <div class="container-fluid my-2 py-2 offer_container">
-            <div class="swiper-container">
-                <div class="swiper-wrapper"> -->
-                    <?php 
-                    
-                    // $get_per_off = "select * from slider where image_type='promo_images' LIMIT 7";
-                    // $run_per_off = mysqli_query($con,$get_per_off);
-                    // while($row_per_off = mysqli_fetch_array($run_per_off)){
 
-                    //     $slide_name = $row_per_off['slide_name'];
-                    //     $slide_image = $row_per_off['slide_image'];
-                    //     $slide_url = $row_per_off['slide_url'];
-
-                    ?>
-                    <!-- <div class='swiper-slide'>
-                        <a href="<?php //echo $slide_url; ?>">
-                            <img class="card-img-top per_off_img" src="<?php //echo $slide_image; ?>" alt="<?php //echo $slide_name; ?>">
-                        </a>
-                    </div> -->
-                    <?php //} ?>
-                <!-- </div> -->
-                <!-- <div class="swiper-pagination"></div> -->
-            <!-- </div> -->
-            <!-- <div class="row pl-1 text-center">
-                <a href="shop_offer?offer_zone=10" class="btn offer_box">
-                    <h6 class="text-light pt-2">Below-10%</h6>
-                </a>
-                <a href="shop_offer?offer_zone=20" class="btn offer_box">
-                    <h6 class="text-light pt-2">10% - 30%</h6>
-                </a>
-                <a href="shop_offer?offer_zone=30" class="btn offer_box">
-                    <h6 class="text-light pt-2">30%-Above</h6>
-                </a>
-            </div> -->
-        <!-- </div> -->
     <!-- Offer Zone -->
     <!-- banner display -->
-    <!-- <img src="https://ik.imagekit.io/wrnear2017/karwars_images/cool_drink_offArtboard_51_4x-50_DhJsYBGff.jpg" alt="" class="img-fluid mb-2"> -->
-    <a href="https://karwars.in/shop?store_id=40">
+    <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid">
+    <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
+        <div class="row">
+            <div class="col-6">
+                <a href="https://karwars.in/shop?store_id=40">
+                    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_90_2x-100_eF-r8p3iGe.jpg?updatedAt=1634986281127" alt="" class="img-fluid mb-2 mt-2">
+                </a>
+            </div>
+            <div class="col-6">
+                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_91_2x-100_H7ZQX_csAiP4.jpg?updatedAt=1634986280318" alt="" class="img-fluid mb-2 mt-2">
+            </div>
+        </div>
+    </div>
+    <a href="https://karwars.in/store">
         <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/august_upload/dip1Artboard_85_2x-100_1__-pWfmMK4Kos.jpg?updatedAt=1634458238968" alt="" class="img-fluid mx-0 rounded">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_92_2x-100_dvtOEb_mT6R.jpg?updatedAt=1634991003551" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a>
-    <a href="https://karwars.in/shop?store_id=36">
+    <!-- <a href="https://karwars.in/shop?store_id=36">
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_78_2x-100_t9CKeE1jRr.jpg?updatedAt=1627924918767" alt="" class="img-fluid mx-0 rounded">
         </div>
@@ -232,7 +210,7 @@
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_75_2x-100_ESnwxPKVvW.jpg?updatedAt=1627924916162" alt="" class="img-fluid mx-0 rounded">
         </div>
-    </a>
+    </a> -->
     <!-- <a href="#">
     <div class="container-fluid p-2">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/first_pageArtboard_80_2x-100_jpydbiHSrLj.jpg?updatedAt=1628951509139" alt="" class="img-fluid mx-0 rounded">
@@ -501,7 +479,7 @@
 <!-- floatnav -->
 
 <!-- Product Categories -->
-    <div class="container" style="background:#ffeb7a;">
+    <div class="container pb-3" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/28639e35a46d011b96bda5ebe8fef5db_kLAxcvEej.jpg?updatedAt=1634992029275');background-size: contain;">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images2_N1eIqJeUi_.png" alt="" class="img-fluid">
         <div class="row mx-1">
 
@@ -572,17 +550,44 @@
 
 <!-- Product Categories -->
 <!-- believe in us -->
-    <a href="https://karwars.in/shop?store_id=1">
+    <a href="https://karwars.in/store.php?cat=17">
         <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_79_2x-100_YSVV1PQvt_.jpg?updatedAt=1627924914055" alt="" class="img-fluid mx-0 rounded">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_93_2x-100_OPAyzKcj60Y.jpg?updatedAt=1634993364959" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a>
+    <div class="container-fluid px-2 py-2">
+        <div class="row">
+            <div class="col-12">
+                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_94_2x-100_iqZmjszUQG0.jpg?updatedAt=1634993858875" alt="" class="img-fluid mx-0">
+            </div>
+            <div class="col-6">
+            <a href="https://karwars.in/store.php?cat=4">
+                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_97_2x-100_filBDPkCm.jpg?updatedAt=1634996992817" alt="" class="img-fluid mx-0">
+            </a>
+            </div>
+            <div class="col-6">
+            <a href="https://karwars.in/store.php?cat=13">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_96_2x-100_0duRbfQ4oz9.jpg?updatedAt=1634996991920" alt="" class="img-fluid mx-0">
+            </a>
+            </div>
+            <div class="col-6">
+            <a href="https://karwars.in/store.php?cat=7">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_95_2x-100_1__WhLz6cDFR.jpg?updatedAt=1634996990998" alt="" class="img-fluid mx-0">
+            </a>
+            </div>
+            <div class="col-6">
+            <a href="https://karwars.in/shop?store_id=67">
+            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_98_2x-100__3rQphEGYf5.jpg?updatedAt=1634996990664" alt="" class="img-fluid mx-0">
+            </a>
+            </div>
+        </div>
+    </div>
     <!-- <a href="https://karwars.in/store.php?cat=15">
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_76_2x-100_bbnNyh3DQ73.jpg?updatedAt=1627924917005" alt="" class="img-fluid mx-0 rounded">
         </div>
     </a> -->
-    <div class="container-fluid p-2">
+    <!-- <div class="container-fluid p-2">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
     </div>
     <div class="container-fluid p-2">
@@ -592,11 +597,11 @@
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_77_2x-100_Mlr9DYxXi8.jpg?updatedAt=1627924917953" alt="" class="img-fluid mx-0 rounded">
         </div>
-    </a>
+    </a> -->
         <!-- stay safe -->
-        <div class="container-fluid px-0">
+        <!-- <div class="container-fluid px-0">
         <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
-    </div>
+    </div> -->
     <!-- stay safe -->
 <!-- believe in us -->
     <!-- <div class="container-fluid mt-3">
