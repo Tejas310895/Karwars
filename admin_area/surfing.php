@@ -83,7 +83,7 @@
                                           $run_pro_id = mysqli_query($con,$get_pro_id);
 
                                           $counter = 0;
-                                          $ord_total = array();
+                                          $ord_total = 0;
 
                                           while($row_pro_id = mysqli_fetch_array($run_pro_id)){
 
@@ -107,7 +107,7 @@
                                           
                                           $sub_total = $pro_price * $qty;
 
-                                          array_push($ord_total,$sub_total);
+                                          $ord_total += $sub_total;
 
                                           ?>
                                               <tr>
@@ -130,9 +130,9 @@
                                 </div>
                             <!-- Modal -->
                     </td>
+                    <td><?php echo $ord_total; ?></td>
                 </tr>
                 <?php } ?>
-                <td><?php echo array_sum($ord_total); ?></td>
             </tbody>
         </table>
        </div>
