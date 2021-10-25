@@ -21,7 +21,8 @@
                     <th>Date</th>
                     <th>Customer Name</th>
                     <th>Customer Mobile</th> 
-                    <th class="text-left">Actions</th>
+                    <th class="text-left">Items</th>
+                    <th class="text-left">Amount</th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -82,6 +83,7 @@
                                           $run_pro_id = mysqli_query($con,$get_pro_id);
 
                                           $counter = 0;
+                                          $ord_total = array();
 
                                           while($row_pro_id = mysqli_fetch_array($run_pro_id)){
 
@@ -99,11 +101,13 @@
 
                                           $pro_img1 = $row_pro['product_img1'];
 
-                                          // $pro_price = $row_pro['product_price'];
+                                          $pro_price = $row_pro['product_price'];
 
                                           $pro_desc = $row_pro['product_desc'];
                                           
-                                          // $sub_total = $pro_price * $qty;
+                                          $sub_total = $pro_price * $qty;
+
+                                          array_push($ord_total,$sub_total);
 
                                           ?>
                                               <tr>
@@ -128,6 +132,7 @@
                     </td>
                 </tr>
                 <?php } ?>
+                <td><?php echo array_sum($ord_total); ?></td>
             </tbody>
         </table>
        </div>
