@@ -66,6 +66,7 @@ if(isset($_GET['pro_id'])){
     <!-- date -->
     <link rel="stylesheet" href="styles/jquery-ui.css">
     <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5BNNCDV"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
     <script>
