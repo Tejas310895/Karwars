@@ -180,7 +180,11 @@
     </div>
 
     <!-- Offer Zone -->
-
+        <a href="https://karwars.in/store.php?cat=18">
+            <div class="container-fluid px-0">
+                    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_99_2x-100_tJ9QBkYYi.jpg?updatedAt=1635415504446" alt="" class="img-fluid mx-0">
+            </div>
+        </a>
     <!-- Offer Zone -->
     <!-- banner display -->
     <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid">
