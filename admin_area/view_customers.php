@@ -47,14 +47,14 @@
 
         $updated_date = $row_customer['updated_date'];
 
-        $get_order_amount = "select sum(due_amount) as order_amount from cutomer_orders where customer_id='$customer_id' and product_status='Deliver'";
+        $get_order_amount = "select sum(due_amount) as order_amount from customer_orders where customer_id='$customer_id' and product_status='Deliver'";
         $run_order_amount = mysqli_query($con,$get_order_amount);
         $row_order_amount = mysqli_fetch_array($run_order_amount);
 
         $order_amount = $row_order_amount['order_amount'];
 
 
-        $get_order_count = "select distinct(invoice_no) from cutomer_orders where customer_id='$customer_id' and order_status='Delivered'";
+        $get_order_count = "select distinct(invoice_no) from customer_orders where customer_id='$customer_id' and order_status='Delivered'";
         $run_order_count = mysqli_query($con,$get_order_count);
         $order_count = mysqli_num_rows($run_order_count);    
     ?>
