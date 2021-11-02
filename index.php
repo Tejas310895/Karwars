@@ -162,18 +162,18 @@
     </a>
     </div>
 <!-- banner carousel -->
-<!-- <div class="container">
+<div class="container">
     <div class="row">
-        <div class="col-12">
-            <div class="alert alert-danger alert-dismissible fade show border text-justify border-0" role="alert">
-                    Due to the GANESH CHATURTI festival home deliveries will not be done on 9th and 10th of august, Regret for the inconvenience caused.
+        <div class="col-12 px-0">
+            <div class="alert alert-danger alert-dismissible fade show border text-justify border-0 mb-0" role="alert" style="font-family:Josefin Sans;">
+                    Due to the Diwali festival home deliveries will not be done on 4th of November, Regret for the inconvenience caused.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- product swipe -->
     <div class="container-fluid px-0">
             <img src="https://ik.imagekit.io/wrnear2017/august_upload/499minArtboard_1_2x-100_G8FSXYXEu6F.jpg?updatedAt=1634977707842" alt="" class="img-fluid mx-0">
