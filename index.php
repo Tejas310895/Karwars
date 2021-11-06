@@ -187,7 +187,7 @@
         </a>
     <!-- Offer Zone -->
     <!-- banner display -->
-    <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid">
+    <!-- <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid"> -->
     <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
         <div class="row">
             <div class="col-6">
