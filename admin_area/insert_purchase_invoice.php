@@ -77,8 +77,10 @@ if(!isset($_SESSION['admin_email'])){
                     $product_id = $row_products['product_id'];
                     $product_title = $row_products['product_title'];
                     $product_desc = $row_products['product_desc'];
+                    $pur_price = $row_products['vendor_price'];
+                    $product_price = $row_products['product_price'];
 
-                echo "<option value='$product_id'>$product_title $product_desc</option>";
+                echo "<option value='$product_id'>$product_title $product_desc Pur-$pur_price Sell-$product_price</option>";
 
                 }
             
@@ -110,8 +112,10 @@ if(!isset($_SESSION['admin_email'])){
                     $product_id = $row_products['product_id'];
                     $product_title = $row_products['product_title'];
                     $product_desc = $row_products['product_desc'];
+                    $pur_price = $row_products['vendor_price'];
+                    $product_price = $row_products['product_price'];
 
-                echo "<option value='$product_id'>$product_title $product_desc</option>";
+                    echo "<option value='$product_id'>$product_title $product_desc Pur-$pur_price Sell-$product_price</option>";
 
                 }
             
