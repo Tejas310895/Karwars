@@ -197,7 +197,7 @@
             </div>
             <div class="col-6">
                 <a href="https://karwars.in/store.php?cat=18">
-                    <img src="https://ik.imagekit.io/wrnear2017/Products_Design/SQR_OFFArtboard_101_2x-100_CFPgCxB6OYF.jpg?updatedAt=1635577923629" alt="" class="img-fluid mb-2 mt-2">
+                    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFF_1Artboard_101_2x-100_QummbH6oC6K.jpg?updatedAt=1636355764313" alt="" class="img-fluid mb-2 mt-2">
                 </a>
             </div>
         </div>
