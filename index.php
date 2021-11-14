@@ -193,6 +193,25 @@
     <!-- Offer Zone -->
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <a href="https://karwars.in/shop?store_id=97">
+                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_105_2x-100_W2jNZCpZe.jpg?updatedAt=1636877587493" alt="" class="img-fluid mb-2 mt-2">
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="https://karwars.in/shop?store_id=99">
+                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_104_2x-100_fGFuXkC_yNOa.jpg?updatedAt=1636877587686" alt="" class="img-fluid mb-2 mt-2">
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="https://karwars.in/shop?store_id=141">
+                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_103_2x-100_824aDtz6dYB.jpg?updatedAt=1636877587405" alt="" class="img-fluid mb-2 mt-2">
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
         <div class="row">
             <div class="col-6">
