@@ -192,7 +192,7 @@
             <td class="bg-primary" style="color:#000 !important;">
             <?php 
                 
-                $get_total_purchase = "select sum(due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='9' and order_status='Delivered' and product_status='Deliver'";
+                $get_total_purchase = "select sum(vendor_due_amount) as total_purchase from customer_orders where CAST(del_date as DATE)='$delivery_date' and client_id='9' and order_status='Delivered' and product_status='Deliver'";
                 $run_total_purchase = mysqli_query($con,$get_total_purchase);
                 $row_total_purchase = mysqli_fetch_array($run_total_purchase);
 
