@@ -193,7 +193,7 @@
     <!-- Offer Zone -->
     <!-- banner display -->
     <!-- <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid"> -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row">
             <div class="col-4">
                 <a href="https://karwars.in/shop?store_id=97">
@@ -211,8 +211,8 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
+    </div> -->
+    <!-- <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
         <div class="row">
             <div class="col-6">
                 <a href="https://karwars.in/shop?store_id=40">
@@ -225,7 +225,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
     <a href="https://karwars.in/store">
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_92_2x-100_dvtOEb_mT6R.jpg?updatedAt=1634991003551" alt="" class="img-fluid mx-0 rounded">
