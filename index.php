@@ -212,20 +212,20 @@
             </div>
         </div>
     </div> -->
-    <!-- <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
+    <div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
         <div class="row">
             <div class="col-6">
                 <a href="https://karwars.in/shop?store_id=40">
-                    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_91_2x-100_H7ZQX_csAiP4.jpg?updatedAt=1634986280318" alt="" class="img-fluid mb-2 mt-2">
+                    <img src="https://ik.imagekit.io/wrnear2017/Products_Design/oils_offerArtboard_90_2x-100_AgiI__J1m.jpg?updatedAt=1639294492049" alt="" class="img-fluid mb-2 mt-2">
                 </a>
             </div>
             <div class="col-6">
                 <a href="https://karwars.in/shop?store_id=1">
-                    <img src="https://ik.imagekit.io/wrnear2017/august_upload/FABArtboard_106_2x-100_q14rl9Col.jpg?updatedAt=1636994488239" alt="" class="img-fluid mb-2 mt-2">
+                    <img src="https://ik.imagekit.io/wrnear2017/Products_Design/oils_offerArtboard_108_2x-100_HTR52sma1.jpg?updatedAt=1639294492057" alt="" class="img-fluid mb-2 mt-2">
                 </a>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- <a href="https://karwars.in/store">
         <div class="container-fluid p-2">
             <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_92_2x-100_dvtOEb_mT6R.jpg?updatedAt=1634991003551" alt="" class="img-fluid mx-0 rounded">
