@@ -50,13 +50,15 @@
             <th>ORDER DATE</th>
             <th>ORDER BY</th>
             <th>CONTACT</th>
-            <th>ADDRESS</th>
             <th>ITEMS</th>
-            <th>COST</th>
-            <th>DLC</th>
+            <th>SALE</th>
+            <th>PUR</th>
+            <th>TAXR</th>
+            <th>TAXP</th>
+            <th>DLCR</th>
+            <th>DLCP</th>
             <th>DC</th>
-            <th>BD</th>
-            <th>PAYMENT TYPE</th>
+            <th>PAY TYPE</th>
             <th>ACTION</th>
 		</tr>
 	</thead>
