@@ -128,7 +128,7 @@ $bill_diff_total += $bill_diff_amount;
 
 }
 
-$get_tax_pro_id = "select * from customer_orders where invoice_no='$invoice_id'";
+$get_tax_pro_id = "select * from customer_orders where invoice_no='$invoice_id' and product_status='Deliver'";
 
 $run_tax_pro_id = mysqli_query($con,$get_tax_pro_id);
 
@@ -197,7 +197,7 @@ $taxp += $unit_taxp;
         </td> -->
         <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo $total; ?></td>
-        <td style="font-size:0.7rem;">₹ <?php echo $pur_total; ?></td>
+        <td style="font-size:0.7rem;">₹ <?php echo round($pur_total); ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo round($taxr,2); ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo round($taxp,2); ?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
