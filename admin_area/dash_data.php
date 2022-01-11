@@ -110,13 +110,14 @@ $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
 $run_del_charges = mysqli_query($con,$get_del_charges);
 $row_del_charges = mysqli_fetch_array($run_del_charges);
 
-$del_charges = $row_del_charges['delivery_charges'];
+$del_charges = $row_del_charges['del_charges'];
 
 $get_del_charges_paid = "select * from orders_delivery_assign where invoice_no='$invoice_id'";
 $run_del_charges_paid = mysqli_query($con,$get_del_charges_paid);
 $row_del_charges_paid = mysqli_fetch_array($run_del_charges_paid);
 
-$del_charges_paid = $row_del_charges_paid['del_charges'];
+$del_charges_paid = $row_del_charges_paid['delivery_charges'];
+
 
 $get_bill_diff = "select * from bill_controller where invoice_no='$invoice_id'";
 $run_bill_diff = mysqli_query($con,$get_bill_diff);
@@ -197,7 +198,7 @@ $taxp += $unit_taxp;
         </td> -->
         <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo $total; ?></td>
-        <td style="font-size:0.7rem;">₹ <?php echo round($pur_total); ?></td>
+        <td style="font-size:0.7rem;">₹ <?php echo round($pur_total,2); ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo round($taxr,2); ?></td>
         <td style="font-size:0.7rem;">₹ <?php echo round($taxp,2); ?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
