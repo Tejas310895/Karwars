@@ -48,9 +48,9 @@
             <th>STATUS</th>
             <th>ORD ID</th>
             <th>ORDER DATE</th>
+            <th>DEL DATE</th>
             <th>ORDER BY</th>
             <th>CONTACT</th>
-            <th>ADDRESS</th>
             <th>ITEMS</th>
             <th>UNIT COST</th>
             <th>QTY</th>

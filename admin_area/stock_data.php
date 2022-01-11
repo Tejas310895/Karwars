@@ -122,6 +122,7 @@ if(isset($_POST['show'])){
 
             $status = $row_invoice['product_status'];
             $order_date = $row_invoice['order_date'];
+            $del_date = $row_invoice['del_date'];
             $customer_id = $row_invoice['customer_id'];
             $add_id = $row_invoice['add_id'];
             $pro_id = $row_invoice['pro_id'];
@@ -183,9 +184,9 @@ if(isset($_POST['show'])){
         <td class='text-center'>$status</td>
         <td class='text-center'>$invoice_no</td>
         <td class='text-center'>$order_date</td>
+        <td class='text-center'>$del_date</td>
         <td class='text-center'>$Order_by</td>
         <td class='text-center'>$Contact</td>
-        <td class='text-center'>$address, $phase, $landmark, $city</td>
         <td class='text-center'>$pro_name-$pro_desc</td>
         <td class='text-center'>$unit_price</td>
         <td class='text-center'>$qty</td>
