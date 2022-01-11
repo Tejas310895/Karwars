@@ -24,7 +24,7 @@ if(isset($_POST['dshow'])){
 
 <?php
                 
-$get_invoice = "SELECT DISTINCT invoice_no FROM customer_orders where  $status and date(order_date) between '$from' and '$to' ORDER BY order_id DESC";
+$get_invoice = "SELECT DISTINCT invoice_no FROM customer_orders where  $status and date(del_date) between '$from' and '$to' ORDER BY order_id DESC";
 
 $run_invoice = mysqli_query($con,$get_invoice);
 
@@ -57,6 +57,14 @@ $run_total = mysqli_query($con,$get_total);
 $row_total = mysqli_fetch_array($run_total);
 
 $total = $row_total['total'];
+
+$get_pur_total = "SELECT sum(vendor_due_amount) AS pur_total FROM customer_orders WHERE invoice_no='$invoice_id' and product_status='Deliver'";
+
+$run_pur_total = mysqli_query($con,$get_pur_total);
+
+$row_pur_total = mysqli_fetch_array($run_pur_total);
+
+$pur_total = $row_pur_total['pur_total'];
 
 $get_customer = "select * from customers where customer_id='$c_id'";
 
@@ -104,6 +112,12 @@ $row_del_charges = mysqli_fetch_array($run_del_charges);
 
 $del_charges = $row_del_charges['del_charges'];
 
+$get_del_charges_paid = "select * from orders_delivery_assign where invoice_no='$invoice_id'";
+$run_del_charges_paid = mysqli_query($con,$get_del_charges_paid);
+$row_del_charges_paid = mysqli_fetch_array($run_del_charges_paid);
+
+$del_charges_paid = $row_del_charges_paid['del_charges'];
+
 $get_bill_diff = "select * from bill_controller where invoice_no='$invoice_id'";
 $run_bill_diff = mysqli_query($con,$get_bill_diff);
 $bill_diff_total = 0;
@@ -114,25 +128,60 @@ $bill_diff_total += $bill_diff_amount;
 
 }
 
-if($discount_type==='amount'){
+$get_tax_pro_id = "select * from customer_orders where invoice_no='$invoice_id'";
 
-    $grand_total = ($total+$del_charges)-$discount_amount;
+$run_tax_pro_id = mysqli_query($con,$get_tax_pro_id);
 
-  }elseif ($discount_type==='product') {
 
-    $get_off_pro = "select * from products where product_id='$discount_amount'";
-    $run_off_pro = mysqli_query($con,$get_off_pro);
-    $row_off_pro = mysqli_fetch_array($run_off_pro);
+$taxr = 0;
 
-    $off_product_price = $row_off_pro['product_price'];
+$taxp = 0;
 
-    $grand_total = ($total+$del_charges)+$off_product_price;
+while($row_tax_pro_id = mysqli_fetch_array($run_tax_pro_id)){
+
+$pro_id_tax = $row_tax_pro_id['pro_id'];
+
+$sub_tax_total = $row_tax_pro_id['due_amount'];
+
+$vendor_sub_tax_total = $row_tax_pro_id['vendor_due_amount'];
+
+$get_tax_pro = "select * from products where product_id='$pro_id_tax'";
+
+$run_tax_pro = mysqli_query($con,$get_tax_pro);
+
+$row_tax_pro = mysqli_fetch_array($run_tax_pro);
+
+$tax = $row_tax_pro['product_gst_rate'];
+
+$unit_taxr = $sub_tax_total*($tax/100);
+
+$unit_taxp = $vendor_sub_tax_total*($tax/100);
+
+$taxr += $unit_taxr;
+
+$taxp += $unit_taxp;
+
+}
+
+// if($discount_type==='amount'){
+
+//     $grand_total = $total;
+
+//   }elseif ($discount_type==='product') {
+
+//     $get_off_pro = "select * from products where product_id='$discount_amount'";
+//     $run_off_pro = mysqli_query($con,$get_off_pro);
+//     $row_off_pro = mysqli_fetch_array($run_off_pro);
+
+//     $off_product_price = $row_off_pro['product_price'];
+
+//     $grand_total = ($total+$del_charges)+$off_product_price;
     
-  }elseif (empty($discount_type)) {
+//   }elseif (empty($discount_type)) {
 
-    $grand_total = $total+$del_charges;
+//     $grand_total = $total;
     
-  }
+//   }
 
 ?>
         <tr class="text-center">
@@ -141,17 +190,20 @@ if($discount_type==='amount'){
         <td style="font-size:0.8rem;"><?php echo $order_date; ?></td>
         <td style="font-size:0.8rem;"><?php echo $c_name; ?></td>
         <td style="font-size:0.8rem;">+91 <?php echo $c_contact; ?></td>
-        <td style="font-size:0.8rem;"><?php echo $customer_address; ?>, 
-            <?php echo $customer_phase; ?>, 
-            <?php echo $customer_landmark; ?>, 
-            <?php echo $customer_city; ?> .
-        </td>
+        <!-- <td style="font-size:0.8rem;"><?php //echo $customer_address; ?>, 
+            <?php //echo $customer_phase; ?>, 
+            <?php //echo $customer_landmark; ?>, 
+            <?php //echo $customer_city; ?> .
+        </td> -->
         <td style="font-size:0.7rem; text-align:center;"><?php echo $order_count; ?></td>
-        <td style="font-size:0.7rem;">₹ <?php echo $grand_total; ?>/-</td>
+        <td style="font-size:0.7rem;">₹ <?php echo $total; ?></td>
+        <td style="font-size:0.7rem;">₹ <?php echo $pur_total; ?></td>
+        <td style="font-size:0.7rem;">₹ <?php echo $taxr; ?></td>
+        <td style="font-size:0.7rem;">₹ <?php echo $taxp; ?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
+        <td style="font-size:0.7rem; text-align:center;"><?php if(isset($del_charges_paid)){echo $del_charges_paid;}else{echo 0;} ;?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if(isset($coupon_code)){echo$coupon_code;}else{echo "nil";} ;?></td>
-        <td style="font-size:0.7rem; text-align:center;"><?php if($bill_diff_total>0){echo$bill_diff_total;}else{echo 0;} ;?></td>
-        <td><?php if($txn_status=='SUCCESS'){echo"ONLINE";}else{echo"OFFLINE";} ; ?></td>
+        <td><?php if($txn_status=='SUCCESS'){echo"PRE";}else{echo"POST";} ; ?></td>
         <td class="td-actions" >
         <button id="show_details" class="btn btn-info btn-sm p-1" style="font-size:0.7rem;" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">
         <svg id="Capa_1" enable-background="new 0 0 512 512" height="20" viewBox="0 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="512" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><g><g><path d="m509.188 247.27c-4.571-6.387-114.526-156.27-253.188-156.27s-248.617 149.883-253.187 156.27c-3.75 5.215-3.75 12.246 0 17.461 4.57 6.386 114.525 156.269 253.187 156.269s248.617-149.883 253.188-156.27c3.75-5.214 3.75-12.246 0-17.46zm-253.188 143.73c-105.176 0-197.143-103.813-222.074-135 24.931-31.187 116.898-135 222.074-135s197.143 103.813 222.074 135c-24.931 31.187-116.898 135-222.074 135zm0-240c-57.891 0-105 47.109-105 105s47.109 105 105 105 105-47.109 105-105-47.109-105-105-105zm0 180c-41.367 0-75-33.647-75-75s33.633-75 75-75 75 33.647 75 75-33.633 75-75 75zm0-120c-24.814 0-45 20.186-45 45s20.186 45 45 45 45-20.186 45-45-20.186-45-45-45zm0 60c-8.262 0-15-6.724-15-15s6.738-15 15-15 15 6.724 15 15-6.738 15-15 15zm0-211c8.291 0 15-6.709 15-15v-30c0-8.291-6.709-15-15-15s-15 6.709-15 15v30c0 8.291 6.709 15 15 15zm0 392c-8.291 0-15 6.709-15 15v30c0 8.291 6.709 15 15 15s15-6.709 15-15v-30c0-8.291-6.709-15-15-15zm-117.979-370.36c4.081 7.12 13.237 9.65 20.479 5.493 7.178-4.146 9.639-13.315 5.479-20.493l-15-25.986c-4.131-7.178-13.359-9.624-20.479-5.493-7.178 4.146-9.639 13.315-5.479 20.493zm235.958 348.72c-4.102-7.192-13.301-9.653-20.479-5.493-7.178 4.146-9.639 13.315-5.479 20.493l15 25.986c4.081 7.12 13.237 9.65 20.479 5.493 7.178-4.146 9.639-13.315 5.479-20.493zm-20.479-343.227c7.242 4.157 16.399 1.625 20.479-5.493l15-25.986c4.16-7.178 1.699-16.348-5.479-20.493-7.148-4.087-16.348-1.67-20.479 5.493l-15 25.986c-4.16 7.177-1.699 16.347 5.479 20.493zm-195 337.734c-7.148-4.116-16.348-1.685-20.479 5.493l-15 25.986c-4.16 7.178-1.699 16.348 5.479 20.493 7.242 4.157 16.399 1.625 20.479-5.493l15-25.986c4.16-7.177 1.699-16.347-5.479-20.493z" fill="url(#SVGID_1_)"/></g></g></svg>
