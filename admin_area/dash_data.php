@@ -110,7 +110,7 @@ $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
 $run_del_charges = mysqli_query($con,$get_del_charges);
 $row_del_charges = mysqli_fetch_array($run_del_charges);
 
-$del_charges = $row_del_charges['del_charges'];
+$del_charges = $row_del_charges['delivery_charges'];
 
 $get_del_charges_paid = "select * from orders_delivery_assign where invoice_no='$invoice_id'";
 $run_del_charges_paid = mysqli_query($con,$get_del_charges_paid);
