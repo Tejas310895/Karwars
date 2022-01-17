@@ -106,6 +106,26 @@ $coupon_code = $row_discount['coupon_code'];
 $discount_type = $row_discount['discount_type'];
 $discount_amount = $row_discount['discount_amount'];
 
+    if($discount_type==='amount'){
+
+    $d_c = "-".$discount_amount;
+
+    }elseif ($discount_type==='product') {
+
+    $get_off_pro = "select * from products where product_id='$discount_amount'";
+    $run_off_pro = mysqli_query($con,$get_off_pro);
+    $row_off_pro = mysqli_fetch_array($run_off_pro);
+
+    $off_product_price = $row_off_pro['product_price'];
+
+    $d_c = "+".$off_product_price;
+    
+    }elseif (empty($discount_type)) {
+
+    $d_c = 0;
+    
+    }
+
 $get_del_charges = "select * from order_charges where invoice_id='$invoice_id'";
 $run_del_charges = mysqli_query($con,$get_del_charges);
 $row_del_charges = mysqli_fetch_array($run_del_charges);
@@ -203,7 +223,7 @@ $taxp += $unit_taxp;
         <td style="font-size:0.7rem;">₹ <?php echo round($taxp,2); ?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if($del_charges>0){echo$del_charges;}else{echo 0;} ;?></td>
         <td style="font-size:0.7rem; text-align:center;"><?php if(isset($del_charges_paid)){echo $del_charges_paid;}else{echo 0;} ;?></td>
-        <td style="font-size:0.7rem; text-align:center;"><?php if(isset($coupon_code)){echo$coupon_code;}else{echo "nil";} ;?></td>
+        <td style="font-size:0.7rem; text-align:center;"><?php echo $d_c;?></td>
         <td><?php if($txn_status=='SUCCESS'){echo"PRE";}else{echo"POST";} ; ?></td>
         <td class="td-actions" >
         <button id="show_details" class="btn btn-info btn-sm p-1" style="font-size:0.7rem;" data-toggle="modal" data-target="#KK<?php echo $invoice_id; ?>">
