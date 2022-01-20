@@ -589,7 +589,7 @@ if(isset($_GET['cancel_order'])){
 
       $vendor_pur_u_price = $vendor_pur_price/$product_pur_qty;
 
-      $update_purchase_price = "update products set vendor_price='$vendor_pur_u_price',warehouse_stock='$product_pur_qty',product_stock='$product_pur_qty' where product_id='$product_pur_id'";
+      $update_purchase_price = "update products set vendor_price='$vendor_pur_u_price',warehouse_stock=warehouse_stock+'$product_pur_qty',product_stock=product_stock+'$product_pur_qty' where product_id='$product_pur_id'";
       $run_update_purchase_price = mysqli_query($con,$update_purchase_price);
       
     }
