@@ -220,5 +220,3 @@ while($row_cart = mysqli_fetch_array($run_cart)){
 
 //     echo "<script>window.open('cart','_self')</script>";
 }
-?>
-
