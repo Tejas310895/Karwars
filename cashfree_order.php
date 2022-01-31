@@ -115,7 +115,7 @@ while($row_cart = mysqli_fetch_array($run_cart)){
         $dis_upto_limit = $row_coupon_dis_req['upto_limit'];
     
         if($dis_coupon_type==='percent'){
-            $percent_off = $dis_total * ($dis_coupon_unit/100);
+            $percent_off = round($dis_total * ($dis_coupon_unit/100));
             if($percent_off>$dis_upto_limit){
                 $dis_amt = $dis_upto_limit;
                 $txn_total = ($txn_amount+$del_charges)-$dis_amt;

@@ -45,7 +45,7 @@ if(!isset($_SESSION['admin_email'])){
             </div>
             <div class="col" id="cou_amount">
                 <label for="">Coupon Unit</label>
-                <input type="number" class="form-control d-none" name="amount_unit" id="amount_unit" placeholder="Percent/Amount">
+                        <input type="text" class="form-control d-none" name="amount_unit" id="amount_unit" placeholder="Percent/Amount">
                 <select class="form-control d-none" name="product_unit" id="product_unit">
                     <option selected disabled value="">Choose product</option>
                     <?php 

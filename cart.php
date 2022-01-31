@@ -354,14 +354,7 @@ if(!empty($_COOKIE['user'])){
                 $dis_coupon_use_id = $row_coupon_dis_req['coupon_use_id'];
                 $dis_upto_limit = $row_coupon_dis_req['upto_limit'];
 
-                if($dis_coupon_type==='percent'){
-                    $percent_off = $total * ($dis_coupon_unit/100);
-                    if($percent_off>$dis_upto_limit){
-                        $dis_amt = "-₹".$dis_upto_limit;
-                        $grand_total = ($total+$add_del)-$dis_upto_limit;
-                    }else{
-                        $dis_amt = "-₹".$percent_off;
-                        $grand_total = ($total+$add_del)-$percent_off;
+                    $percent_off = round($total * ($dis_coupon_unit / 100));
                     }
                 }elseif ($dis_coupon_type==='amount') {
                     $dis_amt = "-₹".$dis_coupon_unit;
