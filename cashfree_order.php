@@ -139,7 +139,7 @@ if (isset($_POST['c_id'])) {
         $coupon_id = 0;
     }
 
-    echo "<script>alert($txn_total)</script>";
+    echo "<script>alert($percent_off)</script>";
 
     // }
 
