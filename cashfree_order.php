@@ -115,7 +115,7 @@ if (isset($_POST['c_id'])) {
         $dis_upto_limit = $row_coupon_dis_req['upto_limit'];
 
         if ($dis_coupon_type === 'percent') {
-            $percent_off = round($dis_total * ($dis_coupon_unit / 100));
+            $percent_off = round($txn_amount * ($dis_coupon_unit / 100));
             if ($percent_off > $dis_upto_limit) {
                 $dis_amt = $dis_upto_limit;
                 $txn_total = ($txn_amount + $del_charges) - $dis_amt;
@@ -138,9 +138,6 @@ if (isset($_POST['c_id'])) {
         $txn_total = ($txn_amount + $del_charges);
         $coupon_id = 0;
     }
-
-    echo "<script>alert($percent_off)</script>";
-
     // }
 
     $get_pending_check = "select * from pending_orders where invoice_no='$invoice_no'";
