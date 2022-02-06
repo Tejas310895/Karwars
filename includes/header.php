@@ -104,14 +104,13 @@ if (isset($_GET['pro_id'])) {
     <!-- <link rel="stylesheet" href="styles/swiper.css?version=25">
     <link rel="stylesheet" href="styles/swiper.min.css?version=25"> -->
     <!-- swiper -->
-    <!-- font awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
     <!-- date -->
-    <link rel="stylesheet" href="styles/jquery-ui.css">
     <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/ajax/jquery.min.js"></script>
     <script type="text/javascript" src="js/ajax/jquery-ui.js"></script>
+    <link rel="stylesheet" href="styles/jquery-ui.css">
     <script>
         jQuery(function($) {
             var today = new Date();
@@ -127,6 +126,7 @@ if (isset($_GET['pro_id'])) {
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css?version=32">
     <!-- styles -->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181633395-1">
     </script>
