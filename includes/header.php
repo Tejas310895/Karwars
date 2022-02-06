@@ -105,8 +105,7 @@ if (isset($_GET['pro_id'])) {
     <link rel="stylesheet" href="styles/swiper.min.css?version=25"> -->
     <!-- swiper -->
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-    <link rel="stylesheet" href="font-awsome/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <!-- font-awesome -->
     <!-- date -->
     <link rel="stylesheet" href="styles/jquery-ui.css">
@@ -123,26 +122,11 @@ if (isset($_GET['pro_id'])) {
             });
         });
     </script>
-    <script>
-        // function saves scroll position
-        function fScroll(val) {
-            var hidScroll = document.getElementById('hidScroll');
-            hidScroll.value = val.scrollTop;
-        }
-
-        // function moves scroll position to saved value
-        function fScrollMove(what) {
-            var hidScroll = document.getElementById('hidScroll');
-            document.getElementById(what).scrollTop = hidScroll.value;
-        }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/ajax/code/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css?version=32">
     <!-- styles -->
-    <script src="js/3.5.1/jquery.min.js"></script>
-    <script src="js/jquery-3.5.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181633395-1">
     </script>
