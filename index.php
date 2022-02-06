@@ -517,8 +517,9 @@ if ($today >= '09:00' && $today <= '18:00') {
 </div>
 <!-- floatnav -->
 
+
 <!-- Product Categories -->
-<div class="container pb-3" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/28639e35a46d011b96bda5ebe8fef5db_kLAxcvEej.jpg?updatedAt=1634992029275');background-size: contain;">
+<div class="container pb-3" style="background-color: #fbb034; background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);">
     <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images2_N1eIqJeUi_.png" alt="" class="img-fluid">
     <div class="row mx-1">
 
@@ -695,7 +696,7 @@ if ($today >= '09:00' && $today <= '18:00') {
                             <div class="card" style="width: 6rem;">
                                 <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $store_img; 
                                                                                                             ?>" alt="<?php //echo $store_title; 
-                                                                                                                                                ?>" style="height:80px;">
+                                                                                                                        ?>" style="height:80px;">
                                 <h6 class="card-title mb-1" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php //echo $store_title; 
                                                                                                                                                                             ?></h6>
                             </div>
@@ -738,11 +739,11 @@ if ($today >= '09:00' && $today <= '18:00') {
                     <div class='swiper-slide'>
                         <a href="shop?store_id=<?php //echo $cpromo_store_id; 
                                                 ?>#<?php //echo $cpromo_product_id; 
-                                                                                    ?>">
+                                                    ?>">
                             <div class="card" style="width: 6rem;">
                             <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $cpromo_product_img1; 
                                                                                                         ?>" alt="<?php //echo $cpromo_product_title; 
-                                                                                                                                                    ?>" style="height:80px;">
+                                                                                                                    ?>" style="height:80px;">
                             <div class="card-body p-1">
                             <h6 class="card-title mb-1 mx-0 text-center" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
                             </div>
