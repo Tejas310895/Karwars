@@ -84,9 +84,9 @@
     }
 </script>
 
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script async src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script async src="js/ajax/3.5.1/jquery.js"></script>
+<script async src="js/ajax/jquery.min.js"></script>
+<script async src="js/jquery-3.5.1.min.js"></script>
 <script src="js/script.js?v=1002"></script>
 </body>
 
