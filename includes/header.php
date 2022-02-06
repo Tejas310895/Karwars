@@ -39,17 +39,62 @@ if (isset($_GET['pro_id'])) {
     <link rel="shortcut icon" type="image/png" href="../admin_area/admin_images/wrnlogo.png" />
     <title>Order Your Grocerys on Karwars | Upto 50% Off On All Grocery Products</title>
     <!-- google font -->
-    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Concert+One' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Laila' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Jost">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Jost">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Righteous">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Righteous">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Oxygen">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Oxygen">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Rubik">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Concert+One">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Concert+One">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Concert+One">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Laila">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Laila">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Laila">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Noto+Serif">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Noto+Serif">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Roboto">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    </noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Squada+One">
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Squada+One">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Squada+One">
+    </noscript>
     <!-- google font -->
     <!-- bootstrap link -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
