@@ -67,8 +67,8 @@ if (isset($_GET['pro_id'])) {
     <link rel="stylesheet" href="styles/jquery-ui.css">
     <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
     <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5BNNCDV"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/ajax/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ajax/jquery-ui.js"></script>
     <script>
         jQuery(function($) {
             var today = new Date();
@@ -97,8 +97,8 @@ if (isset($_GET['pro_id'])) {
     <!-- styles -->
     <link rel="stylesheet" href="styles/style.css?version=32">
     <!-- styles -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-181633395-1">
     </script>
