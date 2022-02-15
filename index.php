@@ -126,7 +126,7 @@ include("includes/header.php");
     <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_1_3x-100_2__DVgatGCquzP4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644839359576" alt="" class="img-fluid mx-0">
 </div>
 
-<a href="https://karwars.in/store.php?cat=15">
+<a href="store.php?cat=13">
     <div class="container-fluid p-2 rounded">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_2_3x-100_1__J775PWP_pBO6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644843491904" alt="" class="img-fluid mx-0">
     </div>
@@ -197,7 +197,7 @@ include("includes/header.php");
     </a>
 </div>
 <!-- banner carousel -->
-<a href="https://karwars.in/store.php?cat=15">
+<a href="store.php?cat=2">
     <div class="container-fluid p-2 rounded">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_4_3x-100_YBqd3274x.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644858148776" alt="" class="img-fluid mx-0">
     </div>
@@ -335,7 +335,7 @@ include("includes/header.php");
 <!-- product carousel 2 -->
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-        <a href="">
+        <a href="store.php?cat=7">
             <div class="carousel-item active">
                 <img class="d-block w-100 rounded-0 mx-0 my-2" src="https://ik.imagekit.io/wrnear2017/august_upload/LP_saleArtboard_6_4x-100_e9vtZggww.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644933805066" alt="First slide">
             </div>
@@ -343,7 +343,7 @@ include("includes/header.php");
     </div>
 </div>
 <!-- product carousel 2 -->
-<a href="https://karwars.in/store.php?cat=15">
+<a href="store.php?cat=11">
     <div class="container-fluid p-2 rounded">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/LP_saleArtboard_7_4x-100_Zc1R98Hnn.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644941636112" alt="" class="img-fluid mx-0">
     </div>
