@@ -45,39 +45,67 @@ include("includes/header.php");
             </div>
             <!-- toggle -->
         </div>
+        <div class="col-12 px-5 py-2">
+            <a href="search_product">
+                <div class="row rounded" style="background-color: #c5ffd1;">
+                    <div class="col-1 p-1 mt-0">
+                        <svg version="1.1" id="Capa_1" width="11pt" height="13pt" fill="#747474" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474
+                            c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323
+                            c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848
+                            S326.847,409.323,225.474,409.323z"></path>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328
+                            c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"></path>
+                                </g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="col-11 pt-2 pl-1">
+                        <h6 class="text-left mb-0" style="color:#747474;text-decoration:none;">Search 2000+ products</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 <!-- header -->
 <!-- schedule -->
-<?php
-
-date_default_timezone_set('Asia/Kolkata');
-$today = date("H:i");
-
-if ($today >= '09:00' && $today <= '18:00') {
-    $startTimeamp = strtotime($today) + 60 * 60 * 3;
-    $endTimeamp = strtotime($today) + 60 * 60 * 6;
-    $startTime = date('H:i', $startTimeamp);
-    $endTime = date('H:i', $endTimeamp);
-    if ($endTime >= '17:00' && $endTime <= '09:00') {
-        $endTime = date('h:i A', $endTimeamp);
-    } else {
-        $delendTime = '07:00 PM';
-    }
-
-    if ($startTime <= '16:00') {
-        $delstartTime = date('h:i A', $endTimeamp);
-    } else {
-        $delstartTime = '06:00 PM';
-    }
-    $delivery_by = "TODAY " . ($delstartTime) . " TO " . ($delendTime) . "";
-} elseif ($today >= '18:00') {
-    $delivery_by = "TOMORROW 10 AM TO 12 PM";
-} elseif ($today <= '09:00') {
-    $delivery_by = "TODAY  10 AM TO 12 PM";
-}
-
-?>
 <div class="container mt-3 bg-success text-white pl-4">
     <div class="row">
         <div class="col-2">
@@ -94,6 +122,15 @@ if ($today >= '09:00' && $today <= '18:00') {
     </div>
 </div>
 <!-- schedule -->
+<div class="container-fluid p-2 rounded">
+    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_1_3x-100_2__DVgatGCquzP4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644839359576" alt="" class="img-fluid mx-0">
+</div>
+
+<a href="https://karwars.in/store.php?cat=15">
+    <div class="container-fluid p-2 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_2_3x-100_1__J775PWP_pBO6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644843491904" alt="" class="img-fluid mx-0">
+    </div>
+</a>
 <!-- banner carousel -->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -160,216 +197,157 @@ if ($today >= '09:00' && $today <= '18:00') {
     </a>
 </div>
 <!-- banner carousel -->
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-12 px-0">
-            <div class="alert alert-danger alert-dismissible fade show border text-justify border-0 mb-0" role="alert" style="font-family:Josefin Sans;">
-                    Due to the Diwali festival home deliveries will not be done on 4th of November, Regret for the inconvenience caused.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- product swipe -->
-<div class="container-fluid px-0">
-    <img src="https://ik.imagekit.io/wrnear2017/august_upload/499minArtboard_1_2x-100_G8FSXYXEu6F.jpg?updatedAt=1634977707842" alt="" class="img-fluid mx-0">
-</div>
-
-<!-- Offer Zone -->
 <a href="https://karwars.in/store.php?cat=15">
-    <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_102_2x-100_o3bFQ1w0Z-1d.jpg?updatedAt=1636535483026" alt="" class="img-fluid mx-0">
+    <div class="container-fluid p-2 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_4_3x-100_YBqd3274x.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644858148776" alt="" class="img-fluid mx-0">
     </div>
 </a>
-<!-- Offer Zone -->
-<!-- banner display -->
-<!-- <img src="https://ik.imagekit.io/wrnear2017/august_upload/TAWA_FREEArtboard_89_2x_oshTXNVShs4.png?updatedAt=1634982675116" alt="" class="img-fluid"> -->
-<!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                <a href="https://karwars.in/shop?store_id=97">
-                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_105_2x-100_W2jNZCpZe.jpg?updatedAt=1636877587493" alt="" class="img-fluid mb-2 mt-2">
-                </a>
+
+<!-- Product Ref 1 -->
+<div class="container-fluid px-1">
+    <div class="row mx-1">
+        <div class="col-12 bg-white p-2">
+            <h4 class="text-secondary mb-0 pl-1" style="font-family: Josefin Sans;">Fresh Vegetables | Low Price</h4>
+        </div>
+    </div>
+    <?php add_cart();
+    ?>
+    <?php delete_cart();
+    ?>
+
+    <?php
+
+    $get_vegetables = "select * from products where product_id in ('434','436','438','449','446')";
+    $run_vegetables = mysqli_query($con, $get_vegetables);
+
+    while ($row_products = mysqli_fetch_array($run_vegetables)) {
+
+        $pro_id = $row_products['product_id'];
+
+        $pro_title = $row_products['product_title'];
+
+        $pro_price = $row_products['product_price'];
+
+        $price_display = $row_products['price_display'];
+
+        $pro_desc = $row_products['product_desc'];
+
+        $pro_img1 = $row_products['product_img1'];
+
+        $pro_stock = $row_products['product_stock'];
+
+        if ($price_display > 0) {
+            $discount_percent = 100 - round(($pro_price / $price_display) * 100);
+        } else {
+            $discount_percent = 0;
+        }
+
+    ?>
+        <div class='row bg-white mx-1 my-2 rounded-lg'>
+            <div class='col-3 p-1'>
+                <img src='<?php echo $pro_img1; ?>' alt='' class='img-thumbnail mx-0 border-0 bg-transparent h-100'>
             </div>
-            <div class="col-4">
-                <a href="https://karwars.in/shop?store_id=99">
-                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_104_2x-100_fGFuXkC_yNOa.jpg?updatedAt=1636877587686" alt="" class="img-fluid mb-2 mt-2">
-                </a>
+            <div class='col-5'>
+                <h6 class='text-left pro_list_title mt-2 mb-0'>
+                    <?php echo $pro_title; ?>
+                </h6>
+                <h5 class='pro_list_desc mb-0'>
+                    <?php echo $pro_desc; ?>
+                </h5>
+                <span class='badge badge-danger <?php if ($price_display > 0) {
+                                                    echo "show";
+                                                } else {
+                                                    echo "d-none";
+                                                } ?>'><del>MRP ₹ <?php echo $price_display; ?></del></span>
+                <span class="badge text-white <?php if ($price_display > 0) {
+                                                    echo "show";
+                                                } else {
+                                                    echo "d-none";
+                                                } ?>" style="background-color: #05D0EB;font-size:0.6rem;"><?php echo $discount_percent; ?>% OFF</span>
+                <h5 class='pro_list_price mb-0'>₹ <?php echo $pro_price; ?></h5>
             </div>
-            <div class="col-4">
-                <a href="https://karwars.in/shop?store_id=141">
-                    <img src="https://ik.imagekit.io/wrnear2017/prodpanArtboard_103_2x-100_824aDtz6dYB.jpg?updatedAt=1636877587405" alt="" class="img-fluid mb-2 mt-2">
-                </a>
+            <div class='col-4 pt-5'>
+                <?php if ($pro_stock > 0) { ?>
+                    <?php
+
+                    //$ip_add = getRealIpUser();
+
+                    $user_id = getuserid();
+
+                    $get_cart = "select * from cart where user_id='$user_id' AND p_id='$pro_id'";
+
+                    $run_cart = mysqli_query($con, $get_cart);
+
+                    $row_cart = mysqli_fetch_array($run_cart);
+
+                    $pro_qty = $row_cart['qty'];
+
+                    if ($pro_qty > 0) {
+
+                        echo "
+                        <div class='row'>
+                        <div class='col-12 ml-3'>
+                            <div class='row ml-1 shopAdd'>
+                                <button class='btn btn-qty px-1 py-1 del' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-minus'></i></button>
+                                <input type='numeric' class='shop_qty' placeholder='' value='$pro_qty' aria-describedby='helpId' readonly>
+                                <button class='btn btn-qty px-1 py-1 add' type='button' id='$pro_id'><i style='font-size:0.9rem; color:#fff;' class='fas fa-plus'></i></button>
+                            </div>
+                        </div>
+                        </div>
+                                        ";
+                    } else {
+
+                        echo "
+                    <button class='btn px-4 py-1 ml-3 pull-left pro_list_addqty add' type='button' id='$pro_id'>ADD</button>
+                                        ";
+                    }
+
+
+                    ?>
+                <?php }
+                ?>
             </div>
         </div>
-    </div> -->
-<div class="container-fluid" style="background-image: url('https://ik.imagekit.io/wrnear2017/august_upload/backgroundd1_QgfpNZThVnO.png?updatedAt=1634986577693');background-size: cover;">
-    <div class="row">
-        <div class="col-6">
-            <a href="https://karwars.in/shop?store_id=40">
-                <img src="https://ik.imagekit.io/wrnear2017/Products_Design/oils_offerArtboard_90_2x-100_AgiI__J1m.jpg?updatedAt=1639294492049" alt="" class="img-fluid mb-2 mt-2">
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="https://karwars.in/shop?store_id=1">
-                <img src="https://ik.imagekit.io/wrnear2017/Products_Design/oils_offerArtboard_108_2x-100_HTR52sma1.jpg?updatedAt=1639294492057" alt="" class="img-fluid mb-2 mt-2">
-            </a>
+
+    <?php
+
+    }
+
+
+    ?>
+
+    <div class="row mx-1">
+        <div class="col-12 bg-white p-1">
+            <div class="row">
+                <div class="col-7 px-0">
+                    <a href="store.php?cat=15">
+                        <h5 class="mb-0 pl-1 text-right" style="font-family: Josefin Sans;margin-top: 6px;color:#ff7b00;">View More</h5>
+                    </a>
+                </div>
+                <div class="col-5 px-0">
+                    <h5 class="mb-0 pl-1 text-left" style="font-family: Josefin Sans;color:#ff7b00;"><i class="fa-solid fa fa-caret-right pt-2"></i></h5>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<!-- <a href="https://karwars.in/store">
-        <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_92_2x-100_dvtOEb_mT6R.jpg?updatedAt=1634991003551" alt="" class="img-fluid mx-0 rounded">
-        </div>
-    </a> -->
-<!-- <a href="https://karwars.in/shop?store_id=36">
-        <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_78_2x-100_t9CKeE1jRr.jpg?updatedAt=1627924918767" alt="" class="img-fluid mx-0 rounded">
-        </div>
-    </a>
-    <a href="https://karwars.in/shop?store_id=64">
-        <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_75_2x-100_ESnwxPKVvW.jpg?updatedAt=1627924916162" alt="" class="img-fluid mx-0 rounded">
-        </div>
-    </a> -->
-<!-- <a href="#">
-    <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/first_pageArtboard_80_2x-100_jpydbiHSrLj.jpg?updatedAt=1628951509139" alt="" class="img-fluid mx-0 rounded">
-    </div>
-    </a> -->
-<!-- <div class="container-fluid">
-        <div class="row">
-            <div class="col-6 px-0">
-                    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_53_2x-50_QdGpQJwFy.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
+<!-- Product Ref 1 -->
+<!-- product carousel 2 -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <a href="">
+            <div class="carousel-item active">
+                <img class="d-block w-100 rounded-0 mx-0 my-2" src="https://ik.imagekit.io/wrnear2017/august_upload/LP_saleArtboard_6_4x-100_e9vtZggww.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644933805066" alt="First slide">
             </div>
-            <div class="col-6 px-0">
-                    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/bisc_offerArtboard_54_2x-50_pDIRq4GgTi.jpg" alt="" class="img-fluid p-2" style="border-radius:1rem;">
-            </div>
-        </div>
-    </div> -->
-<!-- banner display -->
-
-<!-- season banner -->
-<!-- <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/pre_monsoon_site1Artboard_60_2x-100_1__nKU3uasfg.jpg" alt="" class="img-fluid mx-0">
+        </a>
     </div>
-    <div class="container-fluid px-0 mb-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/buy_get_1Artboard_58_2x-100_bENp0CJNI.jpg" alt="" class="img-fluid mx-0">
-    </div> -->
-<!-- season banner -->
-
-<!-- <div class="swiper-container">
-            <div class="swiper-wrapper"> -->
-
-<?php //add_index_cart(); 
-?>
-<?php //delete_index_cart(); 
-?>
-<?php
-
-// $get_promo = "select * from promo_products";
-// $run_promo = mysqli_query($con,$get_promo);
-// while($row_promo = mysqli_fetch_array($run_promo)){
-// $promo_store_id = $row_promo['store_id'];
-
-// $get_store = "SELECT * FROM store where store_id='$promo_store_id'";
-
-// $run_store = mysqli_query($con,$get_store);
-
-// $row_store=mysqli_fetch_array($run_store);
-
-// $store_id = $row_store['store_id'];
-
-// $store_title = $row_store['store_title'];
-
-// $store_desc = $row_store['store_desc'];
-
-// $min_price = $row_store['min_price'];
-
-// $store_img1 = $row_store['store_img'];
-
-// $get_offer_badge = "SELECT * from products where store_id='$store_id' order by 100-((product_price/price_display)*100) DESC limit 1";
-// $run_offer_badge = mysqli_query($con,$get_offer_badge);
-// $row_offer_badge = mysqli_fetch_array($run_offer_badge);
-
-// $product_price_badge = $row_offer_badge['product_price'];
-// $price_display_badge = $row_offer_badge['price_display'];
-
-// if( $price_display_badge>0){
-//     $offer_badge = round(100-(($product_price_badge/$price_display_badge)*100));
-// }else{
-//     $offer_badge = 0; 
-// }
-
-?>
-
-
-<!-- <div class='swiper-slide'>
-                                <div class='card pro_card my-2' style='width: 18rem;'>
-                                            <span class="badge offer-badge <?php //if($offer_badge==0){echo "d-none";}else{echo "show";}
-                                                                            ?>">
-                                                <h6 class="offer-badge-text mb-0"><?php //echo $offer_badge; 
-                                                                                    ?>%</h6>
-                                                <small>OFF</small>
-                                            </span>
-                                            <img src='<?php //echo $store_img1; 
-                                                        ?>' class='card-img-top pro_img p-1' alt='image responsive' height='100'>
-                                            <div class='card-body p-1'>
-                                            <p class='card-text text-left px-2 pro_title'><?php //echo $store_title; 
-                                                                                            ?></p>
-                                            <p class='card-text text-left px-2 store_Desc'><?php //echo $store_desc; 
-                                                                                            ?></p>   
-                                                <div class='row'>
-                                                    <div class='col-6'>
-                                                    <p class='card-text text-left pro_price pl-2 mt-1'>₹ <?php //echo $min_price; 
-                                                                                                            ?></p> 
-                                                    </div>
-                                                    <div class='col-6 px-0'>
-                                                        <div class="row">
-                                                            <div class='col-12 pl-1'>
-                                                                <a href="shop?store_id=<?php //echo $store_id; 
-                                                                                        ?>" class='btn ml-0 py-1  pull-left pro_store'>VIEW <i class="fas fa-chevron-right"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> 
-                                        </div>
-                                </div>
-                        </div> -->
-
-<?php
-
-//}
-
-?>
-<!-- </div> -->
-<!-- Add Pagination -->
-<!-- <div class="swiper-pagination"></div> -->
-<!-- </div> -->
-
-<!-- product swipe -->
-
-<!-- sale @ -->
-<!-- <div class="container-fluid mb-3 px-3">
-    <fieldset class="p-2" style="border: 3px solid #4da3ff;">
-        <legend class="text-center text-white" style="font-family:jost;width:60%;background-color: #4da3ff;border-radius:10px;">Dhamaka Deals @</legend>
-        <ul class="nav nav-pills nav-fill justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active mx-1" href="shop_offer?offer_zone=9" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 9</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active mx-1" href="shop_offer?offer_zone=49" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 49</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active mx-1" href="shop_offer?offer_zone=99" style="background-color: #4da3ff;font-family:Josefin Sans;">₹ 99</a>
-            </li>
-        </ul>
-    </fieldset>
-</div> -->
-<!-- sale @ -->
-
+</div>
+<!-- product carousel 2 -->
+<a href="https://karwars.in/store.php?cat=15">
+    <div class="container-fluid p-2 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/LP_saleArtboard_7_4x-100_Zc1R98Hnn.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644941636112" alt="" class="img-fluid mx-0">
+    </div>
+</a>
 <!-- floatnav -->
 <div class="container-fuild floatnav ">
 
@@ -434,7 +412,7 @@ if ($today >= '09:00' && $today <= '18:00') {
             <span class='icon-name'>Search</span>
         </li>
         <li class="nav-item px-2  text-center">
-            <a class="nav-link pb-0 pt-2" href="store">
+            <a class="nav-link pb-0 pt-2" href="category">
                 <svg version="1.1" id="Capa_1" width="18pt" height="18pt" fill="#ff7b00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                     <g>
                         <g>
@@ -496,7 +474,7 @@ if ($today >= '09:00' && $today <= '18:00') {
                     <g>
                     </g>
                 </svg>
-                <span class="icon-name">Products</span>
+                <span class="icon-name">Category</span>
             </a>
         </li>
         <li class="nav-item px-2  text-center">
@@ -508,7 +486,7 @@ if ($today >= '09:00' && $today <= '18:00') {
                     <path d="m356 389.988281c16.542969 0 30-13.457031 30-30v-80c0-16.574219-13.425781-30-30-30-16.542969 0-30 13.457031-30 30v80c0 16.542969 13.457031 30 30 30zm-10-110c0-5.515625 4.484375-10 10-10 5.519531 0 10 4.480469 10 10v80c0 5.515625-4.484375 10-10 10s-10-4.484375-10-10zm0 0" />
                     <path d="m156 249.988281c-16.542969 0-30 13.457031-30 30v80c0 16.542969 13.457031 30 30 30s30-13.457031 30-30v-80c0-16.574219-13.425781-30-30-30zm10 110c0 5.515625-4.484375 10-10 10s-10-4.484375-10-10v-80c0-5.515625 4.484375-10 10-10 5.519531 0 10 4.476563 10 10zm0 0" />
                 </svg>
-                <span class="badge badge-light <?php echo diaplay_cart(); ?>"><?php echo items(); ?></span>
+                <span class="badge basket_badge badge-light <?php echo diaplay_cart(); ?>"><?php echo items(); ?></span>
                 <span class="icon-name">Basket</span>
             </a>
         </li>
@@ -517,247 +495,7 @@ if ($today >= '09:00' && $today <= '18:00') {
 </div>
 <!-- floatnav -->
 
-
-<!-- Product Categories -->
-<div class="container pb-3" style="background-color: #fbb034; background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);">
-    <img src="https://ik.imagekit.io/wrnear2017/karwars_images/site_images2_N1eIqJeUi_.png" alt="" class="img-fluid">
-    <div class="row mx-1">
-
-        <?php
-
-        $get_cat = "SELECT * from categories order by cat_id asc";
-
-        $run_cat = mysqli_query($db, $get_cat);
-
-        while ($row_cat = mysqli_fetch_array($run_cat)) {
-
-            $cat_id = $row_cat['cat_id'];
-
-            $cat_img = $row_cat['cat_image'];
-
-            $get_store_of = "select * from store where cat_id=$cat_id";
-            $run_store_of = mysqli_query($con, $get_store_of);
-            $cat_dis_res = 0;
-            $avg_count = 0;
-            while ($row_store_of = mysqli_fetch_array($run_store_of)) {
-
-                $store_id_of = $row_store_of['store_id'];
-
-                $get_pro_dis = "select (1-(product_price/price_display)) as cat_dis from products where store_id=$store_id_of order by cat_dis desc limit 1";
-                $run_pro_dis = mysqli_query($con, $get_pro_dis);
-                $row_pro_dis = mysqli_fetch_array($run_pro_dis);
-
-                $cat_dis = $row_pro_dis['cat_dis'];
-
-                if (is_null($cat_dis) || $cat_dis <= 0) {
-                    $cat_dis_res = 0;
-                    $avg_count = 0;
-                } else {
-                    $cat_dis_res += $cat_dis;
-                    $avg_count = ++$avg_count;
-                }
-            }
-
-
-        ?>
-            <div class="col-4 px-0">
-                <a href="store.php?cat=<?php echo $cat_id; ?>">
-                    <?php
-
-                    if ($cat_dis_res <= 0) {
-                    } else {
-                        $display_badge = round(($cat_dis_res / $avg_count) * 100);
-                        echo "
-                                <span class='badge badge-danger off_badge'>
-                                    <h6 class='mb-0 pt-1'>
-                                        $display_badge%
-                                    </h6>
-                                    <h6 style='font-size:.6rem;' class='mb-4'>OFF</h6>
-                                </span> 
-                                
-                                ";
-                    } ?>
-                    <img src="<?php echo $cat_img; ?>" class="img-thumbnail bg-transparent border-0" alt="...">
-                </a>
-            </div>
-        <?php } ?>
-    </div>
-
-
-</div>
-</div>
-
-<!-- Product Categories -->
 <!-- believe in us -->
-<a href="https://karwars.in/store.php?cat=17">
-    <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_93_2x-100_OPAyzKcj60Y.jpg?updatedAt=1634993364959" alt="" class="img-fluid mx-0 rounded">
-    </div>
-</a>
-<div class="container-fluid px-2 py-2">
-    <div class="row">
-        <div class="col-12">
-            <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_94_2x-100_iqZmjszUQG0.jpg?updatedAt=1634993858875" alt="" class="img-fluid mx-0">
-        </div>
-        <div class="col-6">
-            <a href="https://karwars.in/store.php?cat=4">
-                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_97_2x-100_filBDPkCm.jpg?updatedAt=1634996992817" alt="" class="img-fluid mx-0">
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="https://karwars.in/store.php?cat=13">
-                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_96_2x-100_0duRbfQ4oz9.jpg?updatedAt=1634996991920" alt="" class="img-fluid mx-0">
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="https://karwars.in/store.php?cat=7">
-                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_95_2x-100_1__WhLz6cDFR.jpg?updatedAt=1634996990998" alt="" class="img-fluid mx-0">
-            </a>
-        </div>
-        <div class="col-6">
-            <a href="https://karwars.in/shop?store_id=67">
-                <img src="https://ik.imagekit.io/wrnear2017/august_upload/SQR_OFFArtboard_98_2x-100__3rQphEGYf5.jpg?updatedAt=1634996990664" alt="" class="img-fluid mx-0">
-            </a>
-        </div>
-    </div>
-</div>
-<!-- <a href="https://karwars.in/store.php?cat=15">
-        <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_76_2x-100_bbnNyh3DQ73.jpg?updatedAt=1627924917005" alt="" class="img-fluid mx-0 rounded">
-        </div>
-    </a> -->
-<!-- <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/thirddayArtboard_14_2x-100_1__ffmdLL8ng.jpg" alt="" class="img-fluid mx-0 rounded">
-    </div>
-    <div class="container-fluid p-2">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_pageArtboard_70_2x-100_zIDxdJ4Xc.jpg" alt="" class="img-fluid mx-0 rounded">
-    </div>
-    <a href="https://karwars.in/store.php?cat=17">
-        <div class="container-fluid p-2">
-            <img src="https://ik.imagekit.io/wrnear2017/karwars_images/first_page_newArtboard_77_2x-100_Mlr9DYxXi8.jpg?updatedAt=1627924917953" alt="" class="img-fluid mx-0 rounded">
-        </div>
-    </a> -->
-<!-- stay safe -->
-<!-- <div class="container-fluid px-0">
-        <img src="https://ik.imagekit.io/wrnear2017/karwars_images/stay_home_stay_safeArtboard_61_2x-100_Qz-cV33r9.jpg" alt="" class="img-fluid mx-0">
-    </div> -->
-<!-- stay safe -->
-<!-- believe in us -->
-<!-- <div class="container-fluid mt-3">
-        <div class="row">
-            <div class="<?php
-
-                        // if(!isset($_COOKIE['user'])){
-                        //     echo "col-6 px-0";
-                        // }else{
-                        //     echo "col-6 px-0";
-                        // }
-                        ?> ml-2" style="background-color:#29ABE2;border-radius:10px 10px 0px 0px;">
-                <h5 class="text-center pt-2 text-white" style="font-family:Josefin Sans;">
-                <?php
-
-                // if(!isset($_COOKIE['user'])){
-                //     echo "You May Like";
-                // }else{
-                //     echo "Recently Ordered";
-                // }
-                ?>
-                </h5>
-            </div>
-        </div>
-    </div> -->
-<!-- Offer Zone -->
-<!-- <div class="container-fluid mb-2 py-2 mx-2 offer_container" style="background-color:#29ABE2;">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <?php
-
-                    // if(!isset($_COOKIE['user'])){
-
-                    // 
-                    ?>
-                    // <?php
-
-                        // $get_promo_pro = "select * from promo_products";
-                        // $run_promo_pro = mysqli_query($con,$get_promo_pro);
-                        // while($row_promo_pro=mysqli_fetch_array($run_promo_pro)){
-                        //     $store_id = $row_promo_pro['store_id'];
-
-                        //     $get_store_pro = "select * from store where store_id='$store_id'";
-                        //     $run_store_pro = mysqli_query($con,$get_store_pro);
-                        //     $row_store_pro = mysqli_fetch_array($run_store_pro);
-
-                        //     $store_img = $row_store_pro['store_img'];
-                        //     $store_title = $row_store_pro['store_title'];
-                        ?>
-                    <div class='swiper-slide'>
-                        <a href="shop?store_id=<?php //echo $store_id; 
-                                                ?>">
-                            <div class="card" style="width: 6rem;">
-                                <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $store_img; 
-                                                                                                            ?>" alt="<?php //echo $store_title; 
-                                                                                                                        ?>" style="height:80px;">
-                                <h6 class="card-title mb-1" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php //echo $store_title; 
-                                                                                                                                                                            ?></h6>
-                            </div>
-                        </a>
-                    </div>
-                    <?php //} 
-                    ?>
-                    <?php //}else{ 
-                    ?>
-                        <?php
-
-                        // $c_email = $_COOKIE['user'];
-
-                        // $get_name = "select * from customers where customer_email='$c_email'";
-
-                        // $run_name = mysqli_query($con,$get_name);
-
-                        // $row_name = mysqli_fetch_array($run_name);
-
-                        // $cpromo_id = $_COOKIE['user'];
-
-                        // $get_cpromo_pro = "select * from customer_orders where customer_id='$cpromo_id' group by pro_id order by order_id limit 7";
-                        // $run_cpromo_pro = mysqli_query($con,$get_cpromo_pro);
-                        // while($row_cpromo_pro = mysqli_fetch_array($run_cpromo_pro)){
-
-                        //     $cpromo_pro_id = $row_cpromo_pro['pro_id'];
-
-                        //     $get_cpromo_store_id = "select * from products where product_id='$cpromo_pro_id'";
-                        //     $run_cpromo_store_id = mysqli_query($con,$get_cpromo_store_id);
-                        //     $row_cpromo_store_id = mysqli_fetch_array($run_cpromo_store_id);
-
-                        //     $cpromo_store_id = $row_cpromo_store_id['store_id'];
-                        //     $cpromo_product_id = $row_cpromo_store_id['product_id'];
-                        //     $cpromo_product_title = $row_cpromo_store_id['product_title'];
-                        //     $cpromo_product_img1 = $row_cpromo_store_id['product_img1'];
-                        //     $cpromo_product_desc = $row_cpromo_store_id['product_desc'];
-
-
-                        ?>
-                    <div class='swiper-slide'>
-                        <a href="shop?store_id=<?php //echo $cpromo_store_id; 
-                                                ?>#<?php //echo $cpromo_product_id; 
-                                                    ?>">
-                            <div class="card" style="width: 6rem;">
-                            <img class="img-thumbnail d-block mx-auto bg-transparent border-0 p-2" src="<?php //echo $cpromo_product_img1; 
-                                                                                                        ?>" alt="<?php //echo $cpromo_product_title; 
-                                                                                                                    ?>" style="height:80px;">
-                            <div class="card-body p-1">
-                            <h6 class="card-title mb-1 mx-0 text-center" style="width: 100%; text-overflow: ellipsis; white-space: nowrap; font-family:Josefin Sans; overflow: hidden;"><?php echo $cpromo_product_title; ?> <br><small><?php echo $cpromo_product_desc; ?></small></h6>
-                            </div>
-                            </div>
-                        </a>
-                    </div>
-                    <?php //} 
-                    ?>
-                    <?php //} 
-                    ?>
-                </div>
-                <div class="swiper-pagination"></div> 
-            </div>
-        </div> -->
 <!-- Offer Zone -->
 
 <!-- offer -->
@@ -816,77 +554,6 @@ if ($today >= '09:00' && $today <= '18:00') {
     </div>
 </div>
 <!-- offer -->
-
-<!-- offers -->
-<!-- <div class="container-fluid gridheading mt-3">
-            <div class="row pl-1 pb-2 mx-0">
-                <div class="col">
-                    <h5 class="heading_main"></h5>
-                </div>
-            </div>
-            </div> -->
-
-<!-- <div class="container offer_box">
-        <div class="row"> -->
-<?php
-
-// $get_offer = "select * from offers ";
-
-// $run_offer = mysqli_query($db,$get_offer);
-
-// while($row_offer=mysqli_fetch_array($run_offer)){
-
-//     $offer_id = $row_offer['offer_id'];
-
-//     $offer_img = $row_offer['offer_image'];
-
-
-?>
-<!-- <div class="col-12 mx-1 my-2"> -->
-<!-- <a href="newshop.php"> -->
-<!-- <img src="admin_area/other_images/<?php //echo $offer_img; 
-                                        ?>" class="img-fluid" alt="Responsive image"> -->
-<!-- </a> -->
-<!-- </div>
-                <?php //} 
-                ?>
-        </div>
-    </div> -->
-<!-- offers -->
-<!-- 
-<div class="icon-bar">
-  <a href="tel:7892916394" class="support"><img src="admin_area/admin_images/support.svg" alt="" width="30px"></a>
-</div> -->
-<script>
-    // Set the date we're counting down to
-    // var countDownDate = new Date("Nov 15, 2020 00:00:00").getTime();
-
-    // Update the count down every 1 second
-    // var x = setInterval(function() {
-
-    // Get today's date and time
-    //   var now = new Date().getTime();
-
-    // Find the distance between now and the count down date
-    //   var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    //   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    //   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Output the result in an element with id="demo"
-    //   document.getElementById("demo").innerHTML = "Ends in "+ days + "d " + hours + "h "
-    //   + minutes + "m " + seconds + "s ";
-
-    // If the count down is over, write some text 
-    //   if (distance < 0) {
-    //     clearInterval(x);
-    //     document.getElementById("demo").innerHTML = "EXPIRED";
-    //   }
-    // }, 1000);
-</script>
 <?php
 
 include("includes/footer.php");

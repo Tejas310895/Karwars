@@ -228,13 +228,13 @@
                                     <h5 class="pro_list_desc"><?php echo $pro_desc; ?></h5>
                                     <div class="row">
                                         <div class="col-6">
-                                        <div class="row">
-                                            <!-- <div class="col-4 px-0 <?php //if($price_display>0){echo "show";}else{echo "d-none";}?> "><h5 class="pro_dis_price">₹ <?php //echo $price_display; ?> </h5></div> -->
-                                            <div class="col-8 pr-0">
-                                            <h6 class="pro_dis_price mb-0 text-dark <?php if($price_display>0){echo "show";}else{echo "d-none";}?>"> MRP ₹ <?php echo $price_display; ?> </h6>
-                                            <h5 class="pro_list_price mb-0">₹ <?php echo $pro_price; ?></h5>
+                                            <div class="row">
+                                                <!-- <div class="col-4 px-0 <?php //if($price_display>0){echo "show";}else{echo "d-none";}?> "><h5 class="pro_dis_price">₹ <?php //echo $price_display; ?> </h5></div> -->
+                                                <div class="col-8 pr-0">
+                                                    <h6 class="pro_dis_price mb-0 text-dark <?php if($price_display>0){echo "show";}else{echo "d-none";}?>"> MRP ₹ <?php echo $price_display; ?> </h6>
+                                                    <h5 class="pro_list_price mb-0">₹ <?php echo $pro_price; ?></h5>
+                                                </div>
                                             </div>
-                                        </div>
                                         </div>
                                         <?php if($pro_stock>0){ ?>
                                         <?php 
