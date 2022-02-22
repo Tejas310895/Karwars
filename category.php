@@ -162,7 +162,7 @@ include("includes/header.php");
 
 <!-- fixed-top -->
 <!-- Product Categories -->
-<div class="container pb-3 mt-4">
+<div class="container pb-3 mt-4" style="margin-top: 4rem !important;">
     <div class="row mx-1">
 
         <?php

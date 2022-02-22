@@ -124,7 +124,7 @@ if (isset($_GET['pro_id'])) {
     <script src="js/ajax/code/jquery-3.5.1.min.js"></script>
     <!-- date -->
     <!-- styles -->
-    <link rel="stylesheet" href="styles/style.css?version=34">
+    <link rel="stylesheet" href="styles/style.css?version=35">
     <!-- styles -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
