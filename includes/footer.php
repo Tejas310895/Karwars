@@ -73,8 +73,8 @@
 
 <script async src="js/ajax/3.5.1/jquery.js"></script>
 <script async src="js/ajax/jquery.min.js"></script>
-<script async src="js/jquery-3.5.1.min.js"></script>
-<script src="js/script.js?v=1003"></script>
+<!-- <script async src="js/jquery-3.5.1.slim.min.js"></script> -->
+<script src="js/script.js?v=1004"></script>
 </body>
 
 </html>
