@@ -7,19 +7,6 @@
         }, 250);
     });
 </script>
-<script>
-    $(function() {
-        $(window).on("scroll", function() {
-            if ($(window).scrollTop() > 20) {
-                $(".geolocation").addClass("geoactive");
-            } else {
-                //remove the background property so it comes transparent again (defined in your css)
-                $(".geolocation").removeClass("geoactive");
-            }
-        });
-    });
-</script>
-<!-- header on scroll -->
 
 <!-- product carousel script -->
 <!-- Swiper JS -->
@@ -87,7 +74,7 @@
 <script async src="js/ajax/3.5.1/jquery.js"></script>
 <script async src="js/ajax/jquery.min.js"></script>
 <script async src="js/jquery-3.5.1.min.js"></script>
-<script src="js/script.js?v=1002"></script>
+<script src="js/script.js?v=1003"></script>
 </body>
 
 </html>
