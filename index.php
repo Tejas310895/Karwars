@@ -128,7 +128,7 @@ include("includes/header.php");
 
 <a href="store.php?cat=13">
     <div class="container-fluid p-2 rounded">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_2_3x-100_1__J775PWP_pBO6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644843491904" alt="" class="img-fluid mx-0">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_b_saleArtboard_11_2x-100_pSKP0QIqp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1645772212684" alt="" class="img-fluid mx-0">
     </div>
 </a>
 <!-- banner carousel -->
@@ -220,6 +220,16 @@ include("includes/header.php");
 <a href="store.php?cat=11">
     <div class="container-fluid p-2 rounded">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/LP_saleArtboard_7_4x-100_Zc1R98Hnn.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644941636112" alt="" class="img-fluid mx-0">
+    </div>
+</a>
+<a href="store.php?cat=11">
+    <div class="container-fluid p-2 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_b_saleArtboard_8_2x-100_FXGBYCbj9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1645772212825" alt="" class="img-fluid mx-0">
+    </div>
+</a>
+<a href="store.php?cat=11">
+    <div class="container-fluid p-2 rounded">
+        <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_b_saleArtboard_10_2x-100_18Fi_dknsrJi.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1645772213396" alt="" class="img-fluid mx-0">
     </div>
 </a>
 <!-- floatnav -->
