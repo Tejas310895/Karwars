@@ -254,24 +254,37 @@ include("includes/header.php");
         <span class="sr-only">Next</span>
     </a>
 </div>
-<div class="container">
+<div class="container-fluid" style="padding: 25px;">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 px-1 bg-white pt-3 pl-2" style="border-top-right-radius: 9.25rem !important;">
             <h5 class="font-weight-bold text-secondary" style="font-family: Josefin Sans;">
-
+                DISCOUNTS ON BISCUITS
             </h5>
         </div>
         <?php
 
-        for ($i = 0; $i < 4; $i++) {
+        $get_biscuits = "select * from products where store_id='68' and product_visibility='Y' and product_stock>0  order by (100-((price_display/product_price)*100)) asc limit 4";
+        $run_biscuits = mysqli_query($con, $get_biscuits);
+        while ($row_biscuits = mysqli_fetch_array($run_biscuits)) {
+            $bis_product_title = $row_biscuits['product_title'];
+            $bis_product_img1 = $row_biscuits['product_img1'];
+            $bis_product_price = $row_biscuits['product_price'];
+            $bis_price_display = $row_biscuits['price_display'];
+
+            if ($bis_price_display > 0) {
+                $discount_percent = 100 - round(($bis_product_price / $bis_price_display) * 100);
+            } else {
+                $discount_percent = 0;
+            }
             echo
             "
-            <div class='col-4'>
-
+            <div class='col-6 p-0 bg-white border'>
+                <img src='$bis_product_img1' style='height:130px;' alt='' class='img-thumbnail mx-auto d-block border-0 rounded p-2'>
+                <p class='mb-0 pl-1'>$bis_product_title</p>
+                <h6 class='font-weight-bold' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
             </div>
             ";
         }
-
         ?>
     </div>
 </div>
