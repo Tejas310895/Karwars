@@ -279,9 +279,11 @@ include("includes/header.php");
             echo
             "
             <div class='col-6 p-0 bg-white border'>
-                <img src='$bis_product_img1' style='height:130px;' alt='' class='img-thumbnail mx-auto d-block border-0 rounded p-2'>
-                <p class='mb-0 pl-1'>$bis_product_title</p>
-                <h6 class='font-weight-bold' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
+                <a href='shop?store_id=68'>
+                    <img src='$bis_product_img1' style='height:130px;' alt='' class='img-thumbnail mx-auto d-block border-0 rounded p-2'>
+                    <p class='mb-0 pl-1'>$bis_product_title</p>
+                    <h6 class='font-weight-bold' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
+                </a>
             </div>
             ";
         }
