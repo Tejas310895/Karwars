@@ -162,7 +162,7 @@ include("includes/header.php");
         </div>
         <?php
 
-        $get_sbc = "select * from categories limit 7";
+        $get_sbc = "select * from categories limit 5";
         $run_sbc = mysqli_query($con, $get_sbc);
         while ($row_sbc = mysqli_fetch_array($run_sbc)) {
 
@@ -171,7 +171,7 @@ include("includes/header.php");
 
             echo
             "
-            <div class='col-3 mb-2'>
+            <div class='col-4 mb-2'>
                 <a href='store.php?cat=$sbc_cat_id' class=''>
                     <img src='$sbc_cat_image' alt='' class='img-thumbnail rounded border-0'>
                 </a>
@@ -182,7 +182,7 @@ include("includes/header.php");
 
 
         ?>
-        <div class="col-3">
+        <div class="col-4">
             <a href="category">
                 <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_12_2x_xXrHqufnV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1646567585389" alt="" class="img-thumbnail rounded border-0">
             </a>
