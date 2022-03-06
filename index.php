@@ -135,17 +135,20 @@ include("includes/header.php");
         <?php
 
         $veg_img_array = array(
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_13_2x-100_3__mT_rbEl4P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646574465563",
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_4_2x-100_9pyDI_JTg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528270",
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2x-100_Bvarja0kiYwu.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528820",
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_3_2x-100_0Lhwcytlx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528137",
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2_2x-100_sXLJyUPGh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528085",
-            "https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_2x-100_vOG2tCB6P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528098"
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_13_2x-100_2__m0NYrPt7W.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646571844086", "shop?store_id=93"),
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_4_2x-100_9pyDI_JTg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528270", "shop?store_id=115"),
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2x-100_Bvarja0kiYwu.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528820", "shop?store_id=93"),
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_3_2x-100_0Lhwcytlx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528137", "shop?store_id=106"),
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2_2x-100_sXLJyUPGh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528085", "shop?store_id=95"),
+            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_2x-100_vOG2tCB6P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528098", "shop?store_id=93")
         );
-        foreach ($veg_img_array as $key => $value) {
+
+        foreach ($veg_img_array as $value) {
         ?>
             <div class="col-4 p-2">
-                <img src="<?php echo $value; ?>" alt="" class="img-thumbnail" style="border-radius: 10px;">
+                <a href="<?php echo $value[1]; ?>">
+                    <img src="<?php echo $value[0]; ?>" alt="" class="img-thumbnail" style="border-radius: 10px;">
+                </a>
             </div>
         <?php } ?>
     </div>
@@ -169,7 +172,9 @@ include("includes/header.php");
             echo
             "
             <div class='col-3 mb-2'>
-                <img src='$sbc_cat_image' alt='' class='img-thumbnail rounded border-0'>
+                <a href='store.php?cat=$sbc_cat_id' class=''>
+                    <img src='$sbc_cat_image' alt='' class='img-thumbnail rounded border-0'>
+                </a>
             </div>
             ";
         }
@@ -178,7 +183,9 @@ include("includes/header.php");
 
         ?>
         <div class="col-3">
-            <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_12_2x_xXrHqufnV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1646567585389" alt="" class="img-thumbnail rounded border-0">
+            <a href="category">
+                <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_12_2x_xXrHqufnV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1646567585389" alt="" class="img-thumbnail rounded border-0">
+            </a>
         </div>
     </div>
 </div>
