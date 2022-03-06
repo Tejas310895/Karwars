@@ -254,12 +254,28 @@ include("includes/header.php");
         <span class="sr-only">Next</span>
     </a>
 </div>
-<!-- banner carousel -->
-<a href="store.php?cat=2">
-    <div class="container-fluid p-2 rounded">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_4_3x-100_YBqd3274x.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644858148776" alt="" class="img-fluid mx-0">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="font-weight-bold text-secondary" style="font-family: Josefin Sans;">
+
+            </h5>
+        </div>
+        <?php
+
+        for ($i = 0; $i < 4; $i++) {
+            echo
+            "
+            <div class='col-4'>
+
+            </div>
+            ";
+        }
+
+        ?>
     </div>
-</a>
+</div>
+<!-- banner carousel -->
 
 <!-- Product Ref 1 -->
 
