@@ -263,7 +263,7 @@ include("includes/header.php");
         </div>
         <?php
 
-        $get_biscuits = "select * from products where store_id='68' and product_visibility='Y' and product_stock>0  order by (100-((price_display/product_price)*100)) asc limit 4";
+        $get_biscuits = "select * from products where store_id='68' and product_visibility='Y' and product_stock>0 and (price_display/product_price)>1 order by (100-((price_display/product_price)*100)) asc limit 4";
         $run_biscuits = mysqli_query($con, $get_biscuits);
         while ($row_biscuits = mysqli_fetch_array($run_biscuits)) {
             $bis_product_title = $row_biscuits['product_title'];
@@ -279,10 +279,10 @@ include("includes/header.php");
             echo
             "
             <div class='col-6 p-0 bg-white border'>
-                <a href='shop?store_id=68'>
+                <a href='shop?store_id=68'style='text-decoration:none !important;'>
                     <img src='$bis_product_img1' style='height:130px;' alt='' class='img-thumbnail mx-auto d-block border-0 rounded p-2'>
-                    <p class='mb-0 pl-1'>$bis_product_title</p>
-                    <h6 class='font-weight-bold' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
+                    <p class='mb-0 pl-1 text-dark'>$bis_product_title</p>
+                    <h6 class='font-weight-bold text-dark' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
                 </a>
             </div>
             ";
