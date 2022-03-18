@@ -122,74 +122,6 @@ include("includes/header.php");
     </div>
 </div>
 <!-- schedule -->
-<div class="container-fluid p-2 rounded">
-    <img src="https://ik.imagekit.io/wrnear2017/august_upload/SYS_imagesArtboard_1_3x-100_2__DVgatGCquzP4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1644839359576" alt="" class="img-fluid mx-0">
-</div>
-<div class="container pt-2" style="background-color: #89CFF0;">
-    <div class="row">
-        <div class="col-12">
-            <h5 class="font-weight-bold mb-0 bg-white p-2" style="font-family: Josefin Sans;color:#E34234;">
-                Lowest Price In Karwar
-            </h5>
-        </div>
-        <?php
-
-        $veg_img_array = array(
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_13_2x-100_3__mT_rbEl4P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646574465563", "shop?store_id=93"),
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_4_2x-100_9pyDI_JTg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528270", "shop?store_id=115"),
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2x-100_Bvarja0kiYwu.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528820", "shop?store_id=93"),
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_3_2x-100_0Lhwcytlx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528137", "shop?store_id=106"),
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2_2x-100_sXLJyUPGh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528085", "shop?store_id=95"),
-            array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_2x-100_vOG2tCB6P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528098", "shop?store_id=93")
-        );
-
-        foreach ($veg_img_array as $value) {
-        ?>
-            <div class="col-4 p-2">
-                <a href="<?php echo $value[1]; ?>">
-                    <img src="<?php echo $value[0]; ?>" alt="" class="img-thumbnail" style="border-radius: 10px;">
-                </a>
-            </div>
-        <?php } ?>
-    </div>
-</div>
-<div class="container-fluid p-3 mb-2" style="background-color: #F0FFFF;">
-    <div class="row">
-        <div class="col-12">
-            <h5 class="font-weight-bold text-secondary" style="font-family: Josefin Sans;">
-                SHOP BY CATEGORY
-            </h5>
-        </div>
-        <?php
-
-        $get_sbc = "select * from categories limit 5";
-        $run_sbc = mysqli_query($con, $get_sbc);
-        while ($row_sbc = mysqli_fetch_array($run_sbc)) {
-
-            $sbc_cat_id = $row_sbc['cat_id'];
-            $sbc_cat_image = $row_sbc['cat_image'];
-
-            echo
-            "
-            <div class='col-4 mb-2'>
-                <a href='store.php?cat=$sbc_cat_id' class=''>
-                    <img src='$sbc_cat_image' alt='' class='img-thumbnail rounded border-0'>
-                </a>
-            </div>
-            ";
-        }
-
-
-
-        ?>
-        <div class="col-4">
-            <a href="category">
-                <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_12_2x_xXrHqufnV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1646567585389" alt="" class="img-thumbnail rounded border-0">
-            </a>
-        </div>
-    </div>
-</div>
-<!-- banner carousel -->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <?php
@@ -254,6 +186,75 @@ include("includes/header.php");
         <span class="sr-only">Next</span>
     </a>
 </div>
+<div class="container-fluid p-3 mb-2" style="background-color: #F0FFFF;">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="font-weight-bold text-secondary mb-1" style="font-family: Josefin Sans;">
+                SHOP BY CATEGORY
+            </h5>
+        </div>
+        <?php
+
+        $get_sbc = "select * from categories limit 5";
+        $run_sbc = mysqli_query($con, $get_sbc);
+        while ($row_sbc = mysqli_fetch_array($run_sbc)) {
+
+            $sbc_cat_id = $row_sbc['cat_id'];
+            $sbc_cat_image = $row_sbc['cat_image'];
+
+            echo
+            "
+            <div class='col-4 mb-1'>
+                <a href='store.php?cat=$sbc_cat_id' class=''>
+                    <img src='$sbc_cat_image' alt='' class='img-thumbnail rounded border-0'>
+                </a>
+            </div>
+            ";
+        }
+
+
+
+        ?>
+        <div class="col-4">
+            <a href="category">
+                <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_12_2x_xXrHqufnV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1646567585389" alt="" class="img-thumbnail rounded border-0">
+            </a>
+        </div>
+    </div>
+</div>
+<!-- banner carousel -->
+<!-- <div class="container pt-2" style="background-color: #89CFF0;">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="font-weight-bold mb-0 bg-white p-2" style="font-family: Josefin Sans;color:#E34234;">
+                Lowest Price In Karwar
+            </h5>
+        </div>
+        <?php
+
+        // $veg_img_array = array(
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_13_2x-100_3__mT_rbEl4P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646574465563", "shop?store_id=93"),
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_4_2x-100_9pyDI_JTg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528270", "shop?store_id=115"),
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2x-100_Bvarja0kiYwu.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528820", "shop?store_id=93"),
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_3_2x-100_0Lhwcytlx.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528137", "shop?store_id=106"),
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_copy_2_2x-100_sXLJyUPGh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528085", "shop?store_id=95"),
+        //     array("https://ik.imagekit.io/wrnear2017/august_upload/ui_ch_saleArtboard_14_2x-100_vOG2tCB6P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1646573528098", "shop?store_id=93")
+        // );
+
+        // foreach ($veg_img_array as $value) {
+        ?>
+            <div class="col-4 p-2">
+                <a href="<?php //echo $value[1];
+                            ?>">
+                    <img src="<?php //echo $value[0];
+                                ?>" alt="" class="img-thumbnail" style="border-radius: 10px;">
+                </a>
+            </div>
+        <?php //}
+        ?>
+    </div>
+</div> -->
+
 <div class="container-fluid" style="padding: 25px;">
     <div class="row">
         <div class="col-12 px-1 bg-white pt-3 pl-2" style="border-top-right-radius: 9.25rem !important;">
