@@ -162,7 +162,7 @@ include("includes/header.php");
 
             echo "
                         
-                        <div class='carousel-item p-3'>
+                        <div class='carousel-item px-0 pb-0'>
 
                         <a href='$slide_url'>
 
