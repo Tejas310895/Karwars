@@ -166,7 +166,7 @@ include("includes/header.php");
 
                         <a href='$slide_url'>
 
-                            <img src='$slide_image' class='d-block w-100'>
+                            <img src='$slide_image' class='w-100'>
 
                         </a>
 
