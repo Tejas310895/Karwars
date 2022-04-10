@@ -188,17 +188,19 @@ include("includes/header.php");
 </div>
 <!-- banner carousel -->
 <div class="container" style="background-image: linear-gradient(to bottom, #fff74e, #dbff7a, #c0ffa3, #b2ffc7, #b7ffe2);">
-    <div class="row">
-        <div class="col-4 px-0">
-            <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_23_2x_1__sC8V0b951.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949804" class="img img-thumbnail border-0 bg-transparent" alt="">
+    <a href="./shop?store_id=103">
+        <div class="row">
+            <div class="col-4 px-0">
+                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_23_2x_1__sC8V0b951.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949804" class="img img-thumbnail border-0 bg-transparent" alt="">
+            </div>
+            <div class="col-4 px-0">
+                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_24_2x_1__J8ytM42Ub.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437950099" class="img img-thumbnail border-0 bg-transparent" alt="">
+            </div>
+            <div class="col-4 px-0">
+                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_25_2x_1__yT5BPlnbs.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949483" class="img img-thumbnail border-0 bg-transparent" alt="">
+            </div>
         </div>
-        <div class="col-4 px-0">
-            <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_24_2x_1__J8ytM42Ub.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437950099" class="img img-thumbnail border-0 bg-transparent" alt="">
-        </div>
-        <div class="col-4 px-0">
-            <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_25_2x_1__yT5BPlnbs.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949483" class="img img-thumbnail border-0 bg-transparent" alt="">
-        </div>
-    </div>
+    </a>
 </div>
 <div class="container pt-2" style="background-color: #89CFF0;">
     <div class="row">
