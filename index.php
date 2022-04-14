@@ -344,11 +344,6 @@ include("includes/header.php");
         ?>
     </div>
 </div>
-<a href="shop?store_id=44">
-    <div class="container-fluid p-2 rounded">
-        <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_b_saleArtboard_8_2x-100_FXGBYCbj9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1645772212825" alt="" class="img-fluid mx-0">
-    </div>
-</a>
 <a href="shop?store_id=66">
     <div class="container-fluid p-2 rounded">
         <img src="https://ik.imagekit.io/wrnear2017/august_upload/ui_b_saleArtboard_10_2x-100_18Fi_dknsrJi.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1645772213396" alt="" class="img-fluid mx-0">
