@@ -187,21 +187,7 @@ include("includes/header.php");
     </a>
 </div>
 <!-- banner carousel -->
-<div class="container" style="background-image: linear-gradient(to bottom, #fff74e, #dbff7a, #c0ffa3, #b2ffc7, #b7ffe2);">
-    <a href="./shop?store_id=103">
-        <div class="row">
-            <div class="col-4 px-0">
-                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_23_2x_1__sC8V0b951.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949804" class="img img-thumbnail border-0 bg-transparent" alt="">
-            </div>
-            <div class="col-4 px-0">
-                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_24_2x_1__J8ytM42Ub.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437950099" class="img img-thumbnail border-0 bg-transparent" alt="">
-            </div>
-            <div class="col-4 px-0">
-                <img src="https://ik.imagekit.io/wrnear2017/ui_ch_saleArtboard_25_2x_1__yT5BPlnbs.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649437949483" class="img img-thumbnail border-0 bg-transparent" alt="">
-            </div>
-        </div>
-    </a>
-</div>
+
 <div class="container pt-2" style="background-color: #89CFF0;">
     <div class="row">
         <?php
@@ -265,42 +251,6 @@ include("includes/header.php");
     </div>
 </div>
 
-<div class="container-fluid" style="padding: 25px;">
-    <div class="row">
-        <div class="col-12 px-1 bg-white pt-3 pl-2" style="border-top-right-radius: 9.25rem !important;">
-            <h5 class="font-weight-bold text-secondary" style="font-family: Josefin Sans;">
-                DISCOUNTS ON BISCUITS
-            </h5>
-        </div>
-        <?php
-
-        $get_biscuits = "select * from products where store_id='68' and product_visibility='Y' and product_stock>0 and (price_display/product_price)>1 order by (100-((price_display/product_price)*100)) asc limit 4";
-        $run_biscuits = mysqli_query($con, $get_biscuits);
-        while ($row_biscuits = mysqli_fetch_array($run_biscuits)) {
-            $bis_product_title = $row_biscuits['product_title'];
-            $bis_product_img1 = $row_biscuits['product_img1'];
-            $bis_product_price = $row_biscuits['product_price'];
-            $bis_price_display = $row_biscuits['price_display'];
-
-            if ($bis_price_display > 0) {
-                $discount_percent = 100 - round(($bis_product_price / $bis_price_display) * 100);
-            } else {
-                $discount_percent = 0;
-            }
-            echo
-            "
-            <div class='col-6 p-0 bg-white border'>
-                <a href='shop?store_id=68'style='text-decoration:none !important;'>
-                    <img src='$bis_product_img1' style='height:130px;' alt='' class='img-thumbnail mx-auto d-block border-0 rounded p-2'>
-                    <p class='mb-0 pl-1 text-dark' style='display: block;width: 120px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;'>$bis_product_title</p>
-                    <h6 class='font-weight-bold text-dark' style='font-size:1rem;'><span class='badge badge-danger rounded-0 d-inline mr-2'style='padding: 0em 0.4em;'>   </span>   $discount_percent% OFF</h6>
-                </a>
-            </div>
-            ";
-        }
-        ?>
-    </div>
-</div>
 <!-- banner carousel -->
 
 <!-- Product Ref 1 -->
